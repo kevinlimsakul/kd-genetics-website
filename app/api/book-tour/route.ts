@@ -5,7 +5,7 @@ export async function POST(req: NextRequest) {
 
   const token = process.env.AIRTABLE_API_TOKEN;
   const baseId = process.env.AIRTABLE_TOUR_BASE_ID;
-  const tableName = process.env.AIRTABLE_TOUR_TABLE_NAME ?? "Tour Bookings";
+  const tableName = (process.env.AIRTABLE_TOUR_TABLE_NAME ?? "Bookings Website").trim();
 
   if (!token || !baseId) {
     return NextResponse.json(

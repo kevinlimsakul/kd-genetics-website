@@ -28,16 +28,6 @@ export default function TourBookingForm() {
 
       if (!res.ok) throw new Error("API error");
 
-      // Also open WhatsApp so you get notified immediately
-      const packageLabel =
-        form.package === "vip"
-          ? "VIP — The Full Immersion (3,000 THB)"
-          : "Standard — The Guided Tour (1,500 THB)";
-      const msg = encodeURIComponent(
-        `Hi KD Genetics! I'd like to book a farm tour.\n\nName: ${form.name}\nPackage: ${packageLabel}\nDate: ${form.date}\nGuests: ${form.people}\nContact: ${form.contact}${form.notes ? `\nNotes: ${form.notes}` : ""}`
-      );
-      window.open(`https://wa.me/66988268290?text=${msg}`, "_blank");
-
       setStatus("success");
       setForm({ name: "", contact: "", date: "", people: "", package: "standard", notes: "" });
     } catch {
@@ -58,17 +48,18 @@ export default function TourBookingForm() {
       </div>
 
       {status === "success" ? (
-        <div className="text-center space-y-3 py-6">
-          <p className="text-[#5A6A4F] font-medium">Booking received.</p>
-          <p className="text-sm text-[#6B6B6B]">
-            Your spot has been saved and WhatsApp is opening so we can confirm
-            with you directly.
+        <div className="text-center space-y-4 py-8">
+          <div className="text-3xl">✓</div>
+          <h4 className="font-display text-xl">You're on the list.</h4>
+          <p className="text-sm text-[#6B6B6B] leading-relaxed">
+            Your booking request has been received. We'll reach out to confirm
+            your spot and share everything you need to know before your visit.
           </p>
           <button
             onClick={() => setStatus("idle")}
-            className="mt-4 text-xs underline text-[#6B6B6B]"
+            className="mt-2 text-xs underline text-[#6B6B6B]/70 hover:text-[#6B6B6B] transition-colors"
           >
-            Book another
+            Submit another request
           </button>
         </div>
       ) : (
@@ -182,7 +173,7 @@ export default function TourBookingForm() {
             disabled={status === "loading"}
             className="w-full h-12 font-medium rounded-full mt-4 transition-all text-sm bg-[#1E1E1E] text-white hover:bg-[#1E1E1E]/90 disabled:opacity-50"
           >
-            {status === "loading" ? "Saving your booking..." : "Request Booking via WhatsApp"}
+            {status === "loading" ? "Sending your request..." : "Request to Book"}
           </button>
           <p className="text-[10px] text-center text-[#6B6B6B]/50 tracking-wide">
             Limited to 10 people per tour
