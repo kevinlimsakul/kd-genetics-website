@@ -12,11 +12,18 @@ export default function Nav({ activePage = "home" }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // On the home page, track whether we've scrolled past the hero
+  const isHome = activePage === "home";
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      const threshold = isHome ? window.innerHeight * 0.7 : 20;
+      setScrolled(window.scrollY > threshold);
+    };
+    onScroll(); // run once on mount
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isHome]);
 
   const scrollTo = (id: string) => {
     if (activePage !== "home") {
@@ -28,19 +35,22 @@ export default function Nav({ activePage = "home" }: NavProps) {
     setMenuOpen(false);
   };
 
+  // When on home and not yet scrolled past hero: glass over image → white text
+  const isGlass = isHome && !scrolled;
+
   return (
     <>
       <nav
-        className={`fixed w-full z-50 transition-all duration-300 ${
+        className={`fixed w-full z-50 transition-all duration-500 ${
           scrolled
             ? "bg-[#F6F4EF]/97 backdrop-blur-md border-b border-black/5 shadow-sm"
-            : "bg-[#F6F4EF]/95 backdrop-blur-md border-b border-black/5"
+            : "bg-white/5 backdrop-blur-md border-b border-white/10"
         }`}
       >
         <div className="mx-auto px-8 lg:px-12 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-4 group">
-            <div className="w-10 h-10 rounded-full border border-black/5 overflow-hidden bg-white flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
+            <div className="w-10 h-10 rounded-full border border-white/20 overflow-hidden bg-white/10 flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
               <Image
                 src="/kd-logo.png"
                 alt="KD Genetics"
@@ -50,22 +60,22 @@ export default function Nav({ activePage = "home" }: NavProps) {
                 priority
               />
             </div>
-            <span className="font-display text-lg text-primary leading-none font-medium">
+            <span className={`font-display text-lg leading-none font-medium transition-colors duration-500 ${isGlass ? "text-white" : "text-[#1E1E1E]"}`}>
               KD Genetics
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8 text-[13px] font-medium text-primary/70">
+          <div className={`hidden md:flex items-center gap-8 text-[13px] font-medium transition-colors duration-500 ${isGlass ? "text-white/80" : "text-[#1E1E1E]/70"}`}>
             <button
               onClick={() => scrollTo("story")}
-              className="hover:text-primary transition-colors cursor-pointer"
+              className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
             >
               Story
             </button>
             <button
               onClick={() => scrollTo("philosophy")}
-              className="hover:text-primary transition-colors cursor-pointer"
+              className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
             >
               Philosophy
             </button>
@@ -73,8 +83,8 @@ export default function Nav({ activePage = "home" }: NavProps) {
               href="/products"
               className={`transition-colors ${
                 activePage === "products"
-                  ? "text-primary border-b border-primary pb-0.5"
-                  : "hover:text-primary"
+                  ? isGlass ? "text-white border-b border-white pb-0.5" : "text-[#1E1E1E] border-b border-[#1E1E1E] pb-0.5"
+                  : isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"
               }`}
             >
               Experience
@@ -83,33 +93,37 @@ export default function Nav({ activePage = "home" }: NavProps) {
               href="/shop"
               className={`transition-colors ${
                 activePage === "shop"
-                  ? "text-primary border-b border-primary pb-0.5"
-                  : "hover:text-primary"
+                  ? isGlass ? "text-white border-b border-white pb-0.5" : "text-[#1E1E1E] border-b border-[#1E1E1E] pb-0.5"
+                  : isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"
               }`}
             >
               Shop
             </Link>
             <button
               onClick={() => scrollTo("gallery")}
-              className="hover:text-primary transition-colors cursor-pointer"
+              className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
             >
               Gallery
             </button>
             <button
               onClick={() => scrollTo("visit")}
-              className="hover:text-primary transition-colors cursor-pointer"
+              className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
             >
               Visit
             </button>
             <button
               onClick={() => scrollTo("contact")}
-              className="hover:text-primary transition-colors cursor-pointer"
+              className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
             >
               Contact
             </button>
             <button
               onClick={() => scrollTo("tour")}
-              className="ml-2 border border-accent text-accent hover:bg-accent hover:text-white rounded-full px-6 h-9 text-xs font-semibold tracking-wide transition-all"
+              className={`ml-2 rounded-full px-6 h-9 text-xs font-semibold tracking-wide transition-all border ${
+                isGlass
+                  ? "border-white/40 text-white hover:bg-white hover:text-[#1E1E1E]"
+                  : "border-[#5A6A4F] text-[#5A6A4F] hover:bg-[#5A6A4F] hover:text-white"
+              }`}
             >
               Book Tour
             </button>
@@ -122,13 +136,13 @@ export default function Nav({ activePage = "home" }: NavProps) {
             aria-label="Toggle menu"
           >
             <span
-              className={`block w-5 h-px bg-primary transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+              className={`block w-5 h-px transition-all duration-300 ${isGlass ? "bg-white" : "bg-[#1E1E1E]"} ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
             />
             <span
-              className={`block w-5 h-px bg-primary transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+              className={`block w-5 h-px transition-all duration-300 ${isGlass ? "bg-white" : "bg-[#1E1E1E]"} ${menuOpen ? "opacity-0" : ""}`}
             />
             <span
-              className={`block w-5 h-px bg-primary transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+              className={`block w-5 h-px transition-all duration-300 ${isGlass ? "bg-white" : "bg-[#1E1E1E]"} ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
             />
           </button>
         </div>
