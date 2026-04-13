@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: #D1CDD2;
+  }
+  body {
+    background-color: #F6F4EF;
+    color: #1E1E1E;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-cormorant), Georgia, serif;
+  }
+}
