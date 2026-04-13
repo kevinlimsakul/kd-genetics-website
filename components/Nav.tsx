@@ -50,7 +50,7 @@ export default function Nav({ activePage = "home" }: NavProps) {
         <div className="mx-auto px-8 lg:px-12 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-4 group">
-            <div className="w-10 h-10 rounded-full border border-white/20 overflow-hidden bg-white/10 flex items-center justify-center shadow-sm transition-transform group-hover:scale-105">
+            <div className={`w-10 h-10 rounded-full overflow-hidden flex items-center justify-center shadow-sm transition-all group-hover:scale-105 ${isGlass ? "bg-white border border-white/40" : "bg-white/10 border border-white/20"}`}>
               <Image
                 src="/kd-logo.png"
                 alt="KD Genetics"
