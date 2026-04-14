@@ -10,13 +10,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2 space-y-5">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full overflow-hidden bg-white/10 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full overflow-hidden bg-white flex items-center justify-center">
                 <Image
                   src="/kd-logo.png"
                   alt="KD Genetics"
                   width={40}
                   height={40}
-                  className="w-full h-full object-contain p-1"
+                  className="w-full h-full object-contain p-0"
                 />
               </div>
               <span className="font-display text-lg text-white font-medium">
