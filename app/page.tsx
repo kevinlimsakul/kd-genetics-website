@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "KD Genetics — Born on Koh Tao, Grown in Living Soil",
+  title: "KD Genetics: Born on Koh Tao, Grown in Living Soil",
   description:
     "A family-run craft cannabis farm on Koh Tao, Thailand. Living soil cultivation, preserved genetics, farm tours, and education. Founded by Aram, Kevin, and Daniel.",
 };
@@ -30,14 +30,14 @@ const founders = [
     name: "Aram",
     aka: "KD Legend",
     role: "The Cultivator",
-    desc: "Decades of quiet work preserving genetics, sharing seeds, and building awareness across Thailand — long before the law caught up with the culture.",
+    desc: "Decades of quiet work preserving genetics, sharing seeds, and building awareness across Thailand, long before the law caught up with the culture.",
     img: "/founder-kd.png",
   },
   {
     name: "Kevin",
     aka: "Next Generation",
     role: "Vision & Direction",
-    desc: "Aram's son. Carries forward his father's legacy while shaping the future direction of KD Genetics — with structure, long-term vision, and the energy of a new generation.",
+    desc: "Aram's son. Carries forward his father's legacy while shaping the future direction of KD Genetics, with structure, long-term vision, and the energy of a new generation.",
     img: "/founder-kevin-v3.png",
   },
   {
@@ -114,7 +114,7 @@ const mediaArticles = [
     title: "The Keeper of Thai Weed",
     source: "High Times",
     excerpt:
-      "A deep portrait of Aram Limsakul — the man who spent decades preserving Thailand's native cannabis genetics through prohibition, and emerged as one of the country's most important cultivators.",
+      "A deep portrait of Aram Limsakul, the man who spent decades preserving Thailand's native cannabis genetics through prohibition, and emerged as one of the country's most important cultivators.",
     link: "https://hightimes.com/grow/the-keeper-of-thai-weed/",
   },
   {
@@ -122,7 +122,7 @@ const mediaArticles = [
       "Thailand's 'Father of Cannabis' Wants Small-Time Growers to Be Part of the Industry",
     source: "South China Morning Post",
     excerpt:
-      "Aram Limsakul has developed cannabis varieties and is sought for advice on using cannabis — a feature on the man behind KD Genetics.",
+      "Aram Limsakul has developed cannabis varieties and is sought for advice on using cannabis. A feature on the man behind KD Genetics.",
     link: "https://www.scmp.com/week-asia/economics/article/3129135/thailands-father-cannabis-wants-small-time-growers-be-part",
   },
   {
@@ -137,17 +137,17 @@ const mediaArticles = [
 const mediaVideos = [
   {
     title:
-      "Strain Hunters Thailand — The Strain Hunters team visits Koh Tao and meets KD.",
+      "Strain Hunters Thailand: The Strain Hunters team visits Koh Tao and meets KD.",
     embedId: "_XQQ6GFbOyk",
   },
   {
     title:
-      "Vice Feature — KD cooks a traditional Thai curry infused with cannabis.",
+      "Vice Feature: KD cooks a traditional Thai curry infused with cannabis.",
     embedId: "ERj25Bqet94",
   },
   {
     title:
-      "Thai Media Interview — Local journalists speak with KD about cannabis culture.",
+      "Thai Media Interview: Local journalists speak with KD about cannabis culture.",
     embedId: "dO_rMg47CDA",
   },
 ];
@@ -183,7 +183,7 @@ export default function HomePage() {
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed font-light">
               A family legacy of craft cultivation, preserved genetics, and
-              education — built as a calm space in nature.
+              education, built as a calm space in nature.
             </p>
           </div>
 
@@ -240,7 +240,7 @@ export default function HomePage() {
                   01
                 </span>
                 <h3 className="font-display text-3xl text-[#1E1E1E]">
-                  2016 — The Terrace
+                  2016: The Terrace
                 </h3>
                 <div className="text-[#6B6B6B] leading-[1.85] text-base space-y-4">
                   <p>
@@ -359,8 +359,8 @@ export default function HomePage() {
                   <p>
                     Today the farm is run by family and close friends. Kevin
                     focuses on building the vision and experience around the
-                    project, while Daniel — who studied horticulture and has
-                    been passionate about cultivation for years — brings
+                    project, while Daniel, who studied horticulture and has
+                    been passionate about cultivation for years, brings
                     scientific knowledge and hands-on growing expertise to the
                     farm.
                   </p>
@@ -371,7 +371,7 @@ export default function HomePage() {
                   </p>
                   <p>
                     KD Genetics is still small and evolving. What matters most
-                    to us is doing things honestly — growing with care, sharing
+                    to us is doing things honestly: growing with care, sharing
                     knowledge, and continuing the work that started long before
                     cannabis became legal.
                   </p>
@@ -408,26 +408,58 @@ export default function HomePage() {
             )}
           </div>
 
-          {/* BioBizz Partnership */}
-          <div className="mt-20 pt-16 border-t border-black/5 max-w-2xl mx-auto">
-            <div className="flex items-center gap-10">
-              <div className="w-24 shrink-0 grayscale opacity-60 hover:opacity-90 hover:grayscale-0 transition-all duration-500">
-                <Image
-                  src="/biobizz-logo-wide.png"
-                  alt="BioBizz World Wide Organics"
-                  width={200}
-                  height={80}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              <div className="space-y-2">
-                <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-[#5A6A4F]/70">
-                  Partnership
-                </p>
-                <p className="text-[#6B6B6B] text-sm leading-relaxed font-light">
-                  Supported by trusted organics — focused on soil health and
-                  consistent quality.
-                </p>
+        </div>
+      </section>
+
+      {/* ── BIOBIZZ PARTNERSHIP ── */}
+      <section className="bg-[#2A2820] py-24">
+        <div className="container mx-auto px-6 max-w-5xl">
+          {/* Label */}
+          <p className="text-center text-[10px] font-medium uppercase tracking-[0.3em] text-[#5A6A4F] mb-16">
+            Our Growing Partner
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            {/* Left — logos */}
+            <div className="flex flex-col items-center gap-10">
+              <Image
+                src="/grown-with-biobizz.png"
+                alt="Grown with BioBizz — From Dutch Origins"
+                width={420}
+                height={200}
+                className="w-full max-w-sm h-auto object-contain"
+              />
+              <Image
+                src="/biobizz-logo-wide.png"
+                alt="BioBizz World Wide Organics"
+                width={240}
+                height={80}
+                className="h-10 w-auto object-contain brightness-0 invert opacity-70"
+              />
+            </div>
+
+            {/* Right — copy */}
+            <div className="space-y-6">
+              <h3 className="font-display text-3xl md:text-4xl text-white leading-snug">
+                Rooted in the same values.
+              </h3>
+              <p className="text-white/50 text-sm font-light leading-relaxed">
+                BioBizz started as a small, family-driven company in the Netherlands with one conviction: that organic soil is the foundation of everything. Decades later, that conviction still runs through every product they make — and through every plant we grow.
+              </p>
+              <p className="text-white/50 text-sm font-light leading-relaxed">
+                As our official organic partner, BioBizz sponsors KD Genetics with their full range of soils and nutrients. No synthetics. No shortcuts. Just living soil, the way it should be.
+              </p>
+              <div className="pt-4 border-t border-white/10 grid grid-cols-3 gap-6">
+                {[
+                  { label: "100% Organic", sub: "Certified inputs" },
+                  { label: "Dutch Origins", sub: "Est. 1992" },
+                  { label: "Living Soil", sub: "Our grow method" },
+                ].map((item) => (
+                  <div key={item.label} className="space-y-1">
+                    <p className="text-white text-sm font-medium">{item.label}</p>
+                    <p className="text-white/30 text-xs font-light">{item.sub}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -445,7 +477,7 @@ export default function HomePage() {
               Built by Three
             </h2>
             <p className="text-[#6B6B6B] text-base font-light max-w-lg mx-auto leading-relaxed">
-              A father, his son, and his son&apos;s closest friend — united by a
+              A father, his son, and his son&apos;s closest friend, united by a
               shared respect for the plant and the island that raised them.
             </p>
           </div>
@@ -512,7 +544,7 @@ export default function HomePage() {
               Where It All Grows
             </h2>
             <p className="text-[#6B6B6B] text-base font-light max-w-lg mx-auto leading-relaxed">
-              A living soil farm overlooking Tanote Bay — fruit trees, compost
+              A living soil farm overlooking Tanote Bay, with fruit trees, compost
               beds, herbs, and craft cannabis growing side by side in nature.
             </p>
           </div>
@@ -575,7 +607,7 @@ export default function HomePage() {
 
           <div className="max-w-2xl mx-auto text-center space-y-6">
             <p className="text-[#6B6B6B] text-base leading-[1.8] font-light">
-              The farm sits just two minutes from Tanote Bay Beach — surrounded
+              The farm sits just two minutes from Tanote Bay Beach, surrounded
               by fruit trees, herbs, and compost beds. Everything here is
               designed to work with nature, not against it. No shortcuts, no
               chemicals, no industrial growing.
@@ -609,7 +641,7 @@ export default function HomePage() {
           </h2>
           <p className="text-[#6B6B6B] text-base font-light max-w-lg mx-auto leading-relaxed">
             Craft flowers, handmade extracts, KD Genetics merchandise, and
-            guided farm experiences — all rooted in living soil.
+            guided farm experiences, all rooted in living soil.
           </p>
         </div>
 
@@ -759,7 +791,7 @@ export default function HomePage() {
                     { item: "Smoke Starter Kit", value: "300 THB" },
                     { item: "Homemade Iced Tea", value: "130 THB" },
                     { item: "Oil & Tea Sample", value: "500 THB" },
-                    { item: "10% Discount on Flowers", value: "—" },
+                    { item: "10% Discount on Flowers", value: "incl." },
                   ].map((row, i) => (
                     <div
                       key={i}
