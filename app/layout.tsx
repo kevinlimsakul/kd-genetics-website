@@ -18,7 +18,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "KD Genetics — Born on Koh Tao, Grown in Living Soil",
+    default: "KD Genetics: Born on Koh Tao, Grown in Living Soil",
     template: "%s | KD Genetics",
   },
   description:
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "KD Genetics",
-    title: "KD Genetics — Born on Koh Tao, Grown in Living Soil",
+    title: "KD Genetics: Born on Koh Tao, Grown in Living Soil",
     description:
       "A family-run craft cannabis farm on Koh Tao, Thailand. Living soil cultivation, preserved genetics, farm tours, and education.",
     images: [
@@ -47,16 +47,21 @@ export const metadata: Metadata = {
         url: "/opengraph.jpg",
         width: 1200,
         height: 630,
-        alt: "KD Genetics — Koh Tao Living Soil Farm",
+        alt: "KD Genetics: Koh Tao Living Soil Farm",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "KD Genetics — Born on Koh Tao, Grown in Living Soil",
+    title: "KD Genetics: Born on Koh Tao, Grown in Living Soil",
     description:
       "A family-run craft cannabis farm on Koh Tao, Thailand. Living soil cultivation, preserved genetics, farm tours, and education.",
     images: ["/opengraph.jpg"],
+  },
+  icons: {
+    icon: "/kd-logo.png",
+    shortcut: "/kd-logo.png",
+    apple: "/kd-logo.png",
   },
   robots: {
     index: true,
