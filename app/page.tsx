@@ -15,12 +15,12 @@ export default function Home() {
       <div className="relative z-10 space-y-8 max-w-lg">
         {/* Logo */}
         <div className="flex justify-center">
-          <div className="w-20 h-20 rounded-full overflow-hidden bg-white flex items-center justify-center">
+          <div className="w-40 h-40 rounded-full bg-white flex items-center justify-center p-5">
             <Image
               src="/kd-logo.png"
               alt="KD Genetics"
-              width={80}
-              height={80}
+              width={120}
+              height={120}
               className="w-full h-full object-contain"
               priority
             />
