@@ -55,21 +55,26 @@ export default function Home() {
         </div>
 
         {/* Copy */}
-        <p className="text-white/40 text-[15px] font-light tracking-wider leading-loose mb-2">
+        <p className="text-white/75 text-[15px] font-light tracking-wider leading-loose mb-2">
           Something is growing here.
         </p>
-        <p className="text-white/20 text-sm font-light tracking-wide mb-16">
+        <p className="text-white/50 text-sm font-light tracking-wide mb-16">
           Our new home is almost ready.
         </p>
 
         {/* Social */}
         <div className="flex flex-col items-center gap-3">
-          <p className="text-white/15 text-[9px] uppercase tracking-[0.4em]">
+          <p className="text-white/40 text-[9px] uppercase tracking-[0.4em]">
             Follow the journey
           </p>
-          <p className="text-[#5A6A4F] text-xs tracking-[0.25em] font-medium">
+          <a
+            href="https://www.instagram.com/kdgenetics"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#7A9A6A] text-xs tracking-[0.25em] font-medium hover:text-white transition-colors duration-300"
+          >
             @kdgenetics
-          </p>
+          </a>
         </div>
 
       </div>
