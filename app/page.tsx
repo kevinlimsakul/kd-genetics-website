@@ -68,7 +68,7 @@ export default function Home() {
             Follow the journey
           </p>
           <a
-            href="https://www.instagram.com/kdgenetics"
+            href="https://www.instagram.com/kdgenetics_official/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#7A9A6A] text-xs tracking-[0.25em] font-medium hover:text-white transition-colors duration-300"
