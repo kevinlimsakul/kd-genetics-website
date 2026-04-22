@@ -274,11 +274,9 @@ export default function HomePage() {
           {/* Quote opener */}
           <div className="text-center max-w-3xl mx-auto mb-24 space-y-4">
             <p className="font-display text-3xl md:text-5xl text-[#1E1E1E] leading-[1.2]">
-              &ldquo;Use cannabis wisely.
+              &ldquo;Use cannabis wisely is well-being.
               <br />
-              Well-being, greed, and ignorance is your own karma —
-              <br />
-              not ganja.&rdquo;
+              Greed and ignorance is your own karma, not ganja.&rdquo;
             </p>
             <p className="text-[#5A6A4F] text-[11px] font-medium uppercase tracking-[0.25em]">
               — Papa KD
@@ -453,7 +451,7 @@ export default function HomePage() {
                 {
                   icon: <Sun className="h-5 w-5" />,
                   title: "Sun-grown outdoor",
-                  desc: "Koh Tao sun does the work. Terroir-driven terpene expression you can&rsquo;t replicate indoor.",
+                  desc: "The Koh Tao sun does the work. Terroir-driven terpene expression you can't replicate indoors.",
                 },
                 {
                   icon: <Sprout className="h-5 w-5" />,
@@ -570,7 +568,7 @@ export default function HomePage() {
             className="mb-6"
           />
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
             {[
               "Nursery — young plants",
               "Veg stage under shade",
@@ -581,6 +579,30 @@ export default function HomePage() {
             ].map((label) => (
               <ShotPlaceholder key={label} label={label} aspect="aspect-[4/3]" />
             ))}
+          </div>
+
+          {/* Interactive farm map — Phase 2, once Kevin drops drone footage of the property */}
+          <div className="text-center mb-6 space-y-2">
+            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+              Walk the Farm Virtually
+            </span>
+            <h3 className="font-display text-2xl md:text-3xl text-[#1E1E1E]">
+              Interactive Farm Map
+            </h3>
+            <p className="text-[#6B6B6B]/80 text-sm font-light max-w-md mx-auto">
+              Click hotspots — Shop, Chill Area, Nursery, Flowering Terrace, Chill Area —
+              to see what each space looks like.
+            </p>
+          </div>
+          <div className="aspect-[16/10] rounded-2xl border border-dashed border-[#5A6A4F]/25 bg-[#EAE6DE]/50 flex flex-col items-center justify-center p-8 text-center">
+            <MapPin className="w-8 h-8 text-[#5A6A4F]/40 mb-3" />
+            <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#5A6A4F]/60 mb-2">
+              Coming Soon
+            </span>
+            <p className="text-sm font-light text-[#6B6B6B] max-w-md">
+              Built from drone footage of the property — Kevin + Claude design pass.
+              Clickable hotspots for Shop, Chill Area, Nursery, Veg, Flowering Terrace, Slowdown.
+            </p>
           </div>
         </div>
       </section>
@@ -606,6 +628,18 @@ export default function HomePage() {
                 Max 10 guests per tour
               </span>
             </div>
+          </div>
+
+          {/* Farm tour loop video — glimpse of what visitors experience on the tour */}
+          <div className="max-w-4xl mx-auto mb-20">
+            <ShotPlaceholder
+              label="Drone: Farm Tour Loop video — one clean 45–60 sec cinematic take. Shoot Friday sunrise."
+              aspect="aspect-video"
+              dark
+            />
+            <p className="text-center text-white/40 text-[11px] font-light mt-4 italic">
+              A glimpse of the walk you&rsquo;ll take.
+            </p>
           </div>
 
           <div className="mb-20 max-w-3xl mx-auto">
