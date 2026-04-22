@@ -11,6 +11,7 @@ interface NavProps {
 
 export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [overDark, setOverDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   // On the home page, track whether we've scrolled past the hero
@@ -26,6 +27,21 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, [isHome]);
 
+  // Watch dark sections and keep the nav in glass/white mode while one is under it
+  useEffect(() => {
+    const targets = document.querySelectorAll<HTMLElement>("[data-nav-dark]");
+    if (!targets.length) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const active = entries.some((e) => e.isIntersecting);
+        setOverDark(active);
+      },
+      { rootMargin: "-64px 0px -90% 0px", threshold: 0 },
+    );
+    targets.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   const scrollTo = (id: string) => {
     if (activePage !== "home") {
       window.location.href = `${homeHref}#${id}`;
@@ -36,16 +52,18 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
     setMenuOpen(false);
   };
 
-  // When on home and not yet scrolled past hero: glass over image → white text
-  const isGlass = isHome && !scrolled;
+  // Glass + white text whenever nav is over a dark region (hero OR any marked dark section)
+  const isGlass = (isHome && !scrolled) || overDark;
 
   return (
     <>
       <nav
         className={`fixed w-full z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-[#F6F4EF]/97 backdrop-blur-md border-b border-black/5 shadow-sm"
-            : "bg-white/5 backdrop-blur-md border-b border-white/10"
+          isGlass
+            ? "bg-white/5 backdrop-blur-md border-b border-white/10"
+            : scrolled
+              ? "bg-[#F6F4EF]/97 backdrop-blur-md border-b border-black/5 shadow-sm"
+              : "bg-white/5 backdrop-blur-md border-b border-white/10"
         }`}
       >
         <div className="mx-auto px-8 lg:px-12 h-20 flex items-center justify-between">

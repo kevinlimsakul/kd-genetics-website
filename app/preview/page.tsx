@@ -412,7 +412,7 @@ export default function HomePage() {
       </section>
 
       {/* ── BIOBIZZ PARTNERSHIP ── */}
-      <section className="bg-[#2A2820] py-24">
+      <section data-nav-dark className="bg-[#2A2820] py-24">
         <div className="container mx-auto px-6 max-w-5xl">
           {/* Label */}
           <p className="text-center text-[10px] font-medium uppercase tracking-[0.3em] text-[#5A6A4F] mb-16">
@@ -427,9 +427,9 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit BioBizz — opens in a new tab"
-                className="block w-full max-w-[22rem] transition-transform duration-500 hover:scale-[1.02]"
+                className="block w-full max-w-[22rem] cursor-pointer transition-transform duration-500 hover:scale-[1.02]"
               >
-                <div className="rounded-[2.25rem] bg-[#F6F4EF] px-8 py-10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
+                <div className="rounded-[2.25rem] bg-[#F6F4EF] px-4 py-5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
                   <Image
                     src="/grown-with-biobizz.png"
                     alt="Grown with BioBizz — From Dutch Origins"
@@ -446,7 +446,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit BioBizz — opens in a new tab"
-                className="block w-full max-w-[22rem] transition-opacity hover:opacity-80"
+                className="block w-full max-w-[22rem] cursor-pointer transition-opacity hover:opacity-80"
               >
                 <Image
                   src="/biobizz-logo-wide.png"
@@ -690,7 +690,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FARM TOUR ── */}
-      <section id="tour" className="py-32 bg-[#1E1E1E] text-white overflow-hidden relative">
+      <section id="tour" data-nav-dark className="py-32 bg-[#1E1E1E] text-white overflow-hidden relative">
         <div className="container mx-auto px-6 relative z-10 max-w-6xl">
           <div className="text-center mb-20 max-w-3xl mx-auto space-y-6">
             <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
