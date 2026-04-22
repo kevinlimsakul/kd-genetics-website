@@ -425,8 +425,10 @@ export default function HomePage() {
               <Image
                 src="/grown-with-biobizz.png"
                 alt="Grown with BioBizz — From Dutch Origins"
-                width={420}
-                height={200}
+                width={2400}
+                height={1244}
+                quality={100}
+                unoptimized
                 className="w-full max-w-sm h-auto object-contain"
               />
               <a
