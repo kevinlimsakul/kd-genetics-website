@@ -421,29 +421,39 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 gap-16 items-center">
             {/* Left — logos */}
-            <div className="flex flex-col items-center gap-10">
-              <Image
-                src="/grown-with-biobizz.png"
-                alt="Grown with BioBizz — From Dutch Origins"
-                width={2400}
-                height={1244}
-                quality={100}
-                unoptimized
-                className="w-full max-w-sm h-auto object-contain"
-              />
+            <div className="flex flex-col items-center gap-10 w-full">
               <a
                 href="https://www.biobizz.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit BioBizz — opens in a new tab"
-                className="group inline-block transition-opacity hover:opacity-80"
+                className="block w-full max-w-[22rem] transition-transform duration-500 hover:scale-[1.02]"
+              >
+                <div className="rounded-[2.25rem] bg-[#F6F4EF] px-8 py-10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
+                  <Image
+                    src="/grown-with-biobizz.png"
+                    alt="Grown with BioBizz — From Dutch Origins"
+                    width={2400}
+                    height={1245}
+                    quality={100}
+                    unoptimized
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              </a>
+              <a
+                href="https://www.biobizz.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit BioBizz — opens in a new tab"
+                className="block w-full max-w-[22rem] transition-opacity hover:opacity-80"
               >
                 <Image
                   src="/biobizz-logo-wide.png"
                   alt="BioBizz World Wide Organics"
                   width={800}
                   height={450}
-                  className="w-full max-w-md h-auto object-contain brightness-0 invert"
+                  className="w-full h-auto object-contain brightness-0 invert"
                 />
               </a>
             </div>
