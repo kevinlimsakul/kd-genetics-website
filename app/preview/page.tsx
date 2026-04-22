@@ -429,13 +429,21 @@ export default function HomePage() {
                 height={200}
                 className="w-full max-w-sm h-auto object-contain"
               />
-              <Image
-                src="/biobizz-logo-wide.png"
-                alt="BioBizz World Wide Organics"
-                width={240}
-                height={80}
-                className="h-10 w-auto object-contain brightness-0 invert opacity-70"
-              />
+              <a
+                href="https://www.biobizz.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit BioBizz — opens in a new tab"
+                className="group inline-block transition-opacity hover:opacity-80"
+              >
+                <Image
+                  src="/biobizz-logo-wide.png"
+                  alt="BioBizz World Wide Organics"
+                  width={800}
+                  height={450}
+                  className="w-full max-w-md h-auto object-contain brightness-0 invert"
+                />
+              </a>
             </div>
 
             {/* Right — copy */}
