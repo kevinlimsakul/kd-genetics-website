@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Instagram, Facebook, MapPin } from "lucide-react";
 
-export default function Footer() {
+export default function Footer({ homeHref = "/" }: { homeHref?: string }) {
   return (
     <footer className="bg-[#1E1E1E] text-white/60 py-20">
       <div className="container mx-auto px-6 max-w-6xl">
@@ -59,13 +59,13 @@ export default function Footer() {
             </p>
             <ul className="space-y-3 text-sm font-light">
               <li>
-                <Link href="/#story" className="hover:text-white transition-colors">
+                <Link href={`${homeHref}#story`} className="hover:text-white transition-colors">
                   Our Story
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/#philosophy"
+                  href={`${homeHref}#philosophy`}
                   className="hover:text-white transition-colors"
                 >
                   Philosophy
@@ -82,12 +82,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#visit" className="hover:text-white transition-colors">
+                <Link href={`${homeHref}#visit`} className="hover:text-white transition-colors">
                   Visit Us
                 </Link>
               </li>
               <li>
-                <Link href="/#tour" className="hover:text-white transition-colors">
+                <Link href={`${homeHref}#tour`} className="hover:text-white transition-colors">
                   Book a Tour
                 </Link>
               </li>

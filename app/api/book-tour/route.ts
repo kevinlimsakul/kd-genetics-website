@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
   }
 
   const packageLabel =
-    pkg === "vip" ? "VIP — 3,000 THB" : "Standard — 1,500 THB";
+    pkg === "vip" ? "VIP: 3,000 THB" : "Standard: 1,500 THB";
 
   const res = await fetch(
     `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`,

@@ -6,9 +6,10 @@ import Image from "next/image";
 
 interface NavProps {
   activePage?: "home" | "products" | "shop";
+  homeHref?: string;
 }
 
-export default function Nav({ activePage = "home" }: NavProps) {
+export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -27,7 +28,7 @@ export default function Nav({ activePage = "home" }: NavProps) {
 
   const scrollTo = (id: string) => {
     if (activePage !== "home") {
-      window.location.href = `/#${id}`;
+      window.location.href = `${homeHref}#${id}`;
       return;
     }
     const el = document.getElementById(id);
@@ -49,7 +50,7 @@ export default function Nav({ activePage = "home" }: NavProps) {
       >
         <div className="mx-auto px-8 lg:px-12 h-20 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-4 group">
+          <Link href={homeHref} className="flex items-center gap-4 group">
             <div className={`w-10 h-10 rounded-full overflow-hidden flex items-center justify-center shadow-sm transition-all group-hover:scale-105 ${isGlass ? "bg-white border border-white/40" : "bg-white/10 border border-white/20"}`}>
               <Image
                 src="/kd-logo.png"

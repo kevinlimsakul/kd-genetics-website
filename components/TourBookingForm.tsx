@@ -71,8 +71,8 @@ export default function TourBookingForm() {
             </label>
             <div className="grid grid-cols-2 gap-2">
               {[
-                { value: "standard", label: "Standard — 1,500 THB" },
-                { value: "vip", label: "VIP — 3,000 THB" },
+                { value: "standard", label: "Standard: 1,500 THB" },
+                { value: "vip", label: "VIP: 3,000 THB" },
               ].map((opt) => (
                 <button
                   key={opt.value}
