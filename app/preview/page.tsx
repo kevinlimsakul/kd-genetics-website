@@ -71,6 +71,7 @@ const kdOutdoorStrains = [
   { name: "KD Black Tiger", img: "/strain-kd-black-tiger.jpg" },
   { name: "KD Blacktip",    img: "/strain-kd-blacktip.jpg" },
   { name: "Cheese Cookies", img: "/strain-cheese-cookies.jpg" },
+  { name: "Hella Jelly #2", img: "/strain-hella-jelly.jpg" },
 ];
 
 const termsookIndoorStrains = [
@@ -80,22 +81,20 @@ const termsookIndoorStrains = [
   { name: "Banana Conda",   img: "/strain-banana-conda.jpg" },
   { name: "Kiwi",           img: "/strain-kiwi.jpg" },
   { name: "Unicorn Poop",   img: "/strain-unicorn-poop.jpg" },
-  { name: "Hella Jelly #2", img: "/strain-hella-jelly.jpg" },
 ];
 
 const beyondFlower = [
-  { title: "Oils",    line: "Mr. KD's craft cannabis oils.",   img: "/oil-hero.jpg",    href: "/menu#oils" },
-  { title: "Hash",    line: "Hand-washed, pressed on the farm.", img: "/hash-hero.jpg", href: "/menu#hash" },
-  { title: "Rosin",   line: "Solventless, small batch.",        img: "/hash-hero.jpg", href: "/menu#rosin" },
-  { title: "Apparel", line: "What we wear on the farm.",        img: "/tee-1-front.jpg", href: "#apparel" },
+  { title: "Oils",    line: "Mr. KD's craft cannabis oils.",     img: "/oil-hero.jpg",       href: "/menu#oils" },
+  { title: "Hash",    line: "Hand-washed, pressed on the farm.", img: "/hash-hero.jpg",      href: "/menu#hash" },
+  { title: "Rosin",   line: "Solventless, small batch.",         img: "/hash-hero.jpg",      href: "/menu#rosin" },
+  { title: "Apparel", line: "What we wear on the farm.",         img: "/apparel-kevin.jpg",  href: "#apparel" },
 ];
 
 const team = [
-  { img: "/team-1.jpg" },
-  { img: "/team-2.jpg" },
-  { img: "/team-3.jpg" },
-  { img: "/team-4.jpg" },
-  { img: "/team-5.jpg" },
+  { img: "/team-1.jpg",        name: "Pee Wee" },     // woman, hanging buds
+  { img: "/team-2.jpg",        name: "Khant" },        // shop, jar + tweezers
+  { img: "/team-watering.jpg", name: "Pichet" },       // watering, ocean view
+  { img: "/team-soil.jpg",     name: "Pee Wee" },      // soil / seedlings
 ];
 
 const mediaArticles = [
@@ -402,30 +401,33 @@ export default function HomePage() {
           </div>
 
           {/* Group hero */}
-          <div className="aspect-[16/10] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 mb-3 max-w-5xl mx-auto">
+          <div className="aspect-[3/2] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 mb-3 max-w-5xl mx-auto">
             <Image
               src="/team-group.jpg"
-              alt="The KD Genetics team — Kevin, Mr KD, Daniel, Khant, Pee Wee, Pee Wee, Pichet"
+              alt="The full KD Genetics team — Khant, Mr KD, Daniel, Kevin, Pee Wee, Pee Wee, Pichet"
               width={2000}
               height={1333}
               className="w-full h-full object-cover"
             />
           </div>
-          <p className="text-center text-[#6B6B6B]/80 text-[11px] font-light italic max-w-3xl mx-auto mb-12">
-            Kevin · Mr KD · Daniel · Khant (shop) · Pee Wee (farm + house) · Pee Wee (farm) · Pichet (farm)
+          <p className="text-center text-[#6B6B6B]/80 text-[11px] font-light italic max-w-3xl mx-auto mb-14">
+            The full crew — left to right: Khant · Mr KD · Daniel · Kevin · Pee Wee · Pee Wee · Pichet
           </p>
 
-          {/* Individual portraits row */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-5xl mx-auto">
-            {team.map((p, i) => (
-              <div key={i} className="aspect-[3/4] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
-                <Image
-                  src={p.img}
-                  alt={`KD Genetics team member`}
-                  width={1200}
-                  height={1600}
-                  className="w-full h-full object-cover"
-                />
+          {/* Four staff portraits — Mr KD and the founders are featured elsewhere */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-4xl mx-auto">
+            {team.map((p) => (
+              <div key={p.img} className="space-y-2">
+                <div className="aspect-[3/4] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
+                  <Image
+                    src={p.img}
+                    alt={p.name}
+                    width={1200}
+                    height={1600}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-center text-[#1E1E1E] text-sm font-medium">{p.name}</p>
               </div>
             ))}
           </div>
@@ -678,10 +680,10 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto mb-20">
             <div className="aspect-video rounded-2xl overflow-hidden border border-white/10">
               <Image
-                src="/drone-jungle.jpg"
-                alt="The KD Genetics farm — aerial"
+                src="/property-aerial.jpg"
+                alt="The KD Genetics property from above"
                 width={2000}
-                height={1125}
+                height={1497}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -802,7 +804,7 @@ export default function HomePage() {
               Indoor-grown by our friends at Termsook Collective.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-x-4 gap-y-10 mb-24">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-10 mb-24">
             {termsookIndoorStrains.map((s) => (
               <Link key={s.name} href="/menu#flower" className="space-y-3 group">
                 <div className="aspect-square rounded-xl overflow-hidden bg-[#1E1E1E]">
@@ -1048,10 +1050,10 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
               <Image
-                src="/slowdown-front.jpg"
-                alt="Slow Down Homestay — Tanote Bay courtyard"
-                width={1600}
-                height={1066}
+                src="/property-aerial.jpg"
+                alt="Slow Down Homestay — nestled in the Tanote Bay jungle"
+                width={2000}
+                height={1497}
                 className="w-full h-full object-cover"
               />
             </div>
