@@ -183,10 +183,10 @@ export default function HomePage() {
                 Book the Farm Tour
               </a>
               <a
-                href="#seed-to-spliff"
+                href="#papa"
                 className="border border-white/30 text-white hover:bg-white/10 rounded-full px-10 h-14 text-sm font-medium backdrop-blur-sm transition-all flex items-center justify-center"
               >
-                Watch the Story
+                Meet Papa KD
               </a>
             </div>
 
@@ -200,45 +200,7 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-       *  2. SEED TO SPLIFF — 90-sec feature video placeholder
-       * ══════════════════════════════════════════════════════════════════ */}
-      <section id="seed-to-spliff" data-nav-dark className="bg-[#1E1E1E] py-32 text-white">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="text-center mb-12 max-w-2xl mx-auto space-y-4">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
-              From Seed to Spliff
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl text-white leading-tight">
-              Every bud begins on a plate in a kitchen.
-            </h2>
-            <p className="text-white/60 text-base font-light">
-              This is why ours takes time.
-            </p>
-          </div>
-
-          {/*
-            SEED TO SPLIFF 90-SECOND VIDEO — drops in from Friday's shoot.
-            Expected filename: /seed-to-spliff.mp4 (main) + /seed-to-spliff-30s.mp4 (social cut).
-          */}
-          <div className="aspect-video rounded-2xl overflow-hidden border border-white/10 bg-black/60 flex items-center justify-center">
-            <div className="text-center space-y-3">
-              <Sprout className="w-10 h-10 text-[#5A6A4F] mx-auto" />
-              <p className="text-white/50 text-[10px] uppercase tracking-[0.25em]">Video Placeholder</p>
-              <p className="text-white/80 text-sm max-w-md px-6">
-                Seed-to-Spliff — 90 sec cinematic. Shot Friday 2026-04-24. See
-                <span className="text-white/60"> /docs/shot-lists/2026-04-24-hue-shoot.md</span>.
-              </p>
-            </div>
-          </div>
-
-          <p className="text-center text-white/40 text-[11px] font-light mt-6 italic">
-            No voiceover. No text on screen. The work speaks.
-          </p>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════
-       *  3. NUMBERS — animated counters
+       *  2. NUMBERS — animated counters
        * ══════════════════════════════════════════════════════════════════ */}
       <section className="py-28 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
