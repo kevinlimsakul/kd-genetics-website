@@ -65,12 +65,34 @@ const tourSteps = [
   { step: "05", icon: <Star   className="h-4 w-4" />, title: "Terpenes & quality education", desc: "Understanding what makes craft cannabis different." },
 ];
 
-const productCategories = [
-  { title: "Flower",    line: "Sun-grown living-soil cultivars." },
-  { title: "Hash",      line: "Hand-washed and pressed on the farm." },
-  { title: "Rosin",     line: "Solventless, small batch." },
-  { title: "Oils",      line: "Traditional craft extracts." },
-  { title: "Edibles",   line: "Slow dosing, clean inputs." },
+const strainLineup = [
+  { name: "KD Landrace #3",    img: "/strain-kd-landrace.jpg" },
+  { name: "KD Cherry",         img: "/strain-kd-cherry.jpg" },
+  { name: "KD Black Tiger",    img: "/strain-kd-black-tiger.jpg" },
+  { name: "KD Blacktip",       img: "/strain-kd-blacktip.jpg" },
+  { name: "Cheese Cookies",    img: "/strain-cheese-cookies.jpg" },
+  { name: "Lavender #10",      img: "/strain-lavender.jpg" },
+  { name: "Lemon Orange",      img: "/strain-lemon-orange.jpg" },
+  { name: "Alien Mints",       img: "/strain-alien-mints.jpg" },
+  { name: "God Z",             img: "/strain-god-z.jpg" },
+  { name: "Banana Conda",      img: "/strain-banana-conda.jpg" },
+  { name: "Kiwi",              img: "/strain-kiwi.jpg" },
+  { name: "Unicorn Poop",      img: "/strain-unicorn-poop.jpg" },
+  { name: "Hella Jelly #2",    img: "/strain-hella-jelly.jpg" },
+];
+
+const concentrates = [
+  { title: "Hash",  line: "Hand-washed, pressed on the farm.",      img: "/hash-hero.jpg" },
+  { title: "Oils",  line: "Mr. KD's craft cannabis oil.",            img: "/oil-hero.jpg" },
+  { title: "Flower", line: "Sun-grown, living-soil. Whole nug.",     img: "/flower-hero.jpg" },
+];
+
+const team = [
+  { img: "/team-1.jpg" },
+  { img: "/team-2.jpg" },
+  { img: "/team-3.jpg" },
+  { img: "/team-4.jpg" },
+  { img: "/team-5.jpg" },
 ];
 
 const mediaArticles = [
@@ -96,35 +118,6 @@ const mediaArticles = [
     link: "https://www.nationthailand.com/in-focus/40014835",
   },
 ];
-
-/* ────────────────────────────────────────────────────────────────────────
- *  Small helper: placeholder image box for photos coming from Friday's shoot
- * ──────────────────────────────────────────────────────────────────────── */
-
-function ShotPlaceholder({
-  label,
-  aspect = "aspect-[4/3]",
-  dark = false,
-  className = "",
-}: {
-  label: string;
-  aspect?: string;
-  dark?: boolean;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`${aspect} ${className} rounded-2xl border border-dashed ${
-        dark ? "border-white/20 bg-white/[0.03] text-white/60" : "border-black/15 bg-[#EAE6DE]/40 text-[#6B6B6B]/80"
-      } flex flex-col items-center justify-center p-6 text-center`}
-    >
-      <span className={`text-[9px] font-medium uppercase tracking-[0.2em] ${dark ? "text-white/40" : "text-[#5A6A4F]/60"} mb-1.5`}>
-        Shot Placeholder
-      </span>
-      <span className="text-xs font-light leading-snug">{label}</span>
-    </div>
-  );
-}
 
 /* ────────────────────────────────────────────────────────────────────────
  *  Page
@@ -385,10 +378,51 @@ export default function HomePage() {
             ))}
           </div>
 
-          <p className="text-center text-[#6B6B6B]/70 text-sm font-light italic mt-16 max-w-lg mx-auto">
-            Environmental portraits coming from Friday&rsquo;s shoot — Kevin on the laptop
-            in the garden, Daniel hands on the plants.
-          </p>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════
+       *  5.5 THE TEAM — environmental portraits, group at the top
+       * ══════════════════════════════════════════════════════════════════ */}
+      <section className="py-32 bg-[#F6F4EF]">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="text-center mb-16 max-w-xl mx-auto space-y-3">
+            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+              The Team
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E] leading-tight">
+              The hands on every plant.
+            </h2>
+            <p className="text-[#6B6B6B] text-base font-light">
+              A small crew. Same family for years.
+            </p>
+          </div>
+
+          {/* Group hero */}
+          <div className="aspect-[16/10] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 mb-6 max-w-5xl mx-auto">
+            <Image
+              src="/team-group.jpg"
+              alt="The KD Genetics team"
+              width={1600}
+              height={1000}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Individual portraits row */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-5xl mx-auto">
+            {team.map((p, i) => (
+              <div key={i} className="aspect-[3/4] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
+                <Image
+                  src={p.img}
+                  alt={`KD Genetics team member`}
+                  width={1200}
+                  height={1600}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -406,43 +440,46 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
-              <Image
-                src="/living-soil-2026.jpg"
-                alt="Living soil — KD Genetics farm"
-                width={1800}
-                height={1350}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="space-y-8">
-              {[
-                {
-                  icon: <Leaf className="h-5 w-5" />,
-                  title: "Organic living soil",
-                  desc: "Worms, microbes, compost built over years. Not synthetic nutrients dropped in bags.",
-                },
-                {
-                  icon: <Sun className="h-5 w-5" />,
-                  title: "Sun-grown outdoor",
-                  desc: "The Koh Tao sun does the work. Terroir-driven terpene expression you can't replicate indoors.",
-                },
-                {
-                  icon: <Sprout className="h-5 w-5" />,
-                  title: "Small batch",
-                  desc: "A family farm, not a facility. Every bud hand-checked, hand-trimmed, hand-cured.",
-                },
-              ].map((p) => (
-                <div key={p.title} className="flex gap-5">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                icon: <Leaf className="h-5 w-5" />,
+                title: "Organic living soil",
+                desc: "Worms, microbes, compost built over years. Not synthetic nutrients dropped in bags.",
+                img: "/living-soil-2026.jpg",
+              },
+              {
+                icon: <Sun className="h-5 w-5" />,
+                title: "Sun-grown outdoor",
+                desc: "The Koh Tao sun does the work. Terroir-driven terpene expression you can't replicate indoors.",
+                img: "/sun-grown.jpg",
+              },
+              {
+                icon: <Sprout className="h-5 w-5" />,
+                title: "Small batch",
+                desc: "A family farm, not a facility. Every bud hand-checked, hand-trimmed, hand-cured.",
+                img: "/small-batch.jpg",
+              },
+            ].map((p) => (
+              <div key={p.title} className="space-y-5">
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+                  <Image
+                    src={p.img}
+                    alt={p.title}
+                    width={1600}
+                    height={1200}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex gap-4">
                   <div className="text-[#5A6A4F] mt-0.5 shrink-0">{p.icon}</div>
                   <div className="space-y-1.5">
                     <h3 className="font-display text-xl text-[#1E1E1E]">{p.title}</h3>
                     <p className="text-[#6B6B6B] text-sm font-light leading-relaxed">{p.desc}</p>
                   </div>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -545,23 +582,40 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Drone video / hero loop placeholder */}
-          <ShotPlaceholder
-            label="Drone cinematic: Tanote Bay → mountain → jungle → zoom into farm. Shoot Friday sunrise."
-            aspect="aspect-[16/9]"
-            className="mb-6"
-          />
+          {/* Drone hero — full property */}
+          <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 mb-6">
+            <Image
+              src="/drone-hero.jpg"
+              alt="Aerial view of KD Genetics farm and Tanote Bay"
+              width={2400}
+              height={1350}
+              className="w-full h-full object-cover"
+            />
+          </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
             {[
-              "Nursery — young plants",
-              "Veg stage under shade",
-              "Flowering terrace",
-              "Chill area — where the tour ends",
-              "Tanote Bay view",
-              "Shop exterior",
-            ].map((label) => (
-              <ShotPlaceholder key={label} label={label} aspect="aspect-[4/3]" />
+              { label: "Nursery — young plants",            img: "/farm-nursery.jpg" },
+              { label: "Veg stage under shade",             img: "/farm-veg.jpg" },
+              { label: "Flowering terrace",                 img: "/farm-flowering.jpg" },
+              { label: "Chill area — where the tour ends",  img: "/farm-chill.jpg" },
+              { label: "Tanote Bay from above",             img: "/drone-bay.jpg" },
+              { label: "Shop exterior",                     img: "/shop-exterior.jpg" },
+            ].map((tile) => (
+              <div key={tile.label} className="space-y-2">
+                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
+                  <Image
+                    src={tile.img}
+                    alt={tile.label}
+                    width={1400}
+                    height={1050}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-[#6B6B6B] text-[11px] font-light text-center px-2 leading-snug">
+                  {tile.label}
+                </p>
+              </div>
             ))}
           </div>
 
@@ -616,11 +670,15 @@ export default function HomePage() {
 
           {/* Farm tour loop video — glimpse of what visitors experience on the tour */}
           <div className="max-w-4xl mx-auto mb-20">
-            <ShotPlaceholder
-              label="Drone: Farm Tour Loop video — one clean 45–60 sec cinematic take. Shoot Friday sunrise."
-              aspect="aspect-video"
-              dark
-            />
+            <div className="aspect-video rounded-2xl overflow-hidden border border-white/10">
+              <Image
+                src="/drone-jungle.jpg"
+                alt="The KD Genetics farm — aerial"
+                width={2000}
+                height={1125}
+                className="w-full h-full object-cover"
+              />
+            </div>
             <p className="text-center text-white/40 text-[11px] font-light mt-4 italic">
               A glimpse of the walk you&rsquo;ll take.
             </p>
@@ -690,28 +748,64 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-       *  9. PRODUCTS — image-first cards
+       *  9. THE LINEUP — strain library (real cultivars) + concentrates
        * ══════════════════════════════════════════════════════════════════ */}
       <section id="products" className="py-32 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-16 max-w-xl mx-auto space-y-3">
             <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
-              What We Make
+              The Lineup
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E]">
-              The full lineup.
+              Thirteen cultivars. Hand-grown.
             </h2>
+            <p className="text-[#6B6B6B] text-base font-light">
+              From KD landraces to crosses we&rsquo;ve bred ourselves.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {productCategories.map((c) => (
+          {/* Strain library — 13 cultivars */}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-10 mb-24">
+            {strainLineup.map((s) => (
+              <div key={s.name} className="space-y-3 group">
+                <div className="aspect-square rounded-xl overflow-hidden bg-[#1E1E1E]">
+                  <Image
+                    src={s.img}
+                    alt={s.name}
+                    width={900}
+                    height={900}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <p className="text-center text-[#1E1E1E] text-sm font-medium">{s.name}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Concentrates row */}
+          <div className="text-center mb-10 max-w-xl mx-auto space-y-2">
+            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+              Beyond Flower
+            </span>
+            <h3 className="font-display text-2xl md:text-3xl text-[#1E1E1E]">
+              Hand-pressed concentrates and oils.
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {concentrates.map((c) => (
               <div key={c.title} className="space-y-4 group">
-                <ShotPlaceholder
-                  label={`${c.title} — hero on wooden slab`}
-                  aspect="aspect-square"
-                />
+                <div className="aspect-square rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+                  <Image
+                    src={c.img}
+                    alt={c.title}
+                    width={1400}
+                    height={1400}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
                 <div className="space-y-1 text-center">
-                  <h3 className="font-display text-lg text-[#1E1E1E]">{c.title}</h3>
+                  <h4 className="font-display text-xl text-[#1E1E1E]">{c.title}</h4>
                   <p className="text-[#6B6B6B]/80 text-[11px] font-light leading-snug px-2">
                     {c.line}
                   </p>
@@ -720,7 +814,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-14">
+          <div className="text-center">
             <Link
               href="#visit"
               className="inline-flex items-center gap-2 text-[#5A6A4F] text-sm font-medium group"
@@ -746,14 +840,43 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+          {/* Worn on the farm */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
             {[
-              "Model in KD tee — garden",
-              "Model in KD tee — chill area",
-              "Model on hammock, apparel",
-              "Walking into the shop, apparel",
-            ].map((label) => (
-              <ShotPlaceholder key={label} label={label} aspect="aspect-[3/4]" />
+              { label: "In the garden",     img: "/apparel-kevin.jpg" },
+              { label: "On the farm",       img: "/apparel-team.jpg" },
+              { label: "Carrying greens",   img: "/apparel-greens.jpg" },
+              { label: "Off the clock",     img: "/apparel-dog.jpg" },
+            ].map((tile) => (
+              <div key={tile.label} className="aspect-[3/4] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
+                <Image
+                  src={tile.img}
+                  alt={tile.label}
+                  width={1200}
+                  height={1600}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* T-shirt flat lays — the lineup */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+            {[
+              "/tee-1-front.jpg",
+              "/tee-2-front.jpg",
+              "/tee-3-front.jpg",
+              "/tee-4-front.jpg",
+            ].map((img, i) => (
+              <div key={img} className="aspect-square rounded-xl overflow-hidden bg-[#EAE6DE]/40">
+                <Image
+                  src={img}
+                  alt={`KD Genetics tee ${i + 1}`}
+                  width={1200}
+                  height={1200}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             ))}
           </div>
 
@@ -790,13 +913,34 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <ShotPlaceholder
-                label="Shop interior — bamboo counter, bud jars, arched niches"
-                aspect="aspect-[4/3]"
-              />
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+                <Image
+                  src="/shop-mural.jpg"
+                  alt="The KD Genetics shop — interior with mural"
+                  width={1800}
+                  height={1350}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="grid grid-cols-2 gap-4">
-                <ShotPlaceholder label="Chill area — wide" aspect="aspect-[4/3]" />
-                <ShotPlaceholder label="Bud jars on counter — hero" aspect="aspect-[4/3]" />
+                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
+                  <Image
+                    src="/shop-counter.jpg"
+                    alt="The shop counter"
+                    width={1600}
+                    height={1200}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
+                  <Image
+                    src="/shop-bud-jar.jpg"
+                    alt="Bud jars on the shop counter"
+                    width={1400}
+                    height={1050}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
 
@@ -865,10 +1009,15 @@ export default function HomePage() {
       <section className="py-24 bg-[#EAE6DE]/30 border-y border-black/5">
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="grid md:grid-cols-2 gap-10 items-center">
-            <ShotPlaceholder
-              label="Slowdown Homestay — exterior, jungle, golden hour. Shoot Friday evening."
-              aspect="aspect-[4/3]"
-            />
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+              <Image
+                src="/drone-jungle.jpg"
+                alt="Tanote Bay — KD Genetics farm and Slowdown Homestay share the same plot"
+                width={2000}
+                height={1500}
+                className="w-full h-full object-cover"
+              />
+            </div>
             <div className="space-y-4">
               <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
                 Stay & Experience
