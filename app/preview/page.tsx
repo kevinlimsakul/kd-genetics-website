@@ -139,20 +139,17 @@ export default function HomePage() {
        *  1. HERO — video-ready, headline B
        * ══════════════════════════════════════════════════════════════════ */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 text-center px-6">
-        {/*
-          VIDEO HERO — replace background image with a muted autoplay loop
-          once Friday's footage is edited. Suggested sources:
-            - <video src="/hero-loop.mp4" autoPlay muted loop playsInline poster="/koh-tao-farm.png" />
-          For now: static farm image from archive.
-        */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/koh-tao-farm.png"
-            alt="KD Genetics farm, Tanote Bay, Koh Tao"
-            fill
-            className="object-cover"
-            priority
-            quality={90}
+          <video
+            src="/hero-loop.mp4"
+            poster="/hero-loop-poster.jpg"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover"
+            aria-hidden="true"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#F6F4EF]" />
         </div>
