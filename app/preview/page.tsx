@@ -47,13 +47,13 @@ const nextGeneration = [
     name: "Kevin",
     role: "Vision & Operations",
     bio: "Papa's son. Carries the legacy forward — structure, direction, the next chapter.",
-    img: "/founder-kevin-v3.png",
+    img: "/founder-kevin-2026.jpg",
   },
   {
     name: "Daniel",
     role: "Cultivation & Horticulture",
     bio: "Kevin's closest friend since day one. Horticultural scientist. Hands on every plant.",
-    img: "/founder-daniel.png",
+    img: "/founder-daniel-2026.jpg",
   },
 ];
 
@@ -245,10 +245,16 @@ export default function HomePage() {
           {/* Portrait + story */}
           <div className="grid md:grid-cols-2 gap-14 items-center">
             <div>
-              <ShotPlaceholder
-                label="Papa KD — hero portrait, golden hour, on the farm. Shoot Friday."
-                aspect="aspect-[4/5]"
-              />
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+                <Image
+                  src="/papa-portrait-2026.jpg"
+                  alt="Papa KD — Aram Limsakul"
+                  width={1600}
+                  height={2000}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
             </div>
             <div className="space-y-6">
               <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
@@ -301,10 +307,15 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-5 gap-10 items-center">
             <div className="md:col-span-2">
-              <ShotPlaceholder
-                label="The terrace — original photo ~2015 if Kevin can locate it, otherwise reshoot Friday."
-                aspect="aspect-[4/5]"
-              />
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+                <Image
+                  src="/terrace-2015.jpg"
+                  alt="Kevin and Daniel on the terrace, Tanote Bay, 2016"
+                  width={1400}
+                  height={1750}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
             <div className="md:col-span-3 space-y-6 text-[#4A4A4A] text-base font-light leading-[1.8]">
               <p>
@@ -396,10 +407,15 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-            <ShotPlaceholder
-              label="Hands in living soil — macro. Shoot Friday morning."
-              aspect="aspect-[4/3]"
-            />
+            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+              <Image
+                src="/living-soil-2026.jpg"
+                alt="Living soil — KD Genetics farm"
+                width={1800}
+                height={1350}
+                className="w-full h-full object-cover"
+              />
+            </div>
             <div className="space-y-8">
               {[
                 {
@@ -486,16 +502,25 @@ export default function HomePage() {
                   their full range of soils and nutrients. No synthetics. No shortcuts.
                 </p>
 
-                {/* Friendship photo row — TODO: swap in Huw:Biobizz archive shots of Luis, Ivan, El Santo, Basque hat with Papa */}
-                <div className="grid grid-cols-3 gap-3 pt-4">
-                  {[1, 2, 3].map((i) => (
-                    <ShotPlaceholder
-                      key={i}
-                      label={`Sep 2025 archive — BioBizz visit #${i}`}
-                      aspect="aspect-square"
-                      dark
+                <div className="grid grid-cols-2 gap-3 pt-4">
+                  <div className="aspect-square rounded-xl overflow-hidden border border-white/10">
+                    <Image
+                      src="/biobizz-group.jpg"
+                      alt="BioBizz visit — team on the farm"
+                      width={1600}
+                      height={1066}
+                      className="w-full h-full object-cover"
                     />
-                  ))}
+                  </div>
+                  <div className="aspect-square rounded-xl overflow-hidden border border-white/10">
+                    <Image
+                      src="/biobizz-frisbee.jpg"
+                      alt="Powered by BioBizz — Papa KD with Luis"
+                      width={1600}
+                      height={1066}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
