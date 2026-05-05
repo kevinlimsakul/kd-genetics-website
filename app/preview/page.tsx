@@ -65,26 +65,29 @@ const tourSteps = [
   { step: "05", icon: <Star   className="h-4 w-4" />, title: "Terpenes & quality education", desc: "Understanding what makes craft cannabis different." },
 ];
 
-const strainLineup = [
-  { name: "KD Landrace #3",    img: "/strain-kd-landrace.jpg" },
-  { name: "KD Cherry",         img: "/strain-kd-cherry.jpg" },
-  { name: "KD Black Tiger",    img: "/strain-kd-black-tiger.jpg" },
-  { name: "KD Blacktip",       img: "/strain-kd-blacktip.jpg" },
-  { name: "Cheese Cookies",    img: "/strain-cheese-cookies.jpg" },
-  { name: "Lavender #10",      img: "/strain-lavender.jpg" },
-  { name: "Lemon Orange",      img: "/strain-lemon-orange.jpg" },
-  { name: "Alien Mints",       img: "/strain-alien-mints.jpg" },
-  { name: "God Z",             img: "/strain-god-z.jpg" },
-  { name: "Banana Conda",      img: "/strain-banana-conda.jpg" },
-  { name: "Kiwi",              img: "/strain-kiwi.jpg" },
-  { name: "Unicorn Poop",      img: "/strain-unicorn-poop.jpg" },
-  { name: "Hella Jelly #2",    img: "/strain-hella-jelly.jpg" },
+const kdOutdoorStrains = [
+  { name: "KD Landrace #3", img: "/strain-kd-landrace.jpg" },
+  { name: "KD Cherry",      img: "/strain-kd-cherry.jpg" },
+  { name: "KD Black Tiger", img: "/strain-kd-black-tiger.jpg" },
+  { name: "KD Blacktip",    img: "/strain-kd-blacktip.jpg" },
+  { name: "Cheese Cookies", img: "/strain-cheese-cookies.jpg" },
 ];
 
-const concentrates = [
-  { title: "Hash",  line: "Hand-washed, pressed on the farm.",      img: "/hash-hero.jpg" },
-  { title: "Oils",  line: "Mr. KD's craft cannabis oil.",            img: "/oil-hero.jpg" },
-  { title: "Flower", line: "Sun-grown, living-soil. Whole nug.",     img: "/flower-hero.jpg" },
+const termsookIndoorStrains = [
+  { name: "Lemon Orange",   img: "/strain-lemon-orange.jpg" },
+  { name: "Alien Mints",    img: "/strain-alien-mints.jpg" },
+  { name: "God Z",          img: "/strain-god-z.jpg" },
+  { name: "Banana Conda",   img: "/strain-banana-conda.jpg" },
+  { name: "Kiwi",           img: "/strain-kiwi.jpg" },
+  { name: "Unicorn Poop",   img: "/strain-unicorn-poop.jpg" },
+  { name: "Hella Jelly #2", img: "/strain-hella-jelly.jpg" },
+];
+
+const beyondFlower = [
+  { title: "Oils",    line: "Mr. KD's craft cannabis oils.",   img: "/oil-hero.jpg",    href: "/menu#oils" },
+  { title: "Hash",    line: "Hand-washed, pressed on the farm.", img: "/hash-hero.jpg", href: "/menu#hash" },
+  { title: "Rosin",   line: "Solventless, small batch.",        img: "/hash-hero.jpg", href: "/menu#rosin" },
+  { title: "Apparel", line: "What we wear on the farm.",        img: "/tee-1-front.jpg", href: "#apparel" },
 ];
 
 const team = [
@@ -300,12 +303,12 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-5 gap-10 items-center">
             <div className="md:col-span-2">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
                 <Image
                   src="/terrace-2015.jpg"
                   alt="Kevin and Daniel on the terrace, Tanote Bay, 2016"
                   width={1400}
-                  height={1750}
+                  height={1050}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -394,20 +397,23 @@ export default function HomePage() {
               The hands on every plant.
             </h2>
             <p className="text-[#6B6B6B] text-base font-light">
-              A small crew. Same family for years.
+              A small crew. Real people behind every bud.
             </p>
           </div>
 
           {/* Group hero */}
-          <div className="aspect-[16/10] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 mb-6 max-w-5xl mx-auto">
+          <div className="aspect-[16/10] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 mb-3 max-w-5xl mx-auto">
             <Image
               src="/team-group.jpg"
-              alt="The KD Genetics team"
-              width={1600}
-              height={1000}
+              alt="The KD Genetics team — Kevin, Mr KD, Daniel, Khant, Pee Wee, Pee Wee, Pichet"
+              width={2000}
+              height={1333}
               className="w-full h-full object-cover"
             />
           </div>
+          <p className="text-center text-[#6B6B6B]/80 text-[11px] font-light italic max-w-3xl mx-auto mb-12">
+            Kevin · Mr KD · Daniel · Khant (shop) · Pee Wee (farm + house) · Pee Wee (farm) · Pichet (farm)
+          </p>
 
           {/* Individual portraits row */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-5xl mx-auto">
@@ -539,20 +545,20 @@ export default function HomePage() {
                   their full range of soils and nutrients. No synthetics. No shortcuts.
                 </p>
 
-                <div className="grid grid-cols-2 gap-3 pt-4">
-                  <div className="aspect-square rounded-xl overflow-hidden border border-white/10">
+                <div className="space-y-3 pt-4">
+                  <div className="aspect-[3/2] rounded-xl overflow-hidden border border-white/10">
                     <Image
                       src="/biobizz-group.jpg"
-                      alt="BioBizz visit — team on the farm"
+                      alt="BioBizz visit — Mr KD, the BioBizz team, Daniel, and Kevin on the farm"
                       width={1600}
                       height={1066}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="aspect-square rounded-xl overflow-hidden border border-white/10">
+                  <div className="aspect-[3/2] rounded-xl overflow-hidden border border-white/10">
                     <Image
                       src="/biobizz-frisbee.jpg"
-                      alt="Powered by BioBizz — Papa KD with Luis"
+                      alt="Powered by BioBizz — Mr KD with Luis"
                       width={1600}
                       height={1066}
                       className="w-full h-full object-cover"
@@ -680,7 +686,7 @@ export default function HomePage() {
               />
             </div>
             <p className="text-center text-white/40 text-[11px] font-light mt-4 italic">
-              A glimpse of the walk you&rsquo;ll take.
+              The land you&rsquo;ll walk — from above.
             </p>
           </div>
 
@@ -748,7 +754,7 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-       *  9. THE LINEUP — strain library (real cultivars) + concentrates
+       *  9. THE LINEUP — KD Outdoor + Termsook Indoor + Beyond Flower
        * ══════════════════════════════════════════════════════════════════ */}
       <section id="products" className="py-32 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
@@ -757,17 +763,22 @@ export default function HomePage() {
               The Lineup
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E]">
-              Thirteen cultivars. Hand-grown.
+              Sun-grown outdoor. Premium indoor.
             </h2>
             <p className="text-[#6B6B6B] text-base font-light">
-              From KD landraces to crosses we&rsquo;ve bred ourselves.
+              KD landraces and crosses we&rsquo;ve bred — paired with curated indoor cultivars from Termsook Collective.
             </p>
           </div>
 
-          {/* Strain library — 13 cultivars */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-10 mb-24">
-            {strainLineup.map((s) => (
-              <div key={s.name} className="space-y-3 group">
+          {/* KD Outdoor strains */}
+          <div className="mb-6 max-w-2xl mx-auto text-center space-y-1">
+            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.25em]">
+              KD Genetics — Sun-Grown Outdoor
+            </span>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-10 mb-24">
+            {kdOutdoorStrains.map((s) => (
+              <Link key={s.name} href="/menu#flower" className="space-y-3 group">
                 <div className="aspect-square rounded-xl overflow-hidden bg-[#1E1E1E]">
                   <Image
                     src={s.img}
@@ -778,23 +789,49 @@ export default function HomePage() {
                   />
                 </div>
                 <p className="text-center text-[#1E1E1E] text-sm font-medium">{s.name}</p>
-              </div>
+              </Link>
             ))}
           </div>
 
-          {/* Concentrates row */}
+          {/* Termsook Collective indoor strains */}
+          <div className="mb-6 max-w-2xl mx-auto text-center space-y-1">
+            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.25em]">
+              Termsook Collective — Indoor
+            </span>
+            <p className="text-[#6B6B6B]/80 text-[11px] font-light italic">
+              Indoor-grown by our friends at Termsook Collective.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-x-4 gap-y-10 mb-24">
+            {termsookIndoorStrains.map((s) => (
+              <Link key={s.name} href="/menu#flower" className="space-y-3 group">
+                <div className="aspect-square rounded-xl overflow-hidden bg-[#1E1E1E]">
+                  <Image
+                    src={s.img}
+                    alt={s.name}
+                    width={900}
+                    height={900}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <p className="text-center text-[#1E1E1E] text-sm font-medium">{s.name}</p>
+              </Link>
+            ))}
+          </div>
+
+          {/* Beyond Flower */}
           <div className="text-center mb-10 max-w-xl mx-auto space-y-2">
             <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
               Beyond Flower
             </span>
             <h3 className="font-display text-2xl md:text-3xl text-[#1E1E1E]">
-              Hand-pressed concentrates and oils.
+              Oils, hash, rosin, apparel.
             </h3>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {concentrates.map((c) => (
-              <div key={c.title} className="space-y-4 group">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            {beyondFlower.map((c) => (
+              <Link key={c.title} href={c.href} className="space-y-3 group">
                 <div className="aspect-square rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
                   <Image
                     src={c.img}
@@ -810,16 +847,16 @@ export default function HomePage() {
                     {c.line}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
           <div className="text-center">
             <Link
-              href="#visit"
+              href="/menu"
               className="inline-flex items-center gap-2 text-[#5A6A4F] text-sm font-medium group"
             >
-              See the full menu at the shop
+              See the full menu
               <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
@@ -925,19 +962,19 @@ export default function HomePage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
                   <Image
-                    src="/shop-counter.jpg"
-                    alt="The shop counter"
-                    width={1600}
-                    height={1200}
+                    src="/shop-exterior.jpg"
+                    alt="The shop from the outside"
+                    width={1400}
+                    height={1050}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
                   <Image
-                    src="/shop-bud-jar.jpg"
-                    alt="Bud jars on the shop counter"
-                    width={1400}
-                    height={1050}
+                    src="/drone-bay.jpg"
+                    alt="Tanote Bay from above — the shop sits in the cove below"
+                    width={2000}
+                    height={1500}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -1011,10 +1048,10 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
               <Image
-                src="/drone-jungle.jpg"
-                alt="Tanote Bay — KD Genetics farm and Slowdown Homestay share the same plot"
-                width={2000}
-                height={1500}
+                src="/slowdown-front.jpg"
+                alt="Slow Down Homestay — Tanote Bay courtyard"
+                width={1600}
+                height={1066}
                 className="w-full h-full object-cover"
               />
             </div>
