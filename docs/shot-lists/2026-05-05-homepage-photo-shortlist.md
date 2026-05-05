@@ -1,184 +1,246 @@
-# Homepage Photo Shortlist — Huw Day-1 Shoot
+# Homepage Photo Pick Map — Huw Day-1 Shoot
 
 **Reviewed:** 2026-05-05
-**Source raws:** `~/Kevin's Claude Environment/Huw 1.5.K.D GENETICS/PHOTOS/` — 197 CR2 + 33 CR3 + 12 DNG + 1 JPEG = 242 photos total
-**Source video:** `~/Kevin's Claude Environment/Huw 1.5.K.D GENETICS/VIDEO/` — 92 MP4 clips, 61 GB (drone + camera, not yet reviewed)
-**Person IDs:** Papa = grey buzzcut, white KD tee. Kevin = darker hair, KD tee. Daniel = Western, blonde buzz cut, KD tee.
+**Source raws:** `~/Kevin's Claude Environment/Huw 1.5.K.D GENETICS/PHOTOS/`
+**Source video:** `~/Kevin's Claude Environment/Huw 1.5.K.D GENETICS/VIDEO/` (92 MP4 clips, 61 GB — not yet reviewed)
+**JPEG previews:** `~/Kevin's Claude Environment/Huw 1.5.K.D GENETICS/jpg-previews/` — 242 viewable JPGs
+**Contact sheets:** `~/Kevin's Claude Environment/Huw 1.5.K.D GENETICS/contact-sheets/sheet-01.jpg` … `sheet-07.jpg`
 
-> Filenames here correspond to JPEG previews. The matching raw is the same stem with `.CR2`/`.CR3`/`.DNG` extension in `PHOTOS/`. Drone stills are named `DRONE (N).jpg`. R7 body shots are `R7__NNNN.jpg`.
+**Person IDs (confirmed by Kevin):**
+- **Papa KD** = grey buzz cut, white KD tee, older
+- **Kevin** = darker hair, white KD tee, younger
+- **Daniel** = Western, blonde buzz cut, white KD tee
 
----
-
-## TL;DR
-
-Huw delivered everything we needed plus material we hadn't planned for. The homepage is essentially shot for stills. Outstanding wins:
-
-1. **The Papa-on-the-shrine sequence (5D4_2990–2998) is a true hero candidate.** Buddha image behind, Papa seated with the joint to his face — exactly the "Papa lighting up on the terrace" non-negotiable from the runbook.
-2. **Drone aerials of the property** — full 4 rai + Tanote Bay context, plus low-altitude property shots. Cross-usable on Slowdown site too.
-3. **Strain catalog (Sheet 4) is e-comm-grade** — labeled jar + isolated bud cutouts, every strain. Drop straight into the Products section.
-4. **Family photo wall (5D4_2666 / 5D4_2668)** — wasn't on the runbook. Strong asset for the origin/heritage section.
-
-What's still TODO from the runbook list:
-- The "**Trio handoff frame:** Papa + Kevin + Daniel" — I didn't see a single shot of all three together. Need to verify; if missing, this is a Day-2 / pickup shot.
-- The "**Bud macros on the wooden slab**" — close bud macros exist (Sheet 1 row 6), but not on the wooden slab specifically. Verify.
-- 90-sec Seed-to-Spliff narrative — already deferred to Day 2 per the runbook.
+> Filenames in this doc reference the `.jpg` preview. The matching raw is the same stem with `.CR2`/`.CR3`/`.DNG` extension in `PHOTOS/`. To use in the site you'll need to export full-quality JPG/WebP from the raw — the `/tmp/...` and `jpg-previews/` files are 1200px review crops, not production-ready.
 
 ---
 
-## Section 1 — HERO
+# Section-by-section pick map
 
-**Primary pick:** `5D4_2990.jpg` (#181) — Papa seated at the shrine, joint to mouth, Buddha image dominant behind him. Cinematic. This was the runbook's #7 non-negotiable and it landed.
-
-**Alternates (same sequence, different beats):**
-- `5D4_2992.jpg` (#183) — slight angle change
-- `5D4_2993.jpg` (#184) — closer to lighting
-- `5D4_2995.jpg` (#185) — peak exhale moment
-
-**Wide / drone alternative** (if you want landscape over portrait for hero):
-- `DRONE (1).jpg` or `DRONE (2).jpg` — full property + bay context
-- `DRONE (4).jpg` / `DRONE (6).jpg` — property nestled in jungle
-
-**Pure portrait alternative** (Khalifa-Kush style, no setting):
-- `5D4_2284.jpg` (#002) — Papa contemplative, leaves framing
-- `5D4_2285.jpg` (#003) — warm smile
-
-**Recommendation:** stills hero = `5D4_2990`. Video hero (once you cut it in CapCut) = pull frames from drone clips for the opener, then push into Papa-shrine for the moment.
+Walking the homepage in render order. Each block names the exact photo to drop into each empty `ShotPlaceholder`.
 
 ---
 
-## Section 2 — PAPA KD section (`#papa`)
+## 1. HERO (line 138 in `page.tsx`)
+**Currently:** expects `/hero-loop.mp4` + `/hero-loop-poster.jpg`
+**Status:** video to be cut in CapCut from drone clips (deferred). Poster stills available now.
 
-**Primary portrait:** `5D4_2284.jpg` (#002) — Papa under leaves, contemplative.
-**Supporting:** `5D4_2280.jpg` (#001), `5D4_2285.jpg` (#003), `5D4_2998.jpg` (#186 — seated profile with Buddha context).
-**Hands-on / working shot for variety:** `5D4_3001.jpg` (#187) or `5D4_3005.jpg` (#188) — Papa in greenhouse with hand to face.
-
-Papa's quote (from `kd_brand_narrative.md`) sits next to the primary portrait:
-> *"Use cannabis wisely is well-being. Greed and ignorance is your own karma, not ganja."*
+**Hero poster candidates** (drop in `/public/hero-loop-poster.jpg`):
+- **Primary:** `5D4_2990` — Papa at the shrine, joint to mouth, Buddha behind. Cinematic.
+- **Alt 1:** `5D4_2992`, `5D4_2993`, `5D4_2995` — same sequence, different beats
+- **Wide alt:** `DRONE (1)` or `DRONE (4)` — full property + bay context
 
 ---
 
-## Section 3 — NEXT GENERATION (Kevin + Daniel) — `#next-generation`
+## 2. NUMBERS (line 199)
+No image — animated counters only.
 
-Visual weight target: Kevin ~27.5%, Daniel ~27.5%.
+---
+
+## 3. PAPA KD section (line 228) — `#papa`
+**Empty placeholder:** `Papa KD — hero portrait, golden hour, on the farm` (4:5 aspect).
+
+**Primary:** `5D4_2284` — Papa under cannabis leaves, contemplative. Closest to "hero portrait, on the farm" brief, classic 4:5.
+**Alt 1:** `5D4_2280` — same sequence, slight smile, also strong
+**Alt 2:** `5D4_2285` — warmest expression of the three
+**Cinematic alt** (if you want shrine context, not just face): `5D4_2998`
+
+---
+
+## 4. WHY WE CAME BACK / TERRACE (line 288)
+**Empty placeholder:** `The terrace — original photo ~2015 if Kevin can locate it, otherwise reshoot Friday` (4:5).
+
+**You said you have the original 2015 terrace photo.** Drop it in `/public/terrace-2015.jpg` and I'll wire it.
+
+If you don't end up locating it, **fallback from this shoot:** none of the 242 photos are clearly a "terrace circa 2015" reshoot. We'd have to either reshoot a moody terrace-and-bay frame later, or substitute a Tanote Bay drone landscape (`DRONE (2)` or `DRONE (3)` — the property nestled in jungle with the bay below).
+
+---
+
+## 5. NEXT GENERATION — Kevin + Daniel (line 336) — `#next-generation`
+**Currently using:** `/founder-kevin-v3.png` + `/founder-daniel.png` (probably outdated — pre-shoot stand-ins)
+
+**Update both with shoot picks.** Square crop (the section uses `aspect-square`).
 
 **Kevin solo:**
-- Primary: `5D4_2306.jpg` (#009) — examining plant, profile
-- Alt: `5D4_2309.jpg` (#010), `5D4_2329.jpg` (#016 — direct smile)
+- **Primary:** `5D4_2306` — examining plant in profile, hands-on energy
+- **Alt:** `5D4_2329` (direct smile to camera), `5D4_2309` (with plant), `5D4_2325` (close to plant)
 
-**Daniel solo (from Sheet 2):**
-- Primary: needs your eye on Sheet 2 — many strong frames. Best candidates by my read: `5D4_2415.jpg`, `5D4_2419.jpg`, `5D4_2426.jpg` — Daniel close to plants, working.
-- Variety shot (action): `5D4_2433.jpg` or `5D4_2438.jpg` — Daniel + plant in greenhouse
+**Daniel solo:**
+- **Primary:** `5D4_2415` — Daniel in greenhouse with plant, classic environmental portrait
+- **Alt:** `5D4_2419`, `5D4_2426`, `5D4_2433` — same series, different angles
+- **Warm alt** (if you want him laughing/relaxed): `5D4_2467` or `5D4_2470`
 
-**Kevin + Daniel together (paired handoff frame):**
-- I saw paired/group frames in Sheet 2 rows 4-6 — `5D4_2487.jpg`, `5D4_2493.jpg`, `5D4_2496.jpg`, `5D4_2498.jpg` are candidates. **You decide which one nails the "two co-founders" energy.**
-
----
-
-## Section 4 — PHILOSOPHY / Living Soil — `#philosophy`
-
-This section needs textural, ecological imagery. Sheet 3 bottom row delivered.
-
-- **Primary soil macros (pick 1–2):** `5D4_2641.jpg` (#103), `5D4_2642.jpg` (#104), `5D4_2645.jpg` (#105), `5D4_2647.jpg` (#106), `5D4_2649.jpg` (#107)
-- **BioBizz partnership visual:** `5D4_2565.jpg` (#080) or `5D4_2567.jpg` (#081) — the BioBizz fertilizer shelves, unmistakable partnership proof
+**Pair / handoff frame** (if you want to add a third image showing them together — currently the section is two solo cards; could become a 3-up):
+- `5D4_2487`, `5D4_2493`, `5D4_2496`, `5D4_2498` — group/team frames where Kevin + Daniel are visible together. **Open your eye on these — pair selection is yours.**
 
 ---
 
-## Section 5 — THE FARM / The Grounds — `#the-farm`
+## 6. TEAM CAROUSEL — NEW SECTION (you asked for this)
+**Doesn't exist on the page yet.** I'd recommend slotting it between Next Generation (§5) and Philosophy (§6), as a horizontal scroll/carousel. Section name: "The Team" or "The People".
 
-- **Aerial establishing:** `DRONE (1).jpg`, `DRONE (2).jpg`, `DRONE (4).jpg`
-- **Property in jungle context:** `DRONE (6).jpg`, `DRONE (7).jpg`, `DRONE (8).jpg`
-- **Greenhouse exterior (long view):** `5D4_2550.jpg` (#074), `5D4_2552.jpg` (#075)
-- **Greenhouse interior rows:** `5D4_2588.jpg` (#087), `5D4_2589.jpg` (#088), `5D4_2592.jpg` (#089), `5D4_2594.jpg` (#090)
-- **Indoor grow / propagation:** `5D4_2558.jpg` (#077), `5D4_2559.jpg` (#078), `5D4_2570.jpg` (#082)
-- **Cannabis macro for the section opener:** `5D4_2358.jpg` (#028 — vertical cola), `5D4_2360.jpg` (#029)
+**Group team shots (carousel hero / opener):**
+- **Primary:** `5D4_2487` or `5D4_2493` — full team standing together in greenhouse, white KD tees
+- **Alt:** `5D4_2496`, `5D4_2498`, `5D4_2507`, `5D4_2516` — variations of the group
 
----
+**Individual environmental portraits of staff** (the carousel slides):
+- Daniel: `5D4_2415` (or whatever you didn't pick for §5)
+- Kevin: `5D4_2306` (or whatever you didn't pick for §5)
+- Thai woman (curly/braided hair, KD tee): `5D4_2519`, `5D4_2521` — solo portraits
+- Older Asian gentleman (grey hair, doorway light): `5D4_2887`, `5D4_2894` — moody/distinguished
+- Staff member 1 (younger, dark hair, greenhouse): `5D4_2899`, `5D4_2902`, `5D4_2906`, `5D4_2913`
+- Staff member 2 (different younger man, greenhouse): `5D4_2922`, `5D4_2925`, `5D4_2930`
+- Staff member 3 (third individual portrait series): `5D4_2939`, `5D4_2945`, `5D4_2948`
 
-## Section 6 — FARM TOUR — `#tour`
+**I can't reliably name each staff member from photos — once you confirm names + roles, I'll bake them into a `team` data array similar to `nextGeneration`.**
 
-The runbook flagged this as the primary on-island CTA. Coverage is dense.
-
-- **Tour signage / "KD Farm Loop":** `R7__1584.jpg` (#223), `R7__1589.jpg` (#224)
-- **Trail walk + ocean view:** `R7__1596.jpg` (#225), `R7__1601.jpg` (#226), `R7__1609.jpg` (#227)
-- **Working the land (watering, ocean behind):** `R7__1618.jpg` (#229), `R7__1631.jpg` (#231), `R7__1634.jpg` (#232)
-- **Animals / closed loop story:** `R7__1491.jpg` (#206), `R7__1493.jpg` (#207), `R7__1499.jpg` (#208) — chicken coop action
-- **Garden harvesting on the way:** `R7__1473.jpg` (#202), `R7__1482.jpg` (#203), `R7__1484.jpg` (#204) — Kevin walking with tray of greens
-
----
-
-## Section 7 — PRODUCTS — `#products`
-
-Strain catalog (Sheet 4). Each strain gets a paired layout: jar label + bud cutout.
-
-| Strain | Label shot | Bud cutout |
-|---|---|---|
-| KD Landrace #3 | `5D4_2701.jpg` | `5D4_2705.jpg` |
-| KD Cherry | `5D4_2710.jpg` | `5D4_2714.jpg` |
-| Cheese Cookies | `5D4_2719.jpg` | `5D4_2720.jpg` |
-| Lavender #10 | `5D4_2724.jpg` | `5D4_2728.jpg` |
-| Lemon Orange | `5D4_2730.jpg` | `5D4_2732.jpg` |
-| Alien Mints | `5D4_2733.jpg` | `5D4_2735.jpg` |
-| God Z | `5D4_2739.jpg` | `5D4_2740.jpg` |
-| Banana Conda | `5D4_2744.jpg` | `5D4_2747.jpg` |
-| Kiwi | `5D4_2749.jpg` | `5D4_2750.jpg` |
-| Unicorn Poop | `5D4_2754.jpg` | `5D4_2756.jpg` |
-| KD Black Tiger | `5D4_2761.jpg` | `5D4_2763.jpg` |
-| Hella Jelly #2 | `5D4_2764.jpg` | `5D4_2766.jpg` |
-| KD Blacktip | `5D4_2768.jpg` | `5D4_2771.jpg` |
-
-> Verify these pairings by opening the sheet — I matched them by visual order, but a couple of strains (Lavender #10 #122 vs #141) appear twice in the catalog and the second take is likely sharper.
-
-**Hash products:** `5D4_2803.jpg` (#145), `5D4_2811.jpg` (#146), `5D4_2814.jpg` (#147), `5D4_2825.jpg` (#148)
-**Cannabis Oil bottles:** `5D4_2780.jpg` (#143), and the second oil shot at #144
+**Lifestyle / together at the table:** `5D4_2964`, `5D4_2969`, `5D4_2971` — group seated with hash on tray. Real "we work together" energy. Could close the carousel.
 
 ---
 
-## Section 8 — APPAREL — `#apparel`
+## 7. PHILOSOPHY — How We Grow (line 384) — `#philosophy`
+**Empty placeholder:** `Hands in living soil — macro` (4:3).
 
-Flat lays on green grass, four shirt designs.
+**Primary:** `5D4_2645` — soil macro detail. Closest to the "hands in living soil" brief that we have.
+**Alt 1:** `5D4_2647`, `5D4_2649` — different soil texture macros
+**Alt 2 (if you want to show working hands, not pure soil):** `5D4_2581` — a person in KD tee tending plants
 
-| Design | Front | Back |
-|---|---|---|
-| T-Shirt 1 | `T-SHIRT 1 (1).jpg` (#235) | `T-SHIRT 1 (2).jpg` (#236) |
-| T-Shirt 2 | `T-SHIRT 2 (1).jpg` (#237) | `T-SHIRT 2 (2).jpg` (#238) |
-| T-Shirt 3 | `T-SHIRT 3 (1).jpg` (#239) | `T-SHIRT 3 (2).jpg` (#240) |
-| T-Shirt 4 | `T-SHIRT 4 (1).jpg` (#241) | `T-SHIRT 4 (2).jpg` (#242) |
+**You asked for "different pictures" plural — the section currently has just one slot.** If you want a 2-3 image grid here showing the philosophy pillars (living soil + sun-grown + small batch), expand the layout to:
 
-Khalifa-Kush reference said "people actually wearing the merch." We don't have lifestyle shots of the apparel from this shoot — those stay in the team and Papa shots (everyone is wearing KD tees throughout). Could swap one of the team shots from Sheet 2 row 4-6 into the apparel section as the lifestyle pillar above the flat lays.
+| Pillar | Photo |
+|---|---|
+| Living soil | `5D4_2645` (soil macro) |
+| Sun-grown | `5D4_2588` or `5D4_2592` (greenhouse rows in light) |
+| Small batch | `5D4_2581` (hands working plant) or `5D4_2627` (shop bar / counter, where small batch lives) |
 
----
-
-## Section 9 — VISIT / SHOP — `#visit`
-
-The shop interior coverage is strong — wasn't on the runbook explicitly but Huw caught it.
-
-- **Shop interior with mural:** `5D4_2597.jpg` (#092) — the painted mural is a one-of-a-kind brand asset
-- **Round window doorway:** `5D4_2595.jpg` (#091)
-- **Bar / counter shots:** `5D4_2598.jpg` (#093), `5D4_2627.jpg` (#096)
-- **Shop exterior:** `5D4_2635.jpg` (#098), `5D4_2636.jpg` (#099)
+Tell me to expand the layout and I'll do it.
 
 ---
 
-## Heritage / Origin — candidate for the story block between Papa and Next Generation
+## 8. BIOBIZZ partnership block (line 433, inside §7)
+**3 empty squares:** `Sep 2025 archive — BioBizz visit #1, #2, #3` (aspect-square, dark mode).
 
-Not in the current `/preview` structure but worth adding given how strong this asset is:
+**Currently expecting from the September 2025 Hue archive at** `~/Desktop/Kevin/KDG/Bilder/Fotos/Huw:Biobizz/` — Luis, Ivan, El Santo, Basque hat with Papa shots.
 
-- **Family photo wall:** `5D4_2666.jpg` (#112), `5D4_2668.jpg` (#113) — framed family photos and books on a shelf. Visual anchor for the terrace dream / 10-year origin story.
+**You said you'll add more BioBizz pictures to the folder.** When they land, drop them in `Huw 1.5.K.D GENETICS/PHOTOS/` (or any subfolder you like) and I'll regenerate previews + identify the 3 strongest for these slots.
 
----
-
-## Texture / cutaway library (use freely as section dividers)
-
-- Wood log cross-section: `5D4_2651.jpg` (#109)
-- Tropical leaves macro: `5D4_2654.jpg` (#110)
-- Bamboo wall: `5D4_2686.jpg` (#114)
-- Dog on lawn (warmth/lifestyle): `5D4_2604.jpg` (#094), `5D4_2619.jpg` (#095)
+**From this Day-1 shoot:** no BioBizz visit shots — they're just from the September 2025 trip. The strongest BioBizz-adjacent asset we DO have from Day-1 is `5D4_2565` and `5D4_2567` (the BioBizz fertilizer shelves), which could go elsewhere on the page as proof-of-partnership texture.
 
 ---
 
-## Action items
+## 9. THE FARM (line 506) — `#the-farm`
 
-1. **Confirm picks** — open `/tmp/kd-sheets/sheet-NN.jpg` to verify my reads. Specifically: which Daniel solo, which Kevin+Daniel handoff frame, which strain pairings.
-2. **Trio shot check** — search the full set for a Papa+Kevin+Daniel frame. If none, log as Day-2 pickup.
-3. **Wooden-slab bud macro check** — verify whether any of the bud macros are on the wooden slab specifically.
-4. **Video review next** — 92 MP4 clips, 61 GB. Once you greenlight, I'll extract frames and shortlist the strongest clips for the hero loop and section videos.
+### 9a. Hero drone establishing (line 524)
+**Empty placeholder:** `Drone cinematic: Tanote Bay → mountain → jungle → zoom into farm. Shoot Friday sunrise` (16:9).
+
+**Primary still:** `DRONE (1)` — full property + bay context
+**Alt:** `DRONE (2)`, `DRONE (4)` — variations
+
+(The actual cinematic video for this slot is the hero loop you'll cut in CapCut.)
+
+### 9b. Six-up grid (line 530)
+Six labeled placeholders. My picks:
+
+| Slot label | Photo |
+|---|---|
+| Nursery — young plants | `5D4_2561` (seedlings on tray) |
+| Veg stage under shade | `5D4_2545` (boardwalk with seedlings) |
+| Flowering terrace | `5D4_2588` or `5D4_2592` (greenhouse rows of flowering plants) |
+| Chill area — where the tour ends | `5D4_2598` (mural shop interior) or `5D4_2627` (bar / counter) |
+| Tanote Bay view | `DRONE (2)` or `DRONE (3)` (aerial showing bay) |
+| Shop exterior | `5D4_2635` or `5D4_2636` (white-wall building) |
+
+---
+
+## 10. FARM TOUR (line 567) — `#tour`
+
+### 10a. Tour loop video (line 594)
+**Empty placeholder:** `Drone: Farm Tour Loop video — one clean 45–60 sec cinematic take` (16:9, dark).
+
+Same as hero: cut in CapCut from the drone clips. Poster still: `DRONE (4)` or `DRONE (6)` — property in jungle context.
+
+### 10b. (No other image slots in this section — it's text + booking form)
+
+**For ambient texture** if you decide to add a few photos to the tour section:
+- Farm tour signage: `R7__1584`, `R7__1589` (KD Farm Loop sign)
+- Tour walking: `R7__1596`, `R7__1601`, `R7__1609` (trail with ocean view)
+- Working the land (watering, ocean behind): `R7__1618`, `R7__1631`, `R7__1634`
+- Animals (closed-loop story): `R7__1491`, `R7__1493`, `R7__1499` (chicken coop)
+
+---
+
+## 11. PRODUCTS (line 666) — `#products`
+**5 empty placeholders:** `Flower / Hash / Rosin / Oils / Edibles — hero on wooden slab` (square).
+
+The full strain catalog is in the shoot — labeled jar + isolated bud cutouts.
+
+| Slot | Photo |
+|---|---|
+| Flower | `5D4_2705` (any of the bud cutouts — pick a strain) |
+| Hash | `5D4_2803` or `5D4_2811` (hash discs in packaging) |
+| Rosin | `5D4_2814` (single hash brick top-down — closest we have to rosin/concentrate) |
+| Oils | `5D4_2780` (Mr. KD's Cannabis Oil bottles) |
+| Edibles | **NOT in this shoot** — flag for next shoot |
+
+> Note: shoot didn't deliver an "edibles" hero specifically. Use a strong bud or hash shot as placeholder until edibles gets photographed. Or remove the Edibles tile from `productCategories` array if you'd rather not feature it on the homepage yet.
+
+---
+
+## 12. APPAREL (line 709) — `#apparel`
+**4 empty placeholders:** `Model in KD tee — garden / chill area / hammock / walking into shop` (3:4).
+
+**The shoot didn't deliver dedicated apparel lifestyle shots** — but the team and Daniel/Kevin shots throughout the shoot are all in KD tees, so we use those:
+
+| Slot label | Photo |
+|---|---|
+| Model in KD tee — garden | `5D4_2306` (Kevin examining plant) |
+| Model in KD tee — chill area | `5D4_2493` or `5D4_2496` (group team in greenhouse) |
+| Model on hammock, apparel | `R7__1473` (Kevin walking with tray of greens) — closest we have to "lifestyle/movement in apparel" |
+| Walking into the shop, apparel | `5D4_2604` or `5D4_2619` (Kevin/Daniel with golden retriever on lawn — warm lifestyle) |
+
+**Plus the flat-lays for product detail somewhere lower in the section:**
+- `T-SHIRT 1 (1)`, `T-SHIRT 1 (2)` (front + back)
+- `T-SHIRT 2 (1)`, `T-SHIRT 2 (2)`
+- `T-SHIRT 3 (1)`, `T-SHIRT 3 (2)`
+- `T-SHIRT 4 (1)`, `T-SHIRT 4 (2)`
+
+---
+
+## 13. VISIT — Shop section (line 749) — `#visit`
+3 empty placeholders.
+
+| Slot label | Photo |
+|---|---|
+| Shop interior — bamboo counter, bud jars, arched niches | `5D4_2598` (mural + bar interior — strongest brand asset) |
+| Chill area — wide | `5D4_2595` (round window doorway) or `5D4_2627` (counter wide) |
+| Bud jars on counter — hero | `5D4_2701`-style strain jar or `5D4_2710` (KD Cherry jar shot) |
+
+---
+
+## 14. SLOWDOWN HOMESTAY link (line 837)
+**Empty placeholder:** `Slowdown Homestay — exterior, jungle, golden hour` (4:3).
+
+**Not in this shoot** (it was the KD farm focus). Two options:
+1. Use an existing Slowdown photo from `~/Kevin's Claude Environment/projects/slow-down-homestay/` (the Slowdown site already has hero shots — easiest)
+2. Or use a drone aerial that shows both buildings: `DRONE (6)` or `DRONE (7)` — property aerials
+
+---
+
+## 15. MEDIA (line 877) — `#media`
+No image slots — text-only press cards.
+
+---
+
+## 16. CONTACT (line 918) — `#contact`
+No image slots — newsletter form only.
+
+---
+
+# Outstanding TODOs (you'll need these to complete)
+
+1. **Terrace photo** — drop your 2015 original at `/public/terrace-2015.jpg`
+2. **BioBizz visit photos** — drop them in the `Huw 1.5.K.D GENETICS/PHOTOS/` folder, tell me, I'll re-pick the 3 best
+3. **Team identification** — confirm names + roles for the staff in §6 so I can build the data array
+4. **Trio handoff frame** (Papa + Kevin + Daniel together) — I didn't see one in the 242 photos. If important, log as Day-2 pickup
+5. **Edibles hero shot** — not delivered, decide whether to defer or remove from §11
+6. **Slowdown exterior at golden hour** — not in this shoot, pull from existing Slowdown assets or schedule
+7. **Video review** — once you greenlight, I'll process the 92 MP4 clips and surface the 5–10 strongest for the hero loop + tour loop CapCut work
