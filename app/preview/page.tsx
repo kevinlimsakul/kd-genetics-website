@@ -403,7 +403,7 @@ export default function HomePage() {
           {/* Group hero */}
           <div className="aspect-[3/2] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 mb-3 max-w-5xl mx-auto">
             <Image
-              src="/team-group.jpg"
+              src="/team-group-2026.jpg"
               alt="The full KD Genetics crew — Wai, Khant, Wee, Che, Mr KD, Daniel, Kevin"
               width={2400}
               height={1600}
