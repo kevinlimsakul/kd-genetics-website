@@ -91,10 +91,10 @@ const beyondFlower = [
 ];
 
 const team = [
-  { img: "/team-1.jpg",        name: "Pee Wee" },     // woman, hanging buds
-  { img: "/team-2.jpg",        name: "Khant" },        // shop, jar + tweezers
-  { img: "/team-watering.jpg", name: "Pichet" },       // watering, ocean view
-  { img: "/team-soil.jpg",     name: "Pee Wee" },      // soil / seedlings
+  { img: "/team-1.jpg",   name: "Wai" },     // woman, hanging buds
+  { img: "/team-2.jpg",   name: "Khant" },   // shop, jar + tweezers
+  { img: "/team-wee.jpg", name: "Wee" },     // greenhouse watering
+  { img: "/team-che.jpg", name: "Che" },     // soil prep with shovel
 ];
 
 const mediaArticles = [
@@ -404,14 +404,14 @@ export default function HomePage() {
           <div className="aspect-[3/2] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 mb-3 max-w-5xl mx-auto">
             <Image
               src="/team-group.jpg"
-              alt="The full KD Genetics team — Khant, Mr KD, Daniel, Kevin, Pee Wee, Pee Wee, Pichet"
-              width={2000}
-              height={1333}
+              alt="The full KD Genetics crew — Wai, Khant, Wee, Che, Mr KD, Daniel, Kevin"
+              width={2400}
+              height={1600}
               className="w-full h-full object-cover"
             />
           </div>
           <p className="text-center text-[#6B6B6B]/80 text-[11px] font-light italic max-w-3xl mx-auto mb-14">
-            The full crew — left to right: Khant · Mr KD · Daniel · Kevin · Pee Wee · Pee Wee · Pichet
+            The full crew — Mr KD, Daniel and Kevin with Wai, Khant, Wee and Che.
           </p>
 
           {/* Four staff portraits — Mr KD and the founders are featured elsewhere */}
