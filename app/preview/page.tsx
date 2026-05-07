@@ -87,7 +87,7 @@ const beyondFlower = [
   { title: "Oils",    line: "Mr. KD's craft cannabis oils.",     img: "/oil-hero.jpg",       href: "/menu#oils" },
   { title: "Hash",    line: "Hand-washed, pressed on the farm.", img: "/hash-hero.jpg",      href: "/menu#hash" },
   { title: "Rosin",   line: "Solventless, small batch.",         img: "/hash-hero.jpg",      href: "/menu#rosin" },
-  { title: "Apparel", line: "What we wear on the farm.",         img: "/apparel-kevin.jpg",  href: "#apparel" },
+  { title: "Apparel", line: "What we wear on the farm.",         img: "/apparel-papa-black.jpg",  href: "#apparel" },
 ];
 
 const team = [
@@ -882,10 +882,10 @@ export default function HomePage() {
           {/* Worn on the farm */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
             {[
-              { label: "In the garden",     img: "/apparel-kevin.jpg" },
-              { label: "On the farm",       img: "/apparel-team.jpg" },
-              { label: "Carrying greens",   img: "/apparel-greens.jpg" },
-              { label: "Off the clock",     img: "/apparel-dog.jpg" },
+              { label: "Father.",          img: "/apparel-papa-black.jpg" },
+              { label: "Founder.",         img: "/apparel-kevin-black.jpg" },
+              { label: "Tending.",         img: "/apparel-papa-graphic.jpg" },
+              { label: "Off the clock.",   img: "/apparel-kevin-graphic.jpg" },
             ].map((tile) => (
               <div key={tile.label} className="aspect-[3/4] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
                 <Image
