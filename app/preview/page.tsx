@@ -929,20 +929,20 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* T-shirt flat lays — the lineup */}
+          {/* Worn in the greenhouse — second row of lifestyle shots */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
             {[
-              "/tee-1-front.jpg",
-              "/tee-2-front.jpg",
-              "/tee-3-front.jpg",
-              "/tee-4-front.jpg",
-            ].map((img, i) => (
-              <div key={img} className="aspect-square rounded-xl overflow-hidden bg-[#EAE6DE]/40">
+              { label: "Papa, with the plants.",   img: "/apparel-papa-plant.jpg" },
+              { label: "Papa, rolling.",           img: "/apparel-papa-rolling.jpg" },
+              { label: "Kevin, in the green.",     img: "/apparel-kevin-quote.jpg" },
+              { label: "Papa, in the canopy.",     img: "/apparel-papa-quote-back.jpg" },
+            ].map((tile) => (
+              <div key={tile.label} className="aspect-[3/4] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
                 <Image
-                  src={img}
-                  alt={`KD Genetics tee ${i + 1}`}
+                  src={tile.img}
+                  alt={tile.label}
                   width={1200}
-                  height={1200}
+                  height={1800}
                   className="w-full h-full object-cover"
                 />
               </div>
