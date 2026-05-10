@@ -8,6 +8,7 @@ import TourBookingForm from "@/components/TourBookingForm";
 import ContactForm from "@/components/ContactForm";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import PhotoGallery from "@/components/PhotoGallery";
+import StrainGrid from "@/components/StrainGrid";
 import {
   Leaf,
   Sun,
@@ -75,7 +76,7 @@ const kdOutdoorStrains = [
   { name: "Hella Jelly #2", img: "/strain-hella-jelly.jpg" },
 ];
 
-const termsookIndoorStrains = [
+const termsukIndoorStrains = [
   { name: "Lemon Orange",   img: "/strain-lemon-orange.jpg" },
   { name: "Alien Mints",    img: "/strain-alien-mints.jpg" },
   { name: "God Z",          img: "/strain-god-z.jpg" },
@@ -87,7 +88,7 @@ const termsookIndoorStrains = [
 const beyondFlower = [
   { title: "Oils",    line: "Mr. KD's craft cannabis oils.",     img: "/oil-hero.jpg",       href: "/menu#oils" },
   { title: "Hash",    line: "Hand-washed, pressed on the farm.", img: "/hash-hero.jpg",      href: "/menu#hash" },
-  { title: "Rosin",   line: "Solventless, small batch.",         img: "/hash-hero.jpg",      href: "/menu#rosin" },
+  { title: "Rosin",   line: "Solventless, small batch.",         img: "/rosin-hero.jpg",     href: "/menu#rosin" },
   { title: "Apparel", line: "What we wear on the farm.",         img: "/apparel-papa-black.jpg",  href: "#apparel" },
 ];
 
@@ -783,7 +784,7 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-       *  9. THE LINEUP — KD Outdoor + Termsook Indoor + Beyond Flower
+       *  9. THE LINEUP — KD Outdoor + Termsuk Indoor + Beyond Flower
        * ══════════════════════════════════════════════════════════════════ */}
       <section id="products" className="py-32 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
@@ -795,7 +796,7 @@ export default function HomePage() {
               Sun-grown outdoor. Premium indoor.
             </h2>
             <p className="text-[#6B6B6B] text-base font-light">
-              KD landraces and crosses we&rsquo;ve bred — paired with curated indoor cultivars from Termsook Collective.
+              KD landraces and crosses we&rsquo;ve bred — paired with curated indoor cultivars from Termsuk Collective.
             </p>
           </div>
 
@@ -805,48 +806,24 @@ export default function HomePage() {
               KD Genetics — Sun-Grown Outdoor
             </span>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-10 mb-24">
-            {kdOutdoorStrains.map((s) => (
-              <Link key={s.name} href="/menu#flower" className="space-y-3 group">
-                <div className="aspect-square rounded-xl overflow-hidden bg-[#1E1E1E]">
-                  <Image
-                    src={s.img}
-                    alt={s.name}
-                    width={900}
-                    height={900}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <p className="text-center text-[#1E1E1E] text-sm font-medium">{s.name}</p>
-              </Link>
-            ))}
-          </div>
+          <StrainGrid
+            strains={kdOutdoorStrains}
+            gridClassName="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-10 mb-24"
+          />
 
-          {/* Termsook Collective indoor strains */}
+          {/* Termsuk Collective indoor strains */}
           <div className="mb-6 max-w-2xl mx-auto text-center space-y-1">
             <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.25em]">
-              Termsook Collective — Indoor
+              Termsuk Collective — Indoor
             </span>
             <p className="text-[#6B6B6B]/80 text-[11px] font-light italic">
-              Indoor-grown by our friends at Termsook Collective.
+              Indoor-grown by our friends at Termsuk Collective.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-10 mb-24">
-            {termsookIndoorStrains.map((s) => (
-              <Link key={s.name} href="/menu#flower" className="space-y-3 group">
-                <div className="aspect-square rounded-xl overflow-hidden bg-[#1E1E1E]">
-                  <Image
-                    src={s.img}
-                    alt={s.name}
-                    width={900}
-                    height={900}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <p className="text-center text-[#1E1E1E] text-sm font-medium">{s.name}</p>
-              </Link>
-            ))}
-          </div>
+          <StrainGrid
+            strains={termsukIndoorStrains}
+            gridClassName="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-10 mb-24"
+          />
 
           {/* Beyond Flower */}
           <div className="text-center mb-10 max-w-xl mx-auto space-y-2">
