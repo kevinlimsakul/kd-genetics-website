@@ -337,13 +337,14 @@ export default function HomePage() {
             {/* Beat 2: Years apart, Papa's legalization work */}
             <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
               <div className="md:col-span-5 md:order-2">
-                <div className="aspect-square rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
                   <Image
                     src="/legalization-2022.jpg"
                     alt="Papa KD handing a cannabis plant to a Thai government official during the legalization push"
                     width={1200}
                     height={1200}
                     className="w-full h-full object-cover"
+                    style={{ objectPosition: "center 55%" }}
                   />
                 </div>
               </div>
@@ -360,7 +361,7 @@ export default function HomePage() {
             {/* Beat 3: Coming home, the farm today */}
             <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
               <div className="md:col-span-5">
-                <div className="aspect-[3/2] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
                   <Image
                     src="/three-of-us-2025.jpg"
                     alt="Daniel, Papa KD, and Kevin on the farm"
