@@ -53,13 +53,13 @@ export default function StrainGrid({
             className="space-y-3 group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5A6A4F] rounded-xl"
             aria-label={`Enlarge ${s.name}`}
           >
-            <div className="aspect-square rounded-xl overflow-hidden bg-[#EAE6DE] cursor-zoom-in p-4 md:p-6">
+            <div className="aspect-square overflow-hidden cursor-zoom-in">
               <Image
                 src={s.img}
                 alt={s.name}
                 width={1200}
                 height={1200}
-                className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
               />
             </div>
             <p className="text-center text-[#1E1E1E] text-sm font-medium">
@@ -117,7 +117,7 @@ export default function StrainGrid({
           )}
 
           <div
-            className="relative max-w-6xl w-full flex flex-col items-center cursor-default"
+            className="relative max-w-7xl w-full flex flex-col items-center cursor-default"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -125,7 +125,7 @@ export default function StrainGrid({
               alt={strains[openIndex].name}
               width={2000}
               height={2000}
-              className="w-auto h-auto max-w-full max-h-[90vh] object-contain rounded-lg bg-[#EAE6DE]"
+              className="w-auto h-auto max-w-full max-h-[92vh] object-contain"
               priority
             />
             <p className="text-white/80 text-base font-light text-center mt-4">
