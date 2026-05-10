@@ -932,7 +932,7 @@ export default function HomePage() {
           {/* Worn in the greenhouse — second row of lifestyle shots */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
             {[
-              { label: "Papa, with the plants.",   img: "/apparel-papa-plant.jpg" },
+              { label: "The three of us.",         img: "/apparel-three-of-us.jpg" },
               { label: "Papa, rolling.",           img: "/apparel-papa-rolling.jpg" },
               { label: "Kevin, in the green.",     img: "/apparel-kevin-quote.jpg" },
               { label: "Papa, in the canopy.",     img: "/apparel-papa-quote-back.jpg" },
