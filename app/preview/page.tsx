@@ -151,7 +151,7 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-4xl space-y-12 mt-10">
           <div className="space-y-6">
-            <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white/90 text-[10px] font-medium uppercase tracking-[0.2em]">
+            <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-white/90 text-xs font-medium uppercase tracking-[0.2em]">
               Koh Tao, Thailand
             </div>
             <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.05] text-white drop-shadow-lg">
@@ -197,7 +197,7 @@ export default function HomePage() {
       <section className="py-28 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-16 max-w-xl mx-auto space-y-3">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               By the Numbers
             </span>
             <h2 className="font-display text-3xl md:text-4xl text-[#1E1E1E]">
@@ -252,7 +252,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="space-y-6">
-              <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+              <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
                 The Face of KD
               </span>
               <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E] leading-tight">
@@ -280,10 +280,10 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="pt-4 flex flex-wrap gap-3">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#5A6A4F]/10 text-[#5A6A4F] text-[10px] font-medium uppercase tracking-[0.15em] rounded-full">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#5A6A4F]/10 text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.15em] rounded-full">
                   <Award className="h-3 w-3" /> Jack Herer Cup 2019
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#5A6A4F]/10 text-[#5A6A4F] text-[10px] font-medium uppercase tracking-[0.15em] rounded-full">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#5A6A4F]/10 text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.15em] rounded-full">
                   <Leaf className="h-3 w-3" /> Thai Cannabis Pioneer
                 </span>
               </div>
@@ -298,7 +298,7 @@ export default function HomePage() {
       <section className="py-28 bg-[#F6F4EF] relative">
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="text-center mb-16 max-w-xl mx-auto space-y-3">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               Why We Came Back
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E] leading-tight">
@@ -358,7 +358,7 @@ export default function HomePage() {
       <section id="next-generation" className="py-32 bg-[#EAE6DE]/30">
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="text-center mb-20 space-y-4">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               The Next Generation
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E] leading-tight">
@@ -382,7 +382,7 @@ export default function HomePage() {
                 </div>
                 <div className="space-y-2">
                   <h3 className="font-display text-2xl text-[#1E1E1E]">{p.name}</h3>
-                  <p className="text-[#5A6A4F]/70 text-[10px] font-medium uppercase tracking-[0.15em]">
+                  <p className="text-[#5A6A4F]/70 text-xs font-medium uppercase tracking-[0.15em]">
                     {p.role}
                   </p>
                   <p className="text-[#6B6B6B] text-sm font-light leading-relaxed max-w-sm mx-auto">
@@ -402,7 +402,7 @@ export default function HomePage() {
       <section className="py-32 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-16 max-w-xl mx-auto space-y-3">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               The Team
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E] leading-tight">
@@ -453,7 +453,7 @@ export default function HomePage() {
       <section id="philosophy" className="py-32 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-20 max-w-2xl mx-auto space-y-4">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               How We Grow
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E]">
@@ -507,7 +507,7 @@ export default function HomePage() {
         {/* BioBizz partnership sub-block — editorial 2-up + photo strip */}
         <div data-nav-dark className="bg-[#2A2820] py-28 mt-8">
           <div className="container mx-auto px-6 max-w-5xl">
-            <p className="text-center text-[10px] font-medium uppercase tracking-[0.3em] text-[#5A6A4F] mb-14">
+            <p className="text-center text-xs font-medium uppercase tracking-[0.3em] text-[#A8B89A] mb-14">
               Our Growing Partner
             </p>
 
@@ -518,7 +518,7 @@ export default function HomePage() {
                   href="https://www.biobizz.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full max-w-[20rem] transition-transform duration-500 hover:scale-[1.02]"
+                  className="block w-full max-w-[26rem] cursor-pointer transition-transform duration-500 hover:scale-[1.02]"
                 >
                   <div className="rounded-[2rem] bg-[#F6F4EF] px-4 py-5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
                     <Image
@@ -578,7 +578,7 @@ export default function HomePage() {
       <section id="the-farm" className="py-32 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-14 max-w-2xl mx-auto space-y-4">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               The Farm
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E]">
@@ -628,7 +628,7 @@ export default function HomePage() {
 
           {/* Interactive farm map — Phase 2, once Kevin drops drone footage of the property */}
           <div className="text-center mb-6 space-y-2">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               Walk the Farm Virtually
             </span>
             <h3 className="font-display text-2xl md:text-3xl text-[#1E1E1E]">
@@ -641,7 +641,7 @@ export default function HomePage() {
           </div>
           <div className="aspect-[16/10] rounded-2xl border border-dashed border-[#5A6A4F]/25 bg-[#EAE6DE]/50 flex flex-col items-center justify-center p-8 text-center">
             <MapPin className="w-8 h-8 text-[#5A6A4F]/40 mb-3" />
-            <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#5A6A4F]/60 mb-2">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#5A6A4F]/60 mb-2">
               Coming Soon
             </span>
             <p className="text-sm font-light text-[#6B6B6B] max-w-md">
@@ -658,7 +658,7 @@ export default function HomePage() {
       <section id="tour" data-nav-dark className="py-32 bg-[#1E1E1E] text-white overflow-hidden relative">
         <div className="container mx-auto px-6 relative z-10 max-w-6xl">
           <div className="text-center mb-20 max-w-3xl mx-auto space-y-5">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               Educational Experience
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-white">
@@ -760,7 +760,7 @@ export default function HomePage() {
       <section id="products" className="py-32 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-16 max-w-xl mx-auto space-y-3">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               The Lineup
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E]">
@@ -773,7 +773,7 @@ export default function HomePage() {
 
           {/* KD Outdoor strains */}
           <div className="mb-6 max-w-2xl mx-auto text-center space-y-1">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.25em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.25em]">
               KD Genetics — Sun-Grown Outdoor
             </span>
           </div>
@@ -796,7 +796,7 @@ export default function HomePage() {
 
           {/* Termsook Collective indoor strains */}
           <div className="mb-6 max-w-2xl mx-auto text-center space-y-1">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.25em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.25em]">
               Termsook Collective — Indoor
             </span>
             <p className="text-[#6B6B6B]/80 text-[11px] font-light italic">
@@ -822,7 +822,7 @@ export default function HomePage() {
 
           {/* Beyond Flower */}
           <div className="text-center mb-10 max-w-xl mx-auto space-y-2">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               Beyond Flower
             </span>
             <h3 className="font-display text-2xl md:text-3xl text-[#1E1E1E]">
@@ -870,7 +870,7 @@ export default function HomePage() {
       <section id="apparel" className="py-32 bg-[#EAE6DE]/30">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-14 max-w-xl mx-auto space-y-3">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               Apparel
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E]">
@@ -938,7 +938,7 @@ export default function HomePage() {
       <section id="visit" className="py-32 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-14 max-w-xl mx-auto space-y-3">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               Visit the Shop
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E]">
@@ -984,7 +984,7 @@ export default function HomePage() {
 
             <div className="space-y-6 md:pl-8">
               <div>
-                <p className="text-[#5A6A4F] text-[10px] font-medium uppercase tracking-[0.25em] mb-2">
+                <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em] mb-2">
                   Location
                 </p>
                 <p className="text-[#1E1E1E] text-lg font-light leading-relaxed">
@@ -996,7 +996,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div>
-                <p className="text-[#5A6A4F] text-[10px] font-medium uppercase tracking-[0.25em] mb-2">
+                <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em] mb-2">
                   Hours
                 </p>
                 <p className="text-[#1E1E1E] text-lg font-light">
@@ -1004,7 +1004,7 @@ export default function HomePage() {
                 </p>
               </div>
               <div>
-                <p className="text-[#5A6A4F] text-[10px] font-medium uppercase tracking-[0.25em] mb-2">
+                <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em] mb-2">
                   Contact
                 </p>
                 <a
@@ -1057,7 +1057,7 @@ export default function HomePage() {
               />
             </div>
             <div className="space-y-4">
-              <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+              <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
                 Stay & Experience
               </span>
               <h2 className="font-display text-3xl md:text-4xl text-[#1E1E1E] leading-tight">
@@ -1092,7 +1092,7 @@ export default function HomePage() {
       <section id="media" className="py-28 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="text-center mb-14 max-w-xl mx-auto space-y-3">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               In the Press
             </span>
             <h2 className="font-display text-3xl md:text-4xl text-[#1E1E1E]">
@@ -1109,7 +1109,7 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="block bg-white/50 border border-black/5 hover:border-[#5A6A4F]/30 rounded-2xl p-6 transition-colors group"
               >
-                <p className="text-[#5A6A4F] text-[10px] font-medium uppercase tracking-[0.2em] mb-3">
+                <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.2em] mb-3">
                   {a.source}
                 </p>
                 <h3 className="font-display text-lg text-[#1E1E1E] leading-tight mb-3">
@@ -1133,7 +1133,7 @@ export default function HomePage() {
       <section id="contact" className="py-28 bg-[#EAE6DE]/30">
         <div className="container mx-auto px-6 max-w-2xl">
           <div className="text-center mb-10 space-y-3">
-            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               Stay in Touch
             </span>
             <h2 className="font-display text-3xl md:text-4xl text-[#1E1E1E]">
