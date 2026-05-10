@@ -363,7 +363,7 @@ export default function HomePage() {
               The Next Generation
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E] leading-tight">
-              Papa leads. We follow.
+              Papa KD leads. We follow.
               <br />
               Together we grow.
             </h2>
