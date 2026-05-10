@@ -685,13 +685,13 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Stop 03 · The Greenhouse */}
+              {/* Stop 03 · The New Farm */}
               <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
                 <div className="md:col-span-7">
                   <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
                     <Image
-                      src="/farm-flowering.jpg"
-                      alt="The greenhouse, plants in their growth phase"
+                      src="/farm-veg.jpg"
+                      alt="The new KD Genetics farm — Daniel, Papa KD, and Kevin among the plants"
                       width={1400}
                       height={1050}
                       className="w-full h-full object-cover"
@@ -703,72 +703,14 @@ export default function HomePage() {
                     Stop 03
                   </span>
                   <h4 className="font-display text-2xl md:text-3xl text-white leading-tight">
-                    The Greenhouse
+                    The New Farm
                   </h4>
                   <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
-                    Plants build their structure here — strong stems, fan leaves, the frame they&rsquo;ll carry into flower. Open sides, jungle in every direction, real airflow.
+                    The legal farm today — living soil, sungrown plants, hands-on work. We walk it end-to-end together: from the soil and the seedlings, through the greenhouse and the flowering terrace, all the way to harvest, dry, and cure.
                   </p>
-                </div>
-              </div>
-
-              {/* Stop 04 · The Harvest — image right */}
-              <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
-                <div className="md:col-span-7 md:order-2">
-                  <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
-                    <Image
-                      src="/farm-veg.jpg"
-                      alt="Harvest time — Daniel, Papa KD, and Kevin with fresh-cut plants"
-                      width={1400}
-                      height={1050}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="md:col-span-5 md:order-1 space-y-3">
-                  <span className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em]">
-                    Stop 04
-                  </span>
-                  <h4 className="font-display text-2xl md:text-3xl text-white leading-tight">
-                    The Harvest
-                  </h4>
-                  <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
-                    End of cycle. Fresh-cut plants come down, hang to dry, slow-cure for weeks. The pace stays the same — patient, honest, no rush.
+                  <p className="text-white/40 text-[11px] font-medium uppercase tracking-[0.2em] pt-1">
+                    Soil · Nursery · Greenhouse · Terrace · Harvest
                   </p>
-                </div>
-              </div>
-
-              {/* Stop 05 · Slowdown */}
-              <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
-                <div className="md:col-span-7">
-                  <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
-                    <Image
-                      src="/slowdown-front.jpg"
-                      alt="Slowdown Homestay — the family stay across the path from the farm"
-                      width={1400}
-                      height={1050}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="md:col-span-5 space-y-3">
-                  <span className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em]">
-                    Stop 05
-                  </span>
-                  <h4 className="font-display text-2xl md:text-3xl text-white leading-tight">
-                    Slowdown Homestay
-                  </h4>
-                  <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
-                    Same family, same land. Two units, 30 seconds from the farm. Stay over, walk out tomorrow morning, and the farm is your view.
-                  </p>
-                  <a
-                    href="https://slowdownkohtao.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[#5A6A4F] text-sm font-medium pt-2 group"
-                  >
-                    Visit the homestay
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                  </a>
                 </div>
               </div>
 
@@ -776,23 +718,39 @@ export default function HomePage() {
           </div>
 
           {/* Pricing cards */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
-            <div className="p-10 bg-white/5 border border-white/10 rounded-2xl space-y-5">
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16 items-stretch">
+            <div className="p-10 bg-white/5 border border-white/10 rounded-2xl flex flex-col">
               <div className="space-y-1">
                 <span className="text-white/30 text-[11px] font-medium uppercase tracking-[0.15em]">Standard</span>
                 <h3 className="font-display text-2xl text-white">The Guided Tour</h3>
               </div>
-              <p className="font-display text-3xl text-white">1,500 THB</p>
-              <p className="text-white/30 text-[11px] font-light">90-minute guided experience</p>
+              <p className="font-display text-3xl text-white mt-5">1,500 THB</p>
+              <p className="text-white/30 text-[11px] font-light mt-1">90-minute guided experience</p>
+
+              <ul className="space-y-2.5 mt-7 mb-8">
+                <li className="flex items-start gap-2.5 text-white/80 text-[13px] font-light leading-snug">
+                  <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
+                  <span>The full guided farm tour</span>
+                </li>
+                <li className="flex items-start gap-2.5 text-white/80 text-[13px] font-light leading-snug">
+                  <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
+                  <span>Welcome cannabis tea &amp; treats</span>
+                </li>
+                <li className="flex items-start gap-2.5 text-white/80 text-[13px] font-light leading-snug">
+                  <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
+                  <span>Tasting in the shop at the end</span>
+                </li>
+              </ul>
+
               <a
                 href="#tour-booking"
-                className="block w-full border border-white/20 text-white hover:bg-white/10 rounded-full h-12 text-sm font-medium mt-2 transition-all flex items-center justify-center"
+                className="block w-full border border-white/20 text-white hover:bg-white/10 rounded-full h-12 text-sm font-medium mt-auto transition-all flex items-center justify-center"
               >
                 Book Standard
               </a>
             </div>
 
-            <div className="p-10 bg-white rounded-2xl border border-[#5A6A4F]/20 relative space-y-5 shadow-lg">
+            <div className="p-10 bg-white rounded-2xl border border-[#5A6A4F]/20 relative shadow-lg flex flex-col">
               <div className="absolute top-4 right-4 bg-[#5A6A4F]/10 text-[#5A6A4F] text-[9px] font-medium uppercase tracking-[0.15em] px-3 py-1 rounded-full">
                 Recommended
               </div>
@@ -800,13 +758,44 @@ export default function HomePage() {
                 <span className="text-[#5A6A4F]/60 text-[11px] font-medium uppercase tracking-[0.15em]">VIP Package</span>
                 <h3 className="font-display text-2xl text-[#1E1E1E]">VIP Experience</h3>
               </div>
-              <p className="font-display text-3xl text-[#1E1E1E]">3,000 THB</p>
-              <p className="text-[#6B6B6B] text-[11px] font-light">
-                Private, extended time with Papa + tasting
+              <p className="font-display text-3xl text-[#1E1E1E] mt-5">3,000 THB</p>
+              <p className="text-[#6B6B6B] text-[11px] font-light mt-1">
+                Private, extended time with Papa.
               </p>
+
+              <p className="text-[#5A6A4F] text-[10px] font-semibold uppercase tracking-[0.2em] mt-7 mb-4">
+                Everything in Standard, plus
+              </p>
+              <ul className="space-y-2.5 mb-8">
+                <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
+                  <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
+                  <span>3g of sungrown KD flower</span>
+                </li>
+                <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
+                  <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
+                  <span>KD Genetics t-shirt</span>
+                </li>
+                <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
+                  <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
+                  <span>Smoking starter kit — lighter, grinder, tips, papers, stickers</span>
+                </li>
+                <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
+                  <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
+                  <span>Cold-pressed juice from the shop</span>
+                </li>
+                <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
+                  <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
+                  <span>KD oil or tea sample</span>
+                </li>
+                <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
+                  <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
+                  <span>10% off everything in the KD Shop</span>
+                </li>
+              </ul>
+
               <a
                 href="#tour-booking"
-                className="block w-full bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90 rounded-full h-12 text-sm font-medium mt-2 transition-all flex items-center justify-center"
+                className="block w-full bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90 rounded-full h-12 text-sm font-medium mt-auto transition-all flex items-center justify-center"
               >
                 Book VIP
               </a>
