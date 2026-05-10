@@ -12,10 +12,8 @@ import StrainGrid from "@/components/StrainGrid";
 import {
   Leaf,
   Sun,
-  Star,
   Users,
   CheckCircle2,
-  Clock,
   MapPin,
   ArrowRight,
   ExternalLink,
@@ -57,14 +55,6 @@ const nextGeneration = [
     bio: "Kevin's closest friend since day one. Horticultural scientist. Hands on every plant.",
     img: "/founder-daniel-2026.jpg",
   },
-];
-
-const tourSteps = [
-  { step: "01", icon: <MapPin className="h-4 w-4" />, title: "Intro at the shop", desc: "Welcome, context, and a first look at KD Genetics." },
-  { step: "02", icon: <Clock  className="h-4 w-4" />, title: "Farm history walk", desc: "The story of the founders, the terrace, and the island." },
-  { step: "03", icon: <Leaf   className="h-4 w-4" />, title: "Seed-to-harvest demonstration", desc: "Follow the full lifecycle from seed selection to harvest." },
-  { step: "04", icon: <Sun    className="h-4 w-4" />, title: "Living soil, compost & ecosystem", desc: "Worm bins, microbes, companion planting, natural cycles." },
-  { step: "05", icon: <Star   className="h-4 w-4" />, title: "Terpenes & quality education", desc: "Understanding what makes craft cannabis different." },
 ];
 
 const kdOutdoorStrains = [
@@ -661,29 +651,6 @@ export default function HomePage() {
             ]}
           />
 
-          {/* Interactive farm map — Phase 2, once Kevin drops drone footage of the property */}
-          <div className="text-center mb-6 space-y-2">
-            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
-              Walk the Farm Virtually
-            </span>
-            <h3 className="font-display text-2xl md:text-3xl text-[#1E1E1E]">
-              Interactive Farm Map
-            </h3>
-            <p className="text-[#6B6B6B]/80 text-sm font-light max-w-md mx-auto">
-              Click hotspots — Shop, Chill Area, Nursery, Flowering Terrace, Chill Area —
-              to see what each space looks like.
-            </p>
-          </div>
-          <div className="aspect-[16/10] rounded-2xl border border-dashed border-[#5A6A4F]/25 bg-[#EAE6DE]/50 flex flex-col items-center justify-center p-8 text-center">
-            <MapPin className="w-8 h-8 text-[#5A6A4F]/40 mb-3" />
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-[#5A6A4F]/60 mb-2">
-              Coming Soon
-            </span>
-            <p className="text-sm font-light text-[#6B6B6B] max-w-md">
-              Built from drone footage of the property — Kevin + Claude design pass.
-              Clickable hotspots for Shop, Chill Area, Nursery, Veg, Flowering Terrace, Slowdown.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -726,21 +693,153 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mb-20 max-w-3xl mx-auto">
-            <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-[#5A6A4F]/70 mb-8 text-center">
+          {/* Scrolling tour — five stops through the property */}
+          <div className="mb-20">
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-[#5A6A4F]/80 mb-12 text-center">
               What you&rsquo;ll experience
             </p>
-            <div className="space-y-0">
-              {tourSteps.map((item, i) => (
-                <div key={i} className="flex items-start gap-6 py-6 border-b border-white/5 last:border-0">
-                  <div className="text-[#5A6A4F]/30 text-[11px] font-medium mt-1 w-6 shrink-0">{item.step}</div>
-                  <div className="text-[#5A6A4F]/50 mt-0.5 shrink-0">{item.icon}</div>
-                  <div className="space-y-1">
-                    <p className="text-white text-sm font-medium">{item.title}</p>
-                    <p className="text-white/40 text-sm font-light">{item.desc}</p>
+
+            <div className="space-y-20 md:space-y-24 max-w-5xl mx-auto">
+
+              {/* Stop 01 · The Shop */}
+              <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+                <div className="md:col-span-7">
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
+                    <Image
+                      src="/shop-exterior.jpg"
+                      alt="KD Shop exterior, Tanote Bay"
+                      width={1400}
+                      height={1050}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
-              ))}
+                <div className="md:col-span-5 space-y-3">
+                  <span className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em]">
+                    Stop 01
+                  </span>
+                  <h4 className="font-display text-2xl md:text-3xl text-white leading-tight">
+                    The Shop
+                  </h4>
+                  <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
+                    The doors open at Tanote Bay. Sungrown flowers, Papa KD&rsquo;s craft oils, hand-washed hash, solventless rosin. A small chill area inside — take a seat, no rush.
+                  </p>
+                </div>
+              </div>
+
+              {/* Stop 02 · The Nursery — image right */}
+              <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+                <div className="md:col-span-7 md:order-2">
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
+                    <Image
+                      src="/farm-nursery.jpg"
+                      alt="The KD Genetics nursery — young plants in pots"
+                      width={1400}
+                      height={1050}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="md:col-span-5 md:order-1 space-y-3">
+                  <span className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em]">
+                    Stop 02
+                  </span>
+                  <h4 className="font-display text-2xl md:text-3xl text-white leading-tight">
+                    The Nursery
+                  </h4>
+                  <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
+                    Where every plant starts. Mother plants, fresh cuttings, seedlings finding their roots. Quiet work, daily.
+                  </p>
+                </div>
+              </div>
+
+              {/* Stop 03 · The Greenhouse */}
+              <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+                <div className="md:col-span-7">
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
+                    <Image
+                      src="/farm-flowering.jpg"
+                      alt="The greenhouse, plants in their growth phase"
+                      width={1400}
+                      height={1050}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="md:col-span-5 space-y-3">
+                  <span className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em]">
+                    Stop 03
+                  </span>
+                  <h4 className="font-display text-2xl md:text-3xl text-white leading-tight">
+                    The Greenhouse
+                  </h4>
+                  <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
+                    Plants build their structure here — strong stems, fan leaves, the frame they&rsquo;ll carry into flower. Open sides, jungle in every direction, real airflow.
+                  </p>
+                </div>
+              </div>
+
+              {/* Stop 04 · The Harvest — image right */}
+              <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+                <div className="md:col-span-7 md:order-2">
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
+                    <Image
+                      src="/farm-veg.jpg"
+                      alt="Harvest time — Daniel, Papa KD, and Kevin with fresh-cut plants"
+                      width={1400}
+                      height={1050}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="md:col-span-5 md:order-1 space-y-3">
+                  <span className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em]">
+                    Stop 04
+                  </span>
+                  <h4 className="font-display text-2xl md:text-3xl text-white leading-tight">
+                    The Harvest
+                  </h4>
+                  <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
+                    End of cycle. Fresh-cut plants come down, hang to dry, slow-cure for weeks. The pace stays the same — patient, honest, no rush.
+                  </p>
+                </div>
+              </div>
+
+              {/* Stop 05 · Slowdown */}
+              <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+                <div className="md:col-span-7">
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
+                    <Image
+                      src="/slowdown-front.jpg"
+                      alt="Slowdown Homestay — the family stay across the path from the farm"
+                      width={1400}
+                      height={1050}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="md:col-span-5 space-y-3">
+                  <span className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em]">
+                    Stop 05
+                  </span>
+                  <h4 className="font-display text-2xl md:text-3xl text-white leading-tight">
+                    Slowdown Homestay
+                  </h4>
+                  <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
+                    Same family, same land. Two units, 30 seconds from the farm. Stay over, walk out tomorrow morning, and the farm is your view.
+                  </p>
+                  <a
+                    href="https://slowdownkohtao.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-[#5A6A4F] text-sm font-medium pt-2 group"
+                  >
+                    Visit the homestay
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </div>
+              </div>
+
             </div>
           </div>
 
