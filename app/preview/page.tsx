@@ -623,7 +623,7 @@ export default function HomePage() {
               The Farm
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E]">
-              Two minutes from Tanote Bay.
+              On Tanote Bay.
             </h2>
             <p className="text-[#6B6B6B] text-base font-light">
               Seven rai. One family&rsquo;s farm. Open to visitors.
