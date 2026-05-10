@@ -603,11 +603,11 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
             {[
               { label: "Nursery — young plants",            img: "/farm-nursery.jpg" },
-              { label: "Veg stage under shade",             img: "/farm-veg.jpg" },
-              { label: "Flowering terrace",                 img: "/farm-flowering.jpg" },
-              { label: "Chill area — where the tour ends",  img: "/farm-chill.jpg" },
-              { label: "Tanote Bay from above",             img: "/drone-bay.jpg" },
-              { label: "Shop exterior",                     img: "/shop-exterior.jpg" },
+              { label: "Harvest time",                      img: "/farm-veg.jpg" },
+              { label: "Veg stage in the greenhouse",       img: "/farm-flowering.jpg" },
+              { label: "KD Shop",                           img: "/farm-chill.jpg" },
+              { label: "The farm from above",               img: "/drone-bay.jpg" },
+              { label: "KD Shop exterior",                  img: "/shop-exterior.jpg" },
             ].map((tile) => (
               <div key={tile.label} className="space-y-2">
                 <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
@@ -973,7 +973,7 @@ export default function HomePage() {
                 <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
                   <Image
                     src="/drone-bay.jpg"
-                    alt="Tanote Bay from above — the shop sits in the cove below"
+                    alt="The farm from above — the shop sits in the cove below"
                     width={2000}
                     height={1500}
                     className="w-full h-full object-cover"
