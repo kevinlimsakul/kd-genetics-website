@@ -87,7 +87,7 @@ const beyondFlower: Array<{
 }> = [
   { title: "Oils",    line: "Mr. KD's craft cannabis oils.",     img: "/oil-hero.jpg",       href: "/menu#oils",  fit: "contain" },
   { title: "Hash",    line: "Hand-washed, pressed on the farm.", img: "/hash-hero.jpg",      href: "/menu#hash" },
-  { title: "Rosin",   line: "Solventless, small batch.",         img: "/rosin-hero.jpg",     href: "/menu#rosin" },
+  { title: "Rosin",   line: "Solventless, small batch.",         img: "/rosin-hero.jpg",     href: "/menu#rosin", fit: "contain" },
   { title: "Apparel", line: "What we wear on the farm.",         img: "/apparel-papa-black.jpg",  href: "#apparel" },
 ];
 
@@ -834,7 +834,7 @@ export default function HomePage() {
           </div>
           <StrainGrid
             strains={kdOutdoorStrains}
-            gridClassName="grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-10 mb-24"
+            gridClassName="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 max-w-5xl mx-auto mb-24"
           />
 
           {/* Termsuk Collective indoor strains */}
@@ -848,7 +848,7 @@ export default function HomePage() {
           </div>
           <StrainGrid
             strains={termsukIndoorStrains}
-            gridClassName="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-10 mb-24"
+            gridClassName="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 max-w-5xl mx-auto mb-24"
           />
 
           {/* Beyond Flower */}
