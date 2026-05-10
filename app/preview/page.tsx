@@ -1069,6 +1069,20 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          {/* Interactive map — drag and zoom to find the shop */}
+          <div className="mt-12 h-[460px] rounded-2xl overflow-hidden shadow-sm bg-[#EAE6DE]/30">
+            <iframe
+              src="https://www.google.com/maps?q=KD+Genetics+Tanote+Bay+Koh+Tao&z=16&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="KD Genetics — Tanote Bay, Koh Tao"
+            />
+          </div>
         </div>
       </section>
 
