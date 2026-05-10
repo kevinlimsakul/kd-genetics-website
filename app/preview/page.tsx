@@ -646,7 +646,7 @@ export default function HomePage() {
           <PhotoGallery
             photos={[
               { label: "Nursery — young plants",            img: "/farm-nursery.jpg" },
-              { label: "Harvest time",                      img: "/farm-veg.jpg",       position: "center top" },
+              { label: "Harvest time",                      img: "/farm-veg.jpg" },
               { label: "Veg stage in the greenhouse",       img: "/farm-flowering.jpg" },
               { label: "The shop",                          img: "/farm-chill.jpg" },
               { label: "The farm from above",               img: "/drone-bay.jpg" },
