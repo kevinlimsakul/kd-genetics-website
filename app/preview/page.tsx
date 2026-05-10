@@ -7,6 +7,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import TourBookingForm from "@/components/TourBookingForm";
 import ContactForm from "@/components/ContactForm";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import PhotoGallery from "@/components/PhotoGallery";
 import {
   Leaf,
   Sun,
@@ -600,31 +601,16 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
-            {[
+          <PhotoGallery
+            photos={[
               { label: "Nursery — young plants",            img: "/farm-nursery.jpg" },
-              { label: "Harvest time",                      img: "/farm-veg.jpg" },
+              { label: "Harvest time",                      img: "/farm-veg.jpg",       fit: "contain" },
               { label: "Veg stage in the greenhouse",       img: "/farm-flowering.jpg" },
-              { label: "KD Shop",                           img: "/farm-chill.jpg" },
+              { label: "the shop",                          img: "/farm-chill.jpg" },
               { label: "The farm from above",               img: "/drone-bay.jpg" },
               { label: "KD Shop exterior",                  img: "/shop-exterior.jpg" },
-            ].map((tile) => (
-              <div key={tile.label} className="space-y-2">
-                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
-                  <Image
-                    src={tile.img}
-                    alt={tile.label}
-                    width={1400}
-                    height={1050}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-[#6B6B6B] text-[11px] font-light text-center px-2 leading-snug">
-                  {tile.label}
-                </p>
-              </div>
-            ))}
-          </div>
+            ]}
+          />
 
           {/* Interactive farm map — Phase 2, once Kevin drops drone footage of the property */}
           <div className="text-center mb-6 space-y-2">
