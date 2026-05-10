@@ -9,6 +9,7 @@ import ContactForm from "@/components/ContactForm";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import PhotoGallery from "@/components/PhotoGallery";
 import StrainGrid from "@/components/StrainGrid";
+import HeroVideo from "@/components/HeroVideo";
 import {
   Leaf,
   Sun,
@@ -133,16 +134,10 @@ export default function HomePage() {
        * ══════════════════════════════════════════════════════════════════ */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 text-center px-6">
         <div className="absolute inset-0 z-0">
-          <video
+          <HeroVideo
             src="/hero-loop.mp4"
             poster="/hero-loop-poster.jpg"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
             className="w-full h-full object-cover"
-            aria-hidden="true"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#F6F4EF]" />
         </div>
