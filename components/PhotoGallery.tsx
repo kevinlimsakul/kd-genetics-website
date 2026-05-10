@@ -7,6 +7,7 @@ type Photo = {
   label: string;
   img: string;
   fit?: "cover" | "contain";
+  position?: string; // CSS object-position value, e.g. "center top" or "50% 20%"
 };
 
 export default function PhotoGallery({ photos }: { photos: Photo[] }) {
@@ -61,6 +62,7 @@ export default function PhotoGallery({ photos }: { photos: Photo[] }) {
                 className={`w-full h-full ${
                   tile.fit === "contain" ? "object-contain" : "object-cover"
                 } transition-transform duration-500 group-hover:scale-[1.03]`}
+                style={tile.position ? { objectPosition: tile.position } : undefined}
               />
             </div>
             <p className="text-[#6B6B6B] text-[11px] font-light text-center px-2 leading-snug">
