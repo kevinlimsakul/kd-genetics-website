@@ -10,6 +10,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import PhotoGallery from "@/components/PhotoGallery";
 import StrainGrid from "@/components/StrainGrid";
 import HeroVideo from "@/components/HeroVideo";
+import LightboxImage from "@/components/LightboxImage";
 import {
   Leaf,
   Sun,
@@ -630,15 +631,13 @@ export default function HomePage() {
           </div>
 
           {/* Drone hero — full property */}
-          <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 mb-6">
-            <Image
-              src="/drone-hero.jpg"
-              alt="Aerial view of KD Genetics farm and Tanote Bay"
-              width={2400}
-              height={1350}
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <LightboxImage
+            src="/drone-hero.jpg"
+            alt="Aerial view of KD Genetics farm and Tanote Bay"
+            caption="Our land."
+            containerClassName="aspect-[16/9] rounded-2xl overflow-hidden bg-[#EAE6DE]/40"
+            captionClassName="text-center text-[#6B6B6B] text-sm font-light italic mt-3 mb-6"
+          />
 
           <PhotoGallery
             photos={[
