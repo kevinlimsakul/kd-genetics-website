@@ -180,10 +180,14 @@ export default function HomePage() {
               </a>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-white/80 text-[11px] font-medium tracking-wider uppercase">
-              <span className="flex items-center gap-2"><Award className="w-3.5 h-3.5 text-[#5A6A4F]" /> Jack Herer Cup, First Thai Winner</span>
-              <span className="flex items-center gap-2"><Leaf  className="w-3.5 h-3.5 text-[#5A6A4F]" /> Certified Organic — BioBizz</span>
-              <span className="flex items-center gap-2"><Sun   className="w-3.5 h-3.5 text-[#5A6A4F]" /> Sun-Grown on Koh Tao</span>
+            <div className="flex justify-center">
+              <div className="inline-flex flex-wrap justify-center items-center gap-x-7 gap-y-2 px-6 py-3 rounded-full bg-black/35 backdrop-blur-md border border-white/10 text-white text-[11px] font-medium tracking-wider uppercase shadow-[0_8px_30px_-10px_rgba(0,0,0,0.4)]">
+                <span className="flex items-center gap-2"><Award className="w-3.5 h-3.5 text-[#A8B89A]" /> Jack Herer Cup, First Thai Winner</span>
+                <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-white/25" aria-hidden />
+                <span className="flex items-center gap-2"><Leaf  className="w-3.5 h-3.5 text-[#A8B89A]" /> Certified Organic — BioBizz</span>
+                <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-white/25" aria-hidden />
+                <span className="flex items-center gap-2"><Sun   className="w-3.5 h-3.5 text-[#A8B89A]" /> Sun-Grown on Koh Tao</span>
+              </div>
             </div>
           </div>
         </div>
