@@ -11,6 +11,7 @@ import PhotoGallery from "@/components/PhotoGallery";
 import StrainGrid from "@/components/StrainGrid";
 import HeroVideo from "@/components/HeroVideo";
 import LightboxImage from "@/components/LightboxImage";
+import TeamSection from "@/components/TeamSection";
 import {
   Leaf,
   Sun,
@@ -88,13 +89,6 @@ const beyondFlower: Array<{
   { title: "Hash",    line: "Hand-washed, pressed on the farm.", img: "/hash-hero.jpg",      href: "/menu#hash" },
   { title: "Rosin",   line: "Solventless, small batch.",         img: "/rosin-hero.jpg",     href: "/menu#rosin" },
   { title: "Apparel", line: "What we wear on the farm.",         img: "/apparel-papa-black.jpg",  href: "#apparel" },
-];
-
-const team = [
-  { img: "/team-1.jpg",   name: "Wai" },     // woman, hanging buds
-  { img: "/team-2.jpg",   name: "Khant" },   // shop, jar + tweezers
-  { img: "/team-wee.jpg", name: "Wee" },     // greenhouse watering
-  { img: "/team-che.jpg", name: "Che" },     // soil prep with shovel
 ];
 
 const mediaArticles = [
@@ -440,53 +434,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
        *  5.5 THE TEAM — environmental portraits, group at the top
        * ══════════════════════════════════════════════════════════════════ */}
-      <section className="pt-32 pb-16 bg-[#F6F4EF]">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-16 max-w-xl mx-auto space-y-3">
-            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
-              The Team
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E] leading-tight">
-              The hands on every plant.
-            </h2>
-            <p className="text-[#6B6B6B] text-base font-light">
-              A small crew. Real people behind every bud.
-            </p>
-          </div>
-
-          {/* Group hero */}
-          <div className="aspect-[3/2] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 mb-3 max-w-5xl mx-auto">
-            <Image
-              src="/team-group-2026.jpg"
-              alt="The full KD Genetics crew — Khant, Mr KD, Daniel, Kevin, Wai, Wee, Che"
-              width={2400}
-              height={1600}
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <p className="text-center text-[#6B6B6B]/80 text-[11px] font-light italic max-w-3xl mx-auto mb-14">
-            The full crew, left to right — Khant, Mr KD, Daniel, Kevin, Wai, Wee, Che.
-          </p>
-
-          {/* Four staff portraits — Mr KD and the founders are featured elsewhere */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-4xl mx-auto">
-            {team.map((p) => (
-              <div key={p.img} className="space-y-2">
-                <div className="aspect-[3/4] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
-                  <Image
-                    src={p.img}
-                    alt={p.name}
-                    width={1200}
-                    height={1600}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-center text-[#1E1E1E] text-sm font-medium">{p.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TeamSection />
 
       {/* ══════════════════════════════════════════════════════════════════
        *  6. PHILOSOPHY — Living Soil + small-batch + sun-grown
@@ -623,7 +571,7 @@ export default function HomePage() {
               The Farm
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E]">
-              On Tanote Bay.
+              A stone&rsquo;s throw from Tanote Beach.
             </h2>
             <p className="text-[#6B6B6B] text-base font-light">
               Seven rai. One family&rsquo;s farm. Open to visitors.
