@@ -1092,15 +1092,37 @@ export default function HomePage() {
       <section className="py-24 bg-[#EAE6DE]/30 border-y border-black/5">
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="grid md:grid-cols-2 gap-10 items-center">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
-              <Image
-                src="/property-aerial.jpg"
-                alt="Slow Down Homestay — nestled in the Tanote Bay jungle"
-                width={2000}
-                height={1497}
-                className="w-full h-full object-cover"
-              />
+            {/* Left column — hero + small strip stacked */}
+            <div className="space-y-3">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+                <Image
+                  src="/slowdown-hero.jpg"
+                  alt="Slowdown Homestay — house tucked in the Tanote Bay jungle"
+                  width={2000}
+                  height={1500}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { src: "/slowdown-terrace.jpg", alt: "The shared wooden terrace and hammock area" },
+                  { src: "/slowdown-unit1.jpg",   alt: "Unit 1 — upstairs bedroom" },
+                  { src: "/slowdown-unit2.jpg",   alt: "Unit 2 — downstairs bedroom" },
+                ].map((p) => (
+                  <div key={p.src} className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
+                    <Image
+                      src={p.src}
+                      alt={p.alt}
+                      width={900}
+                      height={675}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
+
+            {/* Right column — copy + glass CTA */}
             <div className="space-y-4">
               <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
                 Stay & Experience
@@ -1116,10 +1138,10 @@ export default function HomePage() {
                 href="https://slowdownhomestay.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#5A6A4F] text-sm font-medium group pt-2"
+                className="group mt-3 inline-flex items-center gap-2.5 rounded-full border border-[#5A6A4F]/25 bg-white/55 backdrop-blur-md px-7 h-12 text-sm font-medium text-[#3D4A35] shadow-[0_8px_24px_-12px_rgba(90,106,79,0.35)] hover:bg-white/75 hover:border-[#5A6A4F]/40 hover:shadow-[0_10px_28px_-10px_rgba(90,106,79,0.45)] transition-all"
               >
                 Explore Slowdown
-                <ExternalLink className="h-3.5 w-3.5" />
+                <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
               </a>
             </div>
           </div>
