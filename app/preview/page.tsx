@@ -438,7 +438,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
        *  5.5 THE TEAM — environmental portraits, group at the top
        * ══════════════════════════════════════════════════════════════════ */}
-      <section className="py-32 bg-[#F6F4EF]">
+      <section className="pt-32 pb-16 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-16 max-w-xl mx-auto space-y-3">
             <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
@@ -489,7 +489,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
        *  6. PHILOSOPHY — Living Soil + small-batch + sun-grown
        * ══════════════════════════════════════════════════════════════════ */}
-      <section id="philosophy" className="py-32 bg-[#F6F4EF]">
+      <section id="philosophy" className="pt-16 pb-32 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-20 max-w-2xl mx-auto space-y-4">
             <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
