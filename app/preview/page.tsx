@@ -276,7 +276,7 @@ export default function HomePage() {
                   Thai grower to win the Jack Herer Cup.
                 </p>
                 <p className="italic text-[#6B6B6B]">
-                  Today the farm is in younger hands. He still leads — quietly, from a step behind.
+                  He&rsquo;s older now and lets us run the farm, but the way we grow is still his.
                 </p>
               </div>
               <div className="pt-4 flex flex-wrap gap-3">
