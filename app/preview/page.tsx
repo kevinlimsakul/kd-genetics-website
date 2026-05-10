@@ -1138,13 +1138,43 @@ export default function HomePage() {
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="text-center mb-14 max-w-xl mx-auto space-y-3">
             <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
-              In the Press
+              In the Media
             </span>
             <h2 className="font-display text-3xl md:text-4xl text-[#1E1E1E]">
               The story so far.
             </h2>
           </div>
 
+          {/* Watch — videos */}
+          <p className="text-center text-[#5A6A4F]/70 text-xs font-semibold uppercase tracking-[0.25em] mb-6">
+            Watch
+          </p>
+          <div className="grid md:grid-cols-3 gap-5 mb-16">
+            {[
+              "_XQQ6GFbOyk",
+              "ERj25Bqet94",
+              "3B-IXIYD6EA",
+            ].map((id) => (
+              <div
+                key={id}
+                className="aspect-video rounded-2xl overflow-hidden bg-black/5 border border-black/5"
+              >
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${id}?rel=0`}
+                  title="KD Genetics video"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Read — press */}
+          <p className="text-center text-[#5A6A4F]/70 text-xs font-semibold uppercase tracking-[0.25em] mb-6">
+            Read
+          </p>
           <div className="grid md:grid-cols-3 gap-5">
             {mediaArticles.map((a) => (
               <a
