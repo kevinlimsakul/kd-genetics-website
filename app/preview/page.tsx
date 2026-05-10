@@ -260,8 +260,14 @@ export default function HomePage() {
               </h2>
               <div className="space-y-4 text-[#4A4A4A] text-base font-light leading-relaxed">
                 <p>
-                  Traditional Thai healer. Holder of a 500-plant medicine license.
-                  Decades of quiet work preserving genetics and passing down craft.
+                  Calm, grounded, almost zen when he&rsquo;s with the plants.
+                  Decades of quiet work with cannabis — a deep love and a real relationship with it, built over a lifetime.
+                </p>
+                <p>
+                  He found what cannabis could do for him first. Then he wanted to share it —
+                  his experience, his seeds, his oils — with people across Thailand,
+                  while it was still criminal to do so. He stood against the criminalization of the plant
+                  and was at the forefront of the Thai cannabis movement, playing a real role in the country&rsquo;s legalization.
                 </p>
                 <p>
                   In <strong className="font-medium">2017–18</strong>, he helped start
@@ -270,7 +276,7 @@ export default function HomePage() {
                   Thai grower to win the Jack Herer Cup.
                 </p>
                 <p className="italic text-[#6B6B6B]">
-                  Today he leads the farm. Tomorrow, we carry it forward.
+                  Today the farm is in younger hands. He still leads — quietly, from a step behind.
                 </p>
               </div>
               <div className="pt-4 flex flex-wrap gap-3">
@@ -278,7 +284,7 @@ export default function HomePage() {
                   <Award className="h-3 w-3" /> Jack Herer Cup 2019
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#5A6A4F]/10 text-[#5A6A4F] text-[10px] font-medium uppercase tracking-[0.15em] rounded-full">
-                  <Leaf className="h-3 w-3" /> Medicine License Holder
+                  <Leaf className="h-3 w-3" /> Thai Cannabis Pioneer
                 </span>
               </div>
             </div>
@@ -296,7 +302,7 @@ export default function HomePage() {
               Why We Came Back
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E] leading-tight">
-              A dream spoken on a terrace.
+              From a Terrace Dream to KD Genetics Today
             </h2>
           </div>
 
@@ -314,18 +320,25 @@ export default function HomePage() {
             </div>
             <div className="md:col-span-3 space-y-6 text-[#4A4A4A] text-base font-light leading-[1.8]">
               <p>
-                We said it out loud on this terrace, ten years ago —{" "}
-                <em>come back to the island, grow real cannabis, build something with Papa</em>.
-                We were 18.
+                2015. First trip to Thailand together, just out of high school. Daniel and I sat on the small terrace outside Papa&rsquo;s house, smoking his sungrown weed.
               </p>
               <p>
-                November 2024. Papa&rsquo;s motorbike accident.
-                Daniel and I saw the pictures. Something collapsed the distance between
-                &ldquo;one day&rdquo; and &ldquo;now.&rdquo;
+                In Germany we knew cannabis only from a dealer&rsquo;s pack; in Thailand it was very strict and highly illegal as well.
+              </p>
+              <p>
+                We wished for better days for this wonderful plant and said: &ldquo;one day ganja will be legal here and we will come to grow weed with Papa KD.&rdquo;
+              </p>
+              <p>
+                That moment planted the seed.
+              </p>
+              <p>
+                Ten years passed and everyone went their own way. While Daniel studied horticultural science in Berlin, I went into sports science, played football professionally and then coached it later in Bangkok. KD continued to work with his plants, sharing seeds and his medicinal oils all over Thailand and quietly becoming an underground legend in the cannabis scene. His efforts played a vital role in the legalization process and led to cannabis becoming &lsquo;free&rsquo; for the people in 2022.
+              </p>
+              <p>
+                November 2024. Papa&rsquo;s motorbike accident. Daniel happened to be visiting me when the call came. The shock collapsed the distance between one day and now. I left Bangkok in December. Daniel quit his master&rsquo;s and followed one month later. We came home.
               </p>
               <p className="text-[#1E1E1E]">
-                What we dreamed here in 2015 is running now. The next chapter.
-                Same land. Same family. Next hands.
+                What we said on that terrace in 2015 is the farm running today. Same land. Same family. Next hands.
               </p>
               <Link
                 href="#next-generation"
