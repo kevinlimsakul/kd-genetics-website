@@ -307,48 +307,90 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-5 gap-10 items-center">
-            <div className="md:col-span-2">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
-                <Image
-                  src="/terrace-2015.jpg"
-                  alt="Kevin and Daniel on the terrace, Tanote Bay, 2015"
-                  width={1400}
-                  height={1050}
-                  className="w-full h-full object-cover"
-                />
+          <div className="space-y-16 md:space-y-20 text-[#4A4A4A] text-base font-light leading-[1.8]">
+
+            {/* Beat 1: The terrace, 2015 */}
+            <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+              <div className="md:col-span-5">
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+                  <Image
+                    src="/terrace-2015.jpg"
+                    alt="Kevin and Daniel on the terrace, Tanote Bay, 2015"
+                    width={1400}
+                    height={1050}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="md:col-span-7 space-y-5">
+                <p>
+                  2015. First trip to Thailand together, just out of high school. Daniel and I sat on the small terrace outside Papa&rsquo;s house, smoking his sungrown weed.
+                </p>
+                <p>
+                  In Germany we knew cannabis only from a dealer&rsquo;s pack; in Thailand it was very strict and highly illegal as well.
+                </p>
+                <p>
+                  We wished for better days for this wonderful plant and said: &ldquo;one day ganja will be legal here and we will come to grow weed with Papa KD.&rdquo;
+                </p>
+                <p className="text-[#1E1E1E]">
+                  That moment planted the seed.
+                </p>
               </div>
             </div>
-            <div className="md:col-span-3 space-y-6 text-[#4A4A4A] text-base font-light leading-[1.8]">
-              <p>
-                2015. First trip to Thailand together, just out of high school. Daniel and I sat on the small terrace outside Papa&rsquo;s house, smoking his sungrown weed.
-              </p>
-              <p>
-                In Germany we knew cannabis only from a dealer&rsquo;s pack; in Thailand it was very strict and highly illegal as well.
-              </p>
-              <p>
-                We wished for better days for this wonderful plant and said: &ldquo;one day ganja will be legal here and we will come to grow weed with Papa KD.&rdquo;
-              </p>
-              <p>
-                That moment planted the seed.
-              </p>
-              <p>
-                Ten years passed and everyone went their own way. While Daniel studied horticultural science in Berlin, I went into sports science, played football professionally and then coached it later in Bangkok. KD continued to work with his plants, sharing seeds and his medicinal oils all over Thailand and quietly becoming an underground legend in the cannabis scene. His efforts played a vital role in the legalization process and led to cannabis becoming &lsquo;free&rsquo; for the people in 2022.
-              </p>
-              <p>
-                November 2024. Papa&rsquo;s motorbike accident. Daniel happened to be visiting me when the call came. The shock collapsed the distance between one day and now. I left Bangkok in December. Daniel quit his master&rsquo;s and followed one month later. We came home.
-              </p>
-              <p className="text-[#1E1E1E]">
-                What we said on that terrace in 2015 is the farm running today. Same land. Same family. Next hands.
-              </p>
-              <Link
-                href="#next-generation"
-                className="inline-flex items-center gap-2 text-[#5A6A4F] text-sm font-medium pt-4 group"
-              >
-                Meet the hands building it
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-              </Link>
+
+            {/* Beat 2: Years apart, Papa's legalization work */}
+            <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+              <div className="md:col-span-5 md:order-2">
+                <div className="aspect-square rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+                  <Image
+                    src="/legalization-2022.jpg"
+                    alt="Papa KD handing a cannabis plant to a Thai government official during the legalization push"
+                    width={1200}
+                    height={1200}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="md:col-span-7 md:order-1 space-y-5">
+                <p>
+                  Ten years passed and everyone went their own way. While Daniel studied horticultural science in Berlin, I went into sports science, played football professionally and then coached it later in Bangkok.
+                </p>
+                <p>
+                  KD continued to work with his plants, sharing seeds and his medicinal oils all over Thailand and quietly becoming an underground legend in the cannabis scene. His efforts played a vital role in the legalization process and led to cannabis becoming &lsquo;free&rsquo; for the people in 2022.
+                </p>
+              </div>
             </div>
+
+            {/* Beat 3: Coming home, the farm today */}
+            <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+              <div className="md:col-span-5">
+                <div className="aspect-[3/2] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+                  <Image
+                    src="/three-of-us-2025.jpg"
+                    alt="Daniel, Papa KD, and Kevin on the farm"
+                    width={1800}
+                    height={1200}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="md:col-span-7 space-y-5">
+                <p>
+                  November 2024. Papa&rsquo;s motorbike accident. Daniel happened to be visiting me when the call came. The shock collapsed the distance between one day and now. I left Bangkok in December. Daniel quit his master&rsquo;s and followed one month later. We came home.
+                </p>
+                <p className="text-[#1E1E1E]">
+                  What we said on that terrace in 2015 is the farm running today. Same land. Same family. Next hands.
+                </p>
+                <Link
+                  href="#next-generation"
+                  className="inline-flex items-center gap-2 text-[#5A6A4F] text-sm font-medium pt-4 group"
+                >
+                  Meet the hands building it
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
