@@ -460,14 +460,14 @@ export default function HomePage() {
           <div className="aspect-[3/2] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 mb-3 max-w-5xl mx-auto">
             <Image
               src="/team-group-2026.jpg"
-              alt="The full KD Genetics crew — Wai, Khant, Wee, Che, Mr KD, Daniel, Kevin"
+              alt="The full KD Genetics crew — Khant, Mr KD, Daniel, Kevin, Wai, Wee, Che"
               width={2400}
               height={1600}
               className="w-full h-full object-cover"
             />
           </div>
           <p className="text-center text-[#6B6B6B]/80 text-[11px] font-light italic max-w-3xl mx-auto mb-14">
-            The full crew — Mr KD, Daniel and Kevin with Wai, Khant, Wee and Che.
+            The full crew, left to right — Khant, Mr KD, Daniel, Kevin, Wai, Wee, Che.
           </p>
 
           {/* Four staff portraits — Mr KD and the founders are featured elsewhere */}
