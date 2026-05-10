@@ -47,7 +47,7 @@ const nextGeneration = [
     name: "Kevin",
     role: "Vision & Operations",
     bio: "Papa's son. Carries the legacy forward — structure, direction, the next chapter.",
-    img: "/founder-kevin-2026.jpg",
+    img: "/founder-kevin-may2026.jpg",
   },
   {
     name: "Daniel",
