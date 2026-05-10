@@ -85,8 +85,14 @@ const termsukIndoorStrains = [
   { name: "Unicorn Poop",   img: "/strain-unicorn-poop.jpg" },
 ];
 
-const beyondFlower = [
-  { title: "Oils",    line: "Mr. KD's craft cannabis oils.",     img: "/oil-hero.jpg",       href: "/menu#oils" },
+const beyondFlower: Array<{
+  title: string;
+  line: string;
+  img: string;
+  href: string;
+  fit?: "cover" | "contain";
+}> = [
+  { title: "Oils",    line: "Mr. KD's craft cannabis oils.",     img: "/oil-hero.jpg",       href: "/menu#oils",  fit: "contain" },
   { title: "Hash",    line: "Hand-washed, pressed on the farm.", img: "/hash-hero.jpg",      href: "/menu#hash" },
   { title: "Rosin",   line: "Solventless, small batch.",         img: "/rosin-hero.jpg",     href: "/menu#rosin" },
   { title: "Apparel", line: "What we wear on the farm.",         img: "/apparel-papa-black.jpg",  href: "#apparel" },
@@ -844,7 +850,7 @@ export default function HomePage() {
                     alt={c.title}
                     width={1400}
                     height={1400}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={`w-full h-full ${c.fit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-500 group-hover:scale-105`}
                   />
                 </div>
                 <div className="space-y-1 text-center">
