@@ -726,15 +726,15 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Stop 02 · The Nursery — image right */}
+              {/* Stop 02 · Historic Growth Sites — image right */}
               <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
                 <div className="md:col-span-7 md:order-2">
                   <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
                     <Image
-                      src="/farm-nursery.jpg"
-                      alt="The KD Genetics nursery — young plants in pots"
-                      width={1400}
-                      height={1050}
+                      src="/historic-grow-site.jpg"
+                      alt="Papa KD on a historic hillside grow site, Tanote Bay"
+                      width={1800}
+                      height={1200}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -744,10 +744,10 @@ export default function HomePage() {
                     Stop 02
                   </span>
                   <h4 className="font-display text-2xl md:text-3xl text-white leading-tight">
-                    The Nursery
+                    Historic Growth Sites
                   </h4>
                   <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
-                    Where every plant starts. Mother plants, fresh cuttings, seedlings finding their roots. Quiet work, daily.
+                    Father&rsquo;s old grow plots from the illegal years. Hidden hillside, ocean below, tucked under the forest canopy. Where the family&rsquo;s cannabis story started — and where some of the landrace genetics still grow today.
                   </p>
                 </div>
               </div>
