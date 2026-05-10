@@ -311,7 +311,7 @@ export default function HomePage() {
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
                 <Image
                   src="/terrace-2015.jpg"
-                  alt="Kevin and Daniel on the terrace, Tanote Bay, 2016"
+                  alt="Kevin and Daniel on the terrace, Tanote Bay, 2015"
                   width={1400}
                   height={1050}
                   className="w-full h-full object-cover"
@@ -504,22 +504,23 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* BioBizz partnership sub-block (kept intact from previous build) */}
-        <div data-nav-dark className="bg-[#2A2820] py-24 mt-8">
+        {/* BioBizz partnership sub-block — editorial 2-up + photo strip */}
+        <div data-nav-dark className="bg-[#2A2820] py-28 mt-8">
           <div className="container mx-auto px-6 max-w-5xl">
-            <p className="text-center text-[10px] font-medium uppercase tracking-[0.3em] text-[#5A6A4F] mb-16">
+            <p className="text-center text-[10px] font-medium uppercase tracking-[0.3em] text-[#5A6A4F] mb-14">
               Our Growing Partner
             </p>
 
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div className="flex flex-col items-center gap-10 w-full">
+            {/* Top: stamp + text, balanced */}
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center mb-16 md:mb-20">
+              <div className="flex justify-center md:justify-end">
                 <a
                   href="https://www.biobizz.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full max-w-[22rem] transition-transform duration-500 hover:scale-[1.02]"
+                  className="block w-full max-w-[20rem] transition-transform duration-500 hover:scale-[1.02]"
                 >
-                  <div className="rounded-[2.25rem] bg-[#F6F4EF] px-4 py-5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
+                  <div className="rounded-[2rem] bg-[#F6F4EF] px-4 py-5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
                     <Image
                       src="/grown-with-biobizz.png"
                       alt="Grown with BioBizz"
@@ -531,55 +532,40 @@ export default function HomePage() {
                     />
                   </div>
                 </a>
-                <a
-                  href="https://www.biobizz.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full max-w-[22rem] transition-opacity hover:opacity-80"
-                >
-                  <Image
-                    src="/biobizz-logo-wide.png"
-                    alt="BioBizz World Wide Organics"
-                    width={800}
-                    height={450}
-                    className="w-full h-auto object-contain brightness-0 invert"
-                  />
-                </a>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-5 max-w-md">
                 <h3 className="font-display text-3xl md:text-4xl text-white leading-snug">
                   Rooted in the same values.
                 </h3>
-                <p className="text-white/50 text-sm font-light leading-relaxed">
+                <p className="text-white/60 text-sm md:text-base font-light leading-relaxed">
                   BioBizz started as a small, family-driven Dutch company with one conviction:
-                  organic soil is the foundation of everything.
+                  organic soil is the foundation of everything. As our official organic partner,
+                  they sponsor KD Genetics with their full range of soils and nutrients —
+                  no synthetics, no shortcuts.
                 </p>
-                <p className="text-white/50 text-sm font-light leading-relaxed">
-                  As our official organic partner, BioBizz sponsors KD Genetics with
-                  their full range of soils and nutrients. No synthetics. No shortcuts.
-                </p>
+              </div>
+            </div>
 
-                <div className="space-y-3 pt-4">
-                  <div className="aspect-[3/2] rounded-xl overflow-hidden border border-white/10">
-                    <Image
-                      src="/biobizz-group.jpg"
-                      alt="BioBizz visit — Mr KD, the BioBizz team, Daniel, and Kevin on the farm"
-                      width={1600}
-                      height={1066}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="aspect-[3/2] rounded-xl overflow-hidden border border-white/10">
-                    <Image
-                      src="/biobizz-frisbee.jpg"
-                      alt="Powered by BioBizz — Mr KD with Luis"
-                      width={1600}
-                      height={1066}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
+            {/* Photos — full-width 2-up strip */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
+                <Image
+                  src="/biobizz-group.jpg"
+                  alt="BioBizz visit — Mr KD, the BioBizz team, Daniel, and Kevin on the farm"
+                  width={1600}
+                  height={1200}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
+                <Image
+                  src="/biobizz-frisbee.jpg"
+                  alt="Powered by BioBizz — Mr KD with Luis"
+                  width={1600}
+                  height={1200}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
