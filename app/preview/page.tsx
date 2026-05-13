@@ -5,7 +5,6 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ReviewsSection from "@/components/ReviewsSection";
 import TourBookingForm from "@/components/TourBookingForm";
-import ContactForm from "@/components/ContactForm";
 import PhotoGallery from "@/components/PhotoGallery";
 import StrainGrid from "@/components/StrainGrid";
 import HeroVideo from "@/components/HeroVideo";
@@ -532,7 +531,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Stop 02 · Historic Growth Sites — image right */}
+              {/* Stop 02 · Historic Grow Sites — image right */}
               <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
                 <div className="md:col-span-7 md:order-2">
                   <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
@@ -550,7 +549,7 @@ export default function HomePage() {
                     Stop 02
                   </span>
                   <h4 className="font-display text-2xl md:text-3xl text-white leading-tight">
-                    Historic Growth Sites
+                    Historic Grow Sites
                   </h4>
                   <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
                     Father&rsquo;s old grow plots from the illegal years. Hidden hillside, ocean below, tucked under the forest canopy. Where the family&rsquo;s cannabis story started — and where some of the landrace genetics still grow today.
@@ -1022,27 +1021,6 @@ export default function HomePage() {
               </a>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════
-       *  15. CONTACT
-       * ══════════════════════════════════════════════════════════════════ */}
-      <section id="contact" className="py-28 bg-[#EAE6DE]/30">
-        <div className="container mx-auto px-6 max-w-2xl">
-          <div className="text-center mb-10 space-y-3">
-            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
-              Stay in Touch
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl text-[#1E1E1E]">
-              New drops. Quiet updates.
-            </h2>
-            <p className="text-[#6B6B6B] text-sm font-light">
-              We&rsquo;ll only write when there&rsquo;s something real to say.
-            </p>
-          </div>
-
-          <ContactForm />
         </div>
       </section>
 

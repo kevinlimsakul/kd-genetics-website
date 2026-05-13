@@ -131,7 +131,7 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
               Visit
             </button>
             <button
-              onClick={() => scrollTo("contact")}
+              onClick={() => scrollTo("visit")}
               className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
             >
               Contact
@@ -174,7 +174,7 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
               { label: "Philosophy", action: () => scrollTo("philosophy") },
               { label: "Gallery", action: () => scrollTo("gallery") },
               { label: "Visit", action: () => scrollTo("visit") },
-              { label: "Contact", action: () => scrollTo("contact") },
+              { label: "Contact", action: () => scrollTo("visit") },
             ].map((item) => (
               <button
                 key={item.label}
