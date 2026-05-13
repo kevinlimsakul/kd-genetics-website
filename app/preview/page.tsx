@@ -562,10 +562,10 @@ export default function HomePage() {
                 <div className="md:col-span-7">
                   <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
                     <Image
-                      src="/farm-veg.jpg"
-                      alt="The new KD Genetics farm — Daniel, Papa KD, and Kevin among the plants"
-                      width={1400}
-                      height={1050}
+                      src="/farm-daniel.jpg"
+                      alt="Daniel — Head of Cultivation — working among the plants in the KD Genetics greenhouse"
+                      width={1800}
+                      height={1350}
                       className="w-full h-full object-cover"
                     />
                   </div>
