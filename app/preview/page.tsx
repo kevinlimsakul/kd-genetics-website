@@ -730,13 +730,13 @@ export default function HomePage() {
             </h2>
           </div>
 
-          {/* Worn on the farm */}
+          {/* One row, four colorways — white, black, gray, sand */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
             {[
-              { label: "Father.",          img: "/apparel-papa-black.jpg" },
-              { label: "Founder.",         img: "/apparel-kevin-black.jpg" },
-              { label: "Tending.",         img: "/apparel-papa-graphic.jpg" },
-              { label: "Off the clock.",   img: "/apparel-kevin-graphic.jpg" },
+              { label: "Family.",   img: "/apparel-three-of-us.jpg" },
+              { label: "Founder.",  img: "/apparel-kevin-black.jpg" },
+              { label: "Papa.",     img: "/apparel-papa-plant.jpg" },
+              { label: "Tending.",  img: "/apparel-papa-graphic.jpg" },
             ].map((tile) => (
               <div key={tile.label} className="aspect-[3/4] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
                 <Image
@@ -744,26 +744,6 @@ export default function HomePage() {
                   alt={tile.label}
                   width={1200}
                   height={1600}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Worn in the greenhouse — second row of lifestyle shots */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
-            {[
-              { label: "The three of us.",         img: "/apparel-three-of-us.jpg" },
-              { label: "Papa, rolling.",           img: "/apparel-papa-rolling.jpg" },
-              { label: "Kevin, in the green.",     img: "/apparel-kevin-quote.jpg" },
-              { label: "Papa, in the canopy.",     img: "/apparel-papa-quote-back.jpg" },
-            ].map((tile) => (
-              <div key={tile.label} className="aspect-[3/4] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
-                <Image
-                  src={tile.img}
-                  alt={tile.label}
-                  width={1200}
-                  height={1800}
                   className="w-full h-full object-cover"
                 />
               </div>
