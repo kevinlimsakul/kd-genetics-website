@@ -658,7 +658,7 @@ export default function HomePage() {
               </div>
               <p className="font-display text-3xl text-[#1E1E1E] mt-5">3,000 THB</p>
               <p className="text-[#6B6B6B] text-[11px] font-light mt-1">
-                The full experience — take-home flower, our gear, and the run of the KD Shop.
+                The full experience — take-home flower, our gear, and everything 10% off on top in the KD Shop.
               </p>
 
               <p className="text-[#5A6A4F] text-[10px] font-semibold uppercase tracking-[0.2em] mt-7 mb-4">
