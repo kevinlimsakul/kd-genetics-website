@@ -946,7 +946,7 @@ export default function HomePage() {
               </h2>
               <p className="text-[#6B6B6B] text-base font-light leading-relaxed">
                 Our family also runs <strong className="font-medium">Slowdown Homestay</strong> —
-                eco-boutique Airbnb, 30 meters from the farm. Same land. Different experience.
+                an eco-boutique stay, 30 meters from the farm. Same land. Different experience.
               </p>
               <a
                 href="https://slowdownkohtao.com"
