@@ -667,27 +667,45 @@ export default function HomePage() {
               <ul className="space-y-2.5 mb-8">
                 <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
                   <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
-                  <span>3g of sungrown KD flower</span>
+                  <span className="flex-1 flex flex-wrap items-baseline justify-between gap-x-3">
+                    <span>4g of sungrown KD flower</span>
+                    <span className="text-[#6B6B6B]/70 text-[11px] font-light tabular-nums">1,000–1,200 THB</span>
+                  </span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
                   <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
-                  <span>KD Genetics T-Shirt</span>
+                  <span className="flex-1 flex flex-wrap items-baseline justify-between gap-x-3">
+                    <span>KD Genetics T-Shirt</span>
+                    <span className="text-[#6B6B6B]/70 text-[11px] font-light tabular-nums">800 THB</span>
+                  </span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
                   <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
-                  <span>Smoking starter kit — lighter, grinder, tips, papers, stickers</span>
+                  <span className="flex-1 flex flex-wrap items-baseline justify-between gap-x-3">
+                    <span>Smoking starter kit — lighter, grinder, tips, papers, stickers</span>
+                    <span className="text-[#6B6B6B]/70 text-[11px] font-light tabular-nums">350 THB</span>
+                  </span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
                   <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
-                  <span>Cold-pressed juice from the shop</span>
+                  <span className="flex-1 flex flex-wrap items-baseline justify-between gap-x-3">
+                    <span>Cold-pressed juice from the shop</span>
+                    <span className="text-[#6B6B6B]/70 text-[11px] font-light tabular-nums">180–200 THB</span>
+                  </span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
                   <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
-                  <span>KD oil or tea sample</span>
+                  <span className="flex-1 flex flex-wrap items-baseline justify-between gap-x-3">
+                    <span>KD oil or tea sample</span>
+                    <span className="text-[#6B6B6B]/70 text-[11px] font-light tabular-nums">200 THB</span>
+                  </span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
                   <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
-                  <span>10% off everything in the KD Shop</span>
+                  <span className="flex-1 flex flex-wrap items-baseline justify-between gap-x-3">
+                    <span>10% off everything in the KD Shop</span>
+                    <span className="text-[#6B6B6B]/70 text-[11px] font-light italic">extra</span>
+                  </span>
                 </li>
               </ul>
 
