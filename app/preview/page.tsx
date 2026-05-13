@@ -523,10 +523,10 @@ export default function HomePage() {
                     Stop 01
                   </span>
                   <h4 className="font-display text-2xl md:text-3xl text-white leading-tight">
-                    The Shop
+                    Welcome at the Shop
                   </h4>
                   <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
-                    The doors open at Tanote Bay. Sungrown flowers and Papa KD&rsquo;s craft oils. A small chill area inside — take a seat, no rush.
+                    We start with welcome tea and a quick introduction inside the KD Shop in Tanote Bay — just enough context — before the walk begins, leading out through the garden.
                   </p>
                 </div>
               </div>
@@ -575,7 +575,7 @@ export default function HomePage() {
                     Stop 03
                   </span>
                   <h4 className="font-display text-2xl md:text-3xl text-white leading-tight">
-                    The New Farm
+                    From Seed to Spliff
                   </h4>
                   <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
                     The legal farm today — living soil, sungrown plants, hands-on work. We walk it end-to-end together: from the soil and the seedlings, through the greenhouse and the flowering terrace, all the way to harvest, dry, and cure.
