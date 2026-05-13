@@ -62,9 +62,6 @@ export default function StrainGrid({
                 className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
               />
             </div>
-            <p className="text-center text-[#1E1E1E] text-sm font-medium">
-              {s.name}
-            </p>
           </button>
         ))}
       </div>
@@ -128,9 +125,6 @@ export default function StrainGrid({
               className="w-auto h-auto max-w-full max-h-[92vh] object-contain"
               priority
             />
-            <p className="text-white/80 text-base font-light text-center mt-4">
-              {strains[openIndex].name}
-            </p>
           </div>
         </div>
       )}
