@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 interface NavProps {
-  activePage?: "home" | "products" | "shop";
+  activePage?: "home" | "shop";
   homeHref?: string;
 }
 
@@ -98,16 +98,12 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
             >
               Philosophy
             </button>
-            <Link
-              href="/products"
-              className={`transition-colors ${
-                activePage === "products"
-                  ? isGlass ? "text-white border-b border-white pb-0.5" : "text-[#1E1E1E] border-b border-[#1E1E1E] pb-0.5"
-                  : isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"
-              }`}
+            <button
+              onClick={() => scrollTo("tour")}
+              className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
             >
               Experience
-            </Link>
+            </button>
             <Link
               href="/shop"
               className={`transition-colors ${
@@ -184,13 +180,12 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
                 {item.label}
               </button>
             ))}
-            <Link
-              href="/products"
-              className="block text-primary/70 hover:text-primary text-sm font-medium"
-              onClick={() => setMenuOpen(false)}
+            <button
+              onClick={() => { scrollTo("tour"); setMenuOpen(false); }}
+              className="block w-full text-left text-primary/70 hover:text-primary text-sm font-medium"
             >
               Experience
-            </Link>
+            </button>
             <Link
               href="/shop"
               className="block text-primary/70 hover:text-primary text-sm font-medium"

@@ -72,7 +72,7 @@ export default function Footer({ homeHref = "/" }: { homeHref?: string }) {
                 </Link>
               </li>
               <li>
-                <Link href="/products" className="hover:text-white transition-colors">
+                <Link href={`${homeHref}#tour`} className="hover:text-white transition-colors">
                   Experience
                 </Link>
               </li>
