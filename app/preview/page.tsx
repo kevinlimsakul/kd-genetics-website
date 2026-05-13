@@ -814,7 +814,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="space-y-6 md:pl-8">
+            <div className="flex flex-col space-y-6 md:pl-8">
               <div>
                 <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em] mb-2">
                   Location
@@ -850,7 +850,7 @@ export default function HomePage() {
                 </a>
               </div>
 
-              <div className="flex flex-wrap gap-3 pt-4">
+              <div className="flex flex-wrap gap-3">
                 <a
                   href="https://maps.app.goo.gl/?q=KD+Genetics+Tanote+Bay+Koh+Tao"
                   target="_blank"
@@ -868,21 +868,21 @@ export default function HomePage() {
                   <MessageSquare className="h-4 w-4" /> Message Us
                 </a>
               </div>
-            </div>
-          </div>
 
-          {/* Interactive map — drag and zoom to find the shop */}
-          <div className="mt-12 h-[460px] rounded-2xl overflow-hidden shadow-sm bg-[#EAE6DE]/30">
-            <iframe
-              src="https://www.google.com/maps?q=KD+Genetics+Tanote+Bay+Koh+Tao&z=16&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="KD Genetics — Tanote Bay, Koh Tao"
-            />
+              {/* Interactive map — fills the remaining right-column height */}
+              <div className="flex-1 min-h-[260px] rounded-2xl overflow-hidden shadow-sm bg-[#EAE6DE]/30 mt-2">
+                <iframe
+                  src="https://www.google.com/maps?q=KD+Genetics+Tanote+Bay+Koh+Tao&z=16&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="KD Genetics — Tanote Bay, Koh Tao"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
