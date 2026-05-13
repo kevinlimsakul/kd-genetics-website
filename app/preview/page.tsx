@@ -326,7 +326,7 @@ export default function HomePage() {
               {
                 icon: <Leaf className="h-5 w-5" />,
                 title: "Organic living soil",
-                desc: "Worms, microbes, compost built over years. Not synthetic nutrients dropped in bags.",
+                desc: "Wormcastings we make, microbes, compost built slow over months. Not synthetic nutrients dropped in bags.",
                 img: "/living-soil-2026.jpg",
               },
               {
@@ -448,14 +448,26 @@ export default function HomePage() {
 
           <SlideshowGallery
             slides={[
-              { src: "/drone-hero.jpg",         alt: "Aerial view of KD Genetics farm and Tanote Bay", caption: "Our land" },
-              { src: "/historic-grow-site.jpg", alt: "Papa KD on the historic hillside grow site",      caption: "Where it started" },
-              { src: "/farm-nursery.jpg",       alt: "Young cannabis plants in the nursery",            caption: "Young plants" },
-              { src: "/farm-veg.jpg",           alt: "Cannabis plants in flower in the greenhouse",     caption: "Growing" },
-              { src: "/sun-grown.jpg",          alt: "Sun-grown cannabis canopy on the farm",           caption: "Sun-grown" },
-              { src: "/flower-macro-1.jpg",     alt: "Macro shot of a KD sun-grown bud",                caption: "The flower" },
-              { src: "/team-watering.jpg",      alt: "The team watering the cannabis plants",           caption: "Daily work" },
-              { src: "/shop-mural.jpg",         alt: "The KD Genetics shop interior with mural",        caption: "The shop" },
+              { src: "/drone-hero.jpg",          alt: "Aerial view of KD Genetics farm and Tanote Bay",  caption: "Our land" },
+              { src: "/historic-grow-site.jpg",  alt: "Papa KD on the historic hillside grow site",       caption: "Where it started" },
+              { src: "/papa-portrait-2026.jpg",  alt: "Portrait of Papa KD on the farm",                  caption: "Papa KD" },
+              { src: "/founder-kevin-2026.jpg",  alt: "Kevin, founder of KD Genetics, on the farm",       caption: "The founder" },
+              { src: "/founder-daniel-2026.jpg", alt: "Daniel, Head of Cultivation, in the greenhouse",   caption: "Head of cultivation" },
+              { src: "/founders-hammock.jpg",    alt: "The founders resting on the farm",                 caption: "Off the clock" },
+              { src: "/farm-nursery.jpg",        alt: "Young cannabis plants in the nursery",             caption: "Young plants" },
+              { src: "/farm-veg.jpg",            alt: "Cannabis plants in flower in the greenhouse",      caption: "Growing" },
+              { src: "/living-soil-2026.jpg",    alt: "Living soil at the KD Genetics farm",              caption: "Living soil" },
+              { src: "/sun-grown.jpg",           alt: "Sun-grown cannabis canopy on the farm",            caption: "Sun-grown" },
+              { src: "/flower-macro-1.jpg",      alt: "Macro shot of a KD sun-grown bud",                 caption: "The flower" },
+              { src: "/flower-macro-2.jpg",      alt: "Macro shot of a second KD sun-grown bud",          caption: "Up close" },
+              { src: "/team-watering.jpg",       alt: "The team watering the cannabis plants",            caption: "Daily work" },
+              { src: "/team-group-2026.jpg",     alt: "The full KD Genetics team",                        caption: "The team" },
+              { src: "/biobizz-group.jpg",       alt: "BioBizz team visiting the farm",                   caption: "Friends of the farm" },
+              { src: "/farm-cat.jpg",            alt: "The farm cat resting on a wall",                   caption: "The farm cat" },
+              { src: "/apparel-dog.jpg",         alt: "The farm dog in the shop with Kevin",              caption: "The farm dog" },
+              { src: "/drone-bay.jpg",           alt: "Drone view over Tanote Bay",                       caption: "Tanote Bay" },
+              { src: "/shop-counter.jpg",        alt: "The KD Genetics shop counter",                     caption: "The counter" },
+              { src: "/shop-mural.jpg",          alt: "The KD Genetics shop interior with mural",         caption: "The shop" },
             ]}
           />
         </div>
