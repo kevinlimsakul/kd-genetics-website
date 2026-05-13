@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import ReviewsSection from "@/components/ReviewsSection";
 import TourBookingForm from "@/components/TourBookingForm";
 import ContactForm from "@/components/ContactForm";
-import AnimatedCounter from "@/components/AnimatedCounter";
 import PhotoGallery from "@/components/PhotoGallery";
 import StrainGrid from "@/components/StrainGrid";
 import HeroVideo from "@/components/HeroVideo";
@@ -22,7 +21,6 @@ import {
   ExternalLink,
   MessageSquare,
   Award,
-  Flame,
   Sprout,
 } from "lucide-react";
 
@@ -36,30 +34,6 @@ export const metadata: Metadata = {
  *  Data — single source of truth for section content
  * ──────────────────────────────────────────────────────────────────────── */
 
-const numbers = [
-  { value: 7,   suffix: "",  label: "Rai of family-owned land" },
-  { value: 3,   suffix: "",  label: "Generations on this land" },
-  { value: 2019, suffix: "", label: "Jack Herer Cup — first Thai winner" },
-  { value: 1,   suffix: "",  label: "Licensed cannabis farm on Koh Tao" },
-  { value: 100, suffix: "%", label: "Organic living soil" },
-  { value: 7,   suffix: "",  label: "People on the team" },
-];
-
-const nextGeneration = [
-  {
-    name: "Kevin",
-    role: "Vision & Operations",
-    bio: "Papa's son. Carries the legacy forward — structure, direction, the next chapter.",
-    img: "/founder-kevin-may2026.jpg",
-  },
-  {
-    name: "Daniel",
-    role: "Cultivation & Horticulture",
-    bio: "Kevin's closest friend since day one. Horticultural scientist. Hands on every plant.",
-    img: "/founder-daniel-2026.jpg",
-  },
-];
-
 const kdOutdoorStrains = [
   { name: "KD Landrace #3", img: "/strain-kd-landrace.jpg" },
   { name: "KD Cherry",      img: "/strain-kd-cherry.jpg" },
@@ -67,28 +41,6 @@ const kdOutdoorStrains = [
   { name: "KD Blacktip",    img: "/strain-kd-blacktip.jpg" },
   { name: "Cheese Cookies", img: "/strain-cheese-cookies.jpg" },
   { name: "Hella Jelly #2", img: "/strain-hella-jelly.jpg" },
-];
-
-const termsukIndoorStrains = [
-  { name: "Lemon Orange",   img: "/strain-lemon-orange.jpg" },
-  { name: "Alien Mints",    img: "/strain-alien-mints.jpg" },
-  { name: "God Z",          img: "/strain-god-z.jpg" },
-  { name: "Banana Conda",   img: "/strain-banana-conda.jpg" },
-  { name: "Kiwi",           img: "/strain-kiwi.jpg" },
-  { name: "Unicorn Poop",   img: "/strain-unicorn-poop.jpg" },
-];
-
-const beyondFlower: Array<{
-  title: string;
-  line: string;
-  img: string;
-  href: string;
-  fit?: "cover" | "contain";
-}> = [
-  { title: "Oils",    line: "Mr. KD's craft cannabis oils.",     img: "/oil-hero.jpg",       href: "/menu#oils",  fit: "contain" },
-  { title: "Hash",    line: "Hand-washed, pressed on the farm.", img: "/hash-hero.jpg",      href: "/menu#hash" },
-  { title: "Rosin",   line: "Solventless, small batch.",         img: "/rosin-hero.jpg",     href: "/menu#rosin", fit: "contain" },
-  { title: "Apparel", line: "What we wear on the farm.",         img: "/apparel-papa-black.jpg",  href: "#apparel" },
 ];
 
 const mediaArticles = [
@@ -155,18 +107,12 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col items-center gap-8">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <a
                 href="#tour"
                 className="bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90 rounded-full px-10 h-14 text-sm font-medium transition-all shadow-sm flex items-center justify-center"
               >
                 Book the Farm Tour
-              </a>
-              <a
-                href="#papa"
-                className="border border-white/30 text-white hover:bg-white/10 rounded-full px-10 h-14 text-sm font-medium backdrop-blur-sm transition-all flex items-center justify-center"
-              >
-                Meet Papa KD
               </a>
             </div>
 
@@ -174,7 +120,7 @@ export default function HomePage() {
               <div className="inline-flex flex-wrap justify-center items-center gap-x-7 gap-y-2 px-6 py-3 rounded-full bg-black/35 backdrop-blur-md border border-white/10 text-white text-[11px] font-medium tracking-wider uppercase shadow-[0_8px_30px_-10px_rgba(0,0,0,0.4)]">
                 <span className="flex items-center gap-2"><Award className="w-3.5 h-3.5 text-[#A8B89A]" /> Jack Herer Cup, First Thai Winner</span>
                 <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-white/25" aria-hidden />
-                <span className="flex items-center gap-2"><Leaf  className="w-3.5 h-3.5 text-[#A8B89A]" /> Certified Organic — BioBizz</span>
+                <span className="flex items-center gap-2"><Leaf  className="w-3.5 h-3.5 text-[#A8B89A]" /> Grown with BioBizz</span>
                 <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-white/25" aria-hidden />
                 <span className="flex items-center gap-2"><Sun   className="w-3.5 h-3.5 text-[#A8B89A]" /> Sun-Grown on Koh Tao</span>
               </div>
@@ -184,36 +130,7 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-       *  2. NUMBERS — animated counters
-       * ══════════════════════════════════════════════════════════════════ */}
-      <section className="py-28 bg-[#F6F4EF]">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-16 max-w-xl mx-auto space-y-3">
-            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
-              By the Numbers
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl text-[#1E1E1E]">
-              Small by design.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-y-14 gap-x-8">
-            {numbers.map((n) => (
-              <div key={n.label} className="text-center space-y-2">
-                <p className="font-display text-5xl md:text-6xl text-[#1E1E1E] leading-none">
-                  <AnimatedCounter value={n.value} suffix={n.suffix} />
-                </p>
-                <p className="text-[#6B6B6B] text-xs font-light leading-snug max-w-[180px] mx-auto">
-                  {n.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════
-       *  4. PAPA KD — the face, opened by his quote
+       *  2. PAPA KD — the face, opened by his quote
        * ══════════════════════════════════════════════════════════════════ */}
       <section id="papa" className="py-32 bg-[#EAE6DE]/40">
         <div className="container mx-auto px-6 max-w-5xl">
@@ -388,51 +305,7 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-       *  5. THE NEW GENERATION — Kevin + Daniel, parity weight
-       * ══════════════════════════════════════════════════════════════════ */}
-      <section id="next-generation" className="py-32 bg-[#EAE6DE]/30">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="text-center mb-20 space-y-4">
-            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
-              The Next Generation
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E] leading-tight">
-              Papa KD leads. We follow.
-              <br />
-              Together we grow.
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            {nextGeneration.map((p) => (
-              <div key={p.name} className="space-y-5 group text-center">
-                <div className="aspect-square rounded-2xl overflow-hidden border border-black/5 bg-[#EAE6DE]/30 max-w-[340px] mx-auto">
-                  <Image
-                    src={p.img}
-                    alt={p.name}
-                    width={340}
-                    height={340}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="font-display text-2xl text-[#1E1E1E]">{p.name}</h3>
-                  <p className="text-[#5A6A4F]/70 text-xs font-medium uppercase tracking-[0.15em]">
-                    {p.role}
-                  </p>
-                  <p className="text-[#6B6B6B] text-sm font-light leading-relaxed max-w-sm mx-auto">
-                    {p.bio}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════
-       *  5.5 THE TEAM — environmental portraits, group at the top
+       *  5. FAMILY · FRIENDS · CREW — founders + crew under one header
        * ══════════════════════════════════════════════════════════════════ */}
       <TeamSection />
 
@@ -654,7 +527,7 @@ export default function HomePage() {
                     The Shop
                   </h4>
                   <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
-                    The doors open at Tanote Bay. Sungrown flowers, Papa KD&rsquo;s craft oils, hand-washed hash, solventless rosin. A small chill area inside — take a seat, no rush.
+                    The doors open at Tanote Bay. Sungrown flowers and Papa KD&rsquo;s craft oils. A small chill area inside — take a seat, no rush.
                   </p>
                 </div>
               </div>
@@ -819,69 +692,17 @@ export default function HomePage() {
               The Lineup
             </span>
             <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E]">
-              Sun-grown outdoor. Premium indoor.
+              KD landraces and crosses.
             </h2>
             <p className="text-[#6B6B6B] text-base font-light">
-              KD landraces and crosses we&rsquo;ve bred — paired with curated indoor cultivars from Termsuk Collective.
+              Sun-grown outdoor strains we&rsquo;ve bred and grown on the farm.
             </p>
           </div>
 
-          {/* KD Outdoor strains */}
-          <div className="mb-6 max-w-2xl mx-auto text-center space-y-1">
-            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.25em]">
-              KD Genetics — Sun-Grown Outdoor
-            </span>
-          </div>
           <StrainGrid
             strains={kdOutdoorStrains}
-            gridClassName="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 max-w-5xl mx-auto mb-24"
+            gridClassName="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 max-w-5xl mx-auto mb-16"
           />
-
-          {/* Termsuk Collective indoor strains */}
-          <div className="mb-6 max-w-2xl mx-auto text-center space-y-1">
-            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.25em]">
-              Termsuk Collective — Indoor
-            </span>
-            <p className="text-[#6B6B6B]/80 text-[11px] font-light italic">
-              Indoor-grown by our friends at Termsuk Collective.
-            </p>
-          </div>
-          <StrainGrid
-            strains={termsukIndoorStrains}
-            gridClassName="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 max-w-5xl mx-auto mb-24"
-          />
-
-          {/* Beyond Flower */}
-          <div className="text-center mb-10 max-w-xl mx-auto space-y-2">
-            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
-              Beyond Flower
-            </span>
-            <h3 className="font-display text-2xl md:text-3xl text-[#1E1E1E]">
-              Oils, hash, rosin, apparel.
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-            {beyondFlower.map((c) => (
-              <Link key={c.title} href={c.href} className="space-y-3 group">
-                <div className="aspect-square rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
-                  <Image
-                    src={c.img}
-                    alt={c.title}
-                    width={1400}
-                    height={1400}
-                    className={`w-full h-full ${c.fit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-500 group-hover:scale-105`}
-                  />
-                </div>
-                <div className="space-y-1 text-center">
-                  <h4 className="font-display text-xl text-[#1E1E1E]">{c.title}</h4>
-                  <p className="text-[#6B6B6B]/80 text-[11px] font-light leading-snug px-2">
-                    {c.line}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
 
           <div className="text-center">
             <Link
@@ -1135,7 +956,7 @@ export default function HomePage() {
                 eco-boutique Airbnb, 30 meters from the farm. Same land. Different experience.
               </p>
               <a
-                href="https://slowdownhomestay.com"
+                href="https://slowdownkohtao.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group mt-3 inline-flex items-center gap-2.5 rounded-full border border-[#5A6A4F]/25 bg-white/55 backdrop-blur-md px-7 h-12 text-sm font-medium text-[#3D4A35] shadow-[0_8px_24px_-12px_rgba(90,106,79,0.35)] hover:bg-white/75 hover:border-[#5A6A4F]/40 hover:shadow-[0_10px_28px_-10px_rgba(90,106,79,0.45)] transition-all"
