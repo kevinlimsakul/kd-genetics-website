@@ -5,10 +5,9 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ReviewsSection from "@/components/ReviewsSection";
 import TourBookingForm from "@/components/TourBookingForm";
-import PhotoGallery from "@/components/PhotoGallery";
 import StrainGrid from "@/components/StrainGrid";
 import HeroVideo from "@/components/HeroVideo";
-import LightboxImage from "@/components/LightboxImage";
+import SlideshowGallery from "@/components/SlideshowGallery";
 import TeamSection from "@/components/TeamSection";
 import {
   Leaf,
@@ -436,40 +435,29 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
        *  7. THE FARM — walk the land
        * ══════════════════════════════════════════════════════════════════ */}
-      <section id="the-farm" className="py-32 bg-[#F6F4EF]">
+      <section id="gallery" className="py-20 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-14 max-w-2xl mx-auto space-y-4">
+          <div className="text-center mb-10 max-w-2xl mx-auto space-y-2">
             <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               The Farm
             </span>
-            <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E]">
-              A stone&rsquo;s throw from Tanote Beach.
+            <h2 className="font-display text-3xl md:text-4xl text-[#1E1E1E]">
+              Our land. Our work.
             </h2>
-            <p className="text-[#6B6B6B] text-base font-light">
-              Seven rai. One family&rsquo;s farm. Open to visitors.
-            </p>
           </div>
 
-          {/* Drone hero — full property */}
-          <LightboxImage
-            src="/drone-hero.jpg"
-            alt="Aerial view of KD Genetics farm and Tanote Bay"
-            caption="Our land."
-            containerClassName="aspect-[16/9] rounded-2xl overflow-hidden bg-[#EAE6DE]/40"
-            captionClassName="text-center text-[#6B6B6B] text-sm font-light italic mt-3 mb-6"
-          />
-
-          <PhotoGallery
-            photos={[
-              { label: "Nursery — young plants",            img: "/farm-nursery.jpg" },
-              { label: "Harvest time",                      img: "/farm-veg.jpg" },
-              { label: "Veg stage in the greenhouse",       img: "/farm-flowering.jpg" },
-              { label: "The shop",                          img: "/farm-chill.jpg" },
-              { label: "The farm from above",               img: "/drone-bay.jpg" },
-              { label: "KD Shop exterior",                  img: "/shop-exterior.jpg" },
+          <SlideshowGallery
+            slides={[
+              { src: "/drone-hero.jpg",         alt: "Aerial view of KD Genetics farm and Tanote Bay", caption: "Our land" },
+              { src: "/historic-grow-site.jpg", alt: "Papa KD on the historic hillside grow site",      caption: "Where it started" },
+              { src: "/farm-nursery.jpg",       alt: "Young cannabis plants in the nursery",            caption: "Young plants" },
+              { src: "/farm-veg.jpg",           alt: "Cannabis plants in flower in the greenhouse",     caption: "Growing" },
+              { src: "/sun-grown.jpg",          alt: "Sun-grown cannabis canopy on the farm",           caption: "Sun-grown" },
+              { src: "/flower-macro-1.jpg",     alt: "Macro shot of a KD sun-grown bud",                caption: "The flower" },
+              { src: "/team-watering.jpg",      alt: "The team watering the cannabis plants",           caption: "Daily work" },
+              { src: "/shop-mural.jpg",         alt: "The KD Genetics shop interior with mural",        caption: "The shop" },
             ]}
           />
-
         </div>
       </section>
 
