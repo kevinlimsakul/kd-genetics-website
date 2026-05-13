@@ -586,6 +586,32 @@ export default function HomePage() {
                 </div>
               </div>
 
+              {/* Stop 04 · Sit Together — image right */}
+              <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+                <div className="md:col-span-7 md:order-2">
+                  <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
+                    <Image
+                      src="/shop-mural.jpg"
+                      alt="The KD Shop interior — chill area where the tour ends with Q&A and tasting"
+                      width={1800}
+                      height={1350}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="md:col-span-5 md:order-1 space-y-3">
+                  <span className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em]">
+                    Stop 04 · Open-ended
+                  </span>
+                  <h4 className="font-display text-2xl md:text-3xl text-white leading-tight">
+                    Sit Together
+                  </h4>
+                  <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
+                    The walk ends back at the shop. Open Q&amp;A, tasting if you want it, no clock. Some guests stay twenty minutes, some until sunset. Not mandatory — just the part we love most.
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
 
