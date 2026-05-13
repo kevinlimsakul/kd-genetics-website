@@ -632,11 +632,11 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start gap-2.5 text-white/80 text-[13px] font-light leading-snug">
                   <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
-                  <span>Welcome cannabis tea &amp; treats</span>
+                  <span>Welcome cannabis tea &amp; cookies</span>
                 </li>
                 <li className="flex items-start gap-2.5 text-white/80 text-[13px] font-light leading-snug">
                   <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
-                  <span>Tasting in the shop at the end</span>
+                  <span>Hand-rolled KD joint to take home</span>
                 </li>
               </ul>
 
@@ -658,7 +658,7 @@ export default function HomePage() {
               </div>
               <p className="font-display text-3xl text-[#1E1E1E] mt-5">3,000 THB</p>
               <p className="text-[#6B6B6B] text-[11px] font-light mt-1">
-                Private, extended time with Papa.
+                The full experience — take-home flower, our gear, and the run of the KD Shop.
               </p>
 
               <p className="text-[#5A6A4F] text-[10px] font-semibold uppercase tracking-[0.2em] mt-7 mb-4">
@@ -671,7 +671,7 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
                   <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
-                  <span>KD Genetics t-shirt</span>
+                  <span>KD Genetics T-Shirt</span>
                 </li>
                 <li className="flex items-start gap-2.5 text-[#1E1E1E] text-[13px] font-light leading-snug">
                   <CheckCircle2 className="h-4 w-4 text-[#5A6A4F] shrink-0 mt-0.5" />
