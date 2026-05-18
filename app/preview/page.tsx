@@ -8,6 +8,7 @@ import TourBookingForm from "@/components/TourBookingForm";
 import StrainGrid from "@/components/StrainGrid";
 import HeroVideo from "@/components/HeroVideo";
 import SlideshowGallery from "@/components/SlideshowGallery";
+import StatementSlideshow from "@/components/StatementSlideshow";
 import TeamSection from "@/components/TeamSection";
 import {
   Leaf,
@@ -25,7 +26,7 @@ import {
 export const metadata: Metadata = {
   title: "KD Genetics: Sun-Grown. Family-Grown. Island-Grown.",
   description:
-    "A family-run craft cannabis farm on Koh Tao. Organic living soil, sun-grown, small batch. Home of Papa KD — first Thai winner of the Jack Herer Cup (2019). Farm tours and dispensary in Tanote Bay.",
+    "A family-run craft cannabis farm on Koh Tao. All organic, sun-grown, small batch. Home of Papa KD — first Thai winner of the Jack Herer Cup (2019). Farm tours and dispensary in Tanote Bay.",
 };
 
 /* ────────────────────────────────────────────────────────────────────────
@@ -100,7 +101,7 @@ export default function HomePage() {
               Island-Grown.
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed font-light">
-              Organic living soil. Small batch. Grown by a family who stayed on the land.
+              All organic. Small batch. Grown by hand, by a family who stayed on the land.
             </p>
           </div>
 
@@ -126,6 +127,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════════════════════════
+       *  1b. STATEMENT — bold claim over a crossfading slideshow
+       *      (Khalifa-style punch, KD voice)
+       * ══════════════════════════════════════════════════════════════════ */}
+      <StatementSlideshow />
 
       {/* ══════════════════════════════════════════════════════════════════
        *  2. PAPA KD — the face, opened by his quote
@@ -308,7 +315,7 @@ export default function HomePage() {
       <TeamSection />
 
       {/* ══════════════════════════════════════════════════════════════════
-       *  6. PHILOSOPHY — Living Soil + small-batch + sun-grown
+       *  6. PHILOSOPHY — All organic + small-batch + sun-grown
        * ══════════════════════════════════════════════════════════════════ */}
       <section id="philosophy" className="pt-16 pb-32 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
@@ -325,8 +332,8 @@ export default function HomePage() {
             {[
               {
                 icon: <Leaf className="h-5 w-5" />,
-                title: "Organic living soil",
-                desc: "Wormcastings we make, microbes, compost built slow over months. Not synthetic nutrients dropped in bags.",
+                title: "All organic",
+                desc: "Compost and worm castings we build ourselves, fed with BioBizz organic nutrients. No synthetics, ever.",
                 img: "/living-soil-2026.jpg",
               },
               {
@@ -456,7 +463,7 @@ export default function HomePage() {
               { src: "/founders-hammock.jpg",    alt: "The founders resting on the farm",                 caption: "Off the clock" },
               { src: "/farm-nursery.jpg",        alt: "Young cannabis plants in the nursery",             caption: "Young plants" },
               { src: "/farm-veg.jpg",            alt: "Cannabis plants in flower in the greenhouse",      caption: "Growing" },
-              { src: "/living-soil-2026.jpg",    alt: "Living soil at the KD Genetics farm",              caption: "Living soil" },
+              { src: "/living-soil-2026.jpg",    alt: "Organic soil at the KD Genetics farm",             caption: "The soil" },
               { src: "/sun-grown.jpg",           alt: "Sun-grown cannabis canopy on the farm",            caption: "Sun-grown" },
               { src: "/flower-macro-1.jpg",      alt: "Macro shot of a KD sun-grown bud",                 caption: "The flower" },
               { src: "/team-watering.jpg",       alt: "The team watering the cannabis plants",            caption: "Daily work" },
@@ -578,7 +585,7 @@ export default function HomePage() {
                     From Seed to Spliff
                   </h4>
                   <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
-                    The legal farm today — living soil, sungrown plants, hands-on work. We walk it end-to-end together: from the soil and the seedlings, through the greenhouse and the flowering terrace, all the way to harvest, dry, and cure.
+                    The legal farm today — organic soil, sungrown plants, hands-on work. We walk it end-to-end together: from the soil and the seedlings, through the greenhouse and the flowering terrace, all the way to harvest, dry, and cure.
                   </p>
                   <p className="text-white/40 text-[11px] font-medium uppercase tracking-[0.2em] pt-1">
                     Soil · Nursery · Greenhouse · Terrace · Harvest
