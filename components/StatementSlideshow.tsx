@@ -25,7 +25,7 @@ const DEFAULT_SLIDES: Slide[] = [
 ];
 
 export default function StatementSlideshow({
-  headline = "Smoke cleaner weed.",
+  headline = "Know what you're smoking.",
   subline = "All organic. Small batch. Sun-grown by hand on Koh Tao.",
   cta = { label: "Visit the Shop", href: "#visit" },
   slides = DEFAULT_SLIDES,
