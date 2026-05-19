@@ -112,7 +112,7 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
                   : isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"
               }`}
             >
-              Shop
+              KD Merch
             </Link>
             <button
               onClick={() => scrollTo("gallery")}
@@ -191,7 +191,7 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
               className="block text-primary/70 hover:text-primary text-sm font-medium"
               onClick={() => setMenuOpen(false)}
             >
-              Shop
+              KD Merch
             </Link>
             <button
               onClick={() => scrollTo("tour")}
