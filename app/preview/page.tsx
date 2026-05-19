@@ -129,12 +129,6 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════
-       *  1b. STATEMENT — bold claim over a crossfading slideshow
-       *      (Khalifa-style punch, KD voice)
-       * ══════════════════════════════════════════════════════════════════ */}
-      <StatementSlideshow />
-
-      {/* ══════════════════════════════════════════════════════════════════
        *  2. PAPA KD — the face, opened by his quote
        * ══════════════════════════════════════════════════════════════════ */}
       <section id="papa" className="py-32 bg-[#EAE6DE]/40">
@@ -315,9 +309,13 @@ export default function HomePage() {
       <TeamSection />
 
       {/* ══════════════════════════════════════════════════════════════════
-       *  6. PHILOSOPHY — All organic + small-batch + sun-grown
+       *  6. PHILOSOPHY — the claim, then the receipts
+       *     "Know what you're smoking." opens it as a full-bleed band;
+       *     the organic / sun-grown / small-batch proof flows underneath.
        * ══════════════════════════════════════════════════════════════════ */}
-      <section id="philosophy" className="pt-16 pb-32 bg-[#F6F4EF]">
+      <StatementSlideshow />
+
+      <section id="philosophy" className="pt-28 pb-32 bg-[#F6F4EF]">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="text-center mb-20 max-w-2xl mx-auto space-y-4">
             <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">

@@ -54,6 +54,7 @@ export default function StatementSlideshow({
   return (
     <section
       aria-label={headline}
+      data-nav-dark
       className="relative h-[88vh] min-h-[560px] w-full overflow-hidden bg-[#1E1E1E]"
     >
       {/* Crossfading background */}
