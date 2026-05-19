@@ -28,7 +28,6 @@ const PRODUCTS: Product[] = [
     sizes: SIZES,
     badge: "T-Shirt",
     images: [
-      "/tee-1-front.jpg",
       "/apparel-papa-graphic.jpg",
       "/apparel-kevin-graphic.jpg",
     ],
@@ -42,9 +41,9 @@ const PRODUCTS: Product[] = [
     sizes: SIZES,
     badge: "T-Shirt",
     images: [
-      "/tee-2-front.jpg",
       "/apparel-papa-plant.jpg",
       "/apparel-papa-rolling.jpg",
+      "/apparel-papa-quote-back.jpg",
     ],
   },
   {
@@ -56,9 +55,9 @@ const PRODUCTS: Product[] = [
     sizes: SIZES,
     badge: "T-Shirt",
     images: [
-      "/tee-3-front.jpg",
       "/apparel-three-of-us.jpg",
       "/apparel-kevin.jpg",
+      "/apparel-dog.jpg",
     ],
   },
   {
@@ -70,9 +69,9 @@ const PRODUCTS: Product[] = [
     sizes: SIZES,
     badge: "T-Shirt",
     images: [
-      "/tee-4-front.jpg",
       "/apparel-papa-black.jpg",
       "/apparel-kevin-black.jpg",
+      "/apparel-kevin-quote.jpg",
     ],
   },
 ];
