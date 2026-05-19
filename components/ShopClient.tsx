@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ShoppingBag, X, Plus, Minus, ArrowRight, ChevronLeft } from "lucide-react";
 
 type Product = {
@@ -9,95 +10,87 @@ type Product = {
   description: string;
   price: number;
   sizes: string[];
-  category: string;
-  color: string;
+  badge: string;
+  images: string[];
 };
 
 type CartItem = Product & { size: string; quantity: number };
 
+const SIZES = ["M", "L", "XL", "XXL"];
+
 const PRODUCTS: Product[] = [
   {
-    id: "kd-tshirt",
-    name: "KD Genetics T-Shirt",
-    description: "Premium organic cotton tee with the KD Genetics logo. Printed on Koh Tao.",
+    id: "tee-tanote-natural",
+    name: "Tanote Bay Tee — Natural",
+    description:
+      "Hand-printed Tanote Bay map across the front, KD Genetics seal on the chest. Soft natural cotton, made on Koh Tao.",
     price: 800,
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    category: "Apparel",
-    color: "bg-[#3a3a3a]",
+    sizes: SIZES,
+    badge: "T-Shirt",
+    images: [
+      "/tee-1-front.jpg",
+      "/apparel-papa-graphic.jpg",
+      "/apparel-kevin-graphic.jpg",
+    ],
   },
   {
-    id: "kd-longsleeve",
-    name: "KD Genetics Long Sleeve",
-    description: "Relaxed fit long sleeve in organic cotton. The same quality as the classic tee.",
-    price: 950,
-    sizes: ["S", "M", "L", "XL", "XXL"],
-    category: "Apparel",
-    color: "bg-[#2a3428]",
+    id: "tee-tanote-sand",
+    name: "Tanote Bay Tee — Sand",
+    description:
+      "The same Tanote Bay artwork in a warm sand colourway. KD Genetics seal on the chest, the bay drawn from the water up.",
+    price: 800,
+    sizes: SIZES,
+    badge: "T-Shirt",
+    images: [
+      "/tee-2-front.jpg",
+      "/apparel-papa-plant.jpg",
+      "/apparel-papa-rolling.jpg",
+    ],
   },
   {
-    id: "kd-cap",
-    name: "KD Genetics Cap",
-    description: "Structured cap with an embroidered KD Genetics logo. One size fits most.",
-    price: 500,
-    sizes: ["One Size"],
-    category: "Accessories",
-    color: "bg-[#4a3f35]",
+    id: "tee-seal-white",
+    name: "KD Seal Tee — White",
+    description:
+      "Clean white tee with the KD Genetics seal on the chest. The everyday piece — worn by the whole family on the farm.",
+    price: 800,
+    sizes: SIZES,
+    badge: "T-Shirt",
+    images: [
+      "/tee-3-front.jpg",
+      "/apparel-three-of-us.jpg",
+      "/apparel-kevin.jpg",
+    ],
   },
   {
-    id: "kd-tote",
-    name: "KD Genetics Tote Bag",
-    description: "Heavy canvas tote printed with the KD Genetics logo. Built to carry more than just groceries.",
-    price: 350,
-    sizes: [],
-    category: "Accessories",
-    color: "bg-[#5A6A4F]",
-  },
-  {
-    id: "kd-stickers",
-    name: "KD Genetics Sticker Pack",
-    description: "A set of 5 KD Genetics stickers. Designed on Koh Tao, stuck everywhere.",
-    price: 150,
-    sizes: [],
-    category: "Accessories",
-    color: "bg-[#1E1E1E]",
+    id: "tee-kohtao-black",
+    name: "Koh Tao Tee — Black",
+    description:
+      "Black tee with the KD Genetics · Koh Tao wordmark across the chest. Quiet, grounded, no hype.",
+    price: 800,
+    sizes: SIZES,
+    badge: "T-Shirt",
+    images: [
+      "/tee-4-front.jpg",
+      "/apparel-papa-black.jpg",
+      "/apparel-kevin-black.jpg",
+    ],
   },
 ];
-
-function ProductPlaceholder({ color, name }: { color: string; name: string }) {
-  const initials = name
-    .split(" ")
-    .filter((w) => w !== "KD" && w !== "Genetics")
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-  return (
-    <div className={`absolute inset-0 flex flex-col items-center justify-center ${color}`}>
-      <div className="opacity-30 flex flex-col items-center gap-3">
-        <span className="font-display text-white text-5xl tracking-wider">{initials || "KD"}</span>
-        <div className="w-8 h-px bg-white/40" />
-        <span className="text-white/50 text-[9px] font-bold uppercase tracking-[0.25em]">KD Genetics</span>
-      </div>
-    </div>
-  );
-}
 
 export default function ShopClient() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [checkoutStep, setCheckoutStep] = useState<"cart" | "details">("cart");
   const [selectedSizes, setSelectedSizes] = useState<Record<string, string>>({});
+  const [activeImage, setActiveImage] = useState<Record<string, number>>({});
   const [addedItems, setAddedItems] = useState<Record<string, boolean>>({});
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const addToCart = (product: Product) => {
-    const size =
-      product.sizes.length === 0
-        ? "One Size"
-        : selectedSizes[product.id] || "";
-    if (product.sizes.length > 1 && !size) return;
+    const size = selectedSizes[product.id] || "";
+    if (!size) return;
 
     setCart((prev) => {
       const existing = prev.find(
@@ -135,7 +128,7 @@ export default function ShopClient() {
 
   const handleWhatsAppCheckout = () => {
     const itemList = cart
-      .map((i) => `- ${i.name}${i.size !== "One Size" ? ` (${i.size})` : ""} x${i.quantity} = ฿${(i.price * i.quantity).toLocaleString()}`)
+      .map((i) => `- ${i.name} (${i.size}) x${i.quantity} = ฿${(i.price * i.quantity).toLocaleString()}`)
       .join("\n");
     const msg = encodeURIComponent(
       `Hi KD Genetics! I'd like to order:\n\n${itemList}\n\nTotal: ฿${total.toLocaleString()}\n\nPlease let me know how to proceed with payment and shipping.`
@@ -172,34 +165,71 @@ export default function ShopClient() {
               The Shop.
             </h1>
             <p className="text-lg text-[#1E1E1E]/60 font-light leading-relaxed max-w-xl">
-              A small collection of pieces that carry the spirit of Koh Tao and
-              the KD Genetics philosophy. Made with intention, not for mass
-              consumption.
+              Four tees, printed by hand on Koh Tao. Each one carries the bay,
+              the seal, or the island — worn by the family that grows here.
+              Made with intention, not for mass consumption.
             </p>
           </div>
         </section>
 
-        {/* Products grid */}
+        {/* Products grid — 4 designs */}
         <section className="container mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-20">
             {PRODUCTS.map((product) => {
-              const size = selectedSizes[product.id] || (product.sizes.length === 1 ? product.sizes[0] : "");
-              const needsSize = product.sizes.length > 1 && !size;
+              const size = selectedSizes[product.id] || "";
+              const needsSize = !size;
               const added = addedItems[product.id];
+              const imgIndex = activeImage[product.id] ?? 0;
 
               return (
                 <div key={product.id} className="group">
-                  <div className="relative aspect-[3/4] rounded-xl overflow-hidden mb-4 bg-[#EAE6DE]/30">
-                    <ProductPlaceholder color={product.color} name={product.name} />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+                  {/* Main image */}
+                  <div className="relative aspect-[4/5] rounded-xl overflow-hidden mb-3 bg-[#EAE6DE]/40">
+                    <Image
+                      src={product.images[imgIndex]}
+                      alt={`${product.name} — view ${imgIndex + 1}`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                      className="object-cover"
+                      priority={product.id === "tee-tanote-natural"}
+                    />
                     <div className="absolute top-3 left-3">
-                      <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/60 bg-black/20 px-2 py-1 rounded-full backdrop-blur-sm">
-                        {product.category}
+                      <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/80 bg-black/30 px-2.5 py-1 rounded-full backdrop-blur-sm">
+                        {product.badge}
                       </span>
                     </div>
                   </div>
 
-                  <div className="space-y-3">
+                  {/* Thumbnails */}
+                  <div className="flex gap-2 mb-5">
+                    {product.images.map((src, i) => (
+                      <button
+                        key={src}
+                        onMouseEnter={() =>
+                          setActiveImage((prev) => ({ ...prev, [product.id]: i }))
+                        }
+                        onClick={() =>
+                          setActiveImage((prev) => ({ ...prev, [product.id]: i }))
+                        }
+                        className={`relative w-16 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                          i === imgIndex
+                            ? "border-[#1E1E1E]"
+                            : "border-transparent opacity-60 hover:opacity-100"
+                        }`}
+                        aria-label={`${product.name} view ${i + 1}`}
+                      >
+                        <Image
+                          src={src}
+                          alt=""
+                          fill
+                          sizes="64px"
+                          className="object-cover"
+                        />
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="space-y-4">
                     <div>
                       <h3 className="font-display text-xl text-[#1E1E1E] leading-tight">
                         {product.name}
@@ -218,33 +248,31 @@ export default function ShopClient() {
                       </span>
                     </div>
 
-                    {product.sizes.length > 1 && (
-                      <div>
-                        <p className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/40 mb-2">
-                          Size
-                        </p>
-                        <div className="flex gap-1.5 flex-wrap">
-                          {product.sizes.map((s) => (
-                            <button
-                              key={s}
-                              onClick={() =>
-                                setSelectedSizes((prev) => ({
-                                  ...prev,
-                                  [product.id]: s,
-                                }))
-                              }
-                              className={`w-9 h-9 text-[11px] font-medium rounded-lg border transition-all ${
-                                size === s
-                                  ? "bg-[#1E1E1E] text-white border-[#1E1E1E]"
-                                  : "bg-transparent text-[#1E1E1E]/60 border-black/10 hover:border-[#1E1E1E]/30 hover:text-[#1E1E1E]"
-                              }`}
-                            >
-                              {s}
-                            </button>
-                          ))}
-                        </div>
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/40 mb-2">
+                        Size
+                      </p>
+                      <div className="flex gap-1.5 flex-wrap">
+                        {product.sizes.map((s) => (
+                          <button
+                            key={s}
+                            onClick={() =>
+                              setSelectedSizes((prev) => ({
+                                ...prev,
+                                [product.id]: s,
+                              }))
+                            }
+                            className={`min-w-[3rem] h-10 px-3 text-[12px] font-medium rounded-lg border transition-all ${
+                              size === s
+                                ? "bg-[#1E1E1E] text-white border-[#1E1E1E]"
+                                : "bg-transparent text-[#1E1E1E]/60 border-black/10 hover:border-[#1E1E1E]/30 hover:text-[#1E1E1E]"
+                            }`}
+                          >
+                            {s}
+                          </button>
+                        ))}
                       </div>
-                    )}
+                    </div>
 
                     <button
                       onClick={() => addToCart(product)}
@@ -353,10 +381,14 @@ export default function ShopClient() {
                       key={`${item.id}-${item.size}`}
                       className="flex gap-4 items-start py-4 border-b border-black/5 last:border-0"
                     >
-                      <div
-                        className={`w-16 h-20 rounded-lg overflow-hidden shrink-0 relative ${item.color}`}
-                      >
-                        <ProductPlaceholder color={item.color} name={item.name} />
+                      <div className="w-16 h-20 rounded-lg overflow-hidden shrink-0 relative bg-[#EAE6DE]/40">
+                        <Image
+                          src={item.images[0]}
+                          alt={item.name}
+                          fill
+                          sizes="64px"
+                          className="object-cover"
+                        />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-2">
@@ -364,11 +396,9 @@ export default function ShopClient() {
                             <p className="font-medium text-[#1E1E1E] text-sm leading-tight">
                               {item.name}
                             </p>
-                            {item.size && item.size !== "One Size" && (
-                              <p className="text-[11px] text-[#1E1E1E]/40 mt-0.5">
-                                Size: {item.size}
-                              </p>
-                            )}
+                            <p className="text-[11px] text-[#1E1E1E]/40 mt-0.5">
+                              Size: {item.size}
+                            </p>
                           </div>
                           <button
                             onClick={() => removeFromCart(item.id, item.size)}

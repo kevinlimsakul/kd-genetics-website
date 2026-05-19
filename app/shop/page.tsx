@@ -4,9 +4,9 @@ import Footer from "@/components/Footer";
 import ShopClient from "@/components/ShopClient";
 
 export const metadata: Metadata = {
-  title: "Shop — KD Genetics Merchandise",
+  title: "Shop — KD Genetics T-Shirts",
   description:
-    "Shop KD Genetics merchandise — organic cotton T-shirts, caps, tote bags, and stickers. Crafted on Koh Tao with the spirit of the island.",
+    "Shop KD Genetics tees — four cotton T-shirt designs hand-printed on Koh Tao. The Tanote Bay map, the KD seal, the Koh Tao wordmark.",
 };
 
 export default function ShopPage() {
