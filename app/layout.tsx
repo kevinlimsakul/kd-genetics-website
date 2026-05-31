@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+import BackToTop from "@/components/BackToTop";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,15 +19,15 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "KD Genetics: Born on Koh Tao, Grown in Living Soil",
+    default: "KD Genetics: Born on Koh Tao, Grown by Hand",
     template: "%s | KD Genetics",
   },
   description:
-    "A family-run craft cannabis farm on Koh Tao, Thailand. Living soil cultivation, preserved genetics, farm tours, and education. Founded by Aram, Kevin, and Daniel.",
+    "A family-run craft cannabis farm on Koh Tao, Thailand. All organic, sun-grown cultivation, preserved genetics, farm tours, and education. Founded by Aram, Kevin, and Daniel.",
   keywords: [
     "KD Genetics",
     "Koh Tao cannabis",
-    "living soil cannabis Thailand",
+    "organic cannabis Thailand",
     "farm tour Koh Tao",
     "craft cannabis Thailand",
     "Thai genetics cannabis",
@@ -39,23 +40,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "KD Genetics",
-    title: "KD Genetics: Born on Koh Tao, Grown in Living Soil",
+    title: "KD Genetics: Born on Koh Tao, Grown by Hand",
     description:
-      "A family-run craft cannabis farm on Koh Tao, Thailand. Living soil cultivation, preserved genetics, farm tours, and education.",
+      "A family-run craft cannabis farm on Koh Tao, Thailand. All organic, sun-grown cultivation, preserved genetics, farm tours, and education.",
     images: [
       {
         url: "/opengraph.jpg",
         width: 1200,
         height: 630,
-        alt: "KD Genetics: Koh Tao Living Soil Farm",
+        alt: "KD Genetics: Koh Tao Organic Cannabis Farm",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "KD Genetics: Born on Koh Tao, Grown in Living Soil",
+    title: "KD Genetics: Born on Koh Tao, Grown by Hand",
     description:
-      "A family-run craft cannabis farm on Koh Tao, Thailand. Living soil cultivation, preserved genetics, farm tours, and education.",
+      "A family-run craft cannabis farm on Koh Tao, Thailand. All organic, sun-grown cultivation, preserved genetics, farm tours, and education.",
     images: ["/opengraph.jpg"],
   },
   icons: {
@@ -83,7 +84,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <BackToTop />
+      </body>
     </html>
   );
 }
