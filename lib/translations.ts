@@ -133,6 +133,18 @@ export const translations = {
     "slowdown.cta": "Explore Slowdown",
     "slowdown.alt":
       "Slowdown Homestay — house tucked in the Tanote Bay jungle",
+    "slowdown.slide.aerial.alt": "Aerial view of Slowdown Homestay in Tanote Bay",
+    "slowdown.slide.aerial.cap": "From above",
+    "slowdown.slide.hero.alt": "Slowdown Homestay tucked in the jungle",
+    "slowdown.slide.hero.cap": "The house in the jungle",
+    "slowdown.slide.terrace.alt": "Unit 1 open-air terrace with hammocks",
+    "slowdown.slide.terrace.cap": "Unit 1 · The terrace",
+    "slowdown.slide.room.alt": "Unit 1 bedroom interior",
+    "slowdown.slide.room.cap": "Unit 1 · Inside",
+    "slowdown.slide.unit2entrance.alt": "Unit 2 garden studio entrance",
+    "slowdown.slide.unit2entrance.cap": "Unit 2 · The studio",
+    "slowdown.slide.unit2outdoor.alt": "Unit 2 outdoor kitchen and firepit",
+    "slowdown.slide.unit2outdoor.cap": "Unit 2 · Outdoor living",
 
     /* ── Press ─────────────────────────────────────────────────────────── */
     "press.heading": "As Featured In",
@@ -307,6 +319,18 @@ export const translations = {
     "slowdown.cta": "ดู Slowdown",
     "slowdown.alt":
       "Slowdown Homestay บ้านที่ซ่อนตัวอยู่ในป่าอ่าวโตนด",
+    "slowdown.slide.aerial.alt": "ภาพมุมสูงของ Slowdown Homestay ที่อ่าวโตนด",
+    "slowdown.slide.aerial.cap": "มุมจากด้านบน",
+    "slowdown.slide.hero.alt": "Slowdown Homestay กลางป่า",
+    "slowdown.slide.hero.cap": "บ้านท่ามกลางป่า",
+    "slowdown.slide.terrace.alt": "ระเบียงโปร่งของ Unit 1 พร้อมเปลญวน",
+    "slowdown.slide.terrace.cap": "Unit 1 · ระเบียง",
+    "slowdown.slide.room.alt": "ห้องนอน Unit 1",
+    "slowdown.slide.room.cap": "Unit 1 · ภายในห้อง",
+    "slowdown.slide.unit2entrance.alt": "ทางเข้าสตูดิโอสวน Unit 2",
+    "slowdown.slide.unit2entrance.cap": "Unit 2 · สตูดิโอ",
+    "slowdown.slide.unit2outdoor.alt": "ครัวกลางแจ้งและไฟแคมป์ของ Unit 2",
+    "slowdown.slide.unit2outdoor.cap": "Unit 2 · พื้นที่กลางแจ้ง",
 
     /* ── Press ─────────────────────────────────────────────────────────── */
     "press.heading": "ปรากฏใน",

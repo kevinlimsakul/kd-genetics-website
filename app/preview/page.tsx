@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import ReviewsSection from "@/components/ReviewsSection";
 import HeroVideo from "@/components/HeroVideo";
 import SlideshowGallery from "@/components/SlideshowGallery";
+import SlowdownCarousel from "@/components/SlowdownCarousel";
 import { useLanguage } from "@/lib/i18n";
 import {
   Leaf,
@@ -451,16 +452,17 @@ export default function HomePage() {
        * ══════════════════════════════════════════════════════════════════ */}
       <section className="py-16 md:py-24 bg-[#F6F4EF] border-y border-black/5">
         <div className="container mx-auto px-6 max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
-              <Image
-                src="/slowdown-hero.jpg"
-                alt={t("slowdown.alt")}
-                width={2000}
-                height={1500}
-                className="w-full h-full object-cover"
-              />
-            </div>
+          <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+            <SlowdownCarousel
+              slides={[
+                { src: "/slowdown-aerial.jpg",           alt: t("slowdown.slide.aerial.alt"),        caption: t("slowdown.slide.aerial.cap") },
+                { src: "/slowdown-hero.jpg",             alt: t("slowdown.slide.hero.alt"),          caption: t("slowdown.slide.hero.cap") },
+                { src: "/slowdown-unit1-terrace.jpg",    alt: t("slowdown.slide.terrace.alt"),       caption: t("slowdown.slide.terrace.cap") },
+                { src: "/slowdown-unit1-room.jpg",       alt: t("slowdown.slide.room.alt"),          caption: t("slowdown.slide.room.cap") },
+                { src: "/slowdown-unit2-entrance.jpg",   alt: t("slowdown.slide.unit2entrance.alt"), caption: t("slowdown.slide.unit2entrance.cap") },
+                { src: "/slowdown-unit2-outdoor.jpg",    alt: t("slowdown.slide.unit2outdoor.alt"),  caption: t("slowdown.slide.unit2outdoor.cap") },
+              ]}
+            />
             <div className="space-y-4">
               <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
                 {t("slowdown.eyebrow")}
