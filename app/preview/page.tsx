@@ -428,13 +428,13 @@ export default function HomePage() {
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
             <div className="md:col-span-7 md:order-2">
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 flex items-center justify-center">
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
                 <Image
                   src="/apparel-three-of-us.jpg"
                   alt="The family in KD Genetics tees on the farm"
                   width={1200}
                   height={1600}
-                  className="w-[76%] h-[76%] object-contain"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </div>
