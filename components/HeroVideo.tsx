@@ -57,7 +57,7 @@ export default function HeroVideo({
       muted
       loop
       playsInline
-      preload="auto"
+      preload="metadata"
       disableRemotePlayback
       className={className}
       aria-hidden="true"

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Star, ChevronLeft, ChevronRight, CheckCircle2, ExternalLink } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 const reviews = [
   {
@@ -38,6 +39,7 @@ const reviews = [
 
 export default function ReviewsSection() {
   const [index, setIndex] = useState(0);
+  const { t, lang } = useLanguage();
 
   const getVisible = () => {
     const result = [];
@@ -57,14 +59,19 @@ export default function ReviewsSection() {
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-16 space-y-6">
           <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
-            Google Reviews
+            {t("reviews.eyebrow")}
           </span>
           <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E]">
-            What Visitors Say
+            {t("reviews.heading")}
           </h2>
           <p className="text-[#6B6B6B] text-base font-light max-w-lg mx-auto leading-relaxed">
-            Experiences shared by guests who visited KD Genetics on Koh Tao.
+            {t("reviews.sub")}
           </p>
+          {lang === "th" && (
+            <p className="text-[#6B6B6B]/70 text-xs font-light italic">
+              {t("reviews.note")}
+            </p>
+          )}
           <div className="flex items-center justify-center gap-3 pt-2">
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, i) => (
@@ -78,7 +85,7 @@ export default function ReviewsSection() {
         <div className="relative">
           <button
             onClick={prev}
-            aria-label="Previous Review"
+            aria-label={t("reviews.prev")}
             className="absolute left-2 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border border-black/[0.08] flex items-center justify-center cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.08)] hover:scale-105 transition-all duration-200"
           >
             <ChevronLeft className="h-4 w-4 text-[#1E1E1E]" />
@@ -105,7 +112,7 @@ export default function ReviewsSection() {
                     {review.location} · {review.date}
                   </p>
                   <span className="inline-flex items-center gap-1.5 text-[9px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]/40 bg-black/[0.02] border border-black/[0.04] px-3 py-1.5 rounded-full">
-                    <CheckCircle2 className="h-2.5 w-2.5" /> Verified Google Review
+                    <CheckCircle2 className="h-2.5 w-2.5" /> {t("reviews.verified")}
                   </span>
                 </div>
               </div>
@@ -134,7 +141,7 @@ export default function ReviewsSection() {
 
           <button
             onClick={next}
-            aria-label="Next Review"
+            aria-label={t("reviews.next")}
             className="absolute right-2 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white border border-black/[0.08] flex items-center justify-center cursor-pointer shadow-[0_4px_10px_rgba(0,0,0,0.08)] hover:scale-105 transition-all duration-200"
           >
             <ChevronRight className="h-4 w-4 text-[#1E1E1E]" />
@@ -161,7 +168,7 @@ export default function ReviewsSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border border-[#1E1E1E]/15 text-[#1E1E1E]/70 hover:text-[#5A6A4F] hover:border-[#5A6A4F]/20 rounded-full px-8 h-11 text-sm font-medium transition-colors"
           >
-            Read More Reviews on Google <ExternalLink className="h-3.5 w-3.5 ml-1" />
+            {t("reviews.cta")} <ExternalLink className="h-3.5 w-3.5 ml-1" />
           </a>
         </div>
       </div>

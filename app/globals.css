@@ -6,6 +6,11 @@
   * {
     border-color: #D1CDD2;
   }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    -webkit-text-size-adjust: 100%;
+  }
   body {
     background-color: #F6F4EF;
     color: #1E1E1E;
@@ -17,6 +22,10 @@
     font-family: var(--font-cormorant), Georgia, serif;
     font-weight: 500;
     letter-spacing: 0;
+  }
+  /* Respect reduced-motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
   }
 }
 

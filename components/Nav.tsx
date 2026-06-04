@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/lib/i18n";
 
 interface NavProps {
   activePage?: "home" | "shop";
@@ -13,6 +15,7 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [overDark, setOverDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   // On the home page, track whether we've scrolled past the hero
   const isHome = activePage === "home";
@@ -66,7 +69,7 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
               : "bg-white/5 backdrop-blur-md border-b border-white/10"
         }`}
       >
-        <div className="mx-auto px-8 lg:px-12 h-20 flex items-center justify-between">
+        <div className="mx-auto px-5 sm:px-8 lg:px-12 h-16 md:h-20 flex items-center justify-between">
           {/* Logo */}
           <Link href={homeHref} className="flex items-center gap-4 group">
             <div className={`w-10 h-10 rounded-full overflow-hidden flex items-center justify-center shadow-sm transition-all group-hover:scale-105 ${isGlass ? "bg-white border border-white/40" : "bg-white/10 border border-white/20"}`}>
@@ -90,19 +93,13 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
               onClick={() => scrollTo("story")}
               className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
             >
-              Story
-            </button>
-            <button
-              onClick={() => scrollTo("philosophy")}
-              className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
-            >
-              Philosophy
+              {t("nav.story")}
             </button>
             <button
               onClick={() => scrollTo("tour")}
               className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
             >
-              Experience
+              {t("nav.experience")}
             </button>
             <Link
               href="/shop"
@@ -112,65 +109,71 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
                   : isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"
               }`}
             >
-              KD Merch
+              {t("nav.merch")}
             </Link>
             <button
               onClick={() => scrollTo("gallery")}
               className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
             >
-              Gallery
+              {t("nav.gallery")}
             </button>
             <button
               onClick={() => scrollTo("visit")}
               className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
             >
-              Visit
+              {t("nav.visit")}
             </button>
             <button
               onClick={() => scrollTo("visit")}
               className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
             >
-              Contact
+              {t("nav.contact")}
             </button>
-            <button
-              onClick={() => scrollTo("tour")}
-              className={`ml-2 rounded-full px-6 h-9 text-xs font-semibold tracking-wide transition-all border ${
+            <LanguageSwitcher variant={isGlass ? "glass" : "solid"} className="ml-1" />
+            <a
+              href="https://kdtours.tours"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`ml-1 inline-flex items-center justify-center rounded-full px-6 h-9 text-xs font-semibold tracking-wide transition-all border ${
                 isGlass
                   ? "border-white/40 text-white hover:bg-white hover:text-[#1E1E1E]"
                   : "border-[#5A6A4F] text-[#5A6A4F] hover:bg-[#5A6A4F] hover:text-white"
               }`}
             >
-              Book Tour
-            </button>
+              {t("nav.bookTour")}
+            </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden flex flex-col gap-1.5 p-2"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
+          {/* Mobile: switcher + hamburger */}
+          <div className="md:hidden flex items-center gap-2 -mr-1">
+            <LanguageSwitcher variant={isGlass ? "glass" : "solid"} />
+            <button
+              className="flex flex-col gap-1.5 items-center justify-center w-11 h-11"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={t("nav.toggleMenu")}
+              aria-expanded={menuOpen}
+            >
             <span
-              className={`block w-5 h-px transition-all duration-300 ${isGlass ? "bg-white" : "bg-[#1E1E1E]"} ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+              className={`block w-5 h-0.5 rounded-full transition-all duration-300 ${isGlass ? "bg-white" : "bg-[#1E1E1E]"} ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
             />
             <span
-              className={`block w-5 h-px transition-all duration-300 ${isGlass ? "bg-white" : "bg-[#1E1E1E]"} ${menuOpen ? "opacity-0" : ""}`}
+              className={`block w-5 h-0.5 rounded-full transition-all duration-300 ${isGlass ? "bg-white" : "bg-[#1E1E1E]"} ${menuOpen ? "opacity-0" : ""}`}
             />
             <span
-              className={`block w-5 h-px transition-all duration-300 ${isGlass ? "bg-white" : "bg-[#1E1E1E]"} ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+              className={`block w-5 h-0.5 rounded-full transition-all duration-300 ${isGlass ? "bg-white" : "bg-[#1E1E1E]"} ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
             />
-          </button>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
         {menuOpen && (
           <div className="md:hidden bg-[#F6F4EF] border-t border-black/5 px-8 py-6 space-y-5">
             {[
-              { label: "Story", action: () => scrollTo("story") },
-              { label: "Philosophy", action: () => scrollTo("philosophy") },
-              { label: "Gallery", action: () => scrollTo("gallery") },
-              { label: "Visit", action: () => scrollTo("visit") },
-              { label: "Contact", action: () => scrollTo("visit") },
+              { label: t("nav.story"), action: () => scrollTo("story") },
+              { label: t("nav.gallery"), action: () => scrollTo("gallery") },
+              { label: t("nav.visit"), action: () => scrollTo("visit") },
+              { label: t("nav.contact"), action: () => scrollTo("visit") },
             ].map((item) => (
               <button
                 key={item.label}
@@ -184,21 +187,24 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
               onClick={() => { scrollTo("tour"); setMenuOpen(false); }}
               className="block w-full text-left text-primary/70 hover:text-primary text-sm font-medium"
             >
-              Experience
+              {t("nav.experience")}
             </button>
             <Link
               href="/shop"
               className="block text-primary/70 hover:text-primary text-sm font-medium"
               onClick={() => setMenuOpen(false)}
             >
-              KD Merch
+              {t("nav.merch")}
             </Link>
-            <button
-              onClick={() => scrollTo("tour")}
-              className="w-full border border-accent text-accent hover:bg-accent hover:text-white rounded-full px-6 h-10 text-xs font-semibold tracking-wide transition-all mt-2"
+            <a
+              href="https://kdtours.tours"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMenuOpen(false)}
+              className="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-white rounded-full px-6 h-10 leading-10 text-xs font-semibold tracking-wide transition-all mt-2"
             >
-              Book Tour
-            </button>
+              {t("nav.bookTour")}
+            </a>
           </div>
         )}
       </nav>
