@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { ShoppingBag, X, Plus, Minus, ArrowRight, ChevronLeft } from "lucide-react";
+import { SHIPPING_FLAT_THB } from "@/lib/order";
 
 type Product = {
   id: string;
@@ -33,10 +35,10 @@ const PRODUCTS: Product[] = [
     ],
   },
   {
-    id: "tee-tanote-sand",
-    name: "Tanote Bay Tee — Sand",
+    id: "tee-tanote-grey",
+    name: "Tanote Bay Tee — Grey",
     description:
-      "The same Tanote Bay artwork in a warm sand colourway. KD Genetics seal on the chest, the bay drawn from the water up.",
+      "The same Tanote Bay artwork in a soft grey colourway. KD Genetics seal on the chest, the bay drawn from the water up.",
     price: 800,
     sizes: SIZES,
     badge: "T-Shirt",
@@ -87,6 +89,7 @@ const PRODUCTS: Product[] = [
 ];
 
 export default function ShopClient() {
+  const router = useRouter();
   const [cart, setCart] = useState<CartItem[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [checkoutStep, setCheckoutStep] = useState<"cart" | "details">("cart");
@@ -94,8 +97,22 @@ export default function ShopClient() {
   const [activeImage, setActiveImage] = useState<Record<string, number>>({});
   const [addedItems, setAddedItems] = useState<Record<string, boolean>>({});
 
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const [customerName, setCustomerName] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
+  const [customerPhone, setCustomerPhone] = useState("");
+  const [customerAddress, setCustomerAddress] = useState("");
+  const [customerNote, setCustomerNote] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const shipping = cart.length > 0 ? SHIPPING_FLAT_THB : 0;
+  const total = subtotal + shipping;
   const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const detailsValid =
+    customerName.trim().length > 1 &&
+    customerPhone.trim().length > 5 &&
+    customerAddress.trim().length > 10;
 
   const addToCart = (product: Product) => {
     const hasSizes = product.sizes.length > 0;
@@ -136,14 +153,43 @@ export default function ShopClient() {
     );
   };
 
-  const handleWhatsAppCheckout = () => {
-    const itemList = cart
-      .map((i) => `- ${i.name}${i.size && i.size !== "One Size" ? ` (${i.size})` : ""} x${i.quantity} = ฿${(i.price * i.quantity).toLocaleString()}`)
-      .join("\n");
-    const msg = encodeURIComponent(
-      `Hi KD Genetics! I'd like to order:\n\n${itemList}\n\nTotal: ฿${total.toLocaleString()}\n\nPlease let me know how to proceed with payment and shipping.`
-    );
-    window.open(`https://wa.me/66988268290?text=${msg}`, "_blank");
+  const handleSubmitOrder = async () => {
+    if (!detailsValid || submitting) return;
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: cart.map((i) => ({
+            id: i.id,
+            name: i.name,
+            size: i.size,
+            quantity: i.quantity,
+            unitPrice: i.price,
+          })),
+          customer: {
+            name: customerName.trim(),
+            email: customerEmail.trim(),
+            phone: customerPhone.trim(),
+            address: customerAddress.trim(),
+          },
+          subtotal,
+          shipping,
+          total,
+          note: customerNote.trim() || undefined,
+        }),
+      });
+      const data = (await res.json()) as { ok?: boolean; ref?: string; error?: string };
+      if (!res.ok || !data.ok || !data.ref) {
+        throw new Error(data.error ?? "Could not place order.");
+      }
+      router.push(`/order-confirmation?ref=${encodeURIComponent(data.ref)}&total=${total}`);
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Could not place order.");
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -406,6 +452,79 @@ export default function ShopClient() {
                     Your cart is empty.
                   </p>
                 </div>
+              ) : checkoutStep === "details" ? (
+                <div className="space-y-4 py-2">
+                  <p className="text-[12px] text-[#1E1E1E]/55 font-light leading-relaxed">
+                    We&apos;ll send your order to the team on Koh Tao and email
+                    you the payment instructions on the next page. Thailand
+                    shipping only.
+                  </p>
+                  <div>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/50 block mb-1.5">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      value={customerName}
+                      onChange={(e) => setCustomerName(e.target.value)}
+                      className="w-full border border-black/10 rounded-lg px-3 py-2.5 text-sm bg-white/60 focus:outline-none focus:border-[#1E1E1E]/50"
+                      placeholder="Daniel Smith"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/50 block mb-1.5">
+                      Phone (Thailand)
+                    </label>
+                    <input
+                      type="tel"
+                      value={customerPhone}
+                      onChange={(e) => setCustomerPhone(e.target.value)}
+                      className="w-full border border-black/10 rounded-lg px-3 py-2.5 text-sm bg-white/60 focus:outline-none focus:border-[#1E1E1E]/50"
+                      placeholder="+66 9X XXX XXXX"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/50 block mb-1.5">
+                      Email (Optional)
+                    </label>
+                    <input
+                      type="email"
+                      value={customerEmail}
+                      onChange={(e) => setCustomerEmail(e.target.value)}
+                      className="w-full border border-black/10 rounded-lg px-3 py-2.5 text-sm bg-white/60 focus:outline-none focus:border-[#1E1E1E]/50"
+                      placeholder="you@example.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/50 block mb-1.5">
+                      Shipping Address
+                    </label>
+                    <textarea
+                      value={customerAddress}
+                      onChange={(e) => setCustomerAddress(e.target.value)}
+                      rows={3}
+                      className="w-full border border-black/10 rounded-lg px-3 py-2.5 text-sm bg-white/60 focus:outline-none focus:border-[#1E1E1E]/50 resize-none"
+                      placeholder="Street, district, city, postal code"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/50 block mb-1.5">
+                      Note (Optional)
+                    </label>
+                    <textarea
+                      value={customerNote}
+                      onChange={(e) => setCustomerNote(e.target.value)}
+                      rows={2}
+                      className="w-full border border-black/10 rounded-lg px-3 py-2.5 text-sm bg-white/60 focus:outline-none focus:border-[#1E1E1E]/50 resize-none"
+                      placeholder="Anything we should know"
+                    />
+                  </div>
+                  {submitError && (
+                    <p className="text-[12px] text-red-600 font-light">
+                      {submitError}
+                    </p>
+                  )}
+                </div>
               ) : (
                 <div className="space-y-5">
                   {cart.map((item) => (
@@ -484,22 +603,58 @@ export default function ShopClient() {
 
             {cart.length > 0 && (
               <div className="px-6 py-5 border-t border-black/5 space-y-3">
-                <div className="flex justify-between items-center mb-1">
-                  <span className="text-sm text-[#1E1E1E]/60 font-light">Total</span>
-                  <span className="font-display text-xl text-[#1E1E1E]">
-                    ฿{total.toLocaleString()}
-                  </span>
+                <div className="space-y-1">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-[#1E1E1E]/60 font-light">Subtotal</span>
+                    <span className="text-sm text-[#1E1E1E]">
+                      ฿{subtotal.toLocaleString()}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-[#1E1E1E]/60 font-light">Shipping (Thailand)</span>
+                    <span className="text-sm text-[#1E1E1E]">
+                      ฿{shipping.toLocaleString()}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center pt-2 border-t border-black/5 mt-2">
+                    <span className="text-sm text-[#1E1E1E]/60 font-light">Total</span>
+                    <span className="font-display text-xl text-[#1E1E1E]">
+                      ฿{total.toLocaleString()}
+                    </span>
+                  </div>
                 </div>
-                <button
-                  onClick={handleWhatsAppCheckout}
-                  className="w-full h-12 rounded-full bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90 text-[13px] font-semibold tracking-wide flex items-center justify-center gap-2 transition-all"
-                >
-                  Order via WhatsApp
-                  <ArrowRight className="ml-1 w-4 h-4" />
-                </button>
-                <p className="text-center text-[10px] text-[#1E1E1E]/30 font-light">
-                  We&apos;ll confirm your order and arrange payment via WhatsApp
-                </p>
+                {checkoutStep === "cart" ? (
+                  <>
+                    <button
+                      onClick={() => setCheckoutStep("details")}
+                      className="w-full h-12 rounded-full bg-[#1E1E1E] text-white hover:bg-[#1E1E1E]/90 text-[13px] font-semibold tracking-wide flex items-center justify-center gap-2 transition-all"
+                    >
+                      Continue to Details
+                      <ArrowRight className="ml-1 w-4 h-4" />
+                    </button>
+                    <p className="text-center text-[10px] text-[#1E1E1E]/30 font-light">
+                      Pay by PromptPay or Thai bank transfer on the next screen.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      onClick={handleSubmitOrder}
+                      disabled={!detailsValid || submitting}
+                      className={`w-full h-12 rounded-full text-[13px] font-semibold tracking-wide flex items-center justify-center gap-2 transition-all ${
+                        !detailsValid || submitting
+                          ? "bg-[#1E1E1E]/10 text-[#1E1E1E]/40 cursor-not-allowed"
+                          : "bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90"
+                      }`}
+                    >
+                      {submitting ? "Placing order…" : "Place Order"}
+                      {!submitting && <ArrowRight className="ml-1 w-4 h-4" />}
+                    </button>
+                    <p className="text-center text-[10px] text-[#1E1E1E]/30 font-light">
+                      No card payment yet — you&apos;ll see payment instructions next.
+                    </p>
+                  </>
+                )}
               </div>
             )}
           </div>
