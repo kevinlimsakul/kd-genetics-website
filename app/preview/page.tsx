@@ -434,7 +434,7 @@ export default function HomePage() {
                   alt="The family in KD Genetics tees on the farm"
                   width={1200}
                   height={1600}
-                  className="w-[88%] h-[88%] object-contain"
+                  className="w-[76%] h-[76%] object-contain"
                 />
               </div>
             </div>
