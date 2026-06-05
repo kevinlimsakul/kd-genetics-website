@@ -117,12 +117,14 @@ export default function Footer({ homeHref = "/" }: { homeHref?: string }) {
                 </Link>
               </li>
               <li>
-                <Link
-                  href={`${homeHref}#tour`}
+                <a
+                  href="https://kdtours.tours"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
                   {t("footer.nav.tour")}
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

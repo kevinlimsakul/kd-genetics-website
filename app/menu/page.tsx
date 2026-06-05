@@ -46,12 +46,12 @@ const sections = [
 export default function MenuPage() {
   return (
     <div className="min-h-screen bg-[#F6F4EF] text-[#1E1E1E]">
-      <Nav homeHref="/" />
+      <Nav homeHref="/preview" />
 
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-6 max-w-4xl">
           <Link
-            href="/"
+            href="/preview"
             className="inline-flex items-center gap-2 text-[#5A6A4F] text-[11px] font-medium uppercase tracking-[0.2em] mb-10"
           >
             <ArrowLeft className="h-3 w-3" /> Back to home
