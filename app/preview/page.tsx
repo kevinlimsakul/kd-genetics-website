@@ -29,7 +29,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#F6F4EF] text-[#1E1E1E]">
-      <Nav activePage="home" homeHref="/preview" />
+      <Nav activePage="home" homeHref="/" />
 
       {/* ══════════════════════════════════════════════════════════════════
        *  1. HERO
@@ -392,15 +392,6 @@ export default function HomePage() {
               <p className="text-white/65 text-base md:text-lg font-light leading-relaxed">
                 {t("tour.body")}
               </p>
-              <a
-                href="https://kdtours.tours"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90 rounded-full px-8 h-12 text-sm font-medium transition-all"
-              >
-                {t("tour.cta")}
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
             </div>
           </div>
         </div>
@@ -434,9 +425,7 @@ export default function HomePage() {
                 {t("merch.body")}
               </p>
               <a
-                href="https://kdtours.tours"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/shop"
                 className="inline-flex items-center gap-2 bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90 rounded-full px-8 h-12 text-sm font-medium transition-all"
               >
                 {t("merch.cta")}
@@ -456,7 +445,7 @@ export default function HomePage() {
             <SlowdownCarousel
               slides={[
                 { src: "/slowdown-aerial.jpg",           alt: t("slowdown.slide.aerial.alt"),        caption: t("slowdown.slide.aerial.cap") },
-                { src: "/slowdown-hero.jpg",             alt: t("slowdown.slide.hero.alt"),          caption: t("slowdown.slide.hero.cap") },
+                { src: "/slowdown-entrance.jpg",         alt: t("slowdown.slide.entrance.alt"),      caption: t("slowdown.slide.entrance.cap") },
                 { src: "/slowdown-unit1-terrace.jpg",    alt: t("slowdown.slide.terrace.alt"),       caption: t("slowdown.slide.terrace.cap") },
                 { src: "/slowdown-unit1-room.jpg",       alt: t("slowdown.slide.room.alt"),          caption: t("slowdown.slide.room.cap") },
                 { src: "/slowdown-unit2-entrance.jpg",   alt: t("slowdown.slide.unit2entrance.alt"), caption: t("slowdown.slide.unit2entrance.cap") },
@@ -515,7 +504,7 @@ export default function HomePage() {
 
       <ReviewsSection />
 
-      <Footer homeHref="/preview" />
+      <Footer homeHref="/" />
     </div>
   );
 }

@@ -60,7 +60,7 @@ export const translations = {
       ", he helped start Thailand's first medical cannabis project in Mae Sariang. In ",
     "papa.body2.year2": "2019",
     "papa.body2.after":
-      ", he became the first Thai grower to win the Jack Herer Cup.",
+      ", he won the Jack Herer Cup.",
     "papa.body3":
       "He's older now and lets us run the farm, but the way we grow is still his.",
     "papa.tag.cup": "Jack Herer Cup 2019",
@@ -78,7 +78,7 @@ export const translations = {
     "story.beat1.p3": "That moment planted the seed.",
     "story.beat2.alt": "Daniel, Papa KD, and Kevin on the farm",
     "story.beat2.p1":
-      "Ten years passed. Daniel studied horticultural science in Berlin, Kevin played football and coached in Bangkok, and Papa KD kept working with his plants — quietly becoming an underground legend and helping push the country toward legalization in 2022.",
+      "Ten years passed. Daniel studied horticultural science in Berlin, Kevin played football and coached in Bangkok, and Papa KD kept working with his plants, quietly becoming an underground legend and helping push the country toward legalization in 2022.",
     "story.beat2.p2":
       "November 2024. Papa's motorbike accident. Daniel happened to be visiting Kevin in Bangkok when the call came. The shock collapsed the distance between one day and now. Kevin left Bangkok in December. Daniel quit his master's and followed a month later. They came home.",
     "story.beat2.p3":
@@ -107,11 +107,11 @@ export const translations = {
     "gallery.cap.water": "Water is life",
 
     /* ── Farm Tour ─────────────────────────────────────────────────────── */
-    "tour.eyebrow": "Experience",
+    "tour.eyebrow": "Coming Soon",
     "tour.heading": "Walk the Farm",
     "tour.body":
-      "A 90-minute guided tour of the family farm in Tanote Bay. Max 10 guests. Standard and VIP packages.",
-    "tour.cta": "Book on KD Tours",
+      "Soon: a guided walk through the family farm. Small groups, no rush. We'll open bookings when we're ready.",
+    "tour.cta": "",
     "tour.alt":
       "Papa KD on a historic hillside grow site, Tanote Bay",
 
@@ -135,8 +135,8 @@ export const translations = {
       "Slowdown Homestay — house tucked in the Tanote Bay jungle",
     "slowdown.slide.aerial.alt": "Aerial view of Slow Down Homestay in Tanote Bay",
     "slowdown.slide.aerial.cap": "Slow Down Homestay",
-    "slowdown.slide.hero.alt": "Slowdown Homestay tucked in the jungle",
-    "slowdown.slide.hero.cap": "The house in the jungle",
+    "slowdown.slide.entrance.alt": "Slow Down entrance with hammock, red column, and batik ceiling",
+    "slowdown.slide.entrance.cap": "Welcome in",
     "slowdown.slide.terrace.alt": "Unit 1 open-air terrace with hammocks",
     "slowdown.slide.terrace.cap": "Unit 1 · The terrace",
     "slowdown.slide.room.alt": "Unit 1 terrace with chairs and table",
@@ -246,7 +246,7 @@ export const translations = {
       " เขาร่วมก่อตั้งโครงการกัญชาทางการแพทย์โครงการแรกของไทยที่แม่สะเรียง และในปี ",
     "papa.body2.year2": "2562",
     "papa.body2.after":
-      " เขาเป็นชาวไทยคนแรกที่ชนะรางวัล Jack Herer Cup",
+      " เขาชนะรางวัล Jack Herer Cup",
     "papa.body3":
       "ตอนนี้ป๋าแก่ลงแล้ว ให้พวกเราดูแลฟาร์ม แต่วิธีปลูกของเรายังเป็นของป๋าอยู่",
     "papa.tag.cup": "ชนะ Jack Herer Cup 2019",
@@ -293,11 +293,11 @@ export const translations = {
     "gallery.cap.water": "น้ำคือชีวิต",
 
     /* ── Farm Tour ─────────────────────────────────────────────────────── */
-    "tour.eyebrow": "ประสบการณ์",
+    "tour.eyebrow": "เร็วๆ นี้",
     "tour.heading": "เดินชมฟาร์ม",
     "tour.body":
-      "ทัวร์เดินชมฟาร์มครอบครัวที่อ่าวโตนด 90 นาที รับสูงสุด 10 คน มีแพ็กเกจมาตรฐานและ VIP",
-    "tour.cta": "จองที่ KD Tours",
+      "เร็วๆ นี้: ทัวร์เดินชมฟาร์มครอบครัว กลุ่มเล็ก ไม่เร่งรีบ เปิดจองเมื่อเราพร้อม",
+    "tour.cta": "",
     "tour.alt":
       "ป๋า KD ที่จุดปลูกบนเนินเขาในอดีต อ่าวโตนด",
 
@@ -321,8 +321,8 @@ export const translations = {
       "Slowdown Homestay บ้านที่ซ่อนตัวอยู่ในป่าอ่าวโตนด",
     "slowdown.slide.aerial.alt": "ภาพมุมสูงของ Slow Down Homestay ที่อ่าวโตนด",
     "slowdown.slide.aerial.cap": "Slow Down Homestay",
-    "slowdown.slide.hero.alt": "Slowdown Homestay กลางป่า",
-    "slowdown.slide.hero.cap": "บ้านท่ามกลางป่า",
+    "slowdown.slide.entrance.alt": "ทางเข้า Slow Down พร้อมเปลญวน เสาสีแดง และผ้าบาติกเพดาน",
+    "slowdown.slide.entrance.cap": "ยินดีต้อนรับ",
     "slowdown.slide.terrace.alt": "ระเบียงโปร่งของ Unit 1 พร้อมเปลญวน",
     "slowdown.slide.terrace.cap": "Unit 1 · ระเบียง",
     "slowdown.slide.room.alt": "ระเบียง Unit 1 พร้อมโต๊ะและเก้าอี้",
