@@ -354,7 +354,7 @@ export default function HomePage() {
               { src: "/farm-shoot-01.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.mila") },
               { src: "/farm-shoot-02.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.willy"), objectFit: "contain" },
               { src: "/farm-shoot-03.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.peter"), objectFit: "contain" },
-              { src: "/farm-shoot-04.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.fert") },
+              { src: "/farm-shoot-04.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.fert"), objectFit: "contain" },
               { src: "/farm-shoot-05.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.mural"), objectFit: "contain" },
               { src: "/farm-shoot-06.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.shop") },
               { src: "/farm-shoot-07.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.fame"), objectFit: "contain" },

@@ -130,18 +130,6 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
               {t("nav.contact")}
             </button>
             <LanguageSwitcher variant={isGlass ? "glass" : "solid"} className="ml-1" />
-            <a
-              href="https://kdtours.tours"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`ml-1 inline-flex items-center justify-center rounded-full px-6 h-9 text-xs font-semibold tracking-wide transition-all border ${
-                isGlass
-                  ? "border-white/40 text-white hover:bg-white hover:text-[#1E1E1E]"
-                  : "border-[#5A6A4F] text-[#5A6A4F] hover:bg-[#5A6A4F] hover:text-white"
-              }`}
-            >
-              {t("nav.bookTour")}
-            </a>
           </div>
 
           {/* Mobile: switcher + hamburger */}
@@ -196,15 +184,6 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
             >
               {t("nav.merch")}
             </Link>
-            <a
-              href="https://kdtours.tours"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMenuOpen(false)}
-              className="block w-full text-center border border-accent text-accent hover:bg-accent hover:text-white rounded-full px-6 h-10 leading-10 text-xs font-semibold tracking-wide transition-all mt-2"
-            >
-              {t("nav.bookTour")}
-            </a>
           </div>
         )}
       </nav>
