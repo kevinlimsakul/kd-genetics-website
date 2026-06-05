@@ -108,17 +108,17 @@ export default function HomePage() {
             <div className="space-y-4">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
                 <Image
-                  src="/shop-mural.jpg"
+                  src="/shop-team.jpg"
                   alt={t("visit.alt.team")}
                   width={1800}
-                  height={1350}
+                  height={1200}
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
                   <Image
-                    src="/shop-exterior.jpg"
+                    src="/shop-front.jpg"
                     alt={t("visit.alt.front")}
                     width={1400}
                     height={1050}
