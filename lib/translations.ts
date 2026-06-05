@@ -133,8 +133,8 @@ export const translations = {
     "slowdown.cta": "Explore Slowdown",
     "slowdown.alt":
       "Slowdown Homestay — house tucked in the Tanote Bay jungle",
-    "slowdown.slide.aerial.alt": "Aerial view of Slowdown Homestay in Tanote Bay",
-    "slowdown.slide.aerial.cap": "From above",
+    "slowdown.slide.aerial.alt": "Aerial view of Slow Down Homestay in Tanote Bay",
+    "slowdown.slide.aerial.cap": "Slow Down Homestay",
     "slowdown.slide.hero.alt": "Slowdown Homestay tucked in the jungle",
     "slowdown.slide.hero.cap": "The house in the jungle",
     "slowdown.slide.terrace.alt": "Unit 1 open-air terrace with hammocks",
@@ -319,8 +319,8 @@ export const translations = {
     "slowdown.cta": "ดู Slowdown",
     "slowdown.alt":
       "Slowdown Homestay บ้านที่ซ่อนตัวอยู่ในป่าอ่าวโตนด",
-    "slowdown.slide.aerial.alt": "ภาพมุมสูงของ Slowdown Homestay ที่อ่าวโตนด",
-    "slowdown.slide.aerial.cap": "มุมจากด้านบน",
+    "slowdown.slide.aerial.alt": "ภาพมุมสูงของ Slow Down Homestay ที่อ่าวโตนด",
+    "slowdown.slide.aerial.cap": "Slow Down Homestay",
     "slowdown.slide.hero.alt": "Slowdown Homestay กลางป่า",
     "slowdown.slide.hero.cap": "บ้านท่ามกลางป่า",
     "slowdown.slide.terrace.alt": "ระเบียงโปร่งของ Unit 1 พร้อมเปลญวน",
