@@ -79,7 +79,7 @@ export default function Footer({ homeHref = "/" }: { homeHref?: string }) {
                 <WhatsAppIcon />
               </a>
               <a
-                href="https://line.me/R/ti/p/@kdgenetics"
+                href="https://line.me/R/ti/p/%40441hcgrm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={socialIconClass}
