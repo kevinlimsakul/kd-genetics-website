@@ -7,7 +7,6 @@ import ReviewsSection from "@/components/ReviewsSection";
 import HeroVideo from "@/components/HeroVideo";
 import SlideshowGallery from "@/components/SlideshowGallery";
 import SlowdownCarousel from "@/components/SlowdownCarousel";
-import RideTeaserVideo from "@/components/RideTeaserVideo";
 import IllustratedMap from "@/components/IllustratedMap";
 import { useLanguage } from "@/lib/i18n";
 import {
@@ -103,19 +102,84 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Band 1 — photos + practical info */}
-          <div className="grid md:grid-cols-2 gap-8 mb-20 md:mb-28">
-            <div className="space-y-4">
-              <div className="aspect-square rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
+          {/* Band 1 — Papa hero · practical info · supporting thumbs */}
+          <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-20 md:mb-28 items-stretch">
+            {/* Papa portrait — slimmer aspect so it doesn't dwarf the right column */}
+            <div className="md:col-span-5">
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 h-full">
                 <Image
                   src="/papa-portrait.jpg"
                   alt={t("visit.alt.papa")}
                   width={4480}
                   height={6720}
-                  className="w-full h-full object-cover object-[center_30%]"
+                  className="w-full h-full object-cover object-[center_25%]"
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+            </div>
+
+            {/* Right: info + CTAs at top, supporting thumbs fill the rest so
+                the column height matches the Papa portrait without dead space. */}
+            <div className="md:col-span-7 flex flex-col gap-7">
+              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6">
+                <div>
+                  <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em] mb-2">
+                    {t("visit.location.label")}
+                  </p>
+                  <p className="text-[#1E1E1E] text-base md:text-lg font-light leading-relaxed">
+                    {t("visit.location.line1")}
+                    <br />
+                    {t("visit.location.line2")}
+                    <br />
+                    {t("visit.location.line3")}
+                  </p>
+                </div>
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em] mb-2">
+                      {t("visit.hours.label")}
+                    </p>
+                    <p className="text-[#1E1E1E] text-base md:text-lg font-light">
+                      {t("visit.hours.value")}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em] mb-2">
+                      {t("visit.contact.label")}
+                    </p>
+                    <a
+                      href="https://wa.me/66988268290"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#1E1E1E] text-base md:text-lg font-light hover:text-[#5A6A4F] transition-colors inline-flex items-center gap-2"
+                    >
+                      <MessageSquare className="h-4 w-4" />
+                      {t("visit.contact.whatsapp")}
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://maps.app.goo.gl/?q=KD+Genetics+Tanote+Bay+Koh+Tao"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90 rounded-full px-6 h-11 text-sm font-medium transition-all"
+                >
+                  <MapPin className="h-4 w-4" /> {t("visit.cta.directions")}
+                </a>
+                <a
+                  href="https://wa.me/66988268290"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-[#1E1E1E]/15 hover:border-[#5A6A4F] text-[#1E1E1E] rounded-full px-6 h-11 text-sm font-medium transition-all"
+                >
+                  <MessageSquare className="h-4 w-4" /> {t("visit.cta.message")}
+                </a>
+              </div>
+
+              {/* Two supporting thumbs anchor the column bottom */}
+              <div className="grid grid-cols-2 gap-4 mt-auto">
                 <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
                   <Image
                     src="/shop-front.jpg"
@@ -136,100 +200,35 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-
-            <div className="flex flex-col space-y-6 md:pl-8">
-              <div>
-                <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em] mb-2">
-                  {t("visit.location.label")}
-                </p>
-                <p className="text-[#1E1E1E] text-lg font-light leading-relaxed">
-                  {t("visit.location.line1")}
-                  <br />
-                  {t("visit.location.line2")}
-                  <br />
-                  {t("visit.location.line3")}
-                </p>
-              </div>
-              <div>
-                <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em] mb-2">
-                  {t("visit.hours.label")}
-                </p>
-                <p className="text-[#1E1E1E] text-lg font-light">
-                  {t("visit.hours.value")}
-                </p>
-              </div>
-              <div>
-                <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em] mb-2">
-                  {t("visit.contact.label")}
-                </p>
-                <a
-                  href="https://wa.me/66988268290"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#1E1E1E] text-lg font-light hover:text-[#5A6A4F] transition-colors inline-flex items-center gap-2"
-                >
-                  <MessageSquare className="h-4 w-4" />
-                  {t("visit.contact.whatsapp")}
-                </a>
-              </div>
-
-              <div className="flex flex-wrap gap-3 pt-2">
-                <a
-                  href="https://maps.app.goo.gl/?q=KD+Genetics+Tanote+Bay+Koh+Tao"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90 rounded-full px-6 h-11 text-sm font-medium transition-all"
-                >
-                  <MapPin className="h-4 w-4" /> {t("visit.cta.directions")}
-                </a>
-                <a
-                  href="https://wa.me/66988268290"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-[#1E1E1E]/15 hover:border-[#5A6A4F] text-[#1E1E1E] rounded-full px-6 h-11 text-sm font-medium transition-all"
-                >
-                  <MessageSquare className="h-4 w-4" /> {t("visit.cta.message")}
-                </a>
-              </div>
-            </div>
           </div>
 
-          {/* Band 2 — Worth the ride: copy + teaser video */}
-          <div className="max-w-3xl mx-auto text-center space-y-4 mb-10">
-            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
-              {t("ride.eyebrow")}
-            </span>
-            <h3 className="font-display text-3xl md:text-4xl text-[#1E1E1E] leading-tight">
-              {t("ride.heading")}
-            </h3>
-            <p className="text-[#4A4A4A] text-base md:text-lg font-light leading-relaxed">
-              {t("ride.body")}
-            </p>
-          </div>
-
-          <RideTeaserVideo
-            poster="/shop-mural.jpg"
-            caption={t("ride.video.caption")}
-            placeholderText={t("ride.video.placeholder")}
-            className="aspect-[16/9] rounded-2xl bg-[#EAE6DE]/40 mb-20 md:mb-28"
-          />
-
-          {/* Band 3 — Illustrated map */}
-          <div className="space-y-4">
-            <IllustratedMap
-              title={t("ride.map.title")}
-              subtitle={t("ride.map.subtitle")}
-              className="bg-[#F4EFE2] shadow-sm"
-            />
-            <div className="flex justify-center">
+          {/* Band 2 — Worth the ride: copy left, illustrated map right */}
+          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+            <div className="md:col-span-5 space-y-4">
+              <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
+                {t("ride.eyebrow")}
+              </span>
+              <h3 className="font-display text-3xl md:text-4xl text-[#1E1E1E] leading-tight">
+                {t("ride.heading")}
+              </h3>
+              <p className="text-[#4A4A4A] text-base md:text-lg font-light leading-relaxed">
+                {t("ride.body")}
+              </p>
               <a
                 href="https://maps.app.goo.gl/?q=KD+Genetics+Tanote+Bay+Koh+Tao"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#5A6A4F] hover:text-[#1E1E1E] text-sm transition-colors"
+                className="inline-flex items-center gap-2 text-[#5A6A4F] hover:text-[#1E1E1E] text-sm transition-colors pt-2"
               >
                 <ExternalLink className="h-3.5 w-3.5" /> {t("visit.cta.openMaps")}
               </a>
+            </div>
+            <div className="md:col-span-7">
+              <IllustratedMap
+                title={t("ride.map.title")}
+                subtitle={t("ride.map.subtitle")}
+                className="bg-[#F4EFE2] shadow-sm"
+              />
             </div>
           </div>
         </div>
