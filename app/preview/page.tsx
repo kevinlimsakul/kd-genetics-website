@@ -7,6 +7,8 @@ import ReviewsSection from "@/components/ReviewsSection";
 import HeroVideo from "@/components/HeroVideo";
 import SlideshowGallery from "@/components/SlideshowGallery";
 import SlowdownCarousel from "@/components/SlowdownCarousel";
+import RideTeaserVideo from "@/components/RideTeaserVideo";
+import IllustratedMap from "@/components/IllustratedMap";
 import { useLanguage } from "@/lib/i18n";
 import {
   Leaf,
@@ -101,12 +103,13 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          {/* Band 1 — photos + practical info */}
+          <div className="grid md:grid-cols-2 gap-8 mb-20 md:mb-28">
             <div className="space-y-4">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#EAE6DE]/40">
                 <Image
                   src="/shop-mural.jpg"
-                  alt={t("visit.alt.mural")}
+                  alt={t("visit.alt.team")}
                   width={1800}
                   height={1350}
                   className="w-full h-full object-cover"
@@ -116,7 +119,7 @@ export default function HomePage() {
                 <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
                   <Image
                     src="/shop-exterior.jpg"
-                    alt={t("visit.alt.exterior")}
+                    alt={t("visit.alt.front")}
                     width={1400}
                     height={1050}
                     className="w-full h-full object-cover"
@@ -170,7 +173,7 @@ export default function HomePage() {
                 </a>
               </div>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 pt-2">
                 <a
                   href="https://maps.app.goo.gl/?q=KD+Genetics+Tanote+Bay+Koh+Tao"
                   target="_blank"
@@ -188,19 +191,45 @@ export default function HomePage() {
                   <MessageSquare className="h-4 w-4" /> {t("visit.cta.message")}
                 </a>
               </div>
+            </div>
+          </div>
 
-              <div className="flex-1 min-h-[320px] md:min-h-[260px] rounded-2xl overflow-hidden shadow-sm bg-[#EAE6DE]/30 mt-2">
-                <iframe
-                  src="https://www.google.com/maps?q=KD+Genetics+Tanote+Bay+Koh+Tao&z=16&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title={t("visit.map.title")}
-                />
-              </div>
+          {/* Band 2 — Worth the ride: copy + teaser video */}
+          <div className="max-w-3xl mx-auto text-center space-y-4 mb-10">
+            <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
+              {t("ride.eyebrow")}
+            </span>
+            <h3 className="font-display text-3xl md:text-4xl text-[#1E1E1E] leading-tight">
+              {t("ride.heading")}
+            </h3>
+            <p className="text-[#4A4A4A] text-base md:text-lg font-light leading-relaxed">
+              {t("ride.body")}
+            </p>
+          </div>
+
+          <RideTeaserVideo
+            poster="/shop-mural.jpg"
+            caption={t("ride.video.caption")}
+            placeholderText={t("ride.video.placeholder")}
+            className="aspect-[16/9] rounded-2xl bg-[#EAE6DE]/40 mb-20 md:mb-28"
+          />
+
+          {/* Band 3 — Illustrated map */}
+          <div className="space-y-4">
+            <IllustratedMap
+              title={t("ride.map.title")}
+              subtitle={t("ride.map.subtitle")}
+              className="bg-[#F4EFE2] shadow-sm"
+            />
+            <div className="flex justify-center">
+              <a
+                href="https://maps.app.goo.gl/?q=KD+Genetics+Tanote+Bay+Koh+Tao"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[#5A6A4F] hover:text-[#1E1E1E] text-sm transition-colors"
+              >
+                <ExternalLink className="h-3.5 w-3.5" /> {t("visit.cta.openMaps")}
+              </a>
             </div>
           </div>
         </div>

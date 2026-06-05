@@ -42,7 +42,22 @@ export const translations = {
     "visit.contact.whatsapp": "+66 98 826 8290 (WhatsApp)",
     "visit.cta.directions": "Get Directions",
     "visit.cta.message": "Message Us",
+    "visit.cta.openMaps": "Open in Google Maps",
     "visit.map.title": "KD Genetics — Tanote Bay, Koh Tao",
+    "visit.alt.team": "The KD team behind the bamboo bar",
+    "visit.alt.front": "The front of the KD shop, tucked under the canopy",
+
+    /* ── Ride / Worth the ride ────────────────────────────────────────── */
+    "ride.eyebrow": "Getting Here",
+    "ride.heading": "Worth the ride.",
+    "ride.body":
+      "Tanote Bay is the last cove on the east side. The road climbs over the hill, twists through jungle, dips and bends like a small roller-coaster, and drops you into a quiet bay most visitors never reach. Grab a scooter, take it slow, arrive somewhere you'll remember.",
+    "ride.video.caption": "The ride to Tanote Bay",
+    "ride.video.placeholder":
+      "Walkthrough loop coming soon — drop /ride-loop.mp4 in /public to activate.",
+    "ride.map.title": "From Mae Haad pier to KD Genetics",
+    "ride.map.subtitle":
+      "About 15 minutes on a scooter. Over the central hill, down into the bay.",
 
     /* ── Papa KD ───────────────────────────────────────────────────────── */
     "papa.quoteLine1": "Use cannabis wisely is well-being.",
@@ -227,7 +242,22 @@ export const translations = {
     "visit.contact.whatsapp": "+66 98 826 8290 (WhatsApp)",
     "visit.cta.directions": "ดูเส้นทาง",
     "visit.cta.message": "ทักเรา",
+    "visit.cta.openMaps": "เปิดใน Google Maps",
     "visit.map.title": "KD Genetics — อ่าวโตนด เกาะเต่า",
+    "visit.alt.team": "ทีม KD หลังบาร์ไม้ไผ่",
+    "visit.alt.front": "หน้าร้าน KD ใต้ร่มไม้",
+
+    /* ── Ride / Worth the ride ────────────────────────────────────────── */
+    "ride.eyebrow": "การเดินทางมา",
+    "ride.heading": "คุ้มค่าทุกโค้ง",
+    "ride.body":
+      "อ่าวโตนดคืออ่าวสุดท้ายทางฝั่งตะวันออก ถนนไต่ขึ้นเขา ลัดเลาะป่า ขึ้นลงเหมือนรถไฟเหาะเล็กๆ แล้วทอดลงสู่อ่าวเงียบที่นักท่องเที่ยวส่วนใหญ่ไปไม่ถึง เช่ามอเตอร์ไซค์ ค่อยๆ ขับ แล้วคุณจะได้ไปยังที่ที่จะจดจำ",
+    "ride.video.caption": "เส้นทางสู่อ่าวโตนด",
+    "ride.video.placeholder":
+      "วิดีโอเส้นทางเร็วๆ นี้",
+    "ride.map.title": "จากท่าเรือแม่หาด ถึง KD Genetics",
+    "ride.map.subtitle":
+      "ประมาณ 15 นาทีด้วยมอเตอร์ไซค์ ข้ามเขา ลงสู่อ่าว",
 
     /* ── Papa KD ───────────────────────────────────────────────────────── */
     "papa.quoteLine1": "ใช้กัญชาอย่างมีสติคือสุขภาวะ",
