@@ -46,6 +46,7 @@ export const translations = {
     "visit.map.title": "KD Genetics — Tanote Bay, Koh Tao",
     "visit.alt.team": "The KD team behind the bamboo bar",
     "visit.alt.front": "The front of the KD shop, tucked under the canopy",
+    "visit.alt.papa": "Papa KD at home, smiling — the heart of the farm",
 
     /* ── Ride / Worth the ride ────────────────────────────────────────── */
     "ride.eyebrow": "Getting Here",
@@ -246,6 +247,7 @@ export const translations = {
     "visit.map.title": "KD Genetics — อ่าวโตนด เกาะเต่า",
     "visit.alt.team": "ทีม KD หลังบาร์ไม้ไผ่",
     "visit.alt.front": "หน้าร้าน KD ใต้ร่มไม้",
+    "visit.alt.papa": "ปาป๊า KD ยิ้ม — หัวใจของฟาร์ม",
 
     /* ── Ride / Worth the ride ────────────────────────────────────────── */
     "ride.eyebrow": "การเดินทางมา",

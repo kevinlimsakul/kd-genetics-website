@@ -127,11 +127,11 @@ export default function HomePage() {
                 </div>
                 <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
                   <Image
-                    src="/drone-bay.jpg"
-                    alt={t("visit.alt.drone")}
-                    width={2000}
-                    height={1500}
-                    className="w-full h-full object-cover"
+                    src="/papa-portrait.jpg"
+                    alt={t("visit.alt.papa")}
+                    width={4480}
+                    height={6720}
+                    className="w-full h-full object-cover object-[center_25%]"
                   />
                 </div>
               </div>
