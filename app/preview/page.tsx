@@ -7,7 +7,6 @@ import ReviewsSection from "@/components/ReviewsSection";
 import HeroVideo from "@/components/HeroVideo";
 import SlideshowGallery from "@/components/SlideshowGallery";
 import SlowdownCarousel from "@/components/SlowdownCarousel";
-import IllustratedMap from "@/components/IllustratedMap";
 import { useLanguage } from "@/lib/i18n";
 import {
   Leaf,
@@ -224,11 +223,16 @@ export default function HomePage() {
               </a>
             </div>
             <div className="md:col-span-7">
-              <IllustratedMap
-                title={t("ride.map.title")}
-                subtitle={t("ride.map.subtitle")}
-                className="bg-[#F4EFE2] shadow-sm"
-              />
+              <div className="rounded-2xl overflow-hidden border border-[#1E1E1E]/8 shadow-sm bg-[#CDD8C8]/30">
+                <Image
+                  src="/koh-tao-map.png"
+                  alt={t("ride.map.title")}
+                  width={2573}
+                  height={1819}
+                  className="w-full h-auto block"
+                  sizes="(min-width: 1024px) 660px, 100vw"
+                />
+              </div>
             </div>
           </div>
         </div>
