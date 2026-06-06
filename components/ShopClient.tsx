@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ShoppingBag, X, Plus, Minus, ArrowRight, ChevronLeft } from "lucide-react";
 import { SHIPPING_FLAT_THB } from "@/lib/order";
+
+const CART_STORAGE_KEY = "kd-merch-cart-v1";
 
 type Product = {
   id: string;
@@ -100,6 +102,26 @@ export default function ShopClient() {
     customerPhone.trim().length > 5 &&
     customerAddress.trim().length > 10;
 
+  const cartHydrated = useRef(false);
+
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(CART_STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw) as CartItem[];
+        if (Array.isArray(parsed)) setCart(parsed);
+      }
+    } catch {}
+    cartHydrated.current = true;
+  }, []);
+
+  useEffect(() => {
+    if (!cartHydrated.current) return;
+    try {
+      window.localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+    } catch {}
+  }, [cart]);
+
   const addToCart = (product: Product) => {
     const hasSizes = product.sizes.length > 0;
     const size = hasSizes ? selectedSizes[product.id] || "" : "One Size";
@@ -121,6 +143,8 @@ export default function ShopClient() {
 
     setAddedItems((prev) => ({ ...prev, [product.id]: true }));
     setTimeout(() => setAddedItems((prev) => ({ ...prev, [product.id]: false })), 1500);
+    setCheckoutStep("cart");
+    setCartOpen(true);
   };
 
   const removeFromCart = (id: string, size: string) => {
@@ -171,6 +195,7 @@ export default function ShopClient() {
       if (!res.ok || !data.ok || !data.ref) {
         throw new Error(data.error ?? "Could not place order.");
       }
+      setCart([]);
       router.push(`/order-confirmation?ref=${encodeURIComponent(data.ref)}&total=${total}`);
     } catch (err) {
       setSubmitError(err instanceof Error ? err.message : "Could not place order.");
@@ -395,16 +420,24 @@ export default function ShopClient() {
       </div>
 
       {/* Cart Drawer */}
-      {cartOpen && (
-        <>
-          <div
-            className="fixed inset-0 bg-black/30 z-40 backdrop-blur-sm"
-            onClick={() => {
-              setCartOpen(false);
-              setCheckoutStep("cart");
-            }}
-          />
-          <div className="fixed right-0 top-0 h-full w-full max-w-md bg-[#F6F4EF] z-50 shadow-2xl flex flex-col">
+      <div
+        className={`fixed inset-0 bg-black/30 z-40 backdrop-blur-sm transition-opacity duration-300 ${
+          cartOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => {
+          setCartOpen(false);
+          setCheckoutStep("cart");
+        }}
+        aria-hidden={!cartOpen}
+      />
+      <div
+        className={`fixed right-0 top-0 h-full w-full max-w-md bg-[#F6F4EF] z-50 shadow-2xl flex flex-col transition-transform duration-300 ease-out ${
+          cartOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+        role="dialog"
+        aria-modal="true"
+        aria-hidden={!cartOpen}
+      >
             <div className="flex items-center justify-between px-6 py-5 border-b border-black/5">
               <div className="flex items-center gap-3">
                 {checkoutStep === "details" && (
@@ -588,7 +621,7 @@ export default function ShopClient() {
             </div>
 
             {cart.length > 0 && (
-              <div className="px-6 py-5 border-t border-black/5 space-y-3">
+              <div className="px-6 pt-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] border-t border-black/5 space-y-3">
                 <div className="space-y-1">
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-[#1E1E1E]/60 font-light">Subtotal</span>
@@ -643,9 +676,7 @@ export default function ShopClient() {
                 )}
               </div>
             )}
-          </div>
-        </>
-      )}
+      </div>
     </>
   );
 }

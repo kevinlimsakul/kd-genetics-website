@@ -143,7 +143,11 @@ export default async function OrderConfirmationPage({ searchParams }: Props) {
               </p>
             </div>
             <a
-              href={PAYMENT_DETAILS.receipt.whatsapp}
+              href={`${PAYMENT_DETAILS.receipt.whatsapp}?text=${encodeURIComponent(
+                `Hi KD! I just paid for order ${ref ?? ""}${
+                  totalThb !== null ? ` (฿${totalThb.toLocaleString()})` : ""
+                }. Screenshot attached.`,
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="shrink-0 inline-flex items-center gap-2 rounded-full bg-white text-[#1E1E1E] px-6 py-3 text-[13px] font-semibold tracking-wide hover:bg-white/90 transition-colors"
