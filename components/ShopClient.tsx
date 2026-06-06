@@ -35,20 +35,6 @@ const PRODUCTS: Product[] = [
     ],
   },
   {
-    id: "tee-tanote-grey",
-    name: "Tanote Bay Tee — Grey",
-    description:
-      "The same Tanote Bay artwork in a soft grey colourway. KD Genetics seal on the chest, the bay drawn from the water up.",
-    price: 800,
-    sizes: SIZES,
-    badge: "T-Shirt",
-    images: [
-      "/apparel-papa-plant.jpg",
-      "/apparel-papa-rolling.jpg",
-      "/apparel-papa-quote-back.jpg",
-    ],
-  },
-  {
     id: "tee-seal-white",
     name: "KD Seal Tee — White",
     description:
