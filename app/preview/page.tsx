@@ -87,44 +87,29 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
        *  2. VISIT
        * ══════════════════════════════════════════════════════════════════ */}
-      <section id="visit" className="py-20 md:py-32 bg-[#F6F4EF]">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="text-center mb-14 max-w-xl mx-auto space-y-3">
+      <section id="visit" className="py-16 md:py-24 bg-[#F6F4EF]">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <div className="text-center mb-10 md:mb-12 max-w-xl mx-auto space-y-3">
             <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
               {t("visit.eyebrow")}
             </span>
-            <h2 className="font-display text-4xl md:text-5xl text-[#1E1E1E]">
+            <h2 className="font-display text-3xl md:text-4xl text-[#1E1E1E]">
               {t("visit.heading")}
             </h2>
-            <p className="text-[#6B6B6B] text-base font-light">
+            <p className="text-[#6B6B6B] text-sm md:text-base font-light">
               {t("visit.sub")}
             </p>
           </div>
 
-          {/* Band 1 — Papa hero · practical info · supporting thumbs */}
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-20 md:mb-28 items-stretch">
-            {/* Papa portrait — slimmer aspect so it doesn't dwarf the right column */}
-            <div className="md:col-span-5">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-[#EAE6DE]/40 h-full">
-                <Image
-                  src="/papa-portrait.jpg"
-                  alt={t("visit.alt.papa")}
-                  width={4480}
-                  height={6720}
-                  className="w-full h-full object-cover object-[center_25%]"
-                />
-              </div>
-            </div>
-
-            {/* Right: info + CTAs at top, supporting thumbs fill the rest so
-                the column height matches the Papa portrait without dead space. */}
-            <div className="md:col-span-7 flex flex-col gap-7">
-              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6">
+          {/* Card — info on left, real Google Maps embed on right */}
+          <div className="grid md:grid-cols-2 rounded-2xl overflow-hidden border border-[#1E1E1E]/10 bg-white shadow-sm">
+            <div className="p-7 md:p-9 flex flex-col gap-6 justify-between">
+              <div className="space-y-5">
                 <div>
-                  <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em] mb-2">
+                  <p className="text-[#5A6A4F] text-[11px] font-medium uppercase tracking-[0.25em] mb-1.5">
                     {t("visit.location.label")}
                   </p>
-                  <p className="text-[#1E1E1E] text-base md:text-lg font-light leading-relaxed">
+                  <p className="text-[#1E1E1E] text-base font-light leading-relaxed">
                     {t("visit.location.line1")}
                     <br />
                     {t("visit.location.line2")}
@@ -132,38 +117,36 @@ export default function HomePage() {
                     {t("visit.location.line3")}
                   </p>
                 </div>
-                <div className="space-y-6">
-                  <div>
-                    <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em] mb-2">
-                      {t("visit.hours.label")}
-                    </p>
-                    <p className="text-[#1E1E1E] text-base md:text-lg font-light">
-                      {t("visit.hours.value")}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.25em] mb-2">
-                      {t("visit.contact.label")}
-                    </p>
-                    <a
-                      href="https://wa.me/66988268290"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#1E1E1E] text-base md:text-lg font-light hover:text-[#5A6A4F] transition-colors inline-flex items-center gap-2"
-                    >
-                      <MessageSquare className="h-4 w-4" />
-                      {t("visit.contact.whatsapp")}
-                    </a>
-                  </div>
+                <div>
+                  <p className="text-[#5A6A4F] text-[11px] font-medium uppercase tracking-[0.25em] mb-1.5">
+                    {t("visit.hours.label")}
+                  </p>
+                  <p className="text-[#1E1E1E] text-base font-light">
+                    {t("visit.hours.value")}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[#5A6A4F] text-[11px] font-medium uppercase tracking-[0.25em] mb-1.5">
+                    {t("visit.contact.label")}
+                  </p>
+                  <a
+                    href="https://wa.me/66988268290"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#1E1E1E] text-base font-light hover:text-[#5A6A4F] transition-colors inline-flex items-center gap-2"
+                  >
+                    <MessageSquare className="h-4 w-4" />
+                    {t("visit.contact.whatsapp")}
+                  </a>
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 pt-2">
                 <a
                   href="https://maps.app.goo.gl/?q=KD+Genetics+Tanote+Bay+Koh+Tao"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90 rounded-full px-6 h-11 text-sm font-medium transition-all"
+                  className="inline-flex items-center gap-2 bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90 rounded-full px-5 h-10 text-sm font-medium transition-all"
                 >
                   <MapPin className="h-4 w-4" /> {t("visit.cta.directions")}
                 </a>
@@ -171,68 +154,53 @@ export default function HomePage() {
                   href="https://wa.me/66988268290"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-[#1E1E1E]/15 hover:border-[#5A6A4F] text-[#1E1E1E] rounded-full px-6 h-11 text-sm font-medium transition-all"
+                  className="inline-flex items-center gap-2 border border-[#1E1E1E]/15 hover:border-[#5A6A4F] text-[#1E1E1E] rounded-full px-5 h-10 text-sm font-medium transition-all"
                 >
                   <MessageSquare className="h-4 w-4" /> {t("visit.cta.message")}
                 </a>
               </div>
+            </div>
 
-              {/* Two supporting thumbs anchor the column bottom */}
-              <div className="grid grid-cols-2 gap-4 mt-auto">
-                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
-                  <Image
-                    src="/shop-front.jpg"
-                    alt={t("visit.alt.front")}
-                    width={1400}
-                    height={1050}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
-                  <Image
-                    src="/shop-team.jpg"
-                    alt={t("visit.alt.team")}
-                    width={1800}
-                    height={1200}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
+            <div className="min-h-[320px] md:min-h-[420px] bg-[#EAE6DE]/40 border-t md:border-t-0 md:border-l border-[#1E1E1E]/10">
+              <iframe
+                src="https://www.google.com/maps?q=KD+Genetics+Tanote+Bay+Koh+Tao&output=embed"
+                title={t("visit.map.title")}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full min-h-[320px] md:min-h-[420px] block"
+                style={{ border: 0 }}
+              />
             </div>
           </div>
 
-          {/* Band 2 — Worth the ride: copy left, illustrated map right */}
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
-            <div className="md:col-span-5 space-y-4">
-              <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
-                {t("ride.eyebrow")}
-              </span>
-              <h3 className="font-display text-3xl md:text-4xl text-[#1E1E1E] leading-tight">
-                {t("ride.heading")}
-              </h3>
-              <p className="text-[#4A4A4A] text-base md:text-lg font-light leading-relaxed">
-                {t("ride.body")}
-              </p>
-              <a
-                href="https://maps.app.goo.gl/?q=KD+Genetics+Tanote+Bay+Koh+Tao"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#5A6A4F] hover:text-[#1E1E1E] text-sm transition-colors pt-2"
-              >
-                <ExternalLink className="h-3.5 w-3.5" /> {t("visit.cta.openMaps")}
-              </a>
+          {/* Supporting photo strip — 3 thumbs, kept small and harmonious */}
+          <div className="grid grid-cols-3 gap-3 md:gap-4 mt-5 md:mt-6">
+            <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
+              <Image
+                src="/papa-portrait.jpg"
+                alt={t("visit.alt.papa")}
+                width={4480}
+                height={6720}
+                className="w-full h-full object-cover object-[center_25%]"
+              />
             </div>
-            <div className="md:col-span-7">
-              <div className="rounded-2xl overflow-hidden border border-[#1E1E1E]/8 shadow-sm bg-[#CDD8C8]/30">
-                <Image
-                  src="/koh-tao-map.png"
-                  alt={t("ride.map.title")}
-                  width={2573}
-                  height={1819}
-                  className="w-full h-auto block"
-                  sizes="(min-width: 1024px) 660px, 100vw"
-                />
-              </div>
+            <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
+              <Image
+                src="/shop-front.jpg"
+                alt={t("visit.alt.front")}
+                width={1400}
+                height={1050}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="aspect-[4/3] rounded-xl overflow-hidden bg-[#EAE6DE]/40">
+              <Image
+                src="/shop-team.jpg"
+                alt={t("visit.alt.team")}
+                width={1800}
+                height={1200}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -477,9 +445,9 @@ export default function HomePage() {
             <SlowdownCarousel
               slides={[
                 { src: "/slowdown-aerial.jpg",           alt: t("slowdown.slide.aerial.alt"),        caption: t("slowdown.slide.aerial.cap") },
-                { src: "/slowdown-entrance.jpg",         alt: t("slowdown.slide.entrance.alt"),      caption: t("slowdown.slide.entrance.cap") },
                 { src: "/slowdown-unit1-terrace.jpg",    alt: t("slowdown.slide.terrace.alt"),       caption: t("slowdown.slide.terrace.cap") },
                 { src: "/slowdown-unit1-room.jpg",       alt: t("slowdown.slide.room.alt"),          caption: t("slowdown.slide.room.cap") },
+                { src: "/slowdown-entrance.jpg",         alt: t("slowdown.slide.entrance.alt"),      caption: t("slowdown.slide.entrance.cap") },
                 { src: "/slowdown-unit2-entrance.jpg",   alt: t("slowdown.slide.unit2entrance.alt"), caption: t("slowdown.slide.unit2entrance.cap") },
                 { src: "/slowdown-unit2-outdoor.jpg",    alt: t("slowdown.slide.unit2outdoor.alt"),  caption: t("slowdown.slide.unit2outdoor.cap") },
               ]}
