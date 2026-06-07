@@ -105,13 +105,13 @@ export const translations = {
     "gallery.heading": "Our land. Our work.",
     "gallery.cap.drone": "What a bird sees when it looks down on our land",
     "gallery.cap.bay": "Tanote Bay",
-    "gallery.cap.historic": "Where KD used to grow back in the day",
+    "gallery.cap.historic": "The hill where KD used to grow back in the day",
     "gallery.cap.nursery": "Seedlings in our nursery",
     "gallery.cap.veg": "Harvest time",
     "gallery.cap.sungrown": "Greenhouse",
     "gallery.cap.chicken": "Ganjachicken",
     "gallery.cap.cat": "Bobby",
-    "gallery.cap.dog": "Mee",
+    "gallery.cap.dog": "Mee and Daniel",
     "gallery.cap.mila": "Mila",
     "gallery.cap.willy": "Willy",
     "gallery.cap.peter": "Peter",
@@ -164,6 +164,9 @@ export const translations = {
 
     /* ── Press ─────────────────────────────────────────────────────────── */
     "press.heading": "As Featured In",
+    "press.video.strainhunters": "Strain Hunters Thailand",
+    "press.video.vice": "Vice · Cooking with Cannabis",
+    "press.video.thaimedia": "Thai Media · KD Interview",
 
     /* ── Reviews ───────────────────────────────────────────────────────── */
     "reviews.eyebrow": "Google Reviews",
@@ -307,13 +310,13 @@ export const translations = {
     "gallery.heading": "ผืนดินของเรา งานของเรา",
     "gallery.cap.drone": "ภาพที่นกมองลงมาเห็นผืนดินของเรา",
     "gallery.cap.bay": "อ่าวโตนด",
-    "gallery.cap.historic": "ที่ที่ป๋า KD เคยปลูกในอดีต",
+    "gallery.cap.historic": "เนินเขาที่ป๋า KD เคยปลูกในอดีต",
     "gallery.cap.nursery": "ต้นกล้าในเรือนเพาะของเรา",
     "gallery.cap.veg": "ช่วงเก็บเกี่ยว",
     "gallery.cap.sungrown": "โรงเรือน",
     "gallery.cap.chicken": "ไก่กัญชา",
     "gallery.cap.cat": "บ็อบบี้",
-    "gallery.cap.dog": "หมี",
+    "gallery.cap.dog": "หมีและแดเนียล",
     "gallery.cap.mila": "มิล่า",
     "gallery.cap.willy": "วิลลี่",
     "gallery.cap.peter": "ปีเตอร์",
@@ -366,6 +369,9 @@ export const translations = {
 
     /* ── Press ─────────────────────────────────────────────────────────── */
     "press.heading": "ปรากฏใน",
+    "press.video.strainhunters": "Strain Hunters Thailand",
+    "press.video.vice": "Vice · ทำอาหารจากกัญชา",
+    "press.video.thaimedia": "สื่อไทย · สัมภาษณ์ KD",
 
     /* ── Reviews ───────────────────────────────────────────────────────── */
     "reviews.eyebrow": "รีวิว Google",

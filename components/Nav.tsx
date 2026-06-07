@@ -95,12 +95,6 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
             >
               {t("nav.story")}
             </button>
-            <button
-              onClick={() => scrollTo("tour")}
-              className={`transition-colors cursor-pointer ${isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"}`}
-            >
-              {t("nav.experience")}
-            </button>
             <Link
               href="/shop"
               className={`transition-colors ${
@@ -171,12 +165,6 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
                 {item.label}
               </button>
             ))}
-            <button
-              onClick={() => { scrollTo("tour"); setMenuOpen(false); }}
-              className="block w-full text-left text-primary/70 hover:text-primary text-sm font-medium"
-            >
-              {t("nav.experience")}
-            </button>
             <Link
               href="/shop"
               className="block text-primary/70 hover:text-primary text-sm font-medium"

@@ -6,7 +6,7 @@ import ShopClient from "@/components/ShopClient";
 export const metadata: Metadata = {
   title: "KD Merch — KD Genetics",
   description:
-    "KD Genetics merch — four cotton tees hand-printed on Koh Tao plus the KD sticker pack. The Tanote Bay map, the KD seal, the Koh Tao wordmark.",
+    "KD Genetics merch — four cotton tees hand-printed on Koh Tao. The Tanote Bay map, the KD seal, the Koh Tao wordmark.",
 };
 
 export default function ShopPage() {

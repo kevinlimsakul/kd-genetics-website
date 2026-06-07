@@ -33,7 +33,21 @@ const PRODUCTS: Product[] = [
     badge: "T-Shirt",
     images: [
       "/apparel-papa-graphic.jpg",
-      "/apparel-kevin-graphic.jpg",
+      "/apparel-kevin-greenhouse.jpg",
+    ],
+  },
+  {
+    id: "tee-tanote-grey",
+    name: "Tanote Bay Tee — Grey",
+    description:
+      "The same Tanote Bay artwork in a soft grey colourway. KD Genetics seal on the chest, the bay drawn from the water up.",
+    price: 800,
+    sizes: SIZES,
+    badge: "T-Shirt",
+    images: [
+      "/apparel-papa-grey.jpg",
+      "/apparel-papa-rolling.jpg",
+      "/apparel-papa-quote-back.jpg",
     ],
   },
   {
@@ -64,16 +78,6 @@ const PRODUCTS: Product[] = [
       "/apparel-kevin-quote.jpg",
     ],
   },
-  {
-    id: "kd-sticker-pack",
-    name: "KD Sticker Pack",
-    description:
-      "A set of KD Genetics stickers — the seal, the wordmark, the bay. Designed on Koh Tao, stuck everywhere.",
-    price: 100,
-    sizes: [],
-    badge: "Accessory",
-    images: [],
-  },
 ];
 
 export default function ShopClient() {
@@ -90,6 +94,7 @@ export default function ShopClient() {
   const [customerPhone, setCustomerPhone] = useState("");
   const [customerAddress, setCustomerAddress] = useState("");
   const [customerNote, setCustomerNote] = useState("");
+  const [touched, setTouched] = useState({ name: false, phone: false, address: false });
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
@@ -97,10 +102,17 @@ export default function ShopClient() {
   const shipping = cart.length > 0 ? SHIPPING_FLAT_THB : 0;
   const total = subtotal + shipping;
   const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const detailsValid =
-    customerName.trim().length > 1 &&
-    customerPhone.trim().length > 5 &&
-    customerAddress.trim().length > 10;
+
+  const phoneDigits = customerPhone.replace(/\D/g, "");
+  const nameError =
+    customerName.trim().length < 2 ? "Please enter your full name." : null;
+  const phoneError =
+    phoneDigits.length < 7 ? "Please enter a valid phone number (7+ digits)." : null;
+  const addressError =
+    customerAddress.trim().length < 15
+      ? "Please enter your full shipping address (street, district, city, postal code)."
+      : null;
+  const detailsValid = !nameError && !phoneError && !addressError;
 
   const cartHydrated = useRef(false);
 
@@ -232,10 +244,9 @@ export default function ShopClient() {
               KD Merch.
             </h1>
             <p className="text-lg text-[#1E1E1E]/60 font-light leading-relaxed max-w-xl">
-              Four tees and a sticker pack, printed by hand on Koh Tao. Each
-              piece carries the bay, the seal, or the island — worn by the
-              family that grows here. Made with intention, not for mass
-              consumption.
+              Four tees, printed by hand on Koh Tao. Each piece carries the bay,
+              the seal, or the island — worn by the family that grows here.
+              Made with intention, not for mass consumption.
             </p>
           </div>
         </section>
@@ -486,9 +497,17 @@ export default function ShopClient() {
                       type="text"
                       value={customerName}
                       onChange={(e) => setCustomerName(e.target.value)}
-                      className="w-full border border-black/10 rounded-lg px-3 py-2.5 text-sm bg-white/60 focus:outline-none focus:border-[#1E1E1E]/50"
+                      onBlur={() => setTouched((t) => ({ ...t, name: true }))}
+                      className={`w-full border rounded-lg px-3 py-2.5 text-sm bg-white/60 focus:outline-none ${
+                        touched.name && nameError
+                          ? "border-red-500/60 focus:border-red-600"
+                          : "border-black/10 focus:border-[#1E1E1E]/50"
+                      }`}
                       placeholder="Daniel Smith"
                     />
+                    {touched.name && nameError && (
+                      <p className="text-[11px] text-red-600 font-light mt-1.5">{nameError}</p>
+                    )}
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/50 block mb-1.5">
@@ -498,9 +517,17 @@ export default function ShopClient() {
                       type="tel"
                       value={customerPhone}
                       onChange={(e) => setCustomerPhone(e.target.value)}
-                      className="w-full border border-black/10 rounded-lg px-3 py-2.5 text-sm bg-white/60 focus:outline-none focus:border-[#1E1E1E]/50"
+                      onBlur={() => setTouched((t) => ({ ...t, phone: true }))}
+                      className={`w-full border rounded-lg px-3 py-2.5 text-sm bg-white/60 focus:outline-none ${
+                        touched.phone && phoneError
+                          ? "border-red-500/60 focus:border-red-600"
+                          : "border-black/10 focus:border-[#1E1E1E]/50"
+                      }`}
                       placeholder="+66 9X XXX XXXX"
                     />
+                    {touched.phone && phoneError && (
+                      <p className="text-[11px] text-red-600 font-light mt-1.5">{phoneError}</p>
+                    )}
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/50 block mb-1.5">
@@ -521,10 +548,18 @@ export default function ShopClient() {
                     <textarea
                       value={customerAddress}
                       onChange={(e) => setCustomerAddress(e.target.value)}
+                      onBlur={() => setTouched((t) => ({ ...t, address: true }))}
                       rows={3}
-                      className="w-full border border-black/10 rounded-lg px-3 py-2.5 text-sm bg-white/60 focus:outline-none focus:border-[#1E1E1E]/50 resize-none"
+                      className={`w-full border rounded-lg px-3 py-2.5 text-sm bg-white/60 focus:outline-none resize-none ${
+                        touched.address && addressError
+                          ? "border-red-500/60 focus:border-red-600"
+                          : "border-black/10 focus:border-[#1E1E1E]/50"
+                      }`}
                       placeholder="Street, district, city, postal code"
                     />
+                    {touched.address && addressError && (
+                      <p className="text-[11px] text-red-600 font-light mt-1.5">{addressError}</p>
+                    )}
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/50 block mb-1.5">
@@ -658,8 +693,15 @@ export default function ShopClient() {
                 ) : (
                   <>
                     <button
-                      onClick={handleSubmitOrder}
-                      disabled={!detailsValid || submitting}
+                      onClick={() => {
+                        if (!detailsValid) {
+                          setTouched({ name: true, phone: true, address: true });
+                          return;
+                        }
+                        handleSubmitOrder();
+                      }}
+                      disabled={submitting}
+                      aria-disabled={!detailsValid || submitting}
                       className={`w-full h-12 rounded-full text-[13px] font-semibold tracking-wide flex items-center justify-center gap-2 transition-all ${
                         !detailsValid || submitting
                           ? "bg-[#1E1E1E]/10 text-[#1E1E1E]/40 cursor-not-allowed"

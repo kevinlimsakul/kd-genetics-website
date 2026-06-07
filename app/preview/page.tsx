@@ -16,12 +16,27 @@ import {
   ExternalLink,
   MessageSquare,
   Award,
+  Instagram,
 } from "lucide-react";
+
+function WhatsAppIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.695.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.057 2C6.553 2 2.083 6.47 2.083 11.974c0 1.764.46 3.484 1.336 5.001L2 22l5.13-1.345a9.93 9.93 0 0 0 4.93 1.256h.004c5.504 0 9.974-4.47 9.974-9.973 0-2.665-1.037-5.171-2.92-7.054A9.916 9.916 0 0 0 12.057 2zm0 18.185h-.004a8.28 8.28 0 0 1-4.21-1.151l-.302-.179-3.13.82.835-3.052-.197-.314a8.262 8.262 0 0 1-1.266-4.387c0-4.566 3.717-8.283 8.28-8.283 2.211 0 4.29.864 5.851 2.428a8.232 8.232 0 0 1 2.421 5.858c-.002 4.566-3.719 8.26-8.278 8.26z" />
+    </svg>
+  );
+}
 
 const pressSources = [
   { name: "High Times", url: "https://hightimes.com/grow/the-keeper-of-thai-weed/" },
   { name: "South China Morning Post", url: "https://www.scmp.com/week-asia/economics/article/3129135/thailands-father-cannabis-wants-small-time-growers-be-part" },
   { name: "The Nation Thailand", url: "https://www.nationthailand.com/in-focus/40014835" },
+];
+
+const pressVideos = [
+  { embedId: "_XQQ6GFbOyk", labelKey: "press.video.strainhunters" },
+  { embedId: "ERj25Bqet94", labelKey: "press.video.vice" },
+  { embedId: "dO_rMg47CDA", labelKey: "press.video.thaimedia" },
 ];
 
 export default function HomePage() {
@@ -112,6 +127,8 @@ export default function HomePage() {
                   <p className="text-[#1E1E1E] text-base font-light leading-relaxed">
                     {t("visit.location.line1")}
                     <br />
+                    40/5 Moo 3
+                    <br />
                     {t("visit.location.line2")}
                     <br />
                     {t("visit.location.line3")}
@@ -126,18 +143,29 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-[#5A6A4F] text-[11px] font-medium uppercase tracking-[0.25em] mb-1.5">
+                  <p className="text-[#5A6A4F] text-[11px] font-medium uppercase tracking-[0.25em] mb-2">
                     {t("visit.contact.label")}
                   </p>
-                  <a
-                    href="https://wa.me/66988268290"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#1E1E1E] text-base font-light hover:text-[#5A6A4F] transition-colors inline-flex items-center gap-2"
-                  >
-                    <MessageSquare className="h-4 w-4" />
-                    {t("visit.contact.whatsapp")}
-                  </a>
+                  <div className="flex flex-col gap-1.5">
+                    <a
+                      href="https://wa.me/66988268290"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#1E1E1E] text-base font-light hover:text-[#5A6A4F] transition-colors inline-flex items-center gap-2.5"
+                    >
+                      <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
+                      {t("visit.contact.whatsapp")}
+                    </a>
+                    <a
+                      href="https://www.instagram.com/kdgenetics_official/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#1E1E1E] text-base font-light hover:text-[#5A6A4F] transition-colors inline-flex items-center gap-2.5"
+                    >
+                      <Instagram className="h-4 w-4 text-[#E1306C]" />
+                      @kdgenetics
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -354,7 +382,7 @@ export default function HomePage() {
               { src: "/farm-shoot-01.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.mila") },
               { src: "/farm-shoot-02.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.willy"), objectFit: "contain" },
               { src: "/farm-shoot-03.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.peter"), objectFit: "contain" },
-              { src: "/farm-shoot-04.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.fert") },
+              { src: "/farm-shoot-04.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.fert"), objectFit: "contain" },
               { src: "/farm-shoot-05.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.mural"), objectFit: "contain" },
               { src: "/farm-shoot-06.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.shop") },
               { src: "/farm-shoot-07.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.fame"), objectFit: "contain" },
@@ -362,38 +390,6 @@ export default function HomePage() {
               { src: "/farm-shoot-09.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.water"), objectFit: "contain" },
             ]}
           />
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════
-       *  6. FARM TOUR
-       * ══════════════════════════════════════════════════════════════════ */}
-      <section id="tour" data-nav-dark className="py-20 md:py-32 bg-[#1E1E1E] text-white overflow-hidden relative">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-            <div className="md:col-span-7">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10">
-                <Image
-                  src="/historic-grow-site.jpg"
-                  alt={t("tour.alt")}
-                  width={1800}
-                  height={1350}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-            <div className="md:col-span-5 space-y-6">
-              <span className="text-[#5A6A4F] font-medium text-xs uppercase tracking-[0.3em]">
-                {t("tour.eyebrow")}
-              </span>
-              <h2 className="font-display text-4xl md:text-5xl text-white leading-tight">
-                {t("tour.heading")}
-              </h2>
-              <p className="text-white/65 text-base md:text-lg font-light leading-relaxed">
-                {t("tour.body")}
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -481,11 +477,53 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════════════════
        *  9. PROOF — press strip + reviews
        * ══════════════════════════════════════════════════════════════════ */}
-      <section id="press" className="pt-14 md:pt-20 pb-4 bg-[#EAE6DE]/30">
-        <div className="container mx-auto px-6 max-w-5xl text-center">
-          <p className="text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.3em] mb-6">
+      <section id="press" className="pt-14 md:pt-20 pb-14 md:pb-20 bg-[#EAE6DE]/30">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <p className="text-center text-[#5A6A4F] text-xs font-medium uppercase tracking-[0.3em] mb-10 md:mb-14">
             {t("press.heading")}
           </p>
+
+          <div className="grid sm:grid-cols-3 gap-5 md:gap-7 mb-10 md:mb-14">
+            {pressVideos.map((v) => (
+              <a
+                key={v.embedId}
+                href={`https://www.youtube.com/watch?v=${v.embedId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
+                <div className="relative aspect-video overflow-hidden rounded-lg ring-1 ring-black/5 bg-black/5 shadow-sm">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`https://img.youtube.com/vi/${v.embedId}/hqdefault.jpg`}
+                    alt={t(v.labelKey)}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow group-hover:bg-white transition-colors">
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path d="M3 1.5l9 5.5-9 5.5V1.5z" fill="#1E1E1E" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <p className="font-display text-base md:text-lg text-[#1E1E1E]/80 group-hover:text-[#1E1E1E] mt-3 leading-snug transition-colors">
+                  {t(v.labelKey)}
+                </p>
+              </a>
+            ))}
+          </div>
+
+          <div className="h-px bg-[#1E1E1E]/10 max-w-xs mx-auto mb-8 md:mb-10" />
+
           <div className="flex flex-wrap items-center justify-center gap-x-6 md:gap-x-10 gap-y-1">
             {pressSources.map((p) => (
               <a
