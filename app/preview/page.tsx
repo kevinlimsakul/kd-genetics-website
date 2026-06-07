@@ -37,7 +37,7 @@ const pressVideos = [
   { embedId: "_XQQ6GFbOyk", labelKey: "press.video.strainhunters" },
   { embedId: "ERj25Bqet94", labelKey: "press.video.vice" },
   { embedId: "dO_rMg47CDA", labelKey: "press.video.thaimedia" },
-];
+] as const;
 
 export default function HomePage() {
   const { t } = useLanguage();
