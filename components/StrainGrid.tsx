@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n";
 
 export type Strain = { name: string; img: string };
 
@@ -12,6 +13,7 @@ export default function StrainGrid({
   strains: Strain[];
   gridClassName: string;
 }) {
+  const { t } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const close = useCallback(() => setOpenIndex(null), []);
@@ -51,7 +53,7 @@ export default function StrainGrid({
             type="button"
             onClick={() => setOpenIndex(i)}
             className="space-y-3 group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5A6A4F] rounded-xl"
-            aria-label={`Enlarge ${s.name}`}
+            aria-label={`${t("strain.enlargePrefix")} ${s.name}`}
           >
             <div className="aspect-square overflow-hidden cursor-zoom-in p-4 md:p-6 flex items-center justify-center">
               <Image
@@ -81,7 +83,7 @@ export default function StrainGrid({
               close();
             }}
             className="absolute top-4 right-4 md:top-6 md:right-6 text-white/90 hover:text-white text-2xl w-11 h-11 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition cursor-pointer"
-            aria-label="Close"
+            aria-label={t("strain.close")}
           >
             ✕
           </button>
@@ -95,7 +97,7 @@ export default function StrainGrid({
                   prev();
                 }}
                 className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-white/90 hover:text-white text-3xl w-11 h-11 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition cursor-pointer"
-                aria-label="Previous"
+                aria-label={t("strain.prev")}
               >
                 ‹
               </button>
@@ -106,7 +108,7 @@ export default function StrainGrid({
                   next();
                 }}
                 className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-white/90 hover:text-white text-3xl w-11 h-11 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition cursor-pointer"
-                aria-label="Next"
+                aria-label={t("strain.next")}
               >
                 ›
               </button>

@@ -199,6 +199,194 @@ export const translations = {
       "© {year} KD Genetics. All rights reserved. · 21+ only · For adults only",
     "footer.location": "Koh Tao, Surat Thani, Thailand",
 
+    /* ── /shop page ─────────────────────────────────────────────────────── */
+    "shop.cart.openLabel": "Open cart",
+    "shop.eyebrow": "KD Genetics",
+    "shop.heading": "KD Merch.",
+    "shop.sub":
+      "Four tees, printed by hand on Koh Tao. Each piece carries the bay, the seal, or the island — worn by the family that grows here. Made with intention, not for mass consumption.",
+    "shop.size": "Size",
+    "shop.quantity": "Quantity",
+    "shop.qty.decrease": "Decrease quantity",
+    "shop.qty.increase": "Increase quantity",
+    "shop.cta.add": "Add to Cart",
+    "shop.cta.added": "Added to Cart",
+    "shop.cta.selectSize": "Select a Size",
+    "shop.thb": "THB",
+    "shop.product.viewPrefix": "view",
+    "shop.product.tanote-natural.name": "Tanote Bay Tee — Natural",
+    "shop.product.tanote-natural.desc":
+      "Tanote Bay drawing across the front, KD Genetics seal on the chest. Organic cotton from Chiang Mai, designed and printed on Koh Tao.",
+    "shop.product.tanote-grey.name": "Tanote Bay Tee — Grey",
+    "shop.product.tanote-grey.desc":
+      "The same Tanote artwork in a soft grey colorway. KD Logo on the chest, 'use wisely-quote' on the back.",
+    "shop.product.seal-white.name": "KD Seal Tee — White",
+    "shop.product.seal-white.desc":
+      "Our bestseller. Clean white with the KD Logo-smile on the front and a drawing inspired by the artist Clara Fosca on the back.",
+    "shop.product.kohtao-black.name": "Koh Tao Tee — Black",
+    "shop.product.kohtao-black.desc":
+      "Classic and clean black tee with \"use wisely-quote\" on the back. Simple but always in style.",
+    "shop.product.badge.tshirt": "T-Shirt",
+    "shop.shipping.eyebrow": "Shipping Info",
+    "shop.shipping.heading": "Thailand shipping only.",
+    "shop.shipping.body":
+      "We currently ship within Thailand. Orders are packed on Koh Tao and dispatched within 2–3 business days.",
+    "shop.shipping.questions": "Questions?",
+    "shop.shipping.whatsapp": "WhatsApp us",
+    "shop.cart.title.cart": "Your Cart",
+    "shop.cart.title.checkout": "Checkout",
+    "shop.cart.back": "Back to cart",
+    "shop.cart.close": "Close cart",
+    "shop.cart.empty": "Your cart is empty.",
+    "shop.cart.sizePrefix": "Size:",
+    "shop.cart.removeLabel": "Remove from cart",
+    "shop.cart.decreaseLabel": "Decrease quantity",
+    "shop.cart.increaseLabel": "Increase quantity",
+    "shop.summary.subtotal": "Subtotal",
+    "shop.summary.shipping": "Shipping (Thailand)",
+    "shop.summary.total": "Total",
+    "shop.cta.continue": "Continue to Details",
+    "shop.cta.continueNote":
+      "Pay by PromptPay or Thai bank transfer on the next screen.",
+    "shop.cta.placeOrder": "Place Order",
+    "shop.cta.placing": "Placing order…",
+    "shop.cta.placeOrder.note":
+      "No card payment yet — you'll see payment instructions next.",
+    "shop.checkout.intro":
+      "We'll send your order to the team on Koh Tao and email you the payment instructions on the next page. Thailand shipping only.",
+    "shop.form.name.label": "Full Name",
+    "shop.form.name.placeholder": "Daniel Smith",
+    "shop.form.name.error": "Please enter your full name.",
+    "shop.form.phone.label": "Phone (Thailand)",
+    "shop.form.phone.placeholder": "+66 9X XXX XXXX",
+    "shop.form.phone.error":
+      "Please enter a valid phone number (7+ digits).",
+    "shop.form.email.label": "Email (Optional)",
+    "shop.form.email.placeholder": "you@example.com",
+    "shop.form.address.label": "Shipping Address",
+    "shop.form.address.placeholder":
+      "Street, district, city, postal code",
+    "shop.form.address.error":
+      "Please enter your full shipping address (street, district, city, postal code).",
+    "shop.form.note.label": "Note (Optional)",
+    "shop.form.note.placeholder": "Anything we should know",
+    "shop.form.submitError.generic": "Could not place order.",
+
+    /* ── /menu page ─────────────────────────────────────────────────────── */
+    "menu.back": "Back to home",
+    "menu.eyebrow": "The Menu",
+    "menu.heading": "The full lineup.",
+    "menu.sub":
+      "Live pricing and weekly availability lives at the shop. For deliveries, message us on WhatsApp.",
+    "menu.section.note":
+      "Detailed product page coming soon. WhatsApp us for what's in stock.",
+    "menu.section.flower.title": "Flower",
+    "menu.section.flower.line":
+      "Sun-grown, small-batch cultivars from the KD farm and indoor friends.",
+    "menu.section.oils.title": "Oils",
+    "menu.section.oils.line":
+      "Mr. KD's craft cannabis oils — traditional Thai extracts.",
+    "menu.section.hash.title": "Hash",
+    "menu.section.hash.line":
+      "Hand-washed and pressed on the farm. Small batch only.",
+    "menu.section.rosin.title": "Rosin",
+    "menu.section.rosin.line":
+      "Solventless concentrate — heat and pressure, nothing else.",
+    "menu.section.apparel.title": "Apparel",
+    "menu.section.apparel.line": "What we wear on the farm.",
+    "menu.cta.whatsapp": "Message us on WhatsApp",
+    "menu.cta.visit": "Visit the shop",
+
+    /* ── /order-confirmation page ───────────────────────────────────────── */
+    "confirm.eyebrow": "Order Received",
+    "confirm.heading": "Thank you, the team has your order.",
+    "confirm.sub":
+      "We've sent the details to the farm. Complete your payment below and the order ships within 2 to 3 business days once payment lands.",
+    "confirm.ref.label": "Order Reference",
+    "confirm.ref.note": "Use this as the reference / note when you transfer.",
+    "confirm.total.label": "Total Due",
+    "confirm.total.notePrefix": "Including",
+    "confirm.total.noteSuffix": "shipping inside Thailand.",
+    "confirm.promptpay.eyebrow": "Option 1 · PromptPay / Thai QR",
+    "confirm.promptpay.heading": "Scan to pay.",
+    "confirm.promptpay.qrAlt": "PromptPay QR — KD Koh Tao",
+    "confirm.promptpay.nameLabel": "Name:",
+    "confirm.promptpay.idLabel": "PromptPay:",
+    "confirm.bank.eyebrow": "Option 2 · Bank Transfer",
+    "confirm.bank.heading": "Or transfer directly.",
+    "confirm.bank.bankLabel": "Bank",
+    "confirm.bank.branchPrefix": "Branch:",
+    "confirm.bank.accountName": "Account Name",
+    "confirm.bank.accountNumber": "Account Number",
+    "confirm.bank.notePrefix": "Put your order reference (",
+    "confirm.bank.noteSuffix":
+      ") in the transfer note so we can match it to your order.",
+    "confirm.next.eyebrow": "What happens next",
+    "confirm.next.heading": "Pay, and you're done.",
+    "confirm.next.bullet1":
+      "Pay with PromptPay or bank transfer above. Include your order reference in the note.",
+    "confirm.next.bullet2":
+      "We get notified the moment the payment lands and match it to your order.",
+    "confirm.next.bullet3":
+      "Your order ships within 2 to 3 business days. No screenshot needed.",
+    "confirm.continue": "Continue browsing KD Merch",
+    "confirm.questionsCtaPrefix": "Questions? WhatsApp",
+
+    /* ── Tour booking form ──────────────────────────────────────────────── */
+    "tour.form.heading": "Book Your Tour",
+    "tour.form.sub":
+      "Secure your spot in our guided farm experience.",
+    "tour.form.success.heading": "You're on the list.",
+    "tour.form.success.body":
+      "Your booking request has been received. We'll reach out to confirm your spot and share everything you need to know before your visit.",
+    "tour.form.success.again": "Submit another request",
+    "tour.form.label.package": "Package",
+    "tour.form.label.name": "Name",
+    "tour.form.label.contact": "WhatsApp / Line",
+    "tour.form.label.date": "Date",
+    "tour.form.label.people": "People",
+    "tour.form.label.notes": "Notes",
+    "tour.form.label.optional": "(optional)",
+    "tour.form.placeholder.name": "Your Name",
+    "tour.form.placeholder.contact": "+66 ...",
+    "tour.form.placeholder.people": "1",
+    "tour.form.placeholder.notes":
+      "Any questions, dietary needs, or special requests?",
+    "tour.form.package.standard": "Standard: 1,500 THB",
+    "tour.form.package.vip": "VIP: 3,000 THB",
+    "tour.form.error":
+      "Something went wrong. Please try again or message us directly on WhatsApp.",
+    "tour.form.submit": "Request to Book",
+    "tour.form.submit.sending": "Sending your request…",
+    "tour.form.limit": "Limited to 10 people per tour",
+
+    /* ── Contact form ───────────────────────────────────────────────────── */
+    "contact.label.name": "Name",
+    "contact.placeholder.name": "Your name",
+    "contact.label.email": "Email",
+    "contact.placeholder.email": "your@email.com",
+    "contact.label.message": "Message",
+    "contact.placeholder.message": "Tell us what you're looking for…",
+    "contact.cta.send": "Send Message",
+    "contact.cta.opening": "Opening WhatsApp…",
+    "contact.waMsg.greeting": "Hi KD Genetics!",
+    "contact.waMsg.nameLabel": "Name",
+    "contact.waMsg.emailLabel": "Email",
+    "contact.waMsg.messageLabel": "Message",
+
+    /* ── 404 page ───────────────────────────────────────────────────────── */
+    "notFound.eyebrow": "404",
+    "notFound.heading": "Lost in the garden.",
+    "notFound.body":
+      "This page doesn't exist — but the farm does. Head back and find what you're looking for.",
+    "notFound.cta": "Back to Home",
+
+    /* ── StrainGrid a11y ────────────────────────────────────────────────── */
+    "strain.enlargePrefix": "Enlarge",
+    "strain.close": "Close",
+    "strain.prev": "Previous",
+    "strain.next": "Next",
+
     /* ── Language switcher a11y ────────────────────────────────────────── */
     "lang.switchTo.en": "Switch to English",
     "lang.switchTo.th": "เปลี่ยนเป็นภาษาไทย",
@@ -403,6 +591,193 @@ export const translations = {
     "footer.legal":
       "© {year} KD Genetics สงวนลิขสิทธิ์ · เฉพาะอายุ 21 ปีขึ้นไป · สำหรับผู้ใหญ่เท่านั้น",
     "footer.location": "เกาะเต่า สุราษฎร์ธานี ประเทศไทย",
+
+    /* ── /shop page ─────────────────────────────────────────────────────── */
+    "shop.cart.openLabel": "เปิดตะกร้า",
+    "shop.eyebrow": "KD Genetics",
+    "shop.heading": "KD Merch.",
+    "shop.sub":
+      "เสื้อยืดสี่แบบ พิมพ์ด้วยมือบนเกาะเต่า แต่ละตัวมีอ่าว ตราซีล หรือลายเกาะเล่าเรื่อง ใส่กันในครอบครัวที่ปลูกอยู่ที่นี่ ทำด้วยใจ ไม่ใช่เพื่อขายเป็นกอง",
+    "shop.size": "ไซซ์",
+    "shop.quantity": "จำนวน",
+    "shop.qty.decrease": "ลดจำนวน",
+    "shop.qty.increase": "เพิ่มจำนวน",
+    "shop.cta.add": "ใส่ตะกร้า",
+    "shop.cta.added": "อยู่ในตะกร้าแล้ว",
+    "shop.cta.selectSize": "เลือกไซซ์ก่อน",
+    "shop.thb": "บาท",
+    "shop.product.viewPrefix": "ภาพที่",
+    "shop.product.tanote-natural.name": "Tanote Bay Tee — สีธรรมชาติ",
+    "shop.product.tanote-natural.desc":
+      "ลายอ่าวโตนดเต็มด้านหน้า ตราซีล KD Genetics ที่หน้าอก ผ้าฝ้ายออร์แกนิคจากเชียงใหม่ ออกแบบและพิมพ์บนเกาะเต่า",
+    "shop.product.tanote-grey.name": "Tanote Bay Tee — สีเทา",
+    "shop.product.tanote-grey.desc":
+      "ลายอ่าวโตนดเดียวกันในโทนสีเทาอ่อน โลโก้ KD ที่หน้าอก ประโยค 'use wisely' ที่ด้านหลัง",
+    "shop.product.seal-white.name": "KD Seal Tee — สีขาว",
+    "shop.product.seal-white.desc":
+      "รุ่นขายดีที่สุดของเรา สีขาวสะอาดกับโลโก้ KD รอยยิ้มที่ด้านหน้า และภาพวาดที่ได้แรงบันดาลใจจากศิลปิน Clara Fosca ที่ด้านหลัง",
+    "shop.product.kohtao-black.name": "Koh Tao Tee — สีดำ",
+    "shop.product.kohtao-black.desc":
+      "เสื้อดำเรียบคลาสสิก ประโยค \"use wisely\" ที่ด้านหลัง เรียบง่ายแต่อยู่ในเทรนด์เสมอ",
+    "shop.product.badge.tshirt": "เสื้อยืด",
+    "shop.shipping.eyebrow": "การจัดส่ง",
+    "shop.shipping.heading": "ส่งภายในประเทศไทยเท่านั้น",
+    "shop.shipping.body":
+      "ตอนนี้เรารับส่งภายในประเทศไทย แพ็คของที่เกาะเต่า และส่งออกภายใน 2–3 วันทำการ",
+    "shop.shipping.questions": "มีคำถาม?",
+    "shop.shipping.whatsapp": "ทักเราใน WhatsApp",
+    "shop.cart.title.cart": "ตะกร้าของคุณ",
+    "shop.cart.title.checkout": "ชำระเงิน",
+    "shop.cart.back": "กลับไปที่ตะกร้า",
+    "shop.cart.close": "ปิดตะกร้า",
+    "shop.cart.empty": "ตะกร้ายังว่างอยู่",
+    "shop.cart.sizePrefix": "ไซซ์:",
+    "shop.cart.removeLabel": "นำออกจากตะกร้า",
+    "shop.cart.decreaseLabel": "ลดจำนวน",
+    "shop.cart.increaseLabel": "เพิ่มจำนวน",
+    "shop.summary.subtotal": "ราคารวมสินค้า",
+    "shop.summary.shipping": "ค่าจัดส่ง (ในไทย)",
+    "shop.summary.total": "รวมทั้งหมด",
+    "shop.cta.continue": "ดำเนินการต่อ",
+    "shop.cta.continueNote":
+      "ชำระด้วย PromptPay หรือโอนผ่านธนาคารไทยในหน้าถัดไป",
+    "shop.cta.placeOrder": "ยืนยันสั่งซื้อ",
+    "shop.cta.placing": "กำลังสั่งซื้อ…",
+    "shop.cta.placeOrder.note":
+      "ยังไม่ต้องใช้บัตร — วิธีชำระจะอยู่ในหน้าถัดไป",
+    "shop.checkout.intro":
+      "เราจะส่งคำสั่งซื้อให้ทีมที่เกาะเต่า และแจ้งวิธีชำระเงินในหน้าถัดไป จัดส่งเฉพาะในประเทศไทยเท่านั้น",
+    "shop.form.name.label": "ชื่อ-นามสกุล",
+    "shop.form.name.placeholder": "สมชาย ใจดี",
+    "shop.form.name.error": "กรุณากรอกชื่อ-นามสกุล",
+    "shop.form.phone.label": "เบอร์โทร (ไทย)",
+    "shop.form.phone.placeholder": "+66 9X XXX XXXX",
+    "shop.form.phone.error":
+      "กรุณากรอกเบอร์โทรที่ถูกต้อง (อย่างน้อย 7 หลัก)",
+    "shop.form.email.label": "อีเมล (ไม่บังคับ)",
+    "shop.form.email.placeholder": "you@example.com",
+    "shop.form.address.label": "ที่อยู่จัดส่ง",
+    "shop.form.address.placeholder":
+      "บ้านเลขที่ ตำบล อำเภอ จังหวัด รหัสไปรษณีย์",
+    "shop.form.address.error":
+      "กรุณากรอกที่อยู่จัดส่งให้ครบ (บ้านเลขที่ ตำบล อำเภอ จังหวัด รหัสไปรษณีย์)",
+    "shop.form.note.label": "หมายเหตุ (ไม่บังคับ)",
+    "shop.form.note.placeholder": "อยากบอกอะไรเราเพิ่ม?",
+    "shop.form.submitError.generic": "สั่งซื้อไม่สำเร็จ ลองอีกครั้ง",
+
+    /* ── /menu page ─────────────────────────────────────────────────────── */
+    "menu.back": "กลับหน้าแรก",
+    "menu.eyebrow": "เมนู",
+    "menu.heading": "รายการสินค้าทั้งหมด",
+    "menu.sub":
+      "ราคาและสต็อกแต่ละสัปดาห์อัปเดตที่หน้าร้าน อยากให้จัดส่ง ทักเราใน WhatsApp",
+    "menu.section.note":
+      "หน้าสินค้าแบบละเอียดกำลังจะมา ทักเราใน WhatsApp ถามสต็อกได้เลย",
+    "menu.section.flower.title": "ดอก",
+    "menu.section.flower.line":
+      "ดอกตากแดด ปลูกเป็นล็อตเล็ก จากฟาร์ม KD และพาร์ทเนอร์อินดอร์",
+    "menu.section.oils.title": "น้ำมัน",
+    "menu.section.oils.line":
+      "น้ำมันกัญชาฝีมือ Mr. KD — สกัดตามตำรับไทย",
+    "menu.section.hash.title": "แฮช",
+    "menu.section.hash.line":
+      "ล้างมือ อัดมือที่ฟาร์ม ทำเป็นล็อตเล็กเท่านั้น",
+    "menu.section.rosin.title": "โรซิน",
+    "menu.section.rosin.line":
+      "สกัดแบบไม่ใช้ตัวทำละลาย — ใช้แค่ความร้อนกับแรงกด",
+    "menu.section.apparel.title": "เสื้อผ้า",
+    "menu.section.apparel.line": "ของที่เราใส่กันในฟาร์ม",
+    "menu.cta.whatsapp": "ทักเราใน WhatsApp",
+    "menu.cta.visit": "มาที่หน้าร้าน",
+
+    /* ── /order-confirmation page ───────────────────────────────────────── */
+    "confirm.eyebrow": "รับคำสั่งซื้อแล้ว",
+    "confirm.heading": "ขอบคุณ ทีมเรารับออเดอร์เรียบร้อยแล้ว",
+    "confirm.sub":
+      "เราส่งรายละเอียดถึงฟาร์มแล้ว ชำระเงินด้านล่าง ของจะจัดส่งภายใน 2 ถึง 3 วันทำการ หลังเงินเข้า",
+    "confirm.ref.label": "เลขที่คำสั่งซื้อ",
+    "confirm.ref.note": "ใช้เลขนี้เป็นหมายเหตุตอนโอนเงิน",
+    "confirm.total.label": "ยอดที่ต้องชำระ",
+    "confirm.total.notePrefix": "รวมค่าจัดส่ง",
+    "confirm.total.noteSuffix": "ในไทยแล้ว",
+    "confirm.promptpay.eyebrow": "ตัวเลือก 1 · PromptPay / Thai QR",
+    "confirm.promptpay.heading": "สแกนเพื่อชำระ",
+    "confirm.promptpay.qrAlt": "PromptPay QR — KD Koh Tao",
+    "confirm.promptpay.nameLabel": "ชื่อ:",
+    "confirm.promptpay.idLabel": "PromptPay:",
+    "confirm.bank.eyebrow": "ตัวเลือก 2 · โอนผ่านธนาคาร",
+    "confirm.bank.heading": "หรือโอนตรงเข้าบัญชี",
+    "confirm.bank.bankLabel": "ธนาคาร",
+    "confirm.bank.branchPrefix": "สาขา:",
+    "confirm.bank.accountName": "ชื่อบัญชี",
+    "confirm.bank.accountNumber": "เลขที่บัญชี",
+    "confirm.bank.notePrefix": "ใส่เลขที่คำสั่งซื้อ (",
+    "confirm.bank.noteSuffix":
+      ") ในหมายเหตุการโอน เพื่อให้เราจับคู่ออเดอร์ได้ถูก",
+    "confirm.next.eyebrow": "ขั้นตอนถัดไป",
+    "confirm.next.heading": "ชำระเงินเสร็จ ก็เรียบร้อย",
+    "confirm.next.bullet1":
+      "ชำระด้วย PromptPay หรือโอนผ่านธนาคารด้านบน อย่าลืมใส่เลขที่คำสั่งซื้อในหมายเหตุ",
+    "confirm.next.bullet2":
+      "เรารับแจ้งเตือนทันทีที่เงินเข้า แล้วจับคู่กับออเดอร์ของคุณให้เอง",
+    "confirm.next.bullet3":
+      "ของจะถูกจัดส่งภายใน 2 ถึง 3 วันทำการ ไม่ต้องส่งสลิปมาก็ได้",
+    "confirm.continue": "กลับไปดู KD Merch ต่อ",
+    "confirm.questionsCtaPrefix": "มีคำถาม? WhatsApp",
+
+    /* ── Tour booking form ──────────────────────────────────────────────── */
+    "tour.form.heading": "จองทัวร์ฟาร์ม",
+    "tour.form.sub": "จองที่นั่งสำหรับทัวร์ฟาร์มของเรา",
+    "tour.form.success.heading": "ได้รับคำขอแล้ว",
+    "tour.form.success.body":
+      "เราได้รับคำขอจองเรียบร้อย เดี๋ยวเราจะติดต่อกลับเพื่อยืนยันที่นั่ง พร้อมส่งรายละเอียดที่ควรรู้ก่อนวันมา",
+    "tour.form.success.again": "ส่งคำขออีกครั้ง",
+    "tour.form.label.package": "แพ็คเกจ",
+    "tour.form.label.name": "ชื่อ",
+    "tour.form.label.contact": "WhatsApp / LINE",
+    "tour.form.label.date": "วันที่",
+    "tour.form.label.people": "จำนวนคน",
+    "tour.form.label.notes": "หมายเหตุ",
+    "tour.form.label.optional": "(ไม่บังคับ)",
+    "tour.form.placeholder.name": "ชื่อของคุณ",
+    "tour.form.placeholder.contact": "+66 ...",
+    "tour.form.placeholder.people": "1",
+    "tour.form.placeholder.notes":
+      "มีคำถาม อาหารที่ทานไม่ได้ หรือคำขอพิเศษ บอกเราได้เลย",
+    "tour.form.package.standard": "Standard: 1,500 บาท",
+    "tour.form.package.vip": "VIP: 3,000 บาท",
+    "tour.form.error":
+      "เกิดข้อผิดพลาด ลองอีกครั้ง หรือทักเราตรงๆ ใน WhatsApp",
+    "tour.form.submit": "ส่งคำขอจอง",
+    "tour.form.submit.sending": "กำลังส่งคำขอ…",
+    "tour.form.limit": "ทัวร์ละไม่เกิน 10 คน",
+
+    /* ── Contact form ───────────────────────────────────────────────────── */
+    "contact.label.name": "ชื่อ",
+    "contact.placeholder.name": "ชื่อของคุณ",
+    "contact.label.email": "อีเมล",
+    "contact.placeholder.email": "your@email.com",
+    "contact.label.message": "ข้อความ",
+    "contact.placeholder.message": "อยากบอกอะไรเราบ้าง?",
+    "contact.cta.send": "ส่งข้อความ",
+    "contact.cta.opening": "กำลังเปิด WhatsApp…",
+    "contact.waMsg.greeting": "สวัสดี KD Genetics!",
+    "contact.waMsg.nameLabel": "ชื่อ",
+    "contact.waMsg.emailLabel": "อีเมล",
+    "contact.waMsg.messageLabel": "ข้อความ",
+
+    /* ── 404 page ───────────────────────────────────────────────────────── */
+    "notFound.eyebrow": "404",
+    "notFound.heading": "หลงทางในสวน",
+    "notFound.body":
+      "หน้านี้ไม่มีจริง — แต่ฟาร์มมีจริง กลับไปหน้าแรกแล้วลองหาสิ่งที่ตามหาอีกครั้ง",
+    "notFound.cta": "กลับหน้าแรก",
+
+    /* ── StrainGrid a11y ────────────────────────────────────────────────── */
+    "strain.enlargePrefix": "ดูภาพใหญ่ของ",
+    "strain.close": "ปิด",
+    "strain.prev": "ก่อนหน้า",
+    "strain.next": "ถัดไป",
 
     /* ── Language switcher a11y ────────────────────────────────────────── */
     "lang.switchTo.en": "Switch to English",

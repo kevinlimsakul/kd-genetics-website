@@ -5,16 +5,18 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ShoppingBag, X, Plus, Minus, ArrowRight, ChevronLeft } from "lucide-react";
 import { SHIPPING_FLAT_THB } from "@/lib/order";
+import { useLanguage } from "@/lib/i18n";
+import { translations, type TranslationKey } from "@/lib/translations";
 
-const CART_STORAGE_KEY = "kd-merch-cart-v1";
+const CART_STORAGE_KEY = "kd-merch-cart-v2";
 
 type Product = {
   id: string;
-  name: string;
-  description: string;
+  nameKey: TranslationKey;
+  descKey: TranslationKey;
+  badgeKey: TranslationKey;
   price: number;
   sizes: string[];
-  badge: string;
   images: string[];
 };
 
@@ -25,12 +27,11 @@ const SIZES = ["M", "L", "XL", "XXL"];
 const PRODUCTS: Product[] = [
   {
     id: "tee-tanote-natural",
-    name: "Tanote Bay Tee — Natural",
-    description:
-      "Hand-printed Tanote Bay map across the front, KD Genetics seal on the chest. Soft natural cotton, made on Koh Tao.",
+    nameKey: "shop.product.tanote-natural.name",
+    descKey: "shop.product.tanote-natural.desc",
+    badgeKey: "shop.product.badge.tshirt",
     price: 800,
     sizes: SIZES,
-    badge: "T-Shirt",
     images: [
       "/apparel-papa-graphic.jpg",
       "/apparel-kevin-greenhouse.jpg",
@@ -38,26 +39,24 @@ const PRODUCTS: Product[] = [
   },
   {
     id: "tee-tanote-grey",
-    name: "Tanote Bay Tee — Grey",
-    description:
-      "The same Tanote Bay artwork in a soft grey colourway. KD Genetics seal on the chest, the bay drawn from the water up.",
+    nameKey: "shop.product.tanote-grey.name",
+    descKey: "shop.product.tanote-grey.desc",
+    badgeKey: "shop.product.badge.tshirt",
     price: 800,
     sizes: SIZES,
-    badge: "T-Shirt",
     images: [
       "/apparel-papa-grey.jpg",
-      "/apparel-papa-rolling.jpg",
-      "/apparel-papa-quote-back.jpg",
+      "/apparel-papa-greenhouse.jpg",
+      "/apparel-papa-quote-back-bright.jpg",
     ],
   },
   {
     id: "tee-seal-white",
-    name: "KD Seal Tee — White",
-    description:
-      "Clean white tee with the KD Genetics seal on the chest. The everyday piece — worn by the whole family on the farm.",
+    nameKey: "shop.product.seal-white.name",
+    descKey: "shop.product.seal-white.desc",
+    badgeKey: "shop.product.badge.tshirt",
     price: 800,
     sizes: SIZES,
-    badge: "T-Shirt",
     images: [
       "/apparel-three-of-us.jpg",
       "/apparel-kevin.jpg",
@@ -66,12 +65,11 @@ const PRODUCTS: Product[] = [
   },
   {
     id: "tee-kohtao-black",
-    name: "Koh Tao Tee — Black",
-    description:
-      "Black tee with the KD Genetics · Koh Tao wordmark across the chest. Quiet, grounded, no hype.",
+    nameKey: "shop.product.kohtao-black.name",
+    descKey: "shop.product.kohtao-black.desc",
+    badgeKey: "shop.product.badge.tshirt",
     price: 800,
     sizes: SIZES,
-    badge: "T-Shirt",
     images: [
       "/apparel-papa-black.jpg",
       "/apparel-kevin-black.jpg",
@@ -81,11 +79,13 @@ const PRODUCTS: Product[] = [
 ];
 
 export default function ShopClient() {
+  const { t } = useLanguage();
   const router = useRouter();
   const [cart, setCart] = useState<CartItem[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [checkoutStep, setCheckoutStep] = useState<"cart" | "details">("cart");
   const [selectedSizes, setSelectedSizes] = useState<Record<string, string>>({});
+  const [selectedQty, setSelectedQty] = useState<Record<string, number>>({});
   const [activeImage, setActiveImage] = useState<Record<string, number>>({});
   const [addedItems, setAddedItems] = useState<Record<string, boolean>>({});
 
@@ -105,12 +105,12 @@ export default function ShopClient() {
 
   const phoneDigits = customerPhone.replace(/\D/g, "");
   const nameError =
-    customerName.trim().length < 2 ? "Please enter your full name." : null;
+    customerName.trim().length < 2 ? t("shop.form.name.error") : null;
   const phoneError =
-    phoneDigits.length < 7 ? "Please enter a valid phone number (7+ digits)." : null;
+    phoneDigits.length < 7 ? t("shop.form.phone.error") : null;
   const addressError =
     customerAddress.trim().length < 15
-      ? "Please enter your full shipping address (street, district, city, postal code)."
+      ? t("shop.form.address.error")
       : null;
   const detailsValid = !nameError && !phoneError && !addressError;
 
@@ -138,6 +138,7 @@ export default function ShopClient() {
     const hasSizes = product.sizes.length > 0;
     const size = hasSizes ? selectedSizes[product.id] || "" : "One Size";
     if (hasSizes && !size) return;
+    const qty = Math.max(1, selectedQty[product.id] ?? 1);
 
     setCart((prev) => {
       const existing = prev.find(
@@ -146,13 +147,14 @@ export default function ShopClient() {
       if (existing) {
         return prev.map((i) =>
           i.id === product.id && i.size === size
-            ? { ...i, quantity: i.quantity + 1 }
+            ? { ...i, quantity: i.quantity + qty }
             : i
         );
       }
-      return [...prev, { ...product, size, quantity: 1 }];
+      return [...prev, { ...product, size, quantity: qty }];
     });
 
+    setSelectedQty((prev) => ({ ...prev, [product.id]: 1 }));
     setAddedItems((prev) => ({ ...prev, [product.id]: true }));
     setTimeout(() => setAddedItems((prev) => ({ ...prev, [product.id]: false })), 1500);
     setCheckoutStep("cart");
@@ -186,7 +188,7 @@ export default function ShopClient() {
         body: JSON.stringify({
           items: cart.map((i) => ({
             id: i.id,
-            name: i.name,
+            name: translations.en[i.nameKey],
             size: i.size,
             quantity: i.quantity,
             unitPrice: i.price,
@@ -205,12 +207,12 @@ export default function ShopClient() {
       });
       const data = (await res.json()) as { ok?: boolean; ref?: string; error?: string };
       if (!res.ok || !data.ok || !data.ref) {
-        throw new Error(data.error ?? "Could not place order.");
+        throw new Error(data.error ?? t("shop.form.submitError.generic"));
       }
       setCart([]);
       router.push(`/order-confirmation?ref=${encodeURIComponent(data.ref)}&total=${total}`);
     } catch (err) {
-      setSubmitError(err instanceof Error ? err.message : "Could not place order.");
+      setSubmitError(err instanceof Error ? err.message : t("shop.form.submitError.generic"));
       setSubmitting(false);
     }
   };
@@ -222,7 +224,7 @@ export default function ShopClient() {
         <button
           onClick={() => setCartOpen(true)}
           className="relative flex items-center gap-2 text-[#1E1E1E]/70 hover:text-[#1E1E1E] transition-colors"
-          aria-label="Open cart"
+          aria-label={t("shop.cart.openLabel")}
         >
           <ShoppingBag className="w-5 h-5" />
           {itemCount > 0 && (
@@ -238,15 +240,13 @@ export default function ShopClient() {
         <section className="container mx-auto px-6 lg:px-12 mb-16">
           <div className="max-w-2xl space-y-4">
             <span className="text-[#5A6A4F] font-bold text-[10px] uppercase tracking-[0.3em]">
-              KD Genetics
+              {t("shop.eyebrow")}
             </span>
             <h1 className="font-display text-5xl md:text-6xl text-[#1E1E1E] leading-none">
-              KD Merch.
+              {t("shop.heading")}
             </h1>
             <p className="text-lg text-[#1E1E1E]/60 font-light leading-relaxed max-w-xl">
-              Four tees, printed by hand on Koh Tao. Each piece carries the bay,
-              the seal, or the island — worn by the family that grows here.
-              Made with intention, not for mass consumption.
+              {t("shop.sub")}
             </p>
           </div>
         </section>
@@ -269,7 +269,7 @@ export default function ShopClient() {
                     {hasImages ? (
                       <Image
                         src={product.images[imgIndex]}
-                        alt={`${product.name} — view ${imgIndex + 1}`}
+                        alt={`${t(product.nameKey)} — ${t("shop.product.viewPrefix")} ${imgIndex + 1}`}
                         fill
                         sizes="(max-width: 640px) 100vw, 50vw"
                         className="object-cover"
@@ -279,7 +279,7 @@ export default function ShopClient() {
                       <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 bg-[#5A6A4F]">
                         <Image
                           src="/kd-logo.png"
-                          alt={product.name}
+                          alt={t(product.nameKey)}
                           width={140}
                           height={140}
                           className="opacity-90 invert brightness-0"
@@ -291,7 +291,7 @@ export default function ShopClient() {
                     )}
                     <div className="absolute top-3 left-3">
                       <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/80 bg-black/30 px-2.5 py-1 rounded-full backdrop-blur-sm">
-                        {product.badge}
+                        {t(product.badgeKey)}
                       </span>
                     </div>
                   </div>
@@ -313,7 +313,7 @@ export default function ShopClient() {
                               ? "border-[#1E1E1E]"
                               : "border-transparent opacity-60 hover:opacity-100"
                           }`}
-                          aria-label={`${product.name} view ${i + 1}`}
+                          aria-label={`${t(product.nameKey)} ${t("shop.product.viewPrefix")} ${i + 1}`}
                         >
                           <Image
                             src={src}
@@ -330,10 +330,10 @@ export default function ShopClient() {
                   <div className="space-y-4">
                     <div>
                       <h3 className="font-display text-xl text-[#1E1E1E] leading-tight">
-                        {product.name}
+                        {t(product.nameKey)}
                       </h3>
                       <p className="text-[13px] text-[#1E1E1E]/55 mt-1 leading-relaxed font-light">
-                        {product.description}
+                        {t(product.descKey)}
                       </p>
                     </div>
 
@@ -342,14 +342,14 @@ export default function ShopClient() {
                         ฿{product.price.toLocaleString()}
                       </span>
                       <span className="text-[10px] text-[#1E1E1E]/40 uppercase tracking-widest">
-                        THB
+                        {t("shop.thb")}
                       </span>
                     </div>
 
                     {hasSizes && (
                     <div>
                       <p className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/40 mb-2">
-                        Size
+                        {t("shop.size")}
                       </p>
                       <div className="flex gap-1.5 flex-wrap">
                         {product.sizes.map((s) => (
@@ -374,6 +374,44 @@ export default function ShopClient() {
                     </div>
                     )}
 
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/40 mb-2">
+                        {t("shop.quantity")}
+                      </p>
+                      <div className="inline-flex items-center border border-black/10 rounded-lg overflow-hidden">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setSelectedQty((prev) => ({
+                              ...prev,
+                              [product.id]: Math.max(1, (prev[product.id] ?? 1) - 1),
+                            }))
+                          }
+                          disabled={(selectedQty[product.id] ?? 1) <= 1}
+                          className="w-10 h-10 flex items-center justify-center text-[#1E1E1E]/70 hover:text-[#1E1E1E] hover:bg-black/5 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                          aria-label={t("shop.qty.decrease")}
+                        >
+                          <Minus className="w-3.5 h-3.5" />
+                        </button>
+                        <span className="w-10 h-10 flex items-center justify-center text-[13px] font-medium text-[#1E1E1E] tabular-nums border-x border-black/10">
+                          {selectedQty[product.id] ?? 1}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setSelectedQty((prev) => ({
+                              ...prev,
+                              [product.id]: Math.min(99, (prev[product.id] ?? 1) + 1),
+                            }))
+                          }
+                          className="w-10 h-10 flex items-center justify-center text-[#1E1E1E]/70 hover:text-[#1E1E1E] hover:bg-black/5 transition-colors"
+                          aria-label={t("shop.qty.increase")}
+                        >
+                          <Plus className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
+
                     <button
                       onClick={() => addToCart(product)}
                       disabled={needsSize}
@@ -386,10 +424,10 @@ export default function ShopClient() {
                       }`}
                     >
                       {added
-                        ? "Added to Cart"
+                        ? t("shop.cta.added")
                         : needsSize
-                        ? "Select a Size"
-                        : "Add to Cart"}
+                        ? t("shop.cta.selectSize")
+                        : t("shop.cta.add")}
                     </button>
                   </div>
                 </div>
@@ -403,19 +441,18 @@ export default function ShopClient() {
           <div className="border border-black/5 rounded-2xl p-8 md:p-12 bg-[#EAE6DE]/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div className="space-y-2">
               <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#5A6A4F]">
-                Shipping Info
+                {t("shop.shipping.eyebrow")}
               </p>
               <h3 className="font-display text-2xl text-[#1E1E1E]">
-                Thailand shipping only.
+                {t("shop.shipping.heading")}
               </h3>
               <p className="text-[#1E1E1E]/50 font-light text-sm leading-relaxed max-w-md">
-                We currently ship within Thailand. Orders are packed on Koh Tao
-                and dispatched within 3–5 business days.
+                {t("shop.shipping.body")}
               </p>
             </div>
             <div className="shrink-0 space-y-1 text-right">
               <p className="text-[11px] text-[#1E1E1E]/40 uppercase tracking-widest">
-                Questions?
+                {t("shop.shipping.questions")}
               </p>
               <a
                 href="https://wa.me/66988268290"
@@ -423,7 +460,7 @@ export default function ShopClient() {
                 rel="noopener noreferrer"
                 className="text-[#5A6A4F] text-sm font-medium hover:underline"
               >
-                WhatsApp us
+                {t("shop.shipping.whatsapp")}
               </a>
             </div>
           </div>
@@ -460,7 +497,9 @@ export default function ShopClient() {
                   </button>
                 )}
                 <h2 className="font-display text-xl text-[#1E1E1E]">
-                  {checkoutStep === "cart" ? "Your Cart" : "Checkout"}
+                  {checkoutStep === "cart"
+                    ? t("shop.cart.title.cart")
+                    : t("shop.cart.title.checkout")}
                 </h2>
               </div>
               <button
@@ -479,19 +518,17 @@ export default function ShopClient() {
                 <div className="py-16 text-center">
                   <ShoppingBag className="w-10 h-10 mx-auto text-[#1E1E1E]/20 mb-4" />
                   <p className="text-[#1E1E1E]/40 text-sm font-light">
-                    Your cart is empty.
+                    {t("shop.cart.empty")}
                   </p>
                 </div>
               ) : checkoutStep === "details" ? (
                 <div className="space-y-4 py-2">
                   <p className="text-[12px] text-[#1E1E1E]/55 font-light leading-relaxed">
-                    We&apos;ll send your order to the team on Koh Tao and email
-                    you the payment instructions on the next page. Thailand
-                    shipping only.
+                    {t("shop.checkout.intro")}
                   </p>
                   <div>
                     <label className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/50 block mb-1.5">
-                      Full Name
+                      {t("shop.form.name.label")}
                     </label>
                     <input
                       type="text"
@@ -503,7 +540,7 @@ export default function ShopClient() {
                           ? "border-red-500/60 focus:border-red-600"
                           : "border-black/10 focus:border-[#1E1E1E]/50"
                       }`}
-                      placeholder="Daniel Smith"
+                      placeholder={t("shop.form.name.placeholder")}
                     />
                     {touched.name && nameError && (
                       <p className="text-[11px] text-red-600 font-light mt-1.5">{nameError}</p>
@@ -511,7 +548,7 @@ export default function ShopClient() {
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/50 block mb-1.5">
-                      Phone (Thailand)
+                      {t("shop.form.phone.label")}
                     </label>
                     <input
                       type="tel"
@@ -523,7 +560,7 @@ export default function ShopClient() {
                           ? "border-red-500/60 focus:border-red-600"
                           : "border-black/10 focus:border-[#1E1E1E]/50"
                       }`}
-                      placeholder="+66 9X XXX XXXX"
+                      placeholder={t("shop.form.phone.placeholder")}
                     />
                     {touched.phone && phoneError && (
                       <p className="text-[11px] text-red-600 font-light mt-1.5">{phoneError}</p>
@@ -531,19 +568,19 @@ export default function ShopClient() {
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/50 block mb-1.5">
-                      Email (Optional)
+                      {t("shop.form.email.label")}
                     </label>
                     <input
                       type="email"
                       value={customerEmail}
                       onChange={(e) => setCustomerEmail(e.target.value)}
                       className="w-full border border-black/10 rounded-lg px-3 py-2.5 text-sm bg-white/60 focus:outline-none focus:border-[#1E1E1E]/50"
-                      placeholder="you@example.com"
+                      placeholder={t("shop.form.email.placeholder")}
                     />
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/50 block mb-1.5">
-                      Shipping Address
+                      {t("shop.form.address.label")}
                     </label>
                     <textarea
                       value={customerAddress}
@@ -555,7 +592,7 @@ export default function ShopClient() {
                           ? "border-red-500/60 focus:border-red-600"
                           : "border-black/10 focus:border-[#1E1E1E]/50"
                       }`}
-                      placeholder="Street, district, city, postal code"
+                      placeholder={t("shop.form.address.placeholder")}
                     />
                     {touched.address && addressError && (
                       <p className="text-[11px] text-red-600 font-light mt-1.5">{addressError}</p>
@@ -563,14 +600,14 @@ export default function ShopClient() {
                   </div>
                   <div>
                     <label className="text-[10px] uppercase tracking-[0.2em] text-[#1E1E1E]/50 block mb-1.5">
-                      Note (Optional)
+                      {t("shop.form.note.label")}
                     </label>
                     <textarea
                       value={customerNote}
                       onChange={(e) => setCustomerNote(e.target.value)}
                       rows={2}
                       className="w-full border border-black/10 rounded-lg px-3 py-2.5 text-sm bg-white/60 focus:outline-none focus:border-[#1E1E1E]/50 resize-none"
-                      placeholder="Anything we should know"
+                      placeholder={t("shop.form.note.placeholder")}
                     />
                   </div>
                   {submitError && (
@@ -590,7 +627,7 @@ export default function ShopClient() {
                         {item.images[0] ? (
                           <Image
                             src={item.images[0]}
-                            alt={item.name}
+                            alt={t(item.nameKey)}
                             fill
                             sizes="64px"
                             className="object-cover"
@@ -599,7 +636,7 @@ export default function ShopClient() {
                           <div className="absolute inset-0 flex items-center justify-center">
                             <Image
                               src="/kd-logo.png"
-                              alt={item.name}
+                              alt={t(item.nameKey)}
                               width={32}
                               height={32}
                               className="opacity-90 invert brightness-0"
@@ -611,11 +648,11 @@ export default function ShopClient() {
                         <div className="flex items-start justify-between gap-2">
                           <div>
                             <p className="font-medium text-[#1E1E1E] text-sm leading-tight">
-                              {item.name}
+                              {t(item.nameKey)}
                             </p>
                             {item.size && item.size !== "One Size" && (
                               <p className="text-[11px] text-[#1E1E1E]/40 mt-0.5">
-                                Size: {item.size}
+                                {t("shop.cart.sizePrefix")} {item.size}
                               </p>
                             )}
                           </div>
@@ -659,19 +696,19 @@ export default function ShopClient() {
               <div className="px-6 pt-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] border-t border-black/5 space-y-3">
                 <div className="space-y-1">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-[#1E1E1E]/60 font-light">Subtotal</span>
+                    <span className="text-sm text-[#1E1E1E]/60 font-light">{t("shop.summary.subtotal")}</span>
                     <span className="text-sm text-[#1E1E1E]">
                       ฿{subtotal.toLocaleString()}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-[#1E1E1E]/60 font-light">Shipping (Thailand)</span>
+                    <span className="text-sm text-[#1E1E1E]/60 font-light">{t("shop.summary.shipping")}</span>
                     <span className="text-sm text-[#1E1E1E]">
                       ฿{shipping.toLocaleString()}
                     </span>
                   </div>
                   <div className="flex justify-between items-center pt-2 border-t border-black/5 mt-2">
-                    <span className="text-sm text-[#1E1E1E]/60 font-light">Total</span>
+                    <span className="text-sm text-[#1E1E1E]/60 font-light">{t("shop.summary.total")}</span>
                     <span className="font-display text-xl text-[#1E1E1E]">
                       ฿{total.toLocaleString()}
                     </span>
@@ -683,11 +720,11 @@ export default function ShopClient() {
                       onClick={() => setCheckoutStep("details")}
                       className="w-full h-12 rounded-full bg-[#1E1E1E] text-white hover:bg-[#1E1E1E]/90 text-[13px] font-semibold tracking-wide flex items-center justify-center gap-2 transition-all"
                     >
-                      Continue to Details
+                      {t("shop.cta.continue")}
                       <ArrowRight className="ml-1 w-4 h-4" />
                     </button>
                     <p className="text-center text-[10px] text-[#1E1E1E]/30 font-light">
-                      Pay by PromptPay or Thai bank transfer on the next screen.
+                      {t("shop.cta.continueNote")}
                     </p>
                   </>
                 ) : (
@@ -708,11 +745,11 @@ export default function ShopClient() {
                           : "bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90"
                       }`}
                     >
-                      {submitting ? "Placing order…" : "Place Order"}
+                      {submitting ? t("shop.cta.placing") : t("shop.cta.placeOrder")}
                       {!submitting && <ArrowRight className="ml-1 w-4 h-4" />}
                     </button>
                     <p className="text-center text-[10px] text-[#1E1E1E]/30 font-light">
-                      No card payment yet — you&apos;ll see payment instructions next.
+                      {t("shop.cta.placeOrder.note")}
                     </p>
                   </>
                 )}

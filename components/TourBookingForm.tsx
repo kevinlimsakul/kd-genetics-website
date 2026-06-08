@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/lib/i18n";
 
 type Status = "idle" | "loading" | "success" | "error";
 
 export default function TourBookingForm() {
+  const { t } = useLanguage();
   const [form, setForm] = useState({
     name: "",
     contact: "",
@@ -41,38 +43,34 @@ export default function TourBookingForm() {
       className="max-w-md mx-auto mt-20 bg-white text-[#1E1E1E] p-10 rounded-2xl shadow-lg space-y-8"
     >
       <div className="text-center">
-        <h3 className="font-display text-2xl mb-2">Book Your Tour</h3>
-        <p className="text-sm text-[#6B6B6B]">
-          Secure your spot in our guided farm experience.
-        </p>
+        <h3 className="font-display text-2xl mb-2">{t("tour.form.heading")}</h3>
+        <p className="text-sm text-[#6B6B6B]">{t("tour.form.sub")}</p>
       </div>
 
       {status === "success" ? (
         <div className="text-center space-y-4 py-8">
           <div className="text-3xl">✓</div>
-          <h4 className="font-display text-xl">You're on the list.</h4>
+          <h4 className="font-display text-xl">{t("tour.form.success.heading")}</h4>
           <p className="text-sm text-[#6B6B6B] leading-relaxed">
-            Your booking request has been received. We'll reach out to confirm
-            your spot and share everything you need to know before your visit.
+            {t("tour.form.success.body")}
           </p>
           <button
             onClick={() => setStatus("idle")}
             className="mt-2 text-xs underline text-[#6B6B6B]/70 hover:text-[#6B6B6B] transition-colors"
           >
-            Submit another request
+            {t("tour.form.success.again")}
           </button>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Package selection */}
           <div className="space-y-2">
             <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-              Package
+              {t("tour.form.label.package")}
             </label>
             <div className="grid grid-cols-2 gap-2">
               {[
-                { value: "standard", label: "Standard: 1,500 THB" },
-                { value: "vip", label: "VIP: 3,000 THB" },
+                { value: "standard", labelKey: "tour.form.package.standard" as const },
+                { value: "vip", labelKey: "tour.form.package.vip" as const },
               ].map((opt) => (
                 <button
                   key={opt.value}
@@ -84,7 +82,7 @@ export default function TourBookingForm() {
                       : "bg-transparent text-[#1E1E1E]/60 border-black/10 hover:border-[#1E1E1E]/30"
                   }`}
                 >
-                  {opt.label}
+                  {t(opt.labelKey)}
                 </button>
               ))}
             </div>
@@ -92,11 +90,11 @@ export default function TourBookingForm() {
 
           <div className="space-y-2">
             <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-              Name
+              {t("tour.form.label.name")}
             </label>
             <input
               type="text"
-              placeholder="Your Name"
+              placeholder={t("tour.form.placeholder.name")}
               value={form.name}
               onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
               required
@@ -106,11 +104,11 @@ export default function TourBookingForm() {
 
           <div className="space-y-2">
             <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-              WhatsApp / Line
+              {t("tour.form.label.contact")}
             </label>
             <input
               type="text"
-              placeholder="+66 ..."
+              placeholder={t("tour.form.placeholder.contact")}
               value={form.contact}
               onChange={(e) => setForm((f) => ({ ...f, contact: e.target.value }))}
               required
@@ -121,7 +119,7 @@ export default function TourBookingForm() {
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
               <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-                Date
+                {t("tour.form.label.date")}
               </label>
               <input
                 type="date"
@@ -133,13 +131,13 @@ export default function TourBookingForm() {
             </div>
             <div className="space-y-2">
               <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-                People
+                {t("tour.form.label.people")}
               </label>
               <input
                 type="number"
                 min="1"
                 max="10"
-                placeholder="1"
+                placeholder={t("tour.form.placeholder.people")}
                 value={form.people}
                 onChange={(e) => setForm((f) => ({ ...f, people: e.target.value }))}
                 required
@@ -150,11 +148,13 @@ export default function TourBookingForm() {
 
           <div className="space-y-2">
             <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-              Notes{" "}
-              <span className="normal-case tracking-normal font-normal">(optional)</span>
+              {t("tour.form.label.notes")}{" "}
+              <span className="normal-case tracking-normal font-normal">
+                {t("tour.form.label.optional")}
+              </span>
             </label>
             <textarea
-              placeholder="Any questions, dietary needs, or special requests?"
+              placeholder={t("tour.form.placeholder.notes")}
               value={form.notes}
               onChange={(e) => setForm((f) => ({ ...f, notes: e.target.value }))}
               rows={3}
@@ -163,9 +163,7 @@ export default function TourBookingForm() {
           </div>
 
           {status === "error" && (
-            <p className="text-xs text-red-500 text-center">
-              Something went wrong. Please try again or message us directly on WhatsApp.
-            </p>
+            <p className="text-xs text-red-500 text-center">{t("tour.form.error")}</p>
           )}
 
           <button
@@ -173,10 +171,12 @@ export default function TourBookingForm() {
             disabled={status === "loading"}
             className="w-full h-12 font-medium rounded-full mt-4 transition-all text-sm bg-[#1E1E1E] text-white hover:bg-[#1E1E1E]/90 disabled:opacity-50"
           >
-            {status === "loading" ? "Sending your request..." : "Request to Book"}
+            {status === "loading"
+              ? t("tour.form.submit.sending")
+              : t("tour.form.submit")}
           </button>
           <p className="text-[10px] text-center text-[#6B6B6B]/50 tracking-wide">
-            Limited to 10 people per tour
+            {t("tour.form.limit")}
           </p>
         </form>
       )}

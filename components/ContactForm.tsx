@@ -1,15 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/lib/i18n";
 
 export default function ContactForm() {
+  const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const msg = encodeURIComponent(
-      `Hi KD Genetics!\n\nName: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
+      `${t("contact.waMsg.greeting")}\n\n${t("contact.waMsg.nameLabel")}: ${form.name}\n${t("contact.waMsg.emailLabel")}: ${form.email}\n\n${t("contact.waMsg.messageLabel")}:\n${form.message}`
     );
     window.open(`https://wa.me/66988268290?text=${msg}`, "_blank");
     setSent(true);
@@ -21,11 +23,11 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
         <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-          Name
+          {t("contact.label.name")}
         </label>
         <input
           type="text"
-          placeholder="Your name"
+          placeholder={t("contact.placeholder.name")}
           value={form.name}
           onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
           required
@@ -34,11 +36,11 @@ export default function ContactForm() {
       </div>
       <div className="space-y-2">
         <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-          Email
+          {t("contact.label.email")}
         </label>
         <input
           type="email"
-          placeholder="your@email.com"
+          placeholder={t("contact.placeholder.email")}
           value={form.email}
           onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
           className="w-full border border-black/10 rounded-lg h-12 px-4 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors"
@@ -46,10 +48,10 @@ export default function ContactForm() {
       </div>
       <div className="space-y-2">
         <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-          Message
+          {t("contact.label.message")}
         </label>
         <textarea
-          placeholder="Tell us what you're looking for..."
+          placeholder={t("contact.placeholder.message")}
           value={form.message}
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
           required
@@ -65,7 +67,7 @@ export default function ContactForm() {
             : "bg-[#1E1E1E] text-white hover:bg-[#1E1E1E]/90"
         }`}
       >
-        {sent ? "Opening WhatsApp..." : "Send Message"}
+        {sent ? t("contact.cta.opening") : t("contact.cta.send")}
       </button>
     </form>
   );
