@@ -150,7 +150,7 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden bg-[#F6F4EF] border-t border-black/5 px-8 py-6 space-y-5">
+          <div className="md:hidden bg-[#F6F4EF] border-t border-black/5 px-6 py-3 divide-y divide-black/5">
             {[
               { label: t("nav.story"), action: () => scrollTo("story") },
               { label: t("nav.gallery"), action: () => scrollTo("gallery") },
@@ -160,14 +160,14 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
               <button
                 key={item.label}
                 onClick={item.action}
-                className="block w-full text-left text-primary/70 hover:text-primary text-sm font-medium transition-colors"
+                className="block w-full text-left text-primary/80 hover:text-primary active:bg-black/5 text-base font-medium transition-colors py-4 min-h-[48px]"
               >
                 {item.label}
               </button>
             ))}
             <Link
               href="/shop"
-              className="block text-primary/70 hover:text-primary text-sm font-medium"
+              className="block text-primary/80 hover:text-primary active:bg-black/5 text-base font-medium py-4 min-h-[48px]"
               onClick={() => setMenuOpen(false)}
             >
               {t("nav.merch")}

@@ -19,51 +19,64 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kdgenetics.org"),
   title: {
-    default: "KD Genetics: Born on Koh Tao, Grown by Hand",
+    default: "KD Genetics — Organic Cannabis Farm & Dispensary, Koh Tao",
     template: "%s | KD Genetics",
   },
   description:
-    "A family-run craft cannabis farm on Koh Tao, Thailand. All organic, sun-grown cultivation, preserved genetics, farm tours, and education. Founded by Aram, Kevin, and Daniel.",
+    "Organic cannabis grown by hand on a family farm in Tanote Bay, Koh Tao. Sun-grown small batches, Jack Herer Cup 2019. Walk-in dispensary, open daily 10:00–19:00.",
   keywords: [
     "KD Genetics",
     "Koh Tao cannabis",
+    "Koh Tao dispensary",
+    "Tanote Bay cannabis",
     "organic cannabis Thailand",
-    "farm tour Koh Tao",
     "craft cannabis Thailand",
-    "Thai genetics cannabis",
-    "cannabis dispensary Koh Tao",
-    "organic cannabis farm",
+    "sun grown cannabis",
+    "Thai cannabis farm",
+    "weed Koh Tao",
+    "ganja Koh Tao",
+    "Jack Herer Cup Thailand",
   ],
   authors: [{ name: "KD Genetics" }],
   creator: "KD Genetics",
+  publisher: "KD Genetics",
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
+    alternateLocale: ["th_TH"],
     siteName: "KD Genetics",
-    title: "KD Genetics: Born on Koh Tao, Grown by Hand",
+    url: "https://kdgenetics.org",
+    title: "KD Genetics — Organic Cannabis Farm & Dispensary, Koh Tao",
     description:
-      "A family-run craft cannabis farm on Koh Tao, Thailand. All organic, sun-grown cultivation, preserved genetics, farm tours, and education.",
+      "Organic cannabis grown by hand in Tanote Bay, Koh Tao. Sun-grown small batches, Jack Herer Cup 2019. Walk-in dispensary, daily 10:00–19:00.",
     images: [
       {
         url: "/opengraph.jpg",
         width: 1200,
         height: 630,
-        alt: "KD Genetics: Koh Tao Organic Cannabis Farm",
+        alt: "KD Genetics — Organic cannabis farm in Tanote Bay, Koh Tao",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "KD Genetics: Born on Koh Tao, Grown by Hand",
+    title: "KD Genetics — Organic Cannabis Farm & Dispensary, Koh Tao",
     description:
-      "A family-run craft cannabis farm on Koh Tao, Thailand. All organic, sun-grown cultivation, preserved genetics, farm tours, and education.",
+      "Organic cannabis grown by hand in Tanote Bay, Koh Tao. Sun-grown small batches, Jack Herer Cup 2019.",
     images: ["/opengraph.jpg"],
   },
   icons: {
     icon: "/kd-logo.png",
     shortcut: "/kd-logo.png",
     apple: "/kd-logo.png",
+  },
+  formatDetection: {
+    telephone: true,
+    address: true,
+    email: true,
   },
   robots: {
     index: true,
@@ -76,6 +89,13 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#5A6A4F",
 };
 
 export default function RootLayout({

@@ -59,11 +59,82 @@ const pressVideos = [
   { embedId: "dO_rMg47CDA", labelKey: "press.video.thaimedia" },
 ] as const;
 
+const KD_STRUCTURED_DATA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Store",
+      "@id": "https://kdgenetics.org/#store",
+      name: "KD Genetics",
+      url: "https://kdgenetics.org",
+      logo: "https://kdgenetics.org/kd-logo.png",
+      image: "https://kdgenetics.org/opengraph.jpg",
+      description:
+        "Family-run organic cannabis farm and dispensary in Tanote Bay, Koh Tao. Sun-grown small batches, Jack Herer Cup 2019.",
+      telephone: "+66988268290",
+      email: "kd.kohtao@gmail.com",
+      priceRange: "฿฿",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "40/5 Moo 3, Tanote Bay",
+        addressLocality: "Koh Tao",
+        addressRegion: "Surat Thani",
+        postalCode: "84360",
+        addressCountry: "TH",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 10.099,
+        longitude: 99.852,
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday", "Tuesday", "Wednesday", "Thursday",
+            "Friday", "Saturday", "Sunday",
+          ],
+          opens: "10:00",
+          closes: "19:00",
+        },
+      ],
+      sameAs: [
+        "https://www.instagram.com/kdgenetics_official/",
+      ],
+      award: "Jack Herer Cup 2019",
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://kdgenetics.org/#organization",
+      name: "KD Genetics",
+      url: "https://kdgenetics.org",
+      logo: "https://kdgenetics.org/kd-logo.png",
+      founder: [
+        { "@type": "Person", name: "Aram Limsakul" },
+        { "@type": "Person", name: "Kevin Limsakul" },
+        { "@type": "Person", name: "Daniel" },
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kdgenetics.org/#website",
+      url: "https://kdgenetics.org",
+      name: "KD Genetics",
+      inLanguage: ["en", "th"],
+      publisher: { "@id": "https://kdgenetics.org/#organization" },
+    },
+  ],
+};
+
 export default function HomePage() {
   const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-[#F6F4EF] text-[#1E1E1E]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(KD_STRUCTURED_DATA) }}
+      />
       <Nav activePage="home" homeHref="/" />
 
       {/* ══════════════════════════════════════════════════════════════════
@@ -138,7 +209,7 @@ export default function HomePage() {
 
           {/* Card — info on left, real Google Maps embed on right */}
           <div className="grid md:grid-cols-2 rounded-2xl overflow-hidden border border-[#1E1E1E]/10 bg-white shadow-sm">
-            <div className="p-7 md:p-9 flex flex-col gap-6 justify-between">
+            <div className="p-6 sm:p-7 md:p-9 flex flex-col gap-6 justify-between">
               <div className="space-y-5">
                 <div>
                   <p className="text-[#5A6A4F] text-[11px] font-medium uppercase tracking-[0.25em] mb-1.5">
@@ -166,12 +237,12 @@ export default function HomePage() {
                   <p className="text-[#5A6A4F] text-[11px] font-medium uppercase tracking-[0.25em] mb-2">
                     {t("visit.contact.label")}
                   </p>
-                  <div className="flex flex-col gap-1.5">
+                  <div className="flex flex-col -mx-2">
                     <a
                       href="https://wa.me/66988268290"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#1E1E1E] text-base font-light hover:text-[#5A6A4F] transition-colors inline-flex items-center gap-2.5"
+                      className="text-[#1E1E1E] text-base font-light hover:text-[#5A6A4F] transition-colors inline-flex items-center gap-2.5 px-2 py-2 rounded-md min-h-[44px] -my-0.5"
                     >
                       <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
                       {t("visit.contact.whatsapp")}
@@ -180,7 +251,7 @@ export default function HomePage() {
                       href="https://line.me/R/ti/p/%40kdgenetics"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#1E1E1E] text-base font-light hover:text-[#5A6A4F] transition-colors inline-flex items-center gap-2.5"
+                      className="text-[#1E1E1E] text-base font-light hover:text-[#5A6A4F] transition-colors inline-flex items-center gap-2.5 px-2 py-2 rounded-md min-h-[44px] -my-0.5"
                     >
                       <LineIcon className="h-4 w-4 text-[#06C755]" />
                       @kdgenetics
@@ -189,7 +260,7 @@ export default function HomePage() {
                       href="https://www.instagram.com/kdgenetics_official/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#1E1E1E] text-base font-light hover:text-[#5A6A4F] transition-colors inline-flex items-center gap-2.5"
+                      className="text-[#1E1E1E] text-base font-light hover:text-[#5A6A4F] transition-colors inline-flex items-center gap-2.5 px-2 py-2 rounded-md min-h-[44px] -my-0.5"
                     >
                       <Instagram className="h-4 w-4 text-[#E1306C]" />
                       @kdgenetics
@@ -203,7 +274,7 @@ export default function HomePage() {
                   href="https://maps.app.goo.gl/?q=KD+Genetics+Tanote+Bay+Koh+Tao"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90 rounded-full px-5 h-10 text-sm font-medium transition-all"
+                  className="inline-flex flex-1 sm:flex-initial items-center justify-center gap-2 bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90 rounded-full px-5 h-11 text-sm font-medium transition-all"
                 >
                   <MapPin className="h-4 w-4" /> {t("visit.cta.directions")}
                 </a>
@@ -211,20 +282,20 @@ export default function HomePage() {
                   href="https://wa.me/66988268290"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-[#1E1E1E]/15 hover:border-[#5A6A4F] text-[#1E1E1E] rounded-full px-5 h-10 text-sm font-medium transition-all"
+                  className="inline-flex flex-1 sm:flex-initial items-center justify-center gap-2 border border-[#1E1E1E]/15 hover:border-[#5A6A4F] text-[#1E1E1E] rounded-full px-5 h-11 text-sm font-medium transition-all"
                 >
                   <MessageSquare className="h-4 w-4" /> {t("visit.cta.message")}
                 </a>
               </div>
             </div>
 
-            <div className="min-h-[320px] md:min-h-[420px] bg-[#EAE6DE]/40 border-t md:border-t-0 md:border-l border-[#1E1E1E]/10">
+            <div className="min-h-[260px] md:min-h-[420px] bg-[#EAE6DE]/40 border-t md:border-t-0 md:border-l border-[#1E1E1E]/10">
               <iframe
                 src="https://www.google.com/maps?q=KD+Genetics+Tanote+Bay+Koh+Tao&output=embed"
                 title={t("visit.map.title")}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full min-h-[320px] md:min-h-[420px] block"
+                className="w-full h-full min-h-[260px] md:min-h-[420px] block"
                 style={{ border: 0 }}
               />
             </div>
@@ -575,6 +646,82 @@ export default function HomePage() {
       </section>
 
       <ReviewsSection />
+
+      {/* ══════════════════════════════════════════════════════════════════
+       *  11. BIOBIZZ PARTNERSHIP
+       * ══════════════════════════════════════════════════════════════════ */}
+      <section data-nav-dark className="bg-[#2A2820] py-20 md:py-28">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <p className="text-center text-[10px] font-medium uppercase tracking-[0.3em] text-[#A8B89A] mb-12 md:mb-16">
+            {t("biobizz.eyebrow")}
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div className="flex flex-col items-center gap-8 md:gap-10 w-full">
+              <a
+                href="https://www.biobizz.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t("biobizz.linkAria")}
+                className="block w-full max-w-[22rem] cursor-pointer transition-transform duration-500 hover:scale-[1.02]"
+              >
+                <div className="rounded-[2.25rem] bg-[#F6F4EF] px-4 py-5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
+                  <Image
+                    src="/grown-with-biobizz.png"
+                    alt={t("biobizz.badge.alt")}
+                    width={2400}
+                    height={1245}
+                    quality={100}
+                    unoptimized
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              </a>
+              <a
+                href="https://www.biobizz.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t("biobizz.linkAria")}
+                className="block w-full max-w-[18rem] cursor-pointer transition-opacity hover:opacity-80"
+              >
+                <Image
+                  src="/biobizz-logo-wide.png"
+                  alt={t("biobizz.logo.alt")}
+                  width={800}
+                  height={450}
+                  className="w-full h-auto object-contain brightness-0 invert"
+                />
+              </a>
+            </div>
+
+            <div className="space-y-5 md:space-y-6">
+              <h3 className="font-display text-3xl md:text-4xl text-white leading-snug">
+                {t("biobizz.heading")}
+              </h3>
+              <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
+                {t("biobizz.body1")}
+              </p>
+              <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
+                {t("biobizz.body2")}
+              </p>
+              <div className="pt-4 border-t border-white/10 grid grid-cols-3 gap-6">
+                <div className="space-y-1">
+                  <p className="text-white text-sm font-medium">{t("biobizz.stat1.label")}</p>
+                  <p className="text-white/35 text-xs font-light">{t("biobizz.stat1.sub")}</p>
+                </div>
+                <div className="space-y-1">
+                  <p className="text-white text-sm font-medium">{t("biobizz.stat2.label")}</p>
+                  <p className="text-white/35 text-xs font-light">{t("biobizz.stat2.sub")}</p>
+                </div>
+                <div className="space-y-1">
+                  <p className="text-white text-sm font-medium">{t("biobizz.stat3.label")}</p>
+                  <p className="text-white/35 text-xs font-light">{t("biobizz.stat3.sub")}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Footer homeHref="/" />
     </div>

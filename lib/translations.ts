@@ -171,6 +171,23 @@ export const translations = {
     "press.article.scmp.title": "Thailand's 'Father of Cannabis'",
     "press.article.nation.title": "Relax the law on cannabis seeds",
 
+    /* ── BioBizz partnership ───────────────────────────────────────────── */
+    "biobizz.eyebrow": "Our Growing Partner",
+    "biobizz.heading": "Rooted in the same values.",
+    "biobizz.body1":
+      "BioBizz started as a small, family-driven company in the Netherlands with one conviction: that organic soil is the foundation of everything. Decades later, that conviction still runs through every product they make, and through every plant we grow.",
+    "biobizz.body2":
+      "As our official organic partner, BioBizz sponsors KD Genetics with their full range of soils and nutrients. No synthetics. No shortcuts. All organic, small batch, grown by hand.",
+    "biobizz.stat1.label": "100% Organic",
+    "biobizz.stat1.sub": "Certified inputs",
+    "biobizz.stat2.label": "Dutch Origins",
+    "biobizz.stat2.sub": "Est. 1992",
+    "biobizz.stat3.label": "Sun-Grown",
+    "biobizz.stat3.sub": "Our farm, our hands",
+    "biobizz.badge.alt": "Grown with BioBizz, From Dutch Origins",
+    "biobizz.logo.alt": "BioBizz World Wide Organics",
+    "biobizz.linkAria": "Visit BioBizz, opens in a new tab",
+
     /* ── Reviews ───────────────────────────────────────────────────────── */
     "reviews.eyebrow": "Google Reviews",
     "reviews.heading": "What Visitors Say",
@@ -566,6 +583,23 @@ export const translations = {
     "press.article.hightimes.title": "ผู้พิทักษ์กัญชาไทย",
     "press.article.scmp.title": "'บิดากัญชา' แห่งประเทศไทย",
     "press.article.nation.title": "ผ่อนคลายกฎหมายเมล็ดกัญชา",
+
+    /* ── BioBizz partnership ───────────────────────────────────────────── */
+    "biobizz.eyebrow": "พาร์ทเนอร์ปลูก",
+    "biobizz.heading": "หยั่งรากในคุณค่าเดียวกัน",
+    "biobizz.body1":
+      "BioBizz เริ่มต้นจากบริษัทครอบครัวเล็กๆ ในเนเธอร์แลนด์ ด้วยความเชื่อเดียวคือ ดินออร์แกนิกคือรากฐานของทุกสิ่ง หลายสิบปีผ่านไป ความเชื่อนั้นยังคงอยู่ในทุกผลิตภัณฑ์ที่พวกเขาทำ และในทุกต้นที่เราปลูก",
+    "biobizz.body2":
+      "ในฐานะพาร์ทเนอร์ออร์แกนิกอย่างเป็นทางการของเรา BioBizz สนับสนุน KD Genetics ด้วยดินและสารอาหารครบชุด ไม่มีสารสังเคราะห์ ไม่มีทางลัด ออร์แกนิก แบทช์เล็ก ปลูกด้วยมือ",
+    "biobizz.stat1.label": "ออร์แกนิก 100%",
+    "biobizz.stat1.sub": "วัตถุดิบรับรอง",
+    "biobizz.stat2.label": "สัญชาติดัตช์",
+    "biobizz.stat2.sub": "ก่อตั้ง 1992",
+    "biobizz.stat3.label": "ปลูกแสงแดด",
+    "biobizz.stat3.sub": "ฟาร์มและมือของเรา",
+    "biobizz.badge.alt": "Grown with BioBizz, From Dutch Origins",
+    "biobizz.logo.alt": "BioBizz World Wide Organics",
+    "biobizz.linkAria": "เยี่ยมชม BioBizz เปิดในแท็บใหม่",
 
     /* ── Reviews ───────────────────────────────────────────────────────── */
     "reviews.eyebrow": "รีวิว Google",
