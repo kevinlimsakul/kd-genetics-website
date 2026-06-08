@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { ShoppingBag, X, Plus, Minus, ArrowRight, ChevronLeft } from "lucide-react";
+import { ShoppingBag, X, Plus, Minus, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { SHIPPING_FLAT_THB } from "@/lib/order";
 import { useLanguage } from "@/lib/i18n";
 import { translations, type TranslationKey } from "@/lib/translations";
@@ -294,6 +294,38 @@ export default function ShopClient() {
                         {t(product.badgeKey)}
                       </span>
                     </div>
+                    {product.images.length > 1 && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setActiveImage((prev) => {
+                              const cur = prev[product.id] ?? 0;
+                              const next = (cur - 1 + product.images.length) % product.images.length;
+                              return { ...prev, [product.id]: next };
+                            })
+                          }
+                          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/35 hover:bg-black/55 text-white backdrop-blur-sm flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+                          aria-label="Previous image"
+                        >
+                          <ChevronLeft className="w-5 h-5" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setActiveImage((prev) => {
+                              const cur = prev[product.id] ?? 0;
+                              const next = (cur + 1) % product.images.length;
+                              return { ...prev, [product.id]: next };
+                            })
+                          }
+                          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/35 hover:bg-black/55 text-white backdrop-blur-sm flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+                          aria-label="Next image"
+                        >
+                          <ChevronRight className="w-5 h-5" />
+                        </button>
+                      </>
+                    )}
                   </div>
 
                   {/* Thumbnails */}

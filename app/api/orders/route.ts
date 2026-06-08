@@ -23,12 +23,15 @@ export async function POST(req: NextRequest) {
   const ref = generateOrderRef();
 
   if (!token || !baseId) {
-    // In dev/preview, let the order proceed to the payment page so the flow can be tested
-    // end-to-end. The order is NOT persisted — it only lives in logs. In production this is
-    // a hard error: missing env vars mean real orders would be lost.
-    if (process.env.NODE_ENV !== "production") {
+    // Airtable is the primary persistence layer; the order-notify email is the secondary.
+    // In dev we let everything pass for flow testing. In prod, we still proceed as long as
+    // email is configured — the email becomes the record of the order. Hard 500 only if
+    // BOTH persistence channels are off (then a real order would vanish).
+    const emailConfigured =
+      !!process.env.RESEND_API_KEY && !!process.env.ORDER_NOTIFY_EMAIL;
+    if (process.env.NODE_ENV !== "production" || emailConfigured) {
       console.warn(
-        `[orders] Airtable env vars missing — order ${ref} not saved. ` +
+        `[orders] Airtable env vars missing — order ${ref} not saved to Airtable. ` +
           `Set AIRTABLE_ORDERS_BASE_ID (+ optional AIRTABLE_ORDERS_TABLE_NAME) to persist.`,
         { ref, customer, total, items },
       );

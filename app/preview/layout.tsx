@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { LanguageProvider } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "KD Genetics: Sun-Grown. Family-Grown. Island-Grown.",
@@ -12,5 +11,5 @@ export default function PreviewLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <LanguageProvider>{children}</LanguageProvider>;
+  return <>{children}</>;
 }

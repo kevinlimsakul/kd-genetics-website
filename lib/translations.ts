@@ -167,6 +167,9 @@ export const translations = {
     "press.video.strainhunters": "Strain Hunters Thailand",
     "press.video.vice": "Vice · Cooking with Cannabis",
     "press.video.thaimedia": "Thai Media · KD Interview",
+    "press.article.hightimes.title": "The Keeper of Thai Weed",
+    "press.article.scmp.title": "Thailand's 'Father of Cannabis'",
+    "press.article.nation.title": "Relax the law on cannabis seeds",
 
     /* ── Reviews ───────────────────────────────────────────────────────── */
     "reviews.eyebrow": "Google Reviews",
@@ -560,6 +563,9 @@ export const translations = {
     "press.video.strainhunters": "Strain Hunters Thailand",
     "press.video.vice": "Vice · ทำอาหารจากกัญชา",
     "press.video.thaimedia": "สื่อไทย · สัมภาษณ์ KD",
+    "press.article.hightimes.title": "ผู้พิทักษ์กัญชาไทย",
+    "press.article.scmp.title": "'บิดากัญชา' แห่งประเทศไทย",
+    "press.article.nation.title": "ผ่อนคลายกฎหมายเมล็ดกัญชา",
 
     /* ── Reviews ───────────────────────────────────────────────────────── */
     "reviews.eyebrow": "รีวิว Google",
