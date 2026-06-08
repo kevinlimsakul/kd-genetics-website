@@ -305,7 +305,7 @@ export default function ShopClient() {
                               return { ...prev, [product.id]: next };
                             })
                           }
-                          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/35 hover:bg-black/55 text-white backdrop-blur-sm flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+                          className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 text-white backdrop-blur-sm flex items-center justify-center transition-all opacity-80 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100"
                           aria-label="Previous image"
                         >
                           <ChevronLeft className="w-5 h-5" />
@@ -319,7 +319,7 @@ export default function ShopClient() {
                               return { ...prev, [product.id]: next };
                             })
                           }
-                          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/35 hover:bg-black/55 text-white backdrop-blur-sm flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 focus:opacity-100"
+                          className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-black/60 text-white backdrop-blur-sm flex items-center justify-center transition-all opacity-80 md:opacity-0 md:group-hover:opacity-100 focus:opacity-100"
                           aria-label="Next image"
                         >
                           <ChevronRight className="w-5 h-5" />
@@ -393,7 +393,7 @@ export default function ShopClient() {
                                 [product.id]: s,
                               }))
                             }
-                            className={`min-w-[3rem] h-10 px-3 text-[12px] font-medium rounded-lg border transition-all ${
+                            className={`min-w-[3rem] h-11 px-3 text-[12px] font-medium rounded-lg border transition-all ${
                               size === s
                                 ? "bg-[#1E1E1E] text-white border-[#1E1E1E]"
                                 : "bg-transparent text-[#1E1E1E]/60 border-black/10 hover:border-[#1E1E1E]/30 hover:text-[#1E1E1E]"
@@ -420,12 +420,12 @@ export default function ShopClient() {
                             }))
                           }
                           disabled={(selectedQty[product.id] ?? 1) <= 1}
-                          className="w-10 h-10 flex items-center justify-center text-[#1E1E1E]/70 hover:text-[#1E1E1E] hover:bg-black/5 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                          className="w-11 h-11 flex items-center justify-center text-[#1E1E1E]/70 hover:text-[#1E1E1E] hover:bg-black/5 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                           aria-label={t("shop.qty.decrease")}
                         >
                           <Minus className="w-3.5 h-3.5" />
                         </button>
-                        <span className="w-10 h-10 flex items-center justify-center text-[13px] font-medium text-[#1E1E1E] tabular-nums border-x border-black/10">
+                        <span className="w-11 h-11 flex items-center justify-center text-[13px] font-medium text-[#1E1E1E] tabular-nums border-x border-black/10">
                           {selectedQty[product.id] ?? 1}
                         </span>
                         <button
@@ -436,7 +436,7 @@ export default function ShopClient() {
                               [product.id]: Math.min(99, (prev[product.id] ?? 1) + 1),
                             }))
                           }
-                          className="w-10 h-10 flex items-center justify-center text-[#1E1E1E]/70 hover:text-[#1E1E1E] hover:bg-black/5 transition-colors"
+                          className="w-11 h-11 flex items-center justify-center text-[#1E1E1E]/70 hover:text-[#1E1E1E] hover:bg-black/5 transition-colors"
                           aria-label={t("shop.qty.increase")}
                         >
                           <Plus className="w-3.5 h-3.5" />
@@ -696,21 +696,23 @@ export default function ShopClient() {
                           </button>
                         </div>
                         <div className="flex items-center justify-between mt-3">
-                          <div className="flex items-center gap-2 border border-black/10 rounded-full px-2 py-1">
+                          <div className="flex items-center border border-black/10 rounded-full overflow-hidden">
                             <button
                               onClick={() => updateQty(item.id, item.size, -1)}
-                              className="text-[#1E1E1E]/50 hover:text-[#1E1E1E] transition-colors"
+                              className="w-9 h-9 flex items-center justify-center text-[#1E1E1E]/60 hover:text-[#1E1E1E] active:bg-black/5 transition-colors"
+                              aria-label={t("shop.qty.decrease")}
                             >
-                              <Minus className="w-3 h-3" />
+                              <Minus className="w-3.5 h-3.5" />
                             </button>
-                            <span className="w-5 text-center text-[12px] font-medium">
+                            <span className="w-8 text-center text-[12px] font-medium tabular-nums">
                               {item.quantity}
                             </span>
                             <button
                               onClick={() => updateQty(item.id, item.size, 1)}
-                              className="text-[#1E1E1E]/50 hover:text-[#1E1E1E] transition-colors"
+                              className="w-9 h-9 flex items-center justify-center text-[#1E1E1E]/60 hover:text-[#1E1E1E] active:bg-black/5 transition-colors"
+                              aria-label={t("shop.qty.increase")}
                             >
-                              <Plus className="w-3 h-3" />
+                              <Plus className="w-3.5 h-3.5" />
                             </button>
                           </div>
                           <span className="font-medium text-[#1E1E1E] text-sm">
