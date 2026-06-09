@@ -677,21 +677,15 @@ export default function HomePage() {
                   />
                 </div>
               </a>
-              <a
-                href="https://www.biobizz.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t("biobizz.linkAria")}
-                className="block w-full max-w-[18rem] cursor-pointer transition-opacity hover:opacity-80"
-              >
+              <div className="w-full max-w-[26rem] aspect-[3/2] rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
                 <Image
-                  src="/biobizz-logo-wide.png"
-                  alt={t("biobizz.logo.alt")}
-                  width={800}
-                  height={450}
-                  className="w-full h-auto object-contain brightness-0 invert"
+                  src="/biobizz-papa-luis.jpg"
+                  alt={t("biobizz.photo.alt")}
+                  width={2400}
+                  height={1600}
+                  className="w-full h-full object-cover"
                 />
-              </a>
+              </div>
             </div>
 
             <div className="space-y-5 md:space-y-6">

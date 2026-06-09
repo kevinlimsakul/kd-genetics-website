@@ -185,7 +185,7 @@ export const translations = {
     "biobizz.stat3.label": "Sun-Grown",
     "biobizz.stat3.sub": "Our farm, our hands",
     "biobizz.badge.alt": "Grown with BioBizz, From Dutch Origins",
-    "biobizz.logo.alt": "BioBizz World Wide Organics",
+    "biobizz.photo.alt": "Papa KD and Luis from BioBizz on the farm",
     "biobizz.linkAria": "Visit BioBizz, opens in a new tab",
 
     /* ── Reviews ───────────────────────────────────────────────────────── */
@@ -598,7 +598,7 @@ export const translations = {
     "biobizz.stat3.label": "ปลูกแสงแดด",
     "biobizz.stat3.sub": "ฟาร์มและมือของเรา",
     "biobizz.badge.alt": "Grown with BioBizz, From Dutch Origins",
-    "biobizz.logo.alt": "BioBizz World Wide Organics",
+    "biobizz.photo.alt": "ปาป๊า KD และ Luis จาก BioBizz ที่ฟาร์ม",
     "biobizz.linkAria": "เยี่ยมชม BioBizz เปิดในแท็บใหม่",
 
     /* ── Reviews ───────────────────────────────────────────────────────── */
