@@ -679,7 +679,7 @@ export default function HomePage() {
               </a>
               <div className="w-full max-w-[26rem] aspect-[3/2] rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
                 <Image
-                  src="/biobizz-papa-luis.jpg"
+                  src="/biobizz-papa-luis-cap.jpg"
                   alt={t("biobizz.photo.alt")}
                   width={2400}
                   height={1600}
