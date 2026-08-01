@@ -4,7 +4,6 @@ import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import ReviewsSection from "@/components/ReviewsSection";
-import FarmTourSection from "@/components/FarmTourSection";
 import HeroVideo from "@/components/HeroVideo";
 import SlideshowGallery from "@/components/SlideshowGallery";
 import SlowdownCarousel from "@/components/SlowdownCarousel";
@@ -717,8 +716,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <FarmTourSection />
 
       <Footer homeHref="/" />
     </div>

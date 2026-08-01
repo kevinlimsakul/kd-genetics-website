@@ -5,6 +5,7 @@ export const translations = {
     /* ── Nav ───────────────────────────────────────────────────────────── */
     "nav.story": "Story",
     "nav.experience": "Experience",
+    "nav.tour": "Farm Tour",
     "nav.merch": "KD Merch",
     "nav.gallery": "Gallery",
     "nav.visit": "Visit",
@@ -418,6 +419,7 @@ export const translations = {
     /* ── Nav ───────────────────────────────────────────────────────────── */
     "nav.story": "เรื่องราว",
     "nav.experience": "ทัวร์ฟาร์ม",
+    "nav.tour": "ทัวร์ฟาร์ม",
     "nav.merch": "เสื้อผ้า KD",
     "nav.gallery": "แกลเลอรี",
     "nav.visit": "มาหาเรา",
