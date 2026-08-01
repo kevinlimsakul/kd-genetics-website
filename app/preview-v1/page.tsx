@@ -808,10 +808,10 @@ export default function HomePage() {
                   {[
                     { item: "Guided Farm Tour", value: "1,500 THB" },
                     { item: "KD Genetics T-Shirt", value: "800 THB" },
-                    { item: "3g Free Sun Grown", value: "900 THB" },
+                    { item: "3g Free Sun Grown", value: "750 THB" },
                     { item: "Smoke Starter Kit", value: "300 THB" },
-                    { item: "Homemade Iced Tea", value: "130 THB" },
-                    { item: "Oil & Tea Sample", value: "500 THB" },
+                    { item: "Cold-Pressed Juice", value: "140 THB" },
+                    { item: "KD Cannabis Oil", value: "700 THB" },
                     { item: "10% Discount on Flowers", value: "incl." },
                   ].map((row, i) => (
                     <div
@@ -832,7 +832,7 @@ export default function HomePage() {
               <div className="pt-4 border-t border-black/5 text-center space-y-1">
                 <div className="flex items-center justify-center gap-3">
                   <span className="text-[#6B6B6B]/40 text-lg line-through font-display">
-                    4,830 THB
+                    4,190 THB
                   </span>
                   <ArrowRight className="h-3.5 w-3.5 text-[#5A6A4F]/30" />
                   <span className="font-display text-2xl text-[#5A6A4F]">
