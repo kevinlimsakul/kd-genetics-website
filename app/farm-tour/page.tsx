@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function FarmTourPage() {
   return (
-    <div className="min-h-screen bg-[#1E1E1E]">
+    <div className="min-h-screen bg-[#F6F4EF]">
       <Nav activePage="tour" homeHref="/" />
       <FarmTourSection />
       <Footer homeHref="/" />

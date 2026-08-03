@@ -1,257 +1,220 @@
-"use client";
-
 import Image from "next/image";
-import {
-  MapPin,
-  Clock,
-  Leaf,
-  Sun,
-  Star,
-  Users,
-  CheckCircle2,
-  ArrowRight,
-} from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import TourBookingForm from "@/components/TourBookingForm";
 
-// Farm Tour offer + booking, consolidated onto the KD Genetics homepage after
-// kdtours.tours was retired (Stripe dropped, no separate domain needed). Cards
-// mirror the approved preview-v1 design; the booking form posts to
-// /api/book-tour (Airtable). Payment is on arrival (cash / card at the shop),
-// with PromptPay as an optional prepay-to-reserve. NOTE: never call the grow
-// "living soil" — it's organic soil + BioBizz nutrients (hybrid).
+// Farm Tour, consolidated onto kdgenetics.org (kdtours.tours retired, Stripe
+// dropped). Photo-forward and deliberately short. Booking = request-to-book via
+// the Airtable form; payment is on arrival (cash / card at the shop), NO public
+// QR. Photos are from the Huw shoot. NOTE: never call the grow "living soil" —
+// it's organic soil + BioBizz nutrients (hybrid); say organic / grown by hand.
 
-const tourSteps = [
+const moments = [
   {
-    step: "01",
-    icon: <MapPin className="h-4 w-4" />,
-    title: "Intro at the shop",
-    desc: "Welcome, context, and a first look at KD Genetics.",
+    img: "/tour-shop.jpg",
+    title: "It starts at the shop",
+    desc: "Meet the team and see the full KD menu before we head up the hill.",
   },
   {
-    step: "02",
-    icon: <Clock className="h-4 w-4" />,
-    title: "Farm history walk",
-    desc: "The story of the founders, the terrace, and the island.",
+    img: "/tour-farm.jpg",
+    title: "Walk the farm",
+    desc: "Through the greenhouses and the sea-view garden. Seed to harvest, terpenes, and how it is really grown.",
   },
   {
-    step: "03",
-    icon: <Leaf className="h-4 w-4" />,
-    title: "Seed-to-harvest demonstration",
-    desc: "Follow the full lifecycle from seed selection to harvest.",
-  },
-  {
-    step: "04",
-    icon: <Sun className="h-4 w-4" />,
-    title: "Organic soil, compost & ecosystem",
-    desc: "Worm bins, microbes, companion planting, and natural cycles.",
-  },
-  {
-    step: "05",
-    icon: <Star className="h-4 w-4" />,
-    title: "Terpenes & quality education",
-    desc: "Understanding what makes craft cannabis different.",
+    img: "/tour-sesh.jpg",
+    title: "Sit with the family",
+    desc: "End with a relaxed session and stories from Papa KD, the healer who started it all.",
   },
 ];
 
 const standardIncludes = [
-  "Full guided farm tour",
-  "Founder story & legacy walk",
-  "Organic soil & ecosystem tour",
-  "Terpene education session",
+  "90-minute guided tour",
+  "Shop intro & founder story",
+  "Greenhouses & hillside garden",
+  "Seed-to-harvest & terpene walk",
   "Q&A with the team",
 ];
 
-const vipIncludes = [
-  { item: "Guided Farm Tour", value: "1,500 THB" },
-  { item: "KD Genetics T-Shirt", value: "800 THB" },
-  { item: "3g Free Sun Grown", value: "750 THB" },
-  { item: "Smoke Starter Kit", value: "300 THB" },
-  { item: "Cold-Pressed Juice", value: "140 THB" },
-  { item: "KD Cannabis Oil", value: "700 THB" },
-  { item: "10% Discount on Flowers", value: "incl." },
+const vipExtras = [
+  "KD Genetics t-shirt",
+  "3g sun-grown flower",
+  "KD cannabis oil",
+  "Cold-pressed juice",
+  "Smoke starter kit",
+  "10% off flowers in the shop",
 ];
 
 export default function FarmTourSection() {
   return (
-    <section
-      id="tour"
-      data-nav-dark
-      className="py-32 bg-[#1E1E1E] text-white overflow-hidden relative"
-    >
-      <div className="container mx-auto px-6 relative z-10 max-w-6xl">
-        <div className="text-center mb-20 max-w-3xl mx-auto space-y-6">
-          <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
-            Educational Experience
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl text-white">
-            The Farm Tour
-          </h2>
-          <p className="text-white/60 text-lg font-light leading-relaxed">
-            This is not a standard farm walk. It&apos;s a guided immersion into
-            organic cultivation, genetics, and Koh Tao&apos;s cannabis heritage.
-          </p>
-          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2">
-            <Users className="h-3.5 w-3.5 text-[#5A6A4F]" />
-            <span className="text-[11px] text-white/70 font-medium uppercase tracking-[0.1em]">
-              Max 10 guests per tour
+    <div id="tour">
+      {/* Hero */}
+      <section
+        data-nav-dark
+        className="relative min-h-[85vh] flex items-end overflow-hidden"
+      >
+        <Image
+          src="/tour-hero.jpg"
+          alt="Papa KD walking the hillside cannabis garden above the sea on Koh Tao"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
+        <div className="relative z-10 container mx-auto px-6 lg:px-12 pb-20 md:pb-28">
+          <div className="max-w-2xl space-y-6">
+            <span className="text-white/80 font-medium text-[10px] uppercase tracking-[0.3em]">
+              Tanote Bay, Koh Tao
             </span>
+            <h1 className="font-display text-4xl md:text-6xl text-white leading-[1.08]">
+              A morning on the only working cannabis farm on Koh Tao.
+            </h1>
+            <p className="text-white/70 text-lg font-light leading-relaxed max-w-xl">
+              Ninety minutes with the family who grows it. Small groups, by
+              appointment.
+            </p>
+            <a
+              href="#tour-booking"
+              className="inline-flex items-center justify-center rounded-full bg-white text-[#1E1E1E] px-7 py-3.5 text-sm font-medium hover:bg-white/90 transition-colors"
+            >
+              Request to book
+            </a>
           </div>
         </div>
+      </section>
 
-        {/* Tour Steps */}
-        <div className="mb-24 max-w-3xl mx-auto">
-          <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-[#5A6A4F]/70 mb-10 text-center">
-            What you&apos;ll experience
+      {/* Intro */}
+      <section className="bg-[#F6F4EF] py-24 md:py-32">
+        <div className="container mx-auto px-6 lg:px-12 max-w-3xl text-center space-y-6">
+          <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+            The Farm Tour
+          </span>
+          <p className="text-xl md:text-2xl text-[#1E1E1E] font-light leading-relaxed">
+            KD Genetics is the last cannabis farm still growing on Koh Tao. The
+            tour is a guided walk through it with the people who built it, from
+            the shop up to the hillside garden above the sea. Organic,
+            small-batch, grown by hand.
           </p>
-          <div className="space-y-0">
-            {tourSteps.map((item, i) => (
-              <div
-                key={i}
-                className="flex items-start gap-6 py-6 border-b border-white/5 last:border-0"
-              >
-                <div className="text-[#5A6A4F]/30 text-[11px] font-medium mt-1 w-6 shrink-0">
-                  {item.step}
+        </div>
+      </section>
+
+      {/* Moments */}
+      <section className="bg-[#F6F4EF] pb-24 md:pb-32">
+        <div className="container mx-auto px-6 lg:px-12 max-w-6xl">
+          <div className="grid md:grid-cols-3 gap-8">
+            {moments.map((m) => (
+              <div key={m.title} className="space-y-5">
+                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+                  <Image
+                    src={m.img}
+                    alt={m.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                  />
                 </div>
-                <div className="text-[#5A6A4F]/50 mt-0.5 shrink-0">
-                  {item.icon}
-                </div>
-                <div className="space-y-1">
-                  <p className="text-white text-sm font-medium">{item.title}</p>
-                  <p className="text-white/40 text-sm font-light">{item.desc}</p>
+                <div className="space-y-2">
+                  <h3 className="font-display text-xl text-[#1E1E1E]">
+                    {m.title}
+                  </h3>
+                  <p className="text-[#6B6B6B] text-sm font-light leading-relaxed">
+                    {m.desc}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Tour Pricing Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
-          {/* Standard */}
-          <div className="p-10 bg-white/5 border border-white/10 rounded-2xl space-y-6">
-            <div className="space-y-2">
-              <span className="text-white/30 text-[11px] font-medium uppercase tracking-[0.15em]">
-                Standard
-              </span>
-              <h3 className="font-display text-2xl text-white">
-                The Guided Tour
-              </h3>
-            </div>
-            <div className="space-y-1">
-              <p className="text-white font-display text-3xl">1,500 THB</p>
-              <p className="text-white/30 text-[11px] font-light">
-                90-minute guided experience
-              </p>
-            </div>
-            <ul className="space-y-3 pt-4 border-t border-white/5">
-              {standardIncludes.map((text, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-3 text-sm text-white/50 font-light"
-                >
-                  <CheckCircle2 className="h-4 w-4 text-[#5A6A4F]/40 mt-0.5 shrink-0" />{" "}
-                  {text}
-                </li>
-              ))}
-            </ul>
-            <a
-              href="#tour-booking"
-              className="block w-full border border-white/20 text-white hover:bg-white/5 rounded-full h-12 text-sm font-medium mt-4 transition-all flex items-center justify-center"
-            >
-              Book Standard Tour
-            </a>
+      {/* Family band */}
+      <section className="relative h-[50vh] min-h-[380px] flex items-end overflow-hidden">
+        <Image
+          src="/tour-family.jpg"
+          alt="Three generations of the KD Genetics family at harvest"
+          fill
+          sizes="100vw"
+          className="object-cover object-top"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+        <p className="relative z-10 container mx-auto px-6 lg:px-12 pb-12 font-display text-2xl md:text-3xl text-white">
+          Three generations, grown by hand.
+        </p>
+      </section>
+
+      {/* Pricing */}
+      <section className="bg-[#1E1E1E] text-white py-24 md:py-32" data-nav-dark>
+        <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
+          <div className="text-center mb-14 space-y-3">
+            <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">
+              Two ways to join
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl">Choose your tour</h2>
           </div>
-
-          {/* VIP */}
-          <div className="p-10 bg-white rounded-2xl border border-[#5A6A4F]/20 relative space-y-6 shadow-lg">
-            <div className="absolute top-4 right-4 bg-[#5A6A4F]/10 text-[#5A6A4F] text-[9px] font-medium uppercase tracking-[0.15em] px-3 py-1 rounded-full">
-              Recommended
-            </div>
-            <div className="space-y-2">
-              <span className="text-[#5A6A4F]/60 text-[11px] font-medium uppercase tracking-[0.15em]">
-                VIP Package
-              </span>
-              <h3 className="font-display text-2xl text-[#1E1E1E]">
-                The Full Immersion
-              </h3>
-            </div>
-            <div className="space-y-1">
-              <p className="text-[#1E1E1E] font-display text-3xl">3,000 THB</p>
-              <p className="text-[#6B6B6B] text-[11px] font-light">
-                Everything in Standard, plus:
-              </p>
-            </div>
-            <div className="pt-4 border-t border-black/5 space-y-4">
-              <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-[#5A6A4F]/60">
-                What&apos;s Included
-              </p>
-              <div className="space-y-2">
-                {vipIncludes.map((row, i) => (
-                  <div
-                    key={i}
-                    className="flex justify-between items-center text-[13px] py-1.5 border-b border-black/[0.03] last:border-0"
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Standard */}
+            <div className="p-8 bg-white/5 border border-white/10 rounded-2xl space-y-5">
+              <div className="space-y-1">
+                <span className="text-white/40 text-[11px] font-medium uppercase tracking-[0.15em]">
+                  Standard
+                </span>
+                <p className="font-display text-3xl">1,500 THB</p>
+                <p className="text-white/40 text-[11px] font-light">
+                  90-minute guided experience
+                </p>
+              </div>
+              <ul className="space-y-2.5 pt-4 border-t border-white/10">
+                {standardIncludes.map((t) => (
+                  <li
+                    key={t}
+                    className="flex items-start gap-3 text-sm text-white/60 font-light"
                   >
-                    <span className="text-[#1E1E1E]/70 font-light flex items-center gap-2">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-[#5A6A4F]/40 shrink-0" />{" "}
-                      {row.item}
-                    </span>
-                    <span className="text-[#6B6B6B]/50 text-[11px] font-light">
-                      {row.value}
-                    </span>
-                  </div>
+                    <CheckCircle2 className="h-4 w-4 text-[#5A6A4F]/50 mt-0.5 shrink-0" />
+                    {t}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
-            <div className="pt-4 border-t border-black/5 text-center space-y-1">
-              <div className="flex items-center justify-center gap-3">
-                <span className="text-[#6B6B6B]/40 text-lg line-through font-display">
-                  4,190 THB
+            {/* VIP */}
+            <div className="p-8 bg-white/[0.07] border border-[#5A6A4F]/40 rounded-2xl space-y-5 relative">
+              <span className="absolute top-5 right-5 text-[#5A6A4F] text-[9px] font-medium uppercase tracking-[0.15em] bg-[#5A6A4F]/15 rounded-full px-3 py-1">
+                Best value
+              </span>
+              <div className="space-y-1">
+                <span className="text-[#5A6A4F] text-[11px] font-medium uppercase tracking-[0.15em]">
+                  VIP
                 </span>
-                <ArrowRight className="h-3.5 w-3.5 text-[#5A6A4F]/30" />
-                <span className="font-display text-2xl text-[#5A6A4F]">
-                  3,000 THB
-                </span>
+                <p className="font-display text-3xl">3,000 THB</p>
+                <p className="text-white/40 text-[11px] font-light">
+                  Everything in Standard, plus 4,190 THB of take-homes
+                </p>
               </div>
+              <ul className="space-y-2.5 pt-4 border-t border-white/10">
+                {vipExtras.map((t) => (
+                  <li
+                    key={t}
+                    className="flex items-start gap-3 text-sm text-white/60 font-light"
+                  >
+                    <CheckCircle2 className="h-4 w-4 text-[#5A6A4F]/50 mt-0.5 shrink-0" />
+                    {t}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <a
-              href="#tour-booking"
-              className="block w-full bg-[#5A6A4F] text-white hover:bg-[#5A6A4F]/90 rounded-full h-12 text-sm font-medium transition-all flex items-center justify-center"
-            >
-              Book VIP Package
-            </a>
-            <p className="text-[10px] text-[#6B6B6B]/40 font-light text-center leading-relaxed">
-              10% discount applies to outdoor & indoor flowers only.
-            </p>
           </div>
-        </div>
 
-        {/* Tour Booking Form (posts to /api/book-tour → Airtable) */}
-        <TourBookingForm />
-
-        {/* Payment: on arrival by default, PromptPay optional prepay */}
-        <div className="mt-16 max-w-2xl mx-auto text-center space-y-6">
-          <p className="text-[11px] font-medium uppercase tracking-[0.15em] text-[#5A6A4F]/70">
-            How you pay
-          </p>
-          <p className="text-white/60 text-sm font-light leading-relaxed">
-            Most guests pay on arrival, in{" "}
-            <span className="text-white">cash or by credit card at the shop</span>
-            . Prefer to lock your date in advance? Prepay by PromptPay (Thai QR)
-            and send us the slip.
-          </p>
-          <div className="flex flex-col items-center gap-3">
-            <Image
-              src="/promptpay-qr.jpg"
-              alt="PromptPay QR for KD Koh Tao"
-              width={220}
-              height={370}
-              className="w-40 rounded-xl border border-white/10"
-            />
-            <p className="text-white/40 text-xs font-light">
-              KD KOH TAO · PromptPay 084556801318025
-            </p>
+          {/* Booking form */}
+          <div className="mt-16">
+            <TourBookingForm />
           </div>
+
+          {/* Payment: on arrival, no public QR */}
+          <p className="mt-10 text-center text-white/50 text-sm font-light leading-relaxed max-w-xl mx-auto">
+            No prepayment needed. Pay{" "}
+            <span className="text-white">cash or by credit card at the shop</span>{" "}
+            when you arrive. We confirm your date on WhatsApp within a few hours.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
