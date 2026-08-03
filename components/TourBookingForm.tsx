@@ -4,11 +4,49 @@ import { useState } from "react";
 import { useLanguage } from "@/lib/i18n";
 
 type Status = "idle" | "loading" | "success" | "error";
+type ContactMethod = "whatsapp" | "line" | "email";
+
+const METHODS: {
+  value: ContactMethod;
+  labelKey:
+    | "tour.form.method.whatsapp"
+    | "tour.form.method.line"
+    | "tour.form.method.email";
+}[] = [
+  { value: "whatsapp", labelKey: "tour.form.method.whatsapp" },
+  { value: "line", labelKey: "tour.form.method.line" },
+  { value: "email", labelKey: "tour.form.method.email" },
+];
+
+const CONTACT_FIELD = {
+  whatsapp: {
+    labelKey: "tour.form.contact.whatsapp.label",
+    phKey: "tour.form.contact.whatsapp.ph",
+    type: "text",
+  },
+  line: {
+    labelKey: "tour.form.contact.line.label",
+    phKey: "tour.form.contact.line.ph",
+    type: "text",
+  },
+  email: {
+    labelKey: "tour.form.contact.email.label",
+    phKey: "tour.form.contact.email.ph",
+    type: "email",
+  },
+} as const;
+
+const METHOD_LABEL: Record<ContactMethod, string> = {
+  whatsapp: "WhatsApp",
+  line: "Line",
+  email: "Email",
+};
 
 export default function TourBookingForm() {
   const { t } = useLanguage();
   const [form, setForm] = useState({
     name: "",
+    contactMethod: "whatsapp" as ContactMethod,
     contact: "",
     date: "",
     people: "",
@@ -22,16 +60,28 @@ export default function TourBookingForm() {
     setStatus("loading");
 
     try {
+      const payload = {
+        ...form,
+        contact: `${METHOD_LABEL[form.contactMethod]}: ${form.contact}`,
+      };
       const res = await fetch("/api/book-tour", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
 
       if (!res.ok) throw new Error("API error");
 
       setStatus("success");
-      setForm({ name: "", contact: "", date: "", people: "", package: "standard", notes: "" });
+      setForm({
+        name: "",
+        contactMethod: "whatsapp",
+        contact: "",
+        date: "",
+        people: "",
+        package: "standard",
+        notes: "",
+      });
     } catch {
       setStatus("error");
     }
@@ -104,11 +154,39 @@ export default function TourBookingForm() {
 
           <div className="space-y-2">
             <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-              {t("tour.form.label.contact")}
+              {t("tour.form.label.contactMethod")}
+            </label>
+            <div className="grid grid-cols-3 gap-2">
+              {METHODS.map((opt) => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() =>
+                    setForm((f) => ({
+                      ...f,
+                      contactMethod: opt.value,
+                      contact: "",
+                    }))
+                  }
+                  className={`py-2 px-3 rounded-lg border text-[11px] font-medium transition-all ${
+                    form.contactMethod === opt.value
+                      ? "bg-[#1E1E1E] text-white border-[#1E1E1E]"
+                      : "bg-transparent text-[#1E1E1E]/60 border-black/10 hover:border-[#1E1E1E]/30"
+                  }`}
+                >
+                  {t(opt.labelKey)}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
+              {t(CONTACT_FIELD[form.contactMethod].labelKey)}
             </label>
             <input
-              type="text"
-              placeholder={t("tour.form.placeholder.contact")}
+              type={CONTACT_FIELD[form.contactMethod].type}
+              placeholder={t(CONTACT_FIELD[form.contactMethod].phKey)}
               value={form.contact}
               onChange={(e) => setForm((f) => ({ ...f, contact: e.target.value }))}
               required
