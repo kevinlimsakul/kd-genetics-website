@@ -66,7 +66,7 @@ export default function FarmTourSection() {
               Tanote Bay, Koh Tao
             </span>
             <h1 className="font-display text-4xl md:text-6xl text-white leading-[1.08]">
-              A morning on the only working cannabis farm on Koh Tao.
+              An afternoon on the only working cannabis farm on Koh Tao.
             </h1>
             <p className="text-white/70 text-lg font-light leading-relaxed max-w-xl">
               Ninety minutes with the family who grows it. Small groups, by
@@ -127,13 +127,14 @@ export default function FarmTourSection() {
       </section>
 
       {/* Family band */}
-      <section className="relative h-[50vh] min-h-[380px] flex items-end overflow-hidden">
+      <section className="relative h-[72vh] min-h-[560px] flex items-end overflow-hidden">
         <Image
           src="/tour-family.jpg"
           alt="Three generations of the KD Genetics family at harvest"
           fill
           sizes="100vw"
-          className="object-cover object-top"
+          style={{ objectPosition: "50% 32%" }}
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
         <p className="relative z-10 container mx-auto px-6 lg:px-12 pb-12 font-display text-2xl md:text-3xl text-white">
