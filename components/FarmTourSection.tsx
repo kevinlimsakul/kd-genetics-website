@@ -37,13 +37,16 @@ const standardKeys = [
   "tour.std.5",
 ] as const;
 
-const vipKeys = [
-  "tour.vip.1",
-  "tour.vip.2",
-  "tour.vip.3",
-  "tour.vip.4",
-  "tour.vip.5",
-  "tour.vip.6",
+// THB values shown struck through next to each VIP take-home. Prices are
+// currency, not language, so they stay hardcoded. Sum = 2,690 (= "almost
+// 3,000" in the subtitle). The 10% flower discount has no fixed value.
+const vipExtras = [
+  { key: "tour.vip.1", value: "800 THB" },
+  { key: "tour.vip.2", value: "750 THB" },
+  { key: "tour.vip.3", value: "700 THB" },
+  { key: "tour.vip.4", value: "140 THB" },
+  { key: "tour.vip.5", value: "300 THB" },
+  { key: "tour.vip.6", value: null },
 ] as const;
 
 export default function FarmTourSection() {
@@ -127,13 +130,13 @@ export default function FarmTourSection() {
       </section>
 
       {/* Family band */}
-      <section className="relative h-[72vh] min-h-[560px] flex items-end overflow-hidden">
+      <section className="relative h-[82vh] min-h-[640px] flex items-end overflow-hidden">
         <Image
           src="/tour-family.jpg"
           alt="Two generations of the KD Genetics family at harvest"
           fill
           sizes="100vw"
-          style={{ objectPosition: "50% 32%" }}
+          style={{ objectPosition: "50% 20%" }}
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
@@ -192,13 +195,20 @@ export default function FarmTourSection() {
                 </p>
               </div>
               <ul className="space-y-2.5 pt-4 border-t border-white/10">
-                {vipKeys.map((k) => (
+                {vipExtras.map((x) => (
                   <li
-                    key={k}
-                    className="flex items-start gap-3 text-sm text-white/60 font-light"
+                    key={x.key}
+                    className="flex items-center justify-between gap-3 text-sm text-white/60 font-light"
                   >
-                    <CheckCircle2 className="h-4 w-4 text-[#5A6A4F]/50 mt-0.5 shrink-0" />
-                    {t(k)}
+                    <span className="flex items-start gap-3">
+                      <CheckCircle2 className="h-4 w-4 text-[#5A6A4F]/50 mt-0.5 shrink-0" />
+                      {t(x.key)}
+                    </span>
+                    {x.value && (
+                      <span className="text-white/30 line-through text-xs shrink-0">
+                        {x.value}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>
