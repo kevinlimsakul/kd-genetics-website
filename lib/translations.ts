@@ -13,6 +13,47 @@ export const translations = {
     "nav.bookTour": "Book Tour",
     "nav.toggleMenu": "Toggle menu",
 
+    /* ── Farm Tour page ─────────────────────────────────────────────────── */
+    "tour.hero.eyebrow": "Tanote Bay, Koh Tao",
+    "tour.hero.title":
+      "An afternoon on the only working cannabis farm on Koh Tao.",
+    "tour.hero.sub":
+      "Ninety minutes with the family who grows it. Small groups, by appointment.",
+    "tour.cta.book": "Request to book",
+    "tour.intro.eyebrow": "The Farm Tour",
+    "tour.intro.body":
+      "KD Genetics is the last cannabis farm still growing on Koh Tao. The tour is a guided walk through it with the people who built it, from the shop up to the hillside garden above the sea. Organic, small-batch, grown by hand.",
+    "tour.moment1.title": "It starts at the shop",
+    "tour.moment1.desc":
+      "A warm welcome and a short introduction to who we are and what we do, before we head outside to walk the farm.",
+    "tour.moment2.title": "Walk the farm",
+    "tour.moment2.desc":
+      "Through the greenhouses and the sea-view garden. Seed to harvest, terpenes, and how it is really grown.",
+    "tour.moment3.title": "Sit with the family",
+    "tour.moment3.desc":
+      "End with a relaxed session and stories from Papa KD, the healer who started it all.",
+    "tour.family.caption": "Three generations, grown by hand.",
+    "tour.pricing.eyebrow": "Two ways to join",
+    "tour.pricing.heading": "Choose your tour",
+    "tour.tier.standard": "Standard",
+    "tour.tier.standard.dur": "90-minute guided experience",
+    "tour.std.1": "90-minute guided tour",
+    "tour.std.2": "Welcome & founder story",
+    "tour.std.3": "Greenhouses & hillside garden",
+    "tour.std.4": "Seed-to-harvest & terpene walk",
+    "tour.std.5": "Q&A with the team",
+    "tour.tier.vip": "VIP",
+    "tour.vip.badge": "Best value",
+    "tour.tier.vip.dur": "Everything in Standard, plus 4,190 THB of take-homes",
+    "tour.vip.1": "KD Genetics t-shirt",
+    "tour.vip.2": "3g sun-grown flower",
+    "tour.vip.3": "KD cannabis oil",
+    "tour.vip.4": "Cold-pressed juice",
+    "tour.vip.5": "Smoke starter kit",
+    "tour.vip.6": "10% off flowers in the shop",
+    "tour.pay":
+      "No prepayment needed. Pay cash or by credit card at the shop when you arrive. We confirm your date on WhatsApp within a few hours.",
+
     /* ── Hero ──────────────────────────────────────────────────────────── */
     "hero.location": "Koh Tao, Thailand",
     "hero.titleLine1": "Sun-Grown.",
@@ -426,6 +467,47 @@ export const translations = {
     "nav.contact": "ติดต่อ",
     "nav.bookTour": "จองทัวร์",
     "nav.toggleMenu": "เปิด/ปิดเมนู",
+
+    /* ── Farm Tour page ─────────────────────────────────────────────────── */
+    "tour.hero.eyebrow": "อ่าวตาโหนด เกาะเต่า",
+    "tour.hero.title":
+      "บ่ายวันหนึ่งในฟาร์มกัญชาแห่งเดียวที่ยังเปิดดำเนินการบนเกาะเต่า",
+    "tour.hero.sub":
+      "90 นาทีกับครอบครัวผู้ปลูกเอง กลุ่มเล็ก จองล่วงหน้าเท่านั้น",
+    "tour.cta.book": "ขอจองทัวร์",
+    "tour.intro.eyebrow": "ทัวร์ฟาร์ม",
+    "tour.intro.body":
+      "KD Genetics คือฟาร์มกัญชาแห่งสุดท้ายที่ยังปลูกอยู่บนเกาะเต่า ทัวร์นี้คือการเดินชมฟาร์มพร้อมไกด์ไปกับครอบครัวผู้สร้างมันขึ้นมา ตั้งแต่หน้าร้านขึ้นไปจนถึงสวนบนเนินเขาที่มองเห็นทะเล ปลูกแบบออร์แกนิก ทีละล็อตเล็ก ด้วยมือ",
+    "tour.moment1.title": "เริ่มต้นที่หน้าร้าน",
+    "tour.moment1.desc":
+      "ต้อนรับอย่างอบอุ่น พร้อมแนะนำสั้นๆ ว่าเราเป็นใครและทำอะไร ก่อนออกไปเดินชมฟาร์มด้วยกัน",
+    "tour.moment2.title": "เดินชมฟาร์ม",
+    "tour.moment2.desc":
+      "ผ่านโรงเรือนและสวนวิวทะเล ตั้งแต่เมล็ดจนถึงการเก็บเกี่ยว เรื่องเทอร์พีน และวิธีปลูกจริง",
+    "tour.moment3.title": "นั่งพักกับครอบครัว",
+    "tour.moment3.desc":
+      "ปิดท้ายด้วยการนั่งสูบสบายๆ พร้อมฟังเรื่องราวจากปาป๊า KD หมอผู้เริ่มต้นทุกอย่าง",
+    "tour.family.caption": "สามรุ่น ปลูกด้วยมือ",
+    "tour.pricing.eyebrow": "สองแบบให้เลือก",
+    "tour.pricing.heading": "เลือกทัวร์ของคุณ",
+    "tour.tier.standard": "สแตนดาร์ด",
+    "tour.tier.standard.dur": "ประสบการณ์พร้อมไกด์ 90 นาที",
+    "tour.std.1": "ทัวร์พร้อมไกด์ 90 นาที",
+    "tour.std.2": "ต้อนรับและเรื่องราวผู้ก่อตั้ง",
+    "tour.std.3": "โรงเรือนและสวนบนเนินเขา",
+    "tour.std.4": "ตั้งแต่เมล็ดถึงเก็บเกี่ยว และเรื่องเทอร์พีน",
+    "tour.std.5": "ถาม-ตอบกับทีมงาน",
+    "tour.tier.vip": "วีไอพี",
+    "tour.vip.badge": "คุ้มที่สุด",
+    "tour.tier.vip.dur": "ทุกอย่างในสแตนดาร์ด พร้อมของแถมมูลค่า 4,190 บาท",
+    "tour.vip.1": "เสื้อยืด KD Genetics",
+    "tour.vip.2": "ดอกปลูกกลางแดด 3 กรัม",
+    "tour.vip.3": "น้ำมันกัญชา KD",
+    "tour.vip.4": "น้ำสกัดเย็น",
+    "tour.vip.5": "ชุดเริ่มต้นสำหรับสูบ",
+    "tour.vip.6": "ส่วนลด 10% สำหรับดอกในร้าน",
+    "tour.pay":
+      "ไม่ต้องชำระเงินล่วงหน้า จ่ายเงินสดหรือบัตรเครดิตที่ร้านเมื่อมาถึง เราจะยืนยันวันของคุณทาง WhatsApp ภายในไม่กี่ชั่วโมง",
 
     /* ── Hero ──────────────────────────────────────────────────────────── */
     "hero.location": "เกาะเต่า ประเทศไทย",
