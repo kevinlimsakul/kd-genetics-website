@@ -130,7 +130,7 @@ export default function FarmTourSection() {
       <section className="relative h-[72vh] min-h-[560px] flex items-end overflow-hidden">
         <Image
           src="/tour-family.jpg"
-          alt="Three generations of the KD Genetics family at harvest"
+          alt="Two generations of the KD Genetics family at harvest"
           fill
           sizes="100vw"
           style={{ objectPosition: "50% 32%" }}
