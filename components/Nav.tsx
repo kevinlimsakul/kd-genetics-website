@@ -95,16 +95,8 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
             >
               {t("nav.story")}
             </button>
-            <Link
-              href="/farm-tour"
-              className={`transition-colors ${
-                activePage === "tour"
-                  ? isGlass ? "text-white border-b border-white pb-0.5" : "text-[#1E1E1E] border-b border-[#1E1E1E] pb-0.5"
-                  : isGlass ? "hover:text-white" : "hover:text-[#1E1E1E]"
-              }`}
-            >
-              {t("nav.tour")}
-            </Link>
+            {/* Farm Tour link hidden until booking is ready — restore this block to re-enable.
+                Page + booking code still live at /farm-tour (also next.config redirect). */}
             <Link
               href="/shop"
               className={`transition-colors ${
@@ -175,13 +167,7 @@ export default function Nav({ activePage = "home", homeHref = "/" }: NavProps) {
                 {item.label}
               </button>
             ))}
-            <Link
-              href="/farm-tour"
-              className="block text-primary/80 hover:text-primary active:bg-black/5 text-base font-medium py-4 min-h-[48px]"
-              onClick={() => setMenuOpen(false)}
-            >
-              {t("nav.tour")}
-            </Link>
+            {/* Farm Tour link hidden until booking is ready — restore to re-enable. */}
             <Link
               href="/shop"
               className="block text-primary/80 hover:text-primary active:bg-black/5 text-base font-medium py-4 min-h-[48px]"
