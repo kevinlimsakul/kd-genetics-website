@@ -18,7 +18,7 @@ export const translations = {
     "tour.hero.title":
       "An afternoon on the only working cannabis farm on Koh Tao.",
     "tour.hero.sub":
-      "Ninety minutes with the family who grows it. Small groups, by appointment.",
+      "Every Friday at 11:00. Ninety minutes with the family who grows it. Small groups.",
     "tour.cta.book": "Request to book",
     "tour.intro.eyebrow": "The Farm Tour",
     "tour.intro.body":
@@ -58,7 +58,7 @@ export const translations = {
     "home.tour.eyebrow": "Farm Tour",
     "home.tour.heading": "Walk the farm with the family.",
     "home.tour.body":
-      "A guided walk from the shop up to the hillside garden above the sea, ending with a relaxed session and stories from Papa KD. Small groups, by appointment.",
+      "Every Friday at 11:00. A 90-minute guided walk from the shop up to the hillside garden above the sea, ending with a relaxed session and stories from Papa KD. Small groups.",
     "home.tour.pay": "No prepayment. Pay cash or card at the shop when you arrive.",
     "home.tour.more": "See the full tour",
 
@@ -405,7 +405,7 @@ export const translations = {
     /* ── Tour booking form ──────────────────────────────────────────────── */
     "tour.form.heading": "Book Your Tour",
     "tour.form.sub":
-      "Secure your spot in our guided farm experience.",
+      "Every Friday at 11:00, starting at the shop. 90 minutes.",
     "tour.form.success.heading": "You're on the list.",
     "tour.form.success.body":
       "We'll confirm your date within a few hours. No prepayment: pay cash or card at the shop when you arrive.",
@@ -424,6 +424,7 @@ export const translations = {
     "tour.form.contact.email.label": "Email address",
     "tour.form.contact.email.ph": "you@email.com",
     "tour.form.label.date": "Date",
+    "tour.form.placeholder.date": "Pick a Friday",
     "tour.form.label.people": "People",
     "tour.form.label.notes": "Notes",
     "tour.form.label.optional": "(optional)",
@@ -493,7 +494,7 @@ export const translations = {
     "tour.hero.title":
       "บ่ายวันหนึ่งในฟาร์มกัญชาแห่งเดียวที่ยังเปิดดำเนินการบนเกาะเต่า",
     "tour.hero.sub":
-      "90 นาทีกับครอบครัวผู้ปลูกเอง กลุ่มเล็ก จองล่วงหน้าเท่านั้น",
+      "ทุกวันศุกร์ 11:00 น. 90 นาทีกับครอบครัวผู้ปลูกเอง กลุ่มเล็ก",
     "tour.cta.book": "ขอจองทัวร์",
     "tour.intro.eyebrow": "ทัวร์ฟาร์ม",
     "tour.intro.body":
@@ -533,7 +534,7 @@ export const translations = {
     "home.tour.eyebrow": "ทัวร์ฟาร์ม",
     "home.tour.heading": "เดินชมฟาร์มกับครอบครัวเรา",
     "home.tour.body":
-      "เดินชมจากร้านขึ้นไปถึงสวนบนเนินเขาริมทะเล ปิดท้ายด้วยการนั่งชิลและฟังเรื่องเล่าจากปาป๊า KD กลุ่มเล็ก ต้องนัดล่วงหน้า",
+      "ทุกวันศุกร์ 11:00 น. เดินชม 90 นาทีจากร้านขึ้นไปถึงสวนบนเนินเขาริมทะเล ปิดท้ายด้วยการนั่งชิลและฟังเรื่องเล่าจากปาป๊า KD กลุ่มเล็ก",
     "home.tour.pay": "ไม่ต้องชำระล่วงหน้า จ่ายเงินสดหรือบัตรที่ร้านเมื่อมาถึง",
     "home.tour.more": "ดูรายละเอียดทัวร์",
 
@@ -879,7 +880,7 @@ export const translations = {
 
     /* ── Tour booking form ──────────────────────────────────────────────── */
     "tour.form.heading": "จองทัวร์ฟาร์ม",
-    "tour.form.sub": "จองที่นั่งสำหรับทัวร์ฟาร์มของเรา",
+    "tour.form.sub": "ทุกวันศุกร์ 11:00 น. เริ่มที่ร้าน 90 นาที",
     "tour.form.success.heading": "ได้รับคำขอแล้ว",
     "tour.form.success.body":
       "เราจะยืนยันวันของคุณภายในไม่กี่ชั่วโมง ไม่ต้องชำระล่วงหน้า จ่ายเงินสดหรือบัตรที่ร้านเมื่อมาถึง",
@@ -898,6 +899,7 @@ export const translations = {
     "tour.form.contact.email.label": "อีเมล",
     "tour.form.contact.email.ph": "you@email.com",
     "tour.form.label.date": "วันที่",
+    "tour.form.placeholder.date": "เลือกวันศุกร์",
     "tour.form.label.people": "จำนวนคน",
     "tour.form.label.notes": "หมายเหตุ",
     "tour.form.label.optional": "(ไม่บังคับ)",

@@ -46,11 +46,25 @@ export type BookingSource = "qr" | "home" | "page";
 
 const WHATSAPP = "https://wa.me/66988268290";
 
-// Local YYYY-MM-DD for the date input's min (toISOString would be UTC).
-function today() {
-  const d = new Date();
-  d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
-  return d.toISOString().slice(0, 10);
+// One tour a week: Fridays 11:00, 90 min (decided Oct 2026). To change the
+// day, update TOUR_WEEKDAY + the "Friday" wording in lib/translations.ts.
+const TOUR_WEEKDAY = 5; // 0 = Sun ... 5 = Fri
+const SAME_DAY_CUTOFF_HOUR = 10; // same-day requests allowed until 10:00 Thai time
+const WEEKS_AHEAD = 8;
+
+// Next tour dates as YYYY-MM-DD, computed in Thai time (UTC+7) no matter
+// where the guest's phone thinks it is.
+function upcomingTourDates() {
+  const bkk = new Date(Date.now() + 7 * 3600 * 1000); // read with getUTC*
+  const day = new Date(Date.UTC(bkk.getUTCFullYear(), bkk.getUTCMonth(), bkk.getUTCDate()));
+  let offset = (TOUR_WEEKDAY - day.getUTCDay() + 7) % 7;
+  if (offset === 0 && bkk.getUTCHours() >= SAME_DAY_CUTOFF_HOUR) offset = 7;
+  day.setUTCDate(day.getUTCDate() + offset);
+  return Array.from({ length: WEEKS_AHEAD }, (_, i) => {
+    const d = new Date(day);
+    d.setUTCDate(d.getUTCDate() + i * 7);
+    return d.toISOString().slice(0, 10);
+  });
 }
 
 export default function TourBookingForm({
@@ -60,7 +74,15 @@ export default function TourBookingForm({
   source?: BookingSource;
   className?: string;
 }) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const tourDates = upcomingTourDates();
+  const dateLabel = (iso: string) =>
+    new Date(`${iso}T00:00:00Z`).toLocaleDateString(lang === "th" ? "th-TH" : "en-GB", {
+      weekday: "short",
+      day: "numeric",
+      month: "short",
+      timeZone: "UTC",
+    });
   // QR codes on signs/posters land on /farm-tour?src=qr; that wins over the
   // placement default so we can see how many bookings the posters bring in.
   const [src, setSrc] = useState<BookingSource>(source);
@@ -122,7 +144,7 @@ export default function TourBookingForm({
     const pkg = f.package === "vip" ? "VIP" : "Standard";
     const msg = [
       `Hi KD! Farm tour request:`,
-      `${pkg} tour, ${f.date}, ${f.people} ${Number(f.people) === 1 ? "person" : "people"}`,
+      `${pkg} tour, ${dateLabel(f.date)} 11:00, ${f.people} ${Number(f.people) === 1 ? "person" : "people"}`,
       `Name: ${f.name}`,
       f.notes ? `Note: ${f.notes}` : "",
     ]
@@ -252,14 +274,21 @@ export default function TourBookingForm({
               <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
                 {t("tour.form.label.date")}
               </label>
-              <input
-                type="date"
-                min={today()}
+              <select
                 value={form.date}
                 onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))}
                 required
                 className="w-full border border-black/10 rounded-lg h-12 px-4 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors"
-              />
+              >
+                <option value="" disabled>
+                  {t("tour.form.placeholder.date")}
+                </option>
+                {tourDates.map((d) => (
+                  <option key={d} value={d}>
+                    {dateLabel(d)}, 11:00
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="space-y-2">
               <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
