@@ -79,7 +79,7 @@ export default function FarmTourSection() {
               {t("tour.hero.sub")}
             </p>
             <a
-              href="#tour-booking"
+              href="#book"
               className="inline-flex items-center justify-center rounded-full bg-white text-[#1E1E1E] px-7 py-3.5 text-sm font-medium hover:bg-white/90 transition-colors"
             >
               {t("tour.cta.book")}
@@ -146,7 +146,7 @@ export default function FarmTourSection() {
       </section>
 
       {/* Pricing */}
-      <section className="bg-[#1E1E1E] text-white py-24 md:py-32" data-nav-dark>
+      <section id="book" className="bg-[#1E1E1E] text-white py-24 md:py-32" data-nav-dark>
         <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
           <div className="text-center mb-14 space-y-3">
             <span className="text-[#5A6A4F] font-medium text-[10px] uppercase tracking-[0.3em]">

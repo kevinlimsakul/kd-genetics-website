@@ -4,13 +4,13 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-  // Farm Tour is hidden until booking is ready. The page + booking form still
-  // live at app/farm-tour + components/FarmTourSection.tsx; this temporary
-  // redirect just keeps customers off the non-functional booking (nav link is
-  // also removed). Delete this redirect to bring the tour back online.
+  // kdgenetics.org/tour is the URL printed on signs/posters and encoded in the
+  // QR codes. It drops the guest straight onto prices + booking form, tagged
+  // src=qr so poster bookings show up as "via QR code" in Airtable. Keep this
+  // path stable forever: printed QR codes can't be updated.
   async redirects() {
     return [
-      { source: "/farm-tour", destination: "/", permanent: false },
+      { source: "/tour", destination: "/farm-tour?src=qr#book", permanent: false },
     ];
   },
 };

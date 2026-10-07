@@ -54,6 +54,14 @@ export const translations = {
     "tour.pay":
       "No prepayment needed. Pay cash or by credit card at the shop when you arrive. We confirm your date on WhatsApp within a few hours.",
 
+    /* ── Homepage tour block ───────────────────────────────────────────── */
+    "home.tour.eyebrow": "Farm Tour",
+    "home.tour.heading": "Walk the farm with the family.",
+    "home.tour.body":
+      "A guided walk from the shop up to the hillside garden above the sea, ending with a relaxed session and stories from Papa KD. Small groups, by appointment.",
+    "home.tour.pay": "No prepayment. Pay cash or card at the shop when you arrive.",
+    "home.tour.more": "See the full tour",
+
     /* ── Hero ──────────────────────────────────────────────────────────── */
     "hero.location": "Koh Tao, Thailand",
     "hero.titleLine1": "Sun-Grown.",
@@ -400,7 +408,7 @@ export const translations = {
       "Secure your spot in our guided farm experience.",
     "tour.form.success.heading": "You're on the list.",
     "tour.form.success.body":
-      "Your booking request has been received. We'll reach out to confirm your spot and share everything you need to know before your visit.",
+      "We'll confirm your date within a few hours. No prepayment: pay cash or card at the shop when you arrive.",
     "tour.form.success.again": "Submit another request",
     "tour.form.label.package": "Package",
     "tour.form.label.name": "Full Name",
@@ -427,10 +435,12 @@ export const translations = {
     "tour.form.package.standard": "Standard: 1,500 THB",
     "tour.form.package.vip": "VIP: 3,000 THB",
     "tour.form.error":
-      "Something went wrong. Please try again or message us directly on WhatsApp.",
+      "Your request didn't go through. Send it to us on WhatsApp instead, your details are already filled in.",
     "tour.form.submit": "Request to Book",
     "tour.form.submit.sending": "Sending your request…",
     "tour.form.limit": "Limited to 10 people per tour",
+    "tour.form.whatsapp.success": "Message us on WhatsApp",
+    "tour.form.whatsapp.error": "Send on WhatsApp",
 
     /* ── Contact form ───────────────────────────────────────────────────── */
     "contact.label.name": "Name",
@@ -518,6 +528,14 @@ export const translations = {
     "tour.vip.6": "ส่วนลด 10% สำหรับดอกในร้าน",
     "tour.pay":
       "ไม่ต้องชำระเงินล่วงหน้า จ่ายเงินสดหรือบัตรเครดิตที่ร้านเมื่อมาถึง เราจะยืนยันวันของคุณทาง WhatsApp ภายในไม่กี่ชั่วโมง",
+
+    /* ── Homepage tour block ───────────────────────────────────────────── */
+    "home.tour.eyebrow": "ทัวร์ฟาร์ม",
+    "home.tour.heading": "เดินชมฟาร์มกับครอบครัวเรา",
+    "home.tour.body":
+      "เดินชมจากร้านขึ้นไปถึงสวนบนเนินเขาริมทะเล ปิดท้ายด้วยการนั่งชิลและฟังเรื่องเล่าจากปาป๊า KD กลุ่มเล็ก ต้องนัดล่วงหน้า",
+    "home.tour.pay": "ไม่ต้องชำระล่วงหน้า จ่ายเงินสดหรือบัตรที่ร้านเมื่อมาถึง",
+    "home.tour.more": "ดูรายละเอียดทัวร์",
 
     /* ── Hero ──────────────────────────────────────────────────────────── */
     "hero.location": "เกาะเต่า ประเทศไทย",
@@ -864,7 +882,7 @@ export const translations = {
     "tour.form.sub": "จองที่นั่งสำหรับทัวร์ฟาร์มของเรา",
     "tour.form.success.heading": "ได้รับคำขอแล้ว",
     "tour.form.success.body":
-      "เราได้รับคำขอจองเรียบร้อย เดี๋ยวเราจะติดต่อกลับเพื่อยืนยันที่นั่ง พร้อมส่งรายละเอียดที่ควรรู้ก่อนวันมา",
+      "เราจะยืนยันวันของคุณภายในไม่กี่ชั่วโมง ไม่ต้องชำระล่วงหน้า จ่ายเงินสดหรือบัตรที่ร้านเมื่อมาถึง",
     "tour.form.success.again": "ส่งคำขออีกครั้ง",
     "tour.form.label.package": "แพ็คเกจ",
     "tour.form.label.name": "ชื่อ-นามสกุล",
@@ -891,10 +909,12 @@ export const translations = {
     "tour.form.package.standard": "Standard: 1,500 บาท",
     "tour.form.package.vip": "VIP: 3,000 บาท",
     "tour.form.error":
-      "เกิดข้อผิดพลาด ลองอีกครั้ง หรือทักเราตรงๆ ใน WhatsApp",
+      "ส่งคำขอไม่สำเร็จ ส่งให้เราทาง WhatsApp แทนได้เลย ข้อมูลของคุณกรอกไว้ให้แล้ว",
     "tour.form.submit": "ส่งคำขอจอง",
     "tour.form.submit.sending": "กำลังส่งคำขอ…",
     "tour.form.limit": "ทัวร์ละไม่เกิน 10 คน",
+    "tour.form.whatsapp.success": "ทักเราทาง WhatsApp",
+    "tour.form.whatsapp.error": "ส่งทาง WhatsApp",
 
     /* ── Contact form ───────────────────────────────────────────────────── */
     "contact.label.name": "ชื่อ",

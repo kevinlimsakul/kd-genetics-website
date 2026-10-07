@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLanguage } from "@/lib/i18n";
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -42,8 +42,33 @@ const METHOD_LABEL: Record<ContactMethod, string> = {
   email: "Email",
 };
 
-export default function TourBookingForm() {
+export type BookingSource = "qr" | "home" | "page";
+
+const WHATSAPP = "https://wa.me/66988268290";
+
+// Local YYYY-MM-DD for the date input's min (toISOString would be UTC).
+function today() {
+  const d = new Date();
+  d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+  return d.toISOString().slice(0, 10);
+}
+
+export default function TourBookingForm({
+  source = "page",
+  className = "max-w-md mx-auto mt-20",
+}: {
+  source?: BookingSource;
+  className?: string;
+}) {
   const { t } = useLanguage();
+  // QR codes on signs/posters land on /farm-tour?src=qr; that wins over the
+  // placement default so we can see how many bookings the posters bring in.
+  const [src, setSrc] = useState<BookingSource>(source);
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("src") === "qr") setSrc("qr");
+  }, []);
+  // Snapshot of the last submitted request, used to prefill WhatsApp.
+  const [sent, setSent] = useState<typeof form | null>(null);
   const [form, setForm] = useState({
     name: "",
     contactMethod: "whatsapp" as ContactMethod,
@@ -63,7 +88,9 @@ export default function TourBookingForm() {
       const payload = {
         ...form,
         contact: `${METHOD_LABEL[form.contactMethod]}: ${form.contact}`,
+        source: src,
       };
+      setSent(form);
       const res = await fetch("/api/book-tour", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -87,10 +114,27 @@ export default function TourBookingForm() {
     }
   };
 
+  // Prefilled WhatsApp message with the request details. Shown after success
+  // (guest can ping us straight away) and on error (so a failed submit is
+  // never a dead end, which is what happened in Aug 2026).
+  const waLink = (f: typeof form | null) => {
+    if (!f) return WHATSAPP;
+    const pkg = f.package === "vip" ? "VIP" : "Standard";
+    const msg = [
+      `Hi KD! Farm tour request:`,
+      `${pkg} tour, ${f.date}, ${f.people} ${Number(f.people) === 1 ? "person" : "people"}`,
+      `Name: ${f.name}`,
+      f.notes ? `Note: ${f.notes}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+    return `${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+  };
+
   return (
     <div
       id="tour-booking"
-      className="max-w-md mx-auto mt-20 bg-white text-[#1E1E1E] p-10 rounded-2xl shadow-lg space-y-8"
+      className={`${className} scroll-mt-24 bg-white text-[#1E1E1E] p-6 sm:p-10 rounded-2xl shadow-lg space-y-8`}
     >
       <div className="text-center">
         <h3 className="font-display text-2xl mb-2">{t("tour.form.heading")}</h3>
@@ -104,6 +148,15 @@ export default function TourBookingForm() {
           <p className="text-sm text-[#6B6B6B] leading-relaxed">
             {t("tour.form.success.body")}
           </p>
+          <a
+            href={waLink(sent)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full bg-[#25D366] text-white px-6 h-11 text-sm font-medium hover:bg-[#25D366]/90 transition-colors"
+          >
+            {t("tour.form.whatsapp.success")}
+          </a>
+          <br />
           <button
             onClick={() => setStatus("idle")}
             className="mt-2 text-xs underline text-[#6B6B6B]/70 hover:text-[#6B6B6B] transition-colors"
@@ -201,6 +254,7 @@ export default function TourBookingForm() {
               </label>
               <input
                 type="date"
+                min={today()}
                 value={form.date}
                 onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))}
                 required
@@ -241,7 +295,17 @@ export default function TourBookingForm() {
           </div>
 
           {status === "error" && (
-            <p className="text-xs text-red-500 text-center">{t("tour.form.error")}</p>
+            <div className="text-center space-y-3">
+              <p className="text-xs text-red-500">{t("tour.form.error")}</p>
+              <a
+                href={waLink(sent)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-[#25D366] text-white px-6 h-11 text-sm font-medium hover:bg-[#25D366]/90 transition-colors"
+              >
+                {t("tour.form.whatsapp.error")}
+              </a>
+            </div>
           )}
 
           <button

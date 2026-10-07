@@ -7,6 +7,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import HeroVideo from "@/components/HeroVideo";
 import SlideshowGallery from "@/components/SlideshowGallery";
 import SlowdownCarousel from "@/components/SlowdownCarousel";
+import HomeTourSection from "@/components/HomeTourSection";
 import { useLanguage } from "@/lib/i18n";
 import {
   Leaf,
@@ -492,6 +493,11 @@ export default function HomePage() {
           />
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════════════════════════
+       *  6. FARM TOUR (compact; full page at /farm-tour)
+       * ══════════════════════════════════════════════════════════════════ */}
+      <HomeTourSection />
 
       {/* ══════════════════════════════════════════════════════════════════
        *  7. KD MERCH
