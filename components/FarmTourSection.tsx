@@ -39,8 +39,8 @@ const standardKeys = [
 
 // THB values shown struck through next to each VIP take-home. Prices are
 // currency, not language, so they stay hardcoded. Sum = 2,720 (= "almost
-// 3,000" in the subtitle). Oil or edible pack is the guest's choice (picked
-// in the booking form), valued at the oil price. The 10% flower discount has no fixed value.
+// 3,000" in the subtitle). Oil or edible pack is chosen in person at the
+// shop, valued at the oil price. The 10% flower discount has no fixed value.
 const vipExtras = [
   { key: "tour.vip.1", value: "800 THB" },
   { key: "tour.vip.2", value: "750 THB" },

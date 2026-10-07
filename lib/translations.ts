@@ -425,9 +425,6 @@ export const translations = {
     "tour.form.contact.email.ph": "you@email.com",
     "tour.form.label.date": "Date",
     "tour.form.placeholder.date": "Pick a Friday",
-    "tour.form.label.vipChoice": "VIP take-home: your choice",
-    "tour.form.vip.oil": "KD cannabis oil",
-    "tour.form.vip.edible": "Edible pack",
     "tour.form.spots.left": "{n} spots left",
     "tour.form.spots.full": "Full",
     "tour.form.spots.tooMany":
@@ -908,9 +905,6 @@ export const translations = {
     "tour.form.contact.email.ph": "you@email.com",
     "tour.form.label.date": "วันที่",
     "tour.form.placeholder.date": "เลือกวันศุกร์",
-    "tour.form.label.vipChoice": "ของที่ระลึก VIP: เลือกได้",
-    "tour.form.vip.oil": "น้ำมันกัญชา KD",
-    "tour.form.vip.edible": "เซ็ตขนม",
     "tour.form.spots.left": "เหลือ {n} ที่",
     "tour.form.spots.full": "เต็ม",
     "tour.form.spots.tooMany":
