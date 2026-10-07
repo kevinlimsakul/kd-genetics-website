@@ -425,6 +425,11 @@ export const translations = {
     "tour.form.contact.email.ph": "you@email.com",
     "tour.form.label.date": "Date",
     "tour.form.placeholder.date": "Pick a Friday",
+    "tour.form.spots.left": "{n} spots left",
+    "tour.form.spots.full": "Full",
+    "tour.form.spots.tooMany":
+      "Only {n} spots left on that Friday. Pick fewer people or another Friday.",
+    "tour.form.spots.justFilled": "That Friday just filled up. Please pick another one.",
     "tour.form.label.people": "People",
     "tour.form.label.notes": "Notes",
     "tour.form.label.optional": "(optional)",
@@ -900,6 +905,11 @@ export const translations = {
     "tour.form.contact.email.ph": "you@email.com",
     "tour.form.label.date": "วันที่",
     "tour.form.placeholder.date": "เลือกวันศุกร์",
+    "tour.form.spots.left": "เหลือ {n} ที่",
+    "tour.form.spots.full": "เต็ม",
+    "tour.form.spots.tooMany":
+      "วันศุกร์นั้นเหลือเพียง {n} ที่ ลดจำนวนคนหรือเลือกวันศุกร์อื่น",
+    "tour.form.spots.justFilled": "วันศุกร์นั้นเพิ่งเต็ม กรุณาเลือกวันอื่น",
     "tour.form.label.people": "จำนวนคน",
     "tour.form.label.notes": "หมายเหตุ",
     "tour.form.label.optional": "(ไม่บังคับ)",

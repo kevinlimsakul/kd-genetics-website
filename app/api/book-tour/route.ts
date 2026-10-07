@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { TOUR_CAPACITY, bookedGuestsByDate } from "@/lib/tour";
 
 // Values must match the "Package" single-select options in Airtable EXACTLY
 // (incl. the em dash). The API token can't create new options, so any drift
@@ -35,6 +36,16 @@ export async function POST(req: NextRequest) {
       { error: "Airtable credentials not configured." },
       { status: 500 }
     );
+  }
+
+  // Re-check capacity at submit time (the form's counts can be minutes old).
+  // If Airtable can't be read, accept the request; Kevin confirms by hand anyway.
+  const booked = await bookedGuestsByDate();
+  if (booked) {
+    const left = Math.max(0, TOUR_CAPACITY - (booked[date] ?? 0));
+    if (guests > left) {
+      return NextResponse.json({ error: "Not enough spots.", left }, { status: 409 });
+    }
   }
 
   const tier = pkg === "vip" ? PACKAGES.vip : PACKAGES.standard;

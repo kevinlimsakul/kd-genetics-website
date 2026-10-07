@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/lib/i18n";
+import { TOUR_CAPACITY, TOUR_TIME, upcomingTourDates } from "@/lib/tour";
 
-type Status = "idle" | "loading" | "success" | "error";
+type Status = "idle" | "loading" | "success" | "error" | "full";
 type ContactMethod = "whatsapp" | "line" | "email";
 
 const METHODS: {
@@ -46,26 +47,9 @@ export type BookingSource = "qr" | "home" | "page";
 
 const WHATSAPP = "https://wa.me/66988268290";
 
-// One tour a week: Fridays 11:00, 90 min (decided Oct 2026). To change the
-// day, update TOUR_WEEKDAY + the "Friday" wording in lib/translations.ts.
-const TOUR_WEEKDAY = 5; // 0 = Sun ... 5 = Fri
-const SAME_DAY_CUTOFF_HOUR = 10; // same-day requests allowed until 10:00 Thai time
-const WEEKS_AHEAD = 8;
-
-// Next tour dates as YYYY-MM-DD, computed in Thai time (UTC+7) no matter
-// where the guest's phone thinks it is.
-function upcomingTourDates() {
-  const bkk = new Date(Date.now() + 7 * 3600 * 1000); // read with getUTC*
-  const day = new Date(Date.UTC(bkk.getUTCFullYear(), bkk.getUTCMonth(), bkk.getUTCDate()));
-  let offset = (TOUR_WEEKDAY - day.getUTCDay() + 7) % 7;
-  if (offset === 0 && bkk.getUTCHours() >= SAME_DAY_CUTOFF_HOUR) offset = 7;
-  day.setUTCDate(day.getUTCDate() + offset);
-  return Array.from({ length: WEEKS_AHEAD }, (_, i) => {
-    const d = new Date(day);
-    d.setUTCDate(d.getUTCDate() + i * 7);
-    return d.toISOString().slice(0, 10);
-  });
-}
+// Show "N spots left" only when a Friday is getting full. "10 spots left"
+// on an empty tour reads as nobody's coming.
+const LOW_SPOTS = 5;
 
 export default function TourBookingForm({
   source = "page",
@@ -89,6 +73,26 @@ export default function TourBookingForm({
   useEffect(() => {
     if (new URLSearchParams(window.location.search).get("src") === "qr") setSrc("qr");
   }, []);
+  // Live spots left per Friday (from Airtable via /api/tour-spots). null =
+  // not loaded / unreadable: form still works, just without counts.
+  const [spots, setSpots] = useState<Record<string, number | null> | null>(null);
+  const loadSpots = () =>
+    fetch("/api/tour-spots", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (!d?.spots) return;
+        setSpots(
+          Object.fromEntries(
+            (d.spots as { date: string; left: number | null }[]).map((x) => [x.date, x.left])
+          )
+        );
+      })
+      .catch(() => {});
+  useEffect(() => {
+    loadSpots();
+  }, []);
+  const leftOn = (date: string) => spots?.[date] ?? null;
+  const [fullLeft, setFullLeft] = useState(0);
   // Snapshot of the last submitted request, used to prefill WhatsApp.
   const [sent, setSent] = useState<typeof form | null>(null);
   const [form, setForm] = useState({
@@ -119,9 +123,18 @@ export default function TourBookingForm({
         body: JSON.stringify(payload),
       });
 
+      if (res.status === 409) {
+        // Someone took the spots while this guest was filling in the form.
+        const d = await res.json().catch(() => ({}));
+        setFullLeft(Number(d.left) || 0);
+        setStatus("full");
+        loadSpots();
+        return;
+      }
       if (!res.ok) throw new Error("API error");
 
       setStatus("success");
+      loadSpots();
       setForm({
         name: "",
         contactMethod: "whatsapp",
@@ -144,7 +157,7 @@ export default function TourBookingForm({
     const pkg = f.package === "vip" ? "VIP" : "Standard";
     const msg = [
       `Hi KD! Farm tour request:`,
-      `${pkg} tour, ${dateLabel(f.date)} 11:00, ${f.people} ${Number(f.people) === 1 ? "person" : "people"}`,
+      `${pkg} tour, ${dateLabel(f.date)} ${TOUR_TIME}, ${f.people} ${Number(f.people) === 1 ? "person" : "people"}`,
       `Name: ${f.name}`,
       f.notes ? `Note: ${f.notes}` : "",
     ]
@@ -283,11 +296,20 @@ export default function TourBookingForm({
                 <option value="" disabled>
                   {t("tour.form.placeholder.date")}
                 </option>
-                {tourDates.map((d) => (
-                  <option key={d} value={d}>
-                    {dateLabel(d)}, 11:00
-                  </option>
-                ))}
+                {tourDates.map((d) => {
+                  const left = leftOn(d);
+                  const full = left === 0;
+                  const suffix = full
+                    ? ` · ${t("tour.form.spots.full")}`
+                    : left !== null && left <= LOW_SPOTS
+                      ? ` · ${t("tour.form.spots.left").replace("{n}", String(left))}`
+                      : "";
+                  return (
+                    <option key={d} value={d} disabled={full}>
+                      {`${dateLabel(d)}, ${TOUR_TIME}${suffix}`}
+                    </option>
+                  );
+                })}
               </select>
             </div>
             <div className="space-y-2">
@@ -297,7 +319,7 @@ export default function TourBookingForm({
               <input
                 type="number"
                 min="1"
-                max="10"
+                max={form.date ? (leftOn(form.date) ?? TOUR_CAPACITY) : TOUR_CAPACITY}
                 placeholder={t("tour.form.placeholder.people")}
                 value={form.people}
                 onChange={(e) => setForm((f) => ({ ...f, people: e.target.value }))}
@@ -322,6 +344,14 @@ export default function TourBookingForm({
               className="w-full border border-black/10 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors resize-none"
             />
           </div>
+
+          {status === "full" && (
+            <p className="text-xs text-red-500 text-center">
+              {fullLeft > 0
+                ? t("tour.form.spots.tooMany").replace("{n}", String(fullLeft))
+                : t("tour.form.spots.justFilled")}
+            </p>
+          )}
 
           {status === "error" && (
             <div className="text-center space-y-3">
