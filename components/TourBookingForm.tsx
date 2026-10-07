@@ -6,6 +6,8 @@ import { TOUR_CAPACITY, TOUR_TIME, upcomingTourDates } from "@/lib/tour";
 
 type Status = "idle" | "loading" | "success" | "error" | "full";
 type ContactMethod = "whatsapp" | "line" | "email";
+// VIP guests pick one take-home: KD cannabis oil or an edible pack.
+type VipChoice = "oil" | "edible";
 
 const METHODS: {
   value: ContactMethod;
@@ -102,6 +104,7 @@ export default function TourBookingForm({
     date: "",
     people: "",
     package: "standard",
+    vipChoice: "oil" as VipChoice,
     notes: "",
   });
   const [status, setStatus] = useState<Status>("idle");
@@ -142,6 +145,7 @@ export default function TourBookingForm({
         date: "",
         people: "",
         package: "standard",
+        vipChoice: "oil",
         notes: "",
       });
     } catch {
@@ -154,7 +158,10 @@ export default function TourBookingForm({
   // never a dead end, which is what happened in Aug 2026).
   const waLink = (f: typeof form | null) => {
     if (!f) return WHATSAPP;
-    const pkg = f.package === "vip" ? "VIP" : "Standard";
+    const pkg =
+      f.package === "vip"
+        ? `VIP (${f.vipChoice === "edible" ? "edible pack" : "oil"})`
+        : "Standard";
     const msg = [
       `Hi KD! Farm tour request:`,
       `${pkg} tour, ${dateLabel(f.date)} ${TOUR_TIME}, ${f.people} ${Number(f.people) === 1 ? "person" : "people"}`,
@@ -225,6 +232,33 @@ export default function TourBookingForm({
               ))}
             </div>
           </div>
+
+          {form.package === "vip" && (
+            <div className="space-y-2">
+              <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
+                {t("tour.form.label.vipChoice")}
+              </label>
+              <div className="grid grid-cols-2 gap-2">
+                {[
+                  { value: "oil" as const, labelKey: "tour.form.vip.oil" as const },
+                  { value: "edible" as const, labelKey: "tour.form.vip.edible" as const },
+                ].map((opt) => (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    onClick={() => setForm((f) => ({ ...f, vipChoice: opt.value }))}
+                    className={`py-2 px-3 rounded-lg border text-[11px] font-medium transition-all ${
+                      form.vipChoice === opt.value
+                        ? "bg-[#5A6A4F] text-white border-[#5A6A4F]"
+                        : "bg-transparent text-[#1E1E1E]/60 border-black/10 hover:border-[#1E1E1E]/30"
+                    }`}
+                  >
+                    {t(opt.labelKey)}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="space-y-2">
             <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">

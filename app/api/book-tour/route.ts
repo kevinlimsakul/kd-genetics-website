@@ -19,7 +19,7 @@ const SOURCES: Record<string, string> = {
 };
 
 export async function POST(req: NextRequest) {
-  const { name, contact, date, people, package: pkg, notes, source } =
+  const { name, contact, date, people, package: pkg, vipChoice, notes, source } =
     await req.json();
 
   const guests = Number(people);
@@ -49,6 +49,9 @@ export async function POST(req: NextRequest) {
   }
 
   const tier = pkg === "vip" ? PACKAGES.vip : PACKAGES.standard;
+  // VIP take-home choice: KD cannabis oil or edible pack (one per booking).
+  const perk =
+    pkg === "vip" ? (vipChoice === "edible" ? "Edible pack" : "KD cannabis oil") : null;
   const total = tier.price * guests;
   const via = SOURCES[source] ?? SOURCES.page;
   const fullNotes = [`via ${via}`, notes?.trim()].filter(Boolean).join("\n");
@@ -72,6 +75,7 @@ export async function POST(req: NextRequest) {
           Source: "Website",
           "Total Amount (THB)": total,
           Notes: fullNotes,
+          "VIP Perks": perk ?? "",
           "Submitted At": new Date().toISOString().slice(0, 10),
         },
       }),
@@ -89,7 +93,7 @@ export async function POST(req: NextRequest) {
     contact: contact.trim(),
     date,
     guests,
-    tier: tier.label,
+    tier: perk ? `${tier.label} + ${perk}` : tier.label,
     total,
     via,
     notes: notes?.trim(),
