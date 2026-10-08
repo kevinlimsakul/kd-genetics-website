@@ -44,13 +44,13 @@ export default function HomeTourSection() {
                 <p className="text-[10px] uppercase tracking-[0.15em] text-[#6B6B6B]">
                   {t("tour.tier.standard")}
                 </p>
-                <p className="font-display text-2xl text-[#1E1E1E]">1,500 THB</p>
+                <p className="font-display text-2xl text-[#1E1E1E]">1,200 THB</p>
               </div>
               <div className="rounded-xl border border-[#5A6A4F]/40 bg-[#5A6A4F]/5 px-4 py-3">
                 <p className="text-[10px] uppercase tracking-[0.15em] text-[#5A6A4F]">
                   {t("tour.tier.vip")}
                 </p>
-                <p className="font-display text-2xl text-[#1E1E1E]">3,000 THB</p>
+                <p className="font-display text-2xl text-[#1E1E1E]">2,500 THB</p>
               </div>
             </div>
             <p className="text-[#6B6B6B] text-sm font-light">{t("home.tour.pay")}</p>

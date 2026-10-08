@@ -35,12 +35,13 @@ const standardKeys = [
   "tour.std.3",
   "tour.std.4",
   "tour.std.5",
+  "tour.std.6",
 ] as const;
 
 // THB values shown struck through next to each VIP take-home. Prices are
-// currency, not language, so they stay hardcoded. Sum = 2,720 (= "almost
-// 3,000" in the subtitle). Oil or edible pack is chosen in person at the
-// shop, valued at the oil price. The 10% flower discount has no fixed value.
+// currency, not language, so they stay hardcoded. Sum = 2,720 (= "over
+// 2,700" in the subtitle). The homemade product (tea / capsules / oil drops /
+// massage oil) is picked in person at the shop, valued at the oil price. The 10% flower discount has no fixed value.
 const vipExtras = [
   { key: "tour.vip.1", value: "800 THB" },
   { key: "tour.vip.2", value: "750 THB" },
@@ -164,7 +165,7 @@ export default function FarmTourSection() {
                 <span className="text-white/40 text-[11px] font-medium uppercase tracking-[0.15em]">
                   {t("tour.tier.standard")}
                 </span>
-                <p className="font-display text-3xl">1,500 THB</p>
+                <p className="font-display text-3xl">1,200 THB</p>
                 <p className="text-white/40 text-[11px] font-light">
                   {t("tour.tier.standard.dur")}
                 </p>
@@ -190,7 +191,7 @@ export default function FarmTourSection() {
                 <span className="text-[#5A6A4F] text-[11px] font-medium uppercase tracking-[0.15em]">
                   {t("tour.tier.vip")}
                 </span>
-                <p className="font-display text-3xl">3,000 THB</p>
+                <p className="font-display text-3xl">2,500 THB</p>
                 <p className="text-white/40 text-[11px] font-light">
                   {t("tour.tier.vip.dur")}
                 </p>

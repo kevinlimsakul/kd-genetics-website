@@ -2,12 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { TOUR_CAPACITY, bookedGuestsByDate } from "@/lib/tour";
 
 // Values must match the "Package" single-select options in Airtable EXACTLY
-// (incl. the em dash). The API token can't create new options, so any drift
-// here = every booking rejected (INVALID_MULTIPLE_CHOICE_OPTIONS). That is
-// what broke the form in Aug 2026 after a copy cleanup swapped the dash.
+// (incl. the em dash). The API token can't create new options, so drift here
+// got every booking rejected in Aug 2026 (INVALID_MULTIPLE_CHOICE_OPTIONS).
+// Since Oct 2026 a mismatch no longer loses the booking: we retry without
+// Package and write it into Notes instead (see below).
 const PACKAGES = {
-  standard: { label: "Standard — 1,500 THB", price: 1500 },
-  vip: { label: "VIP — 3,000 THB", price: 3000 },
+  standard: { label: "Standard — 1,200 THB", price: 1200 },
+  vip: { label: "VIP — 2,500 THB", price: 2500 },
 } as const;
 
 // Where the booking came from (QR poster, homepage, tour page). Stored in
@@ -53,35 +54,42 @@ export async function POST(req: NextRequest) {
   const via = SOURCES[source] ?? SOURCES.page;
   const fullNotes = [`via ${via}`, notes?.trim()].filter(Boolean).join("\n");
 
-  const res = await fetch(
-    `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`,
-    {
+  const fields: Record<string, unknown> = {
+    Name: name.trim(),
+    Package: tier.label,
+    "Tour Date": date,
+    "Number of Guests": guests,
+    Contact: contact.trim(),
+    Status: "New",
+    Source: "Website",
+    "Total Amount (THB)": total,
+    Notes: fullNotes,
+    "Submitted At": new Date().toISOString().slice(0, 10),
+  };
+  const save = (f: Record<string, unknown>) =>
+    fetch(`https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        fields: {
-          Name: name.trim(),
-          Package: tier.label,
-          "Tour Date": date,
-          "Number of Guests": guests,
-          Contact: contact.trim(),
-          Status: "New",
-          Source: "Website",
-          "Total Amount (THB)": total,
-          Notes: fullNotes,
-          "Submitted At": new Date().toISOString().slice(0, 10),
-        },
-      }),
-    }
-  );
+      body: JSON.stringify({ fields: f }),
+    });
 
+  let res = await save(fields);
   if (!res.ok) {
     const err = await res.text();
     console.error("Airtable error:", err);
-    return NextResponse.json({ error: "Failed to save booking." }, { status: 502 });
+    // Package label not (yet) an option in Airtable, e.g. after a price
+    // change: save the booking anyway, package goes into Notes instead.
+    if (err.includes("INVALID_MULTIPLE_CHOICE_OPTIONS")) {
+      const { Package: _pkg, ...rest } = fields;
+      res = await save({ ...rest, Notes: `${tier.label}\n${fullNotes}` });
+      if (!res.ok) console.error("Airtable retry error:", await res.text());
+    }
+    if (!res.ok) {
+      return NextResponse.json({ error: "Failed to save booking." }, { status: 502 });
+    }
   }
 
   await sendBookingNotificationEmail({
