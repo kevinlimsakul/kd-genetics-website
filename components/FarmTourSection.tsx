@@ -39,13 +39,14 @@ const standardKeys = [
 ] as const;
 
 // THB values shown struck through next to each VIP take-home. Prices are
-// currency, not language, so they stay hardcoded. Sum = 2,720 (= "over
-// 2,700" in the subtitle). The homemade product (tea / capsules / oil drops /
-// massage oil) is picked in person at the shop, valued at the oil price. The 10% flower discount has no fixed value.
+// currency, not language, so they stay hardcoded. Sum = 2,920 (= "over
+// 2,900" in the subtitle). The homemade product (tea / capsules / oil drops /
+// massage oil) is picked in person at the shop, valued at the priciest
+// option (capsules, 900 THB). The 10% flower discount has no fixed value.
 const vipExtras = [
   { key: "tour.vip.1", value: "800 THB" },
   { key: "tour.vip.2", value: "750 THB" },
-  { key: "tour.vip.3", value: "700 THB" },
+  { key: "tour.vip.3", value: "900 THB" },
   { key: "tour.vip.4", value: "140 THB" },
   { key: "tour.vip.5", value: "330 THB" },
   { key: "tour.vip.6", value: null },
