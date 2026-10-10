@@ -1,5 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { TOUR_CAPACITY, bookedGuestsByDate } from "@/lib/tour";
+import {
+  type Lang,
+  confirmUrl,
+  parseContact,
+  requestReceivedEmail,
+  sendGuestEmail,
+} from "@/lib/tour-messages";
 
 // Values must match the "Package" single-select options in Airtable EXACTLY
 // (incl. the em dash). The API token can't create new options, so drift here
@@ -20,8 +27,9 @@ const SOURCES: Record<string, string> = {
 };
 
 export async function POST(req: NextRequest) {
-  const { name, contact, date, people, package: pkg, notes, source } =
+  const { name, contact, date, people, package: pkg, notes, source, lang: rawLang } =
     await req.json();
+  const lang: Lang = rawLang === "th" ? "th" : "en";
 
   const guests = Number(people);
   if (!name?.trim() || !contact?.trim() || !date || !(guests >= 1)) {
@@ -92,15 +100,23 @@ export async function POST(req: NextRequest) {
     }
   }
 
+  const record = await res.json().catch(() => null);
+  const booking = { name: name.trim(), date, guests, tier: tier.label, total };
+
+  // Email guests get an instant "request received" (not a confirmation:
+  // Kevin confirms by hand via the link in his alert).
+  const reach = parseContact(contact);
+  const guestEmailed =
+    reach.method === "email" &&
+    (await sendGuestEmail(reach.value, requestReceivedEmail(booking, lang)));
+
   await sendBookingNotificationEmail({
-    name: name.trim(),
+    ...booking,
     contact: contact.trim(),
-    date,
-    guests,
-    tier: tier.label,
-    total,
     via,
     notes: notes?.trim(),
+    confirm: record?.id ? confirmUrl(req.nextUrl.origin, record.id, lang) : null,
+    guestEmailed,
   });
 
   return NextResponse.json({ ok: true });
@@ -117,6 +133,8 @@ async function sendBookingNotificationEmail(b: {
   total: number;
   via: string;
   notes?: string;
+  confirm: string | null;
+  guestEmailed: boolean;
 }) {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.ORDER_NOTIFY_EMAIL;
@@ -127,10 +145,11 @@ async function sendBookingNotificationEmail(b: {
     return;
   }
 
-  const day = new Date(`${b.date}T00:00:00`).toLocaleDateString("en-GB", {
+  const day = new Date(`${b.date}T00:00:00Z`).toLocaleDateString("en-GB", {
     weekday: "short",
     day: "numeric",
     month: "short",
+    timeZone: "UTC",
   });
 
   const text = [
@@ -145,8 +164,11 @@ async function sendBookingNotificationEmail(b: {
     `  Total    ฿${b.total.toLocaleString()} (pay on arrival)`,
     `  Via      ${b.via}`,
     b.notes ? `\nGuest note\n  ${b.notes}` : null,
+    b.guestEmailed ? `\nGuest got an automatic "request received" email.` : null,
     ``,
-    `Confirm the date with the guest, then set Status = Confirmed in Airtable.`,
+    b.confirm
+      ? `Confirm (sets Airtable to Confirmed + emails the guest, or opens WhatsApp with the confirmation ready to send):\n${b.confirm}`
+      : `Confirm the date with the guest, then set Status = Confirmed in Airtable.`,
   ]
     .filter((l) => l !== null)
     .join("\n");

@@ -115,6 +115,7 @@ export default function TourBookingForm({
         ...form,
         contact: `${METHOD_LABEL[form.contactMethod]}: ${form.contact}`,
         source: src,
+        lang,
       };
       setSent(form);
       const res = await fetch("/api/book-tour", {
