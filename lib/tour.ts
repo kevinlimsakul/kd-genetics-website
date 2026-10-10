@@ -1,10 +1,11 @@
 // Farm tour schedule + capacity, shared by the booking form and the API.
-// One tour a week: Fridays 11:00, 90 min (decided Oct 2026). To change the
+// One tour a week: Fridays 4:20 pm, ~75 min (moved from 11:00 after the
+// 9 Oct 2026 test run). To change the
 // day, update TOUR_WEEKDAY + the "Friday" wording in lib/translations.ts.
 export const TOUR_WEEKDAY = 5; // 0 = Sun ... 5 = Fri
-export const TOUR_TIME = "11:00";
+export const TOUR_TIME = "4:20 pm";
 export const TOUR_CAPACITY = 10;
-const SAME_DAY_CUTOFF_HOUR = 10; // same-day requests allowed until 10:00 Thai time
+const SAME_DAY_CUTOFF_HOUR = 15; // same-day requests allowed until 15:00 Thai time
 const WEEKS_AHEAD = 8;
 
 // Next tour dates as YYYY-MM-DD, computed in Thai time (UTC+7) no matter

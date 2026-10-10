@@ -7,7 +7,7 @@ import { TOUR_CAPACITY, bookedGuestsByDate } from "@/lib/tour";
 // Since Oct 2026 a mismatch no longer loses the booking: we retry without
 // Package and write it into Notes instead (see below).
 const PACKAGES = {
-  standard: { label: "Standard — 1,200 THB", price: 1200 },
+  standard: { label: "Standard — 1,250 THB", price: 1250 },
   vip: { label: "VIP — 2,500 THB", price: 2500 },
 } as const;
 

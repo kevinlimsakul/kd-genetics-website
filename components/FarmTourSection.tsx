@@ -31,6 +31,7 @@ const moments = [
 
 const standardKeys = [
   "tour.std.1",
+  "tour.std.7",
   "tour.std.2",
   "tour.std.3",
   "tour.std.4",
@@ -166,7 +167,7 @@ export default function FarmTourSection() {
                 <span className="text-white/40 text-[11px] font-medium uppercase tracking-[0.15em]">
                   {t("tour.tier.standard")}
                 </span>
-                <p className="font-display text-3xl">1,200 THB</p>
+                <p className="font-display text-3xl">1,250 THB</p>
                 <p className="text-white/40 text-[11px] font-light">
                   {t("tour.tier.standard.dur")}
                 </p>

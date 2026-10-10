@@ -18,7 +18,7 @@ export const translations = {
     "tour.hero.title":
       "An afternoon on the only working cannabis farm on Koh Tao.",
     "tour.hero.sub":
-      "Every Friday at 11:00. Ninety minutes with the family who grows it. Small groups.",
+      "Every Friday at 4:20 pm. About 75 minutes with the family who grows it. Small groups.",
     "tour.cta.book": "Request to book",
     "tour.intro.eyebrow": "The Farm Tour",
     "tour.intro.body":
@@ -36,8 +36,9 @@ export const translations = {
     "tour.pricing.eyebrow": "Two ways to join",
     "tour.pricing.heading": "Choose your tour",
     "tour.tier.standard": "Standard",
-    "tour.tier.standard.dur": "90-minute guided experience",
-    "tour.std.1": "90-minute guided tour",
+    "tour.tier.standard.dur": "About 75 minutes, guided",
+    "tour.std.1": "Guided tour, about 75 minutes",
+    "tour.std.7": "Welcome tea & snack on arrival",
     "tour.std.2": "Welcome & founder story",
     "tour.std.3": "Greenhouses & hillside garden",
     "tour.std.4": "Seed to harvest, the sustainable way: sun, compost, worms & chickens",
@@ -59,7 +60,7 @@ export const translations = {
     "home.tour.eyebrow": "Farm Tour",
     "home.tour.heading": "Walk the farm with the family.",
     "home.tour.body":
-      "Every Friday at 11:00. A 90-minute guided walk from the shop up to the hillside garden above the sea, ending with a relaxed session and stories from Papa KD. Small groups.",
+      "Every Friday at 4:20 pm. A guided walk of about 75 minutes from the shop up to the hillside garden above the sea, ending with a relaxed session and stories from Papa KD. Small groups.",
     "home.tour.pay": "No prepayment. Pay cash or card at the shop when you arrive.",
     "home.tour.more": "See the full tour",
 
@@ -406,7 +407,7 @@ export const translations = {
     /* ── Tour booking form ──────────────────────────────────────────────── */
     "tour.form.heading": "Book Your Tour",
     "tour.form.sub":
-      "Every Friday at 11:00, starting at the shop. 90 minutes.",
+      "Every Friday at 4:20 pm, starting at the shop. About 75 minutes.",
     "tour.form.success.heading": "You're on the list.",
     "tour.form.success.body":
       "We'll confirm your date within a few hours. No prepayment: pay cash or card at the shop when you arrive.",
@@ -439,7 +440,7 @@ export const translations = {
     "tour.form.placeholder.people": "1",
     "tour.form.placeholder.notes":
       "Any questions, dietary needs, or special requests?",
-    "tour.form.package.standard": "Standard: 1,200 THB",
+    "tour.form.package.standard": "Standard: 1,250 THB",
     "tour.form.package.vip": "VIP: 2,500 THB",
     "tour.form.error":
       "Your request didn't go through. Send it to us on WhatsApp instead, your details are already filled in.",
@@ -500,7 +501,7 @@ export const translations = {
     "tour.hero.title":
       "บ่ายวันหนึ่งในฟาร์มกัญชาแห่งเดียวที่ยังเปิดดำเนินการบนเกาะเต่า",
     "tour.hero.sub":
-      "ทุกวันศุกร์ 11:00 น. 90 นาทีกับครอบครัวผู้ปลูกเอง กลุ่มเล็ก",
+      "ทุกวันศุกร์ 16:20 น. ประมาณ 75 นาทีกับครอบครัวผู้ปลูกเอง กลุ่มเล็ก",
     "tour.cta.book": "ขอจองทัวร์",
     "tour.intro.eyebrow": "ทัวร์ฟาร์ม",
     "tour.intro.body":
@@ -518,8 +519,9 @@ export const translations = {
     "tour.pricing.eyebrow": "สองแบบให้เลือก",
     "tour.pricing.heading": "เลือกทัวร์ของคุณ",
     "tour.tier.standard": "สแตนดาร์ด",
-    "tour.tier.standard.dur": "ประสบการณ์พร้อมไกด์ 90 นาที",
-    "tour.std.1": "ทัวร์พร้อมไกด์ 90 นาที",
+    "tour.tier.standard.dur": "พร้อมไกด์ ประมาณ 75 นาที",
+    "tour.std.1": "ทัวร์พร้อมไกด์ ประมาณ 75 นาที",
+    "tour.std.7": "ชาต้อนรับและของว่างเมื่อมาถึง",
     "tour.std.2": "ต้อนรับและเรื่องราวผู้ก่อตั้ง",
     "tour.std.3": "โรงเรือนและสวนบนเนินเขา",
     "tour.std.4": "ตั้งแต่เมล็ดถึงเก็บเกี่ยวแบบยั่งยืน: แสงแดด ปุ๋ยหมัก ไส้เดือน และไก่",
@@ -541,7 +543,7 @@ export const translations = {
     "home.tour.eyebrow": "ทัวร์ฟาร์ม",
     "home.tour.heading": "เดินชมฟาร์มกับครอบครัวเรา",
     "home.tour.body":
-      "ทุกวันศุกร์ 11:00 น. เดินชม 90 นาทีจากร้านขึ้นไปถึงสวนบนเนินเขาริมทะเล ปิดท้ายด้วยการนั่งชิลและฟังเรื่องเล่าจากปาป๊า KD กลุ่มเล็ก",
+      "ทุกวันศุกร์ 16:20 น. เดินชมประมาณ 75 นาทีจากร้านขึ้นไปถึงสวนบนเนินเขาริมทะเล ปิดท้ายด้วยการนั่งชิลและฟังเรื่องเล่าจากปาป๊า KD กลุ่มเล็ก",
     "home.tour.pay": "ไม่ต้องชำระล่วงหน้า จ่ายเงินสดหรือบัตรที่ร้านเมื่อมาถึง",
     "home.tour.more": "ดูรายละเอียดทัวร์",
 
@@ -887,7 +889,7 @@ export const translations = {
 
     /* ── Tour booking form ──────────────────────────────────────────────── */
     "tour.form.heading": "จองทัวร์ฟาร์ม",
-    "tour.form.sub": "ทุกวันศุกร์ 11:00 น. เริ่มที่ร้าน 90 นาที",
+    "tour.form.sub": "ทุกวันศุกร์ 16:20 น. เริ่มที่ร้าน ประมาณ 75 นาที",
     "tour.form.success.heading": "ได้รับคำขอแล้ว",
     "tour.form.success.body":
       "เราจะยืนยันวันของคุณภายในไม่กี่ชั่วโมง ไม่ต้องชำระล่วงหน้า จ่ายเงินสดหรือบัตรที่ร้านเมื่อมาถึง",
@@ -920,7 +922,7 @@ export const translations = {
     "tour.form.placeholder.people": "1",
     "tour.form.placeholder.notes":
       "มีคำถาม อาหารที่ทานไม่ได้ หรือคำขอพิเศษ บอกเราได้เลย",
-    "tour.form.package.standard": "Standard: 1,200 บาท",
+    "tour.form.package.standard": "Standard: 1,250 บาท",
     "tour.form.package.vip": "VIP: 2,500 บาท",
     "tour.form.error":
       "ส่งคำขอไม่สำเร็จ ส่งให้เราทาง WhatsApp แทนได้เลย ข้อมูลของคุณกรอกไว้ให้แล้ว",
