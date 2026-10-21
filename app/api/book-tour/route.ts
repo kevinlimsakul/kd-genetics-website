@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { TOUR_CAPACITY, bookedGuestsByDate } from "@/lib/tour";
+import { TOUR_CAPACITY, TOUR_PRICES, bookedGuestsByDate, tourRef } from "@/lib/tour";
 import {
   type Lang,
+  type Payment,
   confirmUrl,
   parseContact,
   requestReceivedEmail,
@@ -14,8 +15,8 @@ import {
 // Since Oct 2026 a mismatch no longer loses the booking: we retry without
 // Package and write it into Notes instead (see below).
 const PACKAGES = {
-  standard: { label: "Standard — 1,250 THB", price: 1250 },
-  vip: { label: "VIP — 2,500 THB", price: 2500 },
+  standard: { label: "Standard — 1,250 THB", price: TOUR_PRICES.standard },
+  vip: { label: "VIP — 2,500 THB", price: TOUR_PRICES.vip },
 } as const;
 
 // Where the booking came from (QR poster, homepage, tour page). Stored in
@@ -27,8 +28,11 @@ const SOURCES: Record<string, string> = {
 };
 
 export async function POST(req: NextRequest) {
-  const { name, contact, date, people, package: pkg, notes, source, lang: rawLang } =
+  const { name, contact, date, people, package: pkg, notes, source, payment: rawPayment, customTime: rawCustomTime, lang: rawLang } =
     await req.json();
+  // Set when the guest asked for another day/time instead of a Friday slot.
+  const customTime = typeof rawCustomTime === "string" ? rawCustomTime.trim().slice(0, 100) : "";
+  const payment: Payment = rawPayment === "bank" ? "bank" : "shop";
   const lang: Lang = rawLang === "th" ? "th" : "en";
 
   const guests = Number(people);
@@ -49,7 +53,8 @@ export async function POST(req: NextRequest) {
 
   // Re-check capacity at submit time (the form's counts can be minutes old).
   // If Airtable can't be read, accept the request; Kevin confirms by hand anyway.
-  const booked = await bookedGuestsByDate();
+  // Custom-time requests are separate private tours: no Friday capacity check.
+  const booked = customTime ? null : await bookedGuestsByDate();
   if (booked) {
     const left = Math.max(0, TOUR_CAPACITY - (booked[date] ?? 0));
     if (guests > left) {
@@ -60,7 +65,13 @@ export async function POST(req: NextRequest) {
   const tier = pkg === "vip" ? PACKAGES.vip : PACKAGES.standard;
   const total = tier.price * guests;
   const via = SOURCES[source] ?? SOURCES.page;
-  const fullNotes = [`via ${via}`, notes?.trim()].filter(Boolean).join("\n");
+  // Bank-transfer guests get a reference for the transfer note. Kept in Notes
+  // ("Pay: Bank transfer · Ref ...") so the confirm link can read it back
+  // without a new Airtable field.
+  const ref = payment === "bank" ? tourRef(date) : null;
+  const payLine = ref ? `Pay: Bank transfer · Ref ${ref}` : "Pay: At the shop";
+  const timeLine = customTime ? `Time requested: ${customTime}` : null;
+  const fullNotes = [`via ${via}`, timeLine, payLine, notes?.trim()].filter(Boolean).join("\n");
 
   const fields: Record<string, unknown> = {
     Name: name.trim(),
@@ -101,7 +112,15 @@ export async function POST(req: NextRequest) {
   }
 
   const record = await res.json().catch(() => null);
-  const booking = { name: name.trim(), date, guests, tier: tier.label, total };
+  const booking = {
+    name: name.trim(),
+    date,
+    guests,
+    tier: tier.label,
+    total,
+    ref,
+    time: customTime || null,
+  };
 
   // Email guests get an instant "request received" (not a confirmation:
   // Kevin confirms by hand via the link in his alert).
@@ -119,7 +138,7 @@ export async function POST(req: NextRequest) {
     guestEmailed,
   });
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, ref, total });
 }
 
 // Instant alert to Kevin so a request never sits unseen in Airtable. Reuses
@@ -131,6 +150,8 @@ async function sendBookingNotificationEmail(b: {
   guests: number;
   tier: string;
   total: number;
+  ref: string | null;
+  time: string | null;
   via: string;
   notes?: string;
   confirm: string | null;
@@ -158,10 +179,14 @@ async function sendBookingNotificationEmail(b: {
     `  ${b.name}`,
     `  ${b.contact}`,
     ``,
-    `  Date     ${day} (${b.date})`,
+    b.time
+      ? `  Date     ${day} (${b.date}), ON REQUEST at: ${b.time}\n           Not a Friday slot. Agree the time with the guest before confirming.`
+      : `  Date     ${day} (${b.date})`,
     `  Guests   ${b.guests}`,
     `  Package  ${b.tier}`,
-    `  Total    ฿${b.total.toLocaleString()} (pay on arrival)`,
+    b.ref
+      ? `  Total    ฿${b.total.toLocaleString()} (BANK TRANSFER, ref ${b.ref}: check Krungsri for the payment / slip on WhatsApp)`
+      : `  Total    ฿${b.total.toLocaleString()} (pay at the shop)`,
     `  Via      ${b.via}`,
     b.notes ? `\nGuest note\n  ${b.notes}` : null,
     b.guestEmailed ? `\nGuest got an automatic "request received" email.` : null,
@@ -183,7 +208,7 @@ async function sendBookingNotificationEmail(b: {
       body: JSON.stringify({
         from,
         to: [to],
-        subject: `Tour request · ${day} · ${b.guests} pax · ${b.name}`,
+        subject: `Tour request${b.time ? " (CUSTOM TIME)" : ""} · ${day} · ${b.guests} pax · ${b.name}${b.ref ? ` · bank transfer ${b.ref}` : ""}`,
         text,
       }),
     });

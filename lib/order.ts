@@ -34,6 +34,7 @@ export const PAYMENT_DETAILS = {
     branch: "Koh Tao (0780)",
     accountName: "KD Genetics Co., Ltd. (บจก. เคดี เจเนติคส์)",
     accountNumber: "780-1-05572-1",
+    swift: "AYUDTHBK", // for transfers from abroad (Wise etc.)
   },
   receipt: {
     whatsapp: "https://wa.me/66988268290",

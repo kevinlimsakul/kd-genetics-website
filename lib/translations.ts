@@ -18,7 +18,7 @@ export const translations = {
     "tour.hero.title":
       "An afternoon on the only working cannabis farm on Koh Tao.",
     "tour.hero.sub":
-      "Every Friday at 4:20 pm. About 75 minutes with the family who grows it. Small groups.",
+      "Every Friday at 4:20 pm, other times on request. About 75 minutes with the family who grows it. Small groups.",
     "tour.cta.book": "Request to book",
     "tour.intro.eyebrow": "The Farm Tour",
     "tour.intro.body":
@@ -54,14 +54,14 @@ export const translations = {
     "tour.vip.5": "Smoke starter kit",
     "tour.vip.6": "10% off flowers in the shop",
     "tour.pay":
-      "No prepayment needed. Pay cash or by credit card at the shop when you arrive. We confirm your date on WhatsApp within a few hours.",
+      "Pay cash or card at the shop when you arrive, or by bank transfer when you book. We confirm your date on WhatsApp within a few hours.",
 
     /* ── Homepage tour block ───────────────────────────────────────────── */
     "home.tour.eyebrow": "Farm Tour",
     "home.tour.heading": "Walk the farm with the family.",
     "home.tour.body":
-      "Every Friday at 4:20 pm. A guided walk of about 75 minutes from the shop up to the hillside garden above the sea, ending with a relaxed session and stories from Papa KD. Small groups.",
-    "home.tour.pay": "No prepayment. Pay cash or card at the shop when you arrive.",
+      "Every Friday at 4:20 pm. A guided walk of about 75 minutes from the shop up to the hillside garden above the sea, ending with a relaxed session and stories from Papa KD. Small groups. Can't make Friday? Ask for another day or time.",
+    "home.tour.pay": "Pay cash or card at the shop, or by bank transfer when you book.",
     "home.tour.more": "See the full tour",
 
     /* ── Hero ──────────────────────────────────────────────────────────── */
@@ -407,7 +407,7 @@ export const translations = {
     /* ── Tour booking form ──────────────────────────────────────────────── */
     "tour.form.heading": "Book Your Tour",
     "tour.form.sub":
-      "Every Friday at 4:20 pm, starting at the shop. About 75 minutes.",
+      "Every Friday at 4:20 pm, starting at the shop. About 75 minutes. Other days and times on request.",
     "tour.form.success.heading": "You're on the list.",
     "tour.form.success.body":
       "We'll confirm your date within a few hours. No prepayment: pay cash or card at the shop when you arrive.",
@@ -449,6 +449,29 @@ export const translations = {
     "tour.form.limit": "Limited to 10 people per tour",
     "tour.form.whatsapp.success": "Message us on WhatsApp",
     "tour.form.whatsapp.error": "Send on WhatsApp",
+    "tour.form.label.payment": "Payment",
+    "tour.form.payment.shop": "Pay at the shop",
+    "tour.form.payment.bank": "Bank transfer now",
+    "tour.form.payment.shopHint": "Cash or card when you arrive. Nothing to pay now.",
+    "tour.form.payment.bankHint": "฿{amount} total. You'll see our bank details right after you send the request.",
+    "tour.form.payment.bankHintNoTotal": "You'll see our bank details right after you send the request.",
+    "tour.form.success.bodyBank":
+      "We'll confirm your date within a few hours. Here are the details for your bank transfer:",
+    "tour.form.bank.amount": "Amount",
+    "tour.form.bank.bank": "Bank",
+    "tour.form.bank.accountName": "Account name",
+    "tour.form.bank.accountNumber": "Account number",
+    "tour.form.bank.ref": "Reference (put in the transfer note)",
+    "tour.form.bank.note":
+      "Send us the slip on WhatsApp once it's done. Transfers from abroad work with the SWIFT code (Wise is the cheapest way). Prefer to pay at the shop after all? No problem.",
+    "tour.form.whatsapp.slip": "Send the slip on WhatsApp",
+    "tour.form.date.custom": "Another day or time (on request)",
+    "tour.form.label.customDate": "Preferred day",
+    "tour.form.label.customTime": "Preferred time",
+    "tour.form.placeholder.customTime": "e.g. 10 am, or anytime Tuesday",
+    "tour.form.custom.hint": "We'll check with the family and get back to you to confirm.",
+    "tour.form.bank.waitCustom":
+      "Please wait until we've confirmed your day and time before you transfer.",
 
     /* ── Contact form ───────────────────────────────────────────────────── */
     "contact.label.name": "Name",
@@ -501,7 +524,7 @@ export const translations = {
     "tour.hero.title":
       "บ่ายวันหนึ่งในฟาร์มกัญชาแห่งเดียวที่ยังเปิดดำเนินการบนเกาะเต่า",
     "tour.hero.sub":
-      "ทุกวันศุกร์ 16:20 น. ประมาณ 75 นาทีกับครอบครัวผู้ปลูกเอง กลุ่มเล็ก",
+      "ทุกวันศุกร์ 16:20 น. หรือวันเวลาอื่นตามคำขอ ประมาณ 75 นาทีกับครอบครัวผู้ปลูกเอง กลุ่มเล็ก",
     "tour.cta.book": "ขอจองทัวร์",
     "tour.intro.eyebrow": "ทัวร์ฟาร์ม",
     "tour.intro.body":
@@ -537,14 +560,14 @@ export const translations = {
     "tour.vip.5": "ชุดเริ่มต้นสำหรับสูบ",
     "tour.vip.6": "ส่วนลด 10% สำหรับดอกในร้าน",
     "tour.pay":
-      "ไม่ต้องชำระเงินล่วงหน้า จ่ายเงินสดหรือบัตรเครดิตที่ร้านเมื่อมาถึง เราจะยืนยันวันของคุณทาง WhatsApp ภายในไม่กี่ชั่วโมง",
+      "จ่ายเงินสดหรือบัตรที่ร้านเมื่อมาถึง หรือโอนเงินตอนจอง เราจะยืนยันวันของคุณทาง WhatsApp ภายในไม่กี่ชั่วโมง",
 
     /* ── Homepage tour block ───────────────────────────────────────────── */
     "home.tour.eyebrow": "ทัวร์ฟาร์ม",
     "home.tour.heading": "เดินชมฟาร์มกับครอบครัวเรา",
     "home.tour.body":
-      "ทุกวันศุกร์ 16:20 น. เดินชมประมาณ 75 นาทีจากร้านขึ้นไปถึงสวนบนเนินเขาริมทะเล ปิดท้ายด้วยการนั่งชิลและฟังเรื่องเล่าจากปาป๊า KD กลุ่มเล็ก",
-    "home.tour.pay": "ไม่ต้องชำระล่วงหน้า จ่ายเงินสดหรือบัตรที่ร้านเมื่อมาถึง",
+      "ทุกวันศุกร์ 16:20 น. เดินชมประมาณ 75 นาทีจากร้านขึ้นไปถึงสวนบนเนินเขาริมทะเล ปิดท้ายด้วยการนั่งชิลและฟังเรื่องเล่าจากปาป๊า KD กลุ่มเล็ก มาวันศุกร์ไม่ได้? ขอวันหรือเวลาอื่นได้",
+    "home.tour.pay": "จ่ายเงินสดหรือบัตรที่ร้าน หรือโอนเงินตอนจอง",
     "home.tour.more": "ดูรายละเอียดทัวร์",
 
     /* ── Hero ──────────────────────────────────────────────────────────── */
@@ -889,7 +912,7 @@ export const translations = {
 
     /* ── Tour booking form ──────────────────────────────────────────────── */
     "tour.form.heading": "จองทัวร์ฟาร์ม",
-    "tour.form.sub": "ทุกวันศุกร์ 16:20 น. เริ่มที่ร้าน ประมาณ 75 นาที",
+    "tour.form.sub": "ทุกวันศุกร์ 16:20 น. เริ่มที่ร้าน ประมาณ 75 นาที วันและเวลาอื่นตามคำขอ",
     "tour.form.success.heading": "ได้รับคำขอแล้ว",
     "tour.form.success.body":
       "เราจะยืนยันวันของคุณภายในไม่กี่ชั่วโมง ไม่ต้องชำระล่วงหน้า จ่ายเงินสดหรือบัตรที่ร้านเมื่อมาถึง",
@@ -931,6 +954,28 @@ export const translations = {
     "tour.form.limit": "ทัวร์ละไม่เกิน 10 คน",
     "tour.form.whatsapp.success": "ทักเราทาง WhatsApp",
     "tour.form.whatsapp.error": "ส่งทาง WhatsApp",
+    "tour.form.label.payment": "การชำระเงิน",
+    "tour.form.payment.shop": "จ่ายที่ร้าน",
+    "tour.form.payment.bank": "โอนเงินตอนนี้",
+    "tour.form.payment.shopHint": "เงินสดหรือบัตรเมื่อมาถึง ไม่ต้องจ่ายตอนนี้",
+    "tour.form.payment.bankHint": "รวม {amount} บาท ข้อมูลบัญชีจะแสดงหลังส่งคำขอ",
+    "tour.form.payment.bankHintNoTotal": "ข้อมูลบัญชีจะแสดงหลังส่งคำขอ",
+    "tour.form.success.bodyBank":
+      "เราจะยืนยันวันของคุณภายในไม่กี่ชั่วโมง ข้อมูลสำหรับโอนเงินอยู่ด้านล่าง:",
+    "tour.form.bank.amount": "ยอดโอน",
+    "tour.form.bank.bank": "ธนาคาร",
+    "tour.form.bank.accountName": "ชื่อบัญชี",
+    "tour.form.bank.accountNumber": "เลขที่บัญชี",
+    "tour.form.bank.ref": "รหัสอ้างอิง (ใส่ในบันทึกการโอน)",
+    "tour.form.bank.note":
+      "โอนเสร็จแล้วส่งสลิปให้เราทาง WhatsApp ถ้าเปลี่ยนใจอยากจ่ายที่ร้านก็ได้เลย",
+    "tour.form.whatsapp.slip": "ส่งสลิปทาง WhatsApp",
+    "tour.form.date.custom": "วันหรือเวลาอื่น (ตามคำขอ)",
+    "tour.form.label.customDate": "วันที่ต้องการ",
+    "tour.form.label.customTime": "เวลาที่ต้องการ",
+    "tour.form.placeholder.customTime": "เช่น 10 โมงเช้า หรือเวลาไหนก็ได้วันอังคาร",
+    "tour.form.custom.hint": "เราจะเช็กกับครอบครัวแล้วติดต่อกลับเพื่อยืนยัน",
+    "tour.form.bank.waitCustom": "กรุณารอให้เรายืนยันวันและเวลาก่อนโอนเงิน",
 
     /* ── Contact form ───────────────────────────────────────────────────── */
     "contact.label.name": "ชื่อ",

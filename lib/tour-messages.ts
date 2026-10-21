@@ -1,5 +1,6 @@
 import { createHmac, timingSafeEqual } from "crypto";
 import { TOUR_TIME } from "@/lib/tour";
+import { PAYMENT_DETAILS } from "@/lib/order";
 
 // Guest-facing tour messages (emails + the WhatsApp confirmation text Kevin
 // sends by hand) and the signed one-tap "Confirm" link in his alert email.
@@ -7,6 +8,7 @@ import { TOUR_TIME } from "@/lib/tour";
 // says LINE barely matters for tour guests (Oct 2026).
 
 export type Lang = "en" | "th";
+export type Payment = "shop" | "bank";
 
 export const MAPS_URL = "https://maps.app.goo.gl/DwiYaDtvsqkoTsdS9";
 export const KD_WHATSAPP = "https://wa.me/66988268290";
@@ -38,7 +40,7 @@ export function tourDay(iso: string, lang: Lang) {
   });
 }
 
-const time = (lang: Lang) => (lang === "th" ? "16:20 น." : TOUR_TIME);
+const fridayTime = (lang: Lang) => (lang === "th" ? "16:20 น." : TOUR_TIME);
 
 export type TourBooking = {
   name: string;
@@ -46,9 +48,38 @@ export type TourBooking = {
   guests: number;
   tier: string; // e.g. "Standard — 1,250 THB"
   total: number;
+  ref?: string | null; // set = guest chose bank transfer
+  time?: string | null; // set = custom time requested instead of the Friday slot
 };
 
+// The guest's custom time if they asked for one, else the Friday slot.
+const when = (b: TourBooking, lang: Lang) => b.time || fridayTime(lang);
+
 const tierName = (tier: string) => tier.split(/\s[—:-]\s?/)[0].trim();
+
+// Bank details as plain lines, for emails and the WhatsApp text.
+export function bankLines(b: TourBooking, lang: Lang) {
+  const bank = PAYMENT_DETAILS.bank;
+  const wait = b.time
+    ? [lang === "th" ? "กรุณารอให้เรายืนยันวันและเวลาก่อนโอนเงิน" : "Please wait until we've confirmed your day and time before you transfer."]
+    : [];
+  return [...wait, ...(lang === "th"
+    ? [
+        `โอนเงิน ${b.total.toLocaleString()} บาท เข้าบัญชี:`,
+        `ธนาคารกรุงศรีอยุธยา สาขาเกาะเต่า`,
+        `ชื่อบัญชี: ${bank.accountName}`,
+        `เลขที่บัญชี: ${bank.accountNumber}`,
+        `ใส่รหัส ${b.ref} ในบันทึกการโอน แล้วส่งสลิปให้เราทาง WhatsApp`,
+      ]
+    : [
+        `Transfer ${b.total.toLocaleString()} THB to:`,
+        `${bank.name}, ${bank.branch}`,
+        `Account name: ${bank.accountName}`,
+        `Account number: ${bank.accountNumber}`,
+        `SWIFT: ${bank.swift}`,
+        `Put ${b.ref} in the transfer note, then send us the slip on WhatsApp.`,
+      ])];
+}
 
 // ── Signed confirm link ────────────────────────────────────────────────────
 // Keyed off the Airtable token so there's no extra env var to manage.
@@ -75,22 +106,26 @@ export function whatsappConfirmText(b: TourBooking, lang: Lang) {
     return [
       `สวัสดีครับคุณ${first}! ยืนยันการจองฟาร์มทัวร์ KD Genetics แล้วครับ 🌱`,
       ``,
-      `${tourDay(b.date, lang)} เวลา ${time(lang)}`,
+      `${tourDay(b.date, lang)} เวลา ${when(b, lang)}`,
       `${tierName(b.tier)} · ${b.guests} ท่าน · ${b.total.toLocaleString()} บาท`,
       ``,
       `เริ่มที่ร้าน KD Genetics อ่าวโตนด: ${MAPS_URL}`,
-      `ชำระเงินสดหรือบัตรที่ร้านเมื่อมาถึง มีชาต้อนรับและของว่างรอคุณอยู่ครับ`,
+      b.ref
+        ? `ชำระด้วยการโอนเงิน (รหัส ${b.ref}) ถ้ายังไม่ได้ส่งสลิป ส่งมาทางนี้ได้เลยครับ มีชาต้อนรับและของว่างรอคุณอยู่ครับ`
+        : `ชำระเงินสดหรือบัตรที่ร้านเมื่อมาถึง มีชาต้อนรับและของว่างรอคุณอยู่ครับ`,
       `ใส่รองเท้าที่เดินสบาย แล้วเจอกันครับ!`,
     ].join("\n");
   }
   return [
     `Hi ${first}! Your KD Genetics farm tour is confirmed 🌱`,
     ``,
-    `${tourDay(b.date, lang)}, ${time(lang)}`,
+    `${tourDay(b.date, lang)}, ${when(b, lang)}`,
     `${tierName(b.tier)} · ${b.guests} ${b.guests === 1 ? "guest" : "guests"} · ${b.total.toLocaleString()} THB`,
     ``,
     `We start at the KD Genetics shop in Tanote Bay: ${MAPS_URL}`,
-    `Pay cash or card at the shop when you arrive. Welcome tea & a snack are waiting for you.`,
+    b.ref
+      ? `Payment by bank transfer (ref ${b.ref}). If you haven't sent the slip yet, just send it here. Welcome tea & a snack are waiting for you.`
+      : `Pay cash or card at the shop when you arrive. Welcome tea & a snack are waiting for you.`,
     `Wear comfortable shoes. See you there!`,
   ].join("\n");
 }
@@ -118,11 +153,13 @@ export function requestReceivedEmail(b: TourBooking, lang: Lang): Email {
           `สวัสดีคุณ${first}`,
           ``,
           `เราได้รับคำขอจองฟาร์มทัวร์ของคุณแล้ว:`,
-          `${tourDay(b.date, lang)} เวลา ${time(lang)}`,
+          `${tourDay(b.date, lang)} เวลา ${when(b, lang)}`,
           `${tierName(b.tier)} · ${b.guests} ท่าน · ${b.total.toLocaleString()} บาท`,
           ``,
           `ยังไม่ใช่การยืนยัน เราจะส่งอีเมลยืนยันภายในไม่กี่ชั่วโมง`,
-          `ไม่ต้องชำระล่วงหน้า ชำระเงินสดหรือบัตรที่ร้านเมื่อมาถึง`,
+          ...(b.ref
+            ? ["", ...bankLines(b, lang)]
+            : [`ไม่ต้องชำระล่วงหน้า ชำระเงินสดหรือบัตรที่ร้านเมื่อมาถึง`]),
           ``,
           `มีคำถาม? ทักเราทาง WhatsApp ได้เลย`,
         ]
@@ -130,11 +167,13 @@ export function requestReceivedEmail(b: TourBooking, lang: Lang): Email {
           `Hi ${first},`,
           ``,
           `Thanks! We've got your farm tour request:`,
-          `${tourDay(b.date, lang)}, ${time(lang)}`,
+          `${tourDay(b.date, lang)}, ${when(b, lang)}`,
           `${tierName(b.tier)} · ${b.guests} ${b.guests === 1 ? "guest" : "guests"} · ${b.total.toLocaleString()} THB`,
           ``,
           `This isn't a confirmation yet. We'll email you again within a few hours to confirm.`,
-          `No prepayment: pay cash or card at the shop when you arrive.`,
+          ...(b.ref
+            ? ["", ...bankLines(b, lang)]
+            : [`No prepayment: pay cash or card at the shop when you arrive.`]),
           ``,
           `Questions? Message us on WhatsApp.`,
         ];
@@ -153,8 +192,8 @@ export function confirmedEmail(b: TourBooking, lang: Lang): Email {
   return {
     subject:
       lang === "th"
-        ? `ยืนยันฟาร์มทัวร์แล้ว · ${tourDay(b.date, lang)} ${time(lang)}`
-        : `Your farm tour is confirmed · ${tourDay(b.date, lang)}, ${time(lang)}`,
+        ? `ยืนยันฟาร์มทัวร์แล้ว · ${tourDay(b.date, lang)} ${when(b, lang)}`
+        : `Your farm tour is confirmed · ${tourDay(b.date, lang)}, ${when(b, lang)}`,
     text: lines.join("\n"),
     html: wrap(lines.map((l) => l.replace(`: ${MAPS_URL}`, "")), {
       href: MAPS_URL,

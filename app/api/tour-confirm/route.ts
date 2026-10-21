@@ -53,6 +53,8 @@ function toBooking(f: Fields): TourBooking {
     guests: Number(f["Number of Guests"]) || 1,
     tier,
     total: Number(f["Total Amount (THB)"]) || 0,
+    ref: String(f.Notes ?? "").match(/^Pay: Bank transfer · Ref (\S+)/m)?.[1] ?? null,
+    time: String(f.Notes ?? "").match(/^Time requested: (.+)$/m)?.[1] ?? null,
   };
 }
 
@@ -75,8 +77,10 @@ textarea{width:100%;box-sizing:border-box;height:200px;margin-top:12px;font:14px
 
 function summary(f: Fields, b: TourBooking) {
   return `<p><strong>${esc(b.name)}</strong></p>
-<p>${esc(tourDay(b.date, "en"))} · ${b.guests} ${b.guests === 1 ? "guest" : "guests"}</p>
+<p>${esc(tourDay(b.date, "en"))}${b.time ? `, <strong>custom time: ${esc(b.time)}</strong>` : ""} · ${b.guests} ${b.guests === 1 ? "guest" : "guests"}</p>
+${b.time ? `<p class="muted">The confirmation uses the guest's wording for the time. If you agreed on something else, change "Time requested" in Airtable Notes first.</p>` : ""}
 <p>${esc(b.tier)} · ฿${b.total.toLocaleString()}</p>
+<p>${b.ref ? `<strong>Bank transfer</strong>, ref ${esc(b.ref)}. Check the money arrived in Krungsri.` : "Pays at the shop"}</p>
 <p class="muted">${esc(String(f.Contact ?? ""))} · Status: ${esc(String(f.Status ?? "New"))}</p>`;
 }
 

@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/lib/i18n";
-import { TOUR_CAPACITY, TOUR_TIME, upcomingTourDates } from "@/lib/tour";
+import { TOUR_CAPACITY, TOUR_PRICES, TOUR_TIME, upcomingTourDates } from "@/lib/tour";
+import { PAYMENT_DETAILS } from "@/lib/order";
 
 type Status = "idle" | "loading" | "success" | "error" | "full";
 type ContactMethod = "whatsapp" | "line" | "email";
+type Payment = "shop" | "bank";
 
 const METHODS: {
   value: ContactMethod;
@@ -43,9 +45,16 @@ const METHOD_LABEL: Record<ContactMethod, string> = {
   email: "Email",
 };
 
+// Today as YYYY-MM-DD in Thai time, the earliest day a custom tour can be.
+const todayBkk = () => new Date(Date.now() + 7 * 3600 * 1000).toISOString().slice(0, 10);
+
 export type BookingSource = "qr" | "home" | "page";
 
 const WHATSAPP = "https://wa.me/66988268290";
+
+// Date-select value for "another day or time": the guest then picks any day
+// and types a preferred time. Kevin arranges these by hand.
+const CUSTOM = "custom";
 
 // Show "N spots left" only when a Friday is getting full. "10 spots left"
 // on an empty tour reads as nobody's coming.
@@ -95,6 +104,8 @@ export default function TourBookingForm({
   const [fullLeft, setFullLeft] = useState(0);
   // Snapshot of the last submitted request, used to prefill WhatsApp.
   const [sent, setSent] = useState<typeof form | null>(null);
+  // Set after a bank-transfer request: what to pay and the transfer reference.
+  const [transfer, setTransfer] = useState<{ ref: string; total: number } | null>(null);
   const [form, setForm] = useState({
     name: "",
     contactMethod: "whatsapp" as ContactMethod,
@@ -102,6 +113,9 @@ export default function TourBookingForm({
     date: "",
     people: "",
     package: "standard",
+    payment: "shop" as Payment,
+    customDate: "",
+    customTime: "",
     notes: "",
   });
   const [status, setStatus] = useState<Status>("idle");
@@ -111,8 +125,11 @@ export default function TourBookingForm({
     setStatus("loading");
 
     try {
+      const custom = form.date === CUSTOM;
       const payload = {
         ...form,
+        date: custom ? form.customDate : form.date,
+        customTime: custom ? form.customTime : "",
         contact: `${METHOD_LABEL[form.contactMethod]}: ${form.contact}`,
         source: src,
         lang,
@@ -134,6 +151,8 @@ export default function TourBookingForm({
       }
       if (!res.ok) throw new Error("API error");
 
+      const d = await res.json().catch(() => ({}));
+      setTransfer(d.ref ? { ref: d.ref, total: Number(d.total) || 0 } : null);
       setStatus("success");
       loadSpots();
       setForm({
@@ -143,6 +162,9 @@ export default function TourBookingForm({
         date: "",
         people: "",
         package: "standard",
+        payment: "shop",
+        customDate: "",
+        customTime: "",
         notes: "",
       });
     } catch {
@@ -156,10 +178,15 @@ export default function TourBookingForm({
   const waLink = (f: typeof form | null) => {
     if (!f) return WHATSAPP;
     const pkg = f.package === "vip" ? "VIP" : "Standard";
+    const when =
+      f.date === CUSTOM
+        ? `${f.customDate ? dateLabel(f.customDate) : "another day"}, ${f.customTime || "time flexible"} (on request)`
+        : `${dateLabel(f.date)} ${TOUR_TIME}`;
     const msg = [
       `Hi KD! Farm tour request:`,
-      `${pkg} tour, ${dateLabel(f.date)} ${TOUR_TIME}, ${f.people} ${Number(f.people) === 1 ? "person" : "people"}`,
+      `${pkg} tour, ${when}, ${f.people} ${Number(f.people) === 1 ? "person" : "people"}`,
       `Name: ${f.name}`,
+      transfer ? `Bank transfer ref ${transfer.ref}, slip attached` : "",
       f.notes ? `Note: ${f.notes}` : "",
     ]
       .filter(Boolean)
@@ -182,15 +209,45 @@ export default function TourBookingForm({
           <div className="text-3xl">✓</div>
           <h4 className="font-display text-xl">{t("tour.form.success.heading")}</h4>
           <p className="text-sm text-[#6B6B6B] leading-relaxed">
-            {t("tour.form.success.body")}
+            {t(transfer ? "tour.form.success.bodyBank" : "tour.form.success.body")}
           </p>
+          {transfer && (
+            <div className="text-left border border-black/10 rounded-xl p-5 bg-[#F6F4EF] space-y-3 text-sm">
+              <div className="flex items-baseline justify-between gap-4">
+                <span className="text-[10px] uppercase tracking-[0.15em] text-[#6B6B6B]">
+                  {t("tour.form.bank.amount")}
+                </span>
+                <span className="font-display text-2xl">฿{transfer.total.toLocaleString()}</span>
+              </div>
+              <dl className="space-y-2">
+                {[
+                  [t("tour.form.bank.bank"), `${PAYMENT_DETAILS.bank.name}, ${PAYMENT_DETAILS.bank.branch}`],
+                  [t("tour.form.bank.accountName"), PAYMENT_DETAILS.bank.accountName],
+                  [t("tour.form.bank.accountNumber"), PAYMENT_DETAILS.bank.accountNumber],
+                  ["SWIFT", PAYMENT_DETAILS.bank.swift],
+                  [t("tour.form.bank.ref"), transfer.ref],
+                ].map(([label, value]) => (
+                  <div key={label}>
+                    <dt className="text-[10px] uppercase tracking-[0.15em] text-[#6B6B6B]">{label}</dt>
+                    <dd className="font-medium select-all">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+              {sent?.date === CUSTOM && (
+                <p className="text-xs font-medium text-[#1E1E1E] leading-relaxed">
+                  {t("tour.form.bank.waitCustom")}
+                </p>
+              )}
+              <p className="text-xs text-[#6B6B6B] leading-relaxed">{t("tour.form.bank.note")}</p>
+            </div>
+          )}
           <a
             href={waLink(sent)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-full bg-[#25D366] text-white px-6 h-11 text-sm font-medium hover:bg-[#25D366]/90 transition-colors"
           >
-            {t("tour.form.whatsapp.success")}
+            {t(transfer ? "tour.form.whatsapp.slip" : "tour.form.whatsapp.success")}
           </a>
           <br />
           <button
@@ -311,6 +368,7 @@ export default function TourBookingForm({
                     </option>
                   );
                 })}
+                <option value={CUSTOM}>{t("tour.form.date.custom")}</option>
               </select>
             </div>
             <div className="space-y-2">
@@ -320,7 +378,7 @@ export default function TourBookingForm({
               <input
                 type="number"
                 min="1"
-                max={form.date ? (leftOn(form.date) ?? TOUR_CAPACITY) : TOUR_CAPACITY}
+                max={form.date && form.date !== CUSTOM ? (leftOn(form.date) ?? TOUR_CAPACITY) : TOUR_CAPACITY}
                 placeholder={t("tour.form.placeholder.people")}
                 value={form.people}
                 onChange={(e) => setForm((f) => ({ ...f, people: e.target.value }))}
@@ -328,6 +386,73 @@ export default function TourBookingForm({
                 className="w-full border border-black/10 rounded-lg h-12 px-4 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors"
               />
             </div>
+          </div>
+
+          {form.date === CUSTOM && (
+            <div className="space-y-2">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
+                    {t("tour.form.label.customDate")}
+                  </label>
+                  <input
+                    type="date"
+                    min={todayBkk()}
+                    value={form.customDate}
+                    onChange={(e) => setForm((f) => ({ ...f, customDate: e.target.value }))}
+                    required
+                    className="w-full border border-black/10 rounded-lg h-12 px-4 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
+                    {t("tour.form.label.customTime")}
+                  </label>
+                  <input
+                    type="text"
+                    placeholder={t("tour.form.placeholder.customTime")}
+                    value={form.customTime}
+                    onChange={(e) => setForm((f) => ({ ...f, customTime: e.target.value }))}
+                    required
+                    className="w-full border border-black/10 rounded-lg h-12 px-4 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors"
+                  />
+                </div>
+              </div>
+              <p className="text-[11px] text-[#6B6B6B]">{t("tour.form.custom.hint")}</p>
+            </div>
+          )}
+
+          <div className="space-y-2">
+            <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
+              {t("tour.form.label.payment")}
+            </label>
+            <div className="grid grid-cols-2 gap-2">
+              {[
+                { value: "shop" as Payment, labelKey: "tour.form.payment.shop" as const },
+                { value: "bank" as Payment, labelKey: "tour.form.payment.bank" as const },
+              ].map((opt) => (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => setForm((f) => ({ ...f, payment: opt.value }))}
+                  className={`py-2 px-3 rounded-lg border text-[11px] font-medium transition-all ${
+                    form.payment === opt.value
+                      ? "bg-[#1E1E1E] text-white border-[#1E1E1E]"
+                      : "bg-transparent text-[#1E1E1E]/60 border-black/10 hover:border-[#1E1E1E]/30"
+                  }`}
+                >
+                  {t(opt.labelKey)}
+                </button>
+              ))}
+            </div>
+            <p className="text-[11px] text-[#6B6B6B]">
+              {form.payment === "bank" && Number(form.people) >= 1
+                ? t("tour.form.payment.bankHint").replace(
+                    "{amount}",
+                    (TOUR_PRICES[form.package === "vip" ? "vip" : "standard"] * Number(form.people)).toLocaleString()
+                  )
+                : t(form.payment === "bank" ? "tour.form.payment.bankHintNoTotal" : "tour.form.payment.shopHint")}
+            </p>
           </div>
 
           <div className="space-y-2">

@@ -5,6 +5,7 @@
 export const TOUR_WEEKDAY = 5; // 0 = Sun ... 5 = Fri
 export const TOUR_TIME = "4:20 pm";
 export const TOUR_CAPACITY = 10;
+export const TOUR_PRICES = { standard: 1250, vip: 2500 } as const; // THB per person
 const SAME_DAY_CUTOFF_HOUR = 15; // same-day requests allowed until 15:00 Thai time
 const WEEKS_AHEAD = 8;
 
@@ -67,4 +68,13 @@ export async function bookedGuestsByDate(): Promise<Record<string, number> | nul
   }
 
   return booked;
+}
+
+// Short booking reference for bank transfers, e.g. "T1024-7KQ" (tour date
+// MMDD + 3 random chars). Guests put it in the transfer note so Kevin can
+// match the slip to the Airtable row.
+export function tourRef(date: string) {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  const rand = Array.from({ length: 3 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+  return `T${date.slice(5, 7)}${date.slice(8, 10)}-${rand}`;
 }
