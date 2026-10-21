@@ -5,6 +5,9 @@
 export const TOUR_WEEKDAY = 5; // 0 = Sun ... 5 = Fri
 export const TOUR_TIME = "4:20 pm";
 export const TOUR_CAPACITY = 10;
+// Times guests can request for a tour outside the Friday slot. Stored in
+// Airtable as-is (English); the calendar shows them in 24h for Thai.
+export const REQUEST_TIMES = ["9:00 am", "10:00 am", "11:00 am", "1:00 pm", "2:00 pm", "3:00 pm", "4:20 pm"];
 export const TOUR_PRICES = { standard: 1250, vip: 2500 } as const; // THB per person
 const SAME_DAY_CUTOFF_HOUR = 15; // same-day requests allowed until 15:00 Thai time
 const WEEKS_AHEAD = 8;

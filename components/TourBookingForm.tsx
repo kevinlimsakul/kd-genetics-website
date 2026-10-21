@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "@/lib/i18n";
 import { TOUR_CAPACITY, TOUR_PRICES, TOUR_TIME, upcomingTourDates } from "@/lib/tour";
 import { PAYMENT_DETAILS } from "@/lib/order";
+import TourCalendar from "@/components/TourCalendar";
 
-type Status = "idle" | "loading" | "success" | "error" | "full";
+type Status = "idle" | "loading" | "success" | "error" | "full" | "noDate";
 type ContactMethod = "whatsapp" | "line" | "email";
 type Payment = "shop" | "bank";
 
@@ -52,13 +53,9 @@ export type BookingSource = "qr" | "home" | "page";
 
 const WHATSAPP = "https://wa.me/66988268290";
 
-// Date-select value for "another day or time": the guest then picks any day
-// and types a preferred time. Kevin arranges these by hand.
-const CUSTOM = "custom";
+// Anything other than a scheduled Friday at TOUR_TIME is a request Kevin
+// arranges by hand (another day, or another time on a Friday).
 
-// Show "N spots left" only when a Friday is getting full. "10 spots left"
-// on an empty tour reads as nobody's coming.
-const LOW_SPOTS = 5;
 
 export default function TourBookingForm({
   source = "page",
@@ -114,22 +111,25 @@ export default function TourBookingForm({
     people: "",
     package: "standard",
     payment: "shop" as Payment,
-    customDate: "",
-    customTime: "",
+    time: "",
     notes: "",
   });
+  const isCustom = (f: { date: string; time: string }) =>
+    !!f.date && !(tourDates.includes(f.date) && f.time === TOUR_TIME);
   const [status, setStatus] = useState<Status>("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!form.date || !form.time) {
+      setStatus("noDate");
+      return;
+    }
     setStatus("loading");
 
     try {
-      const custom = form.date === CUSTOM;
       const payload = {
         ...form,
-        date: custom ? form.customDate : form.date,
-        customTime: custom ? form.customTime : "",
+        customTime: isCustom(form) ? (form.time === "flexible" ? "Flexible, any time" : form.time) : "",
         contact: `${METHOD_LABEL[form.contactMethod]}: ${form.contact}`,
         source: src,
         lang,
@@ -163,8 +163,7 @@ export default function TourBookingForm({
         people: "",
         package: "standard",
         payment: "shop",
-        customDate: "",
-        customTime: "",
+        time: "",
         notes: "",
       });
     } catch {
@@ -178,10 +177,9 @@ export default function TourBookingForm({
   const waLink = (f: typeof form | null) => {
     if (!f) return WHATSAPP;
     const pkg = f.package === "vip" ? "VIP" : "Standard";
-    const when =
-      f.date === CUSTOM
-        ? `${f.customDate ? dateLabel(f.customDate) : "another day"}, ${f.customTime || "time flexible"} (on request)`
-        : `${dateLabel(f.date)} ${TOUR_TIME}`;
+    const when = isCustom(f)
+      ? `${dateLabel(f.date)}, ${f.time === "flexible" ? "time flexible" : f.time} (on request)`
+      : `${dateLabel(f.date)} ${TOUR_TIME}`;
     const msg = [
       `Hi KD! Farm tour request:`,
       `${pkg} tour, ${when}, ${f.people} ${Number(f.people) === 1 ? "person" : "people"}`,
@@ -233,7 +231,7 @@ export default function TourBookingForm({
                   </div>
                 ))}
               </dl>
-              {sent?.date === CUSTOM && (
+              {sent && isCustom(sent) && (
                 <p className="text-xs font-medium text-[#1E1E1E] leading-relaxed">
                   {t("tour.form.bank.waitCustom")}
                 </p>
@@ -340,87 +338,34 @@ export default function TourBookingForm({
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-                {t("tour.form.label.date")}
-              </label>
-              <select
-                value={form.date}
-                onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))}
-                required
-                className="w-full border border-black/10 rounded-lg h-12 px-4 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors"
-              >
-                <option value="" disabled>
-                  {t("tour.form.placeholder.date")}
-                </option>
-                {tourDates.map((d) => {
-                  const left = leftOn(d);
-                  const full = left === 0;
-                  const suffix = full
-                    ? ` · ${t("tour.form.spots.full")}`
-                    : left !== null && left <= LOW_SPOTS
-                      ? ` · ${t("tour.form.spots.left").replace("{n}", String(left))}`
-                      : "";
-                  return (
-                    <option key={d} value={d} disabled={full}>
-                      {`${dateLabel(d)}, ${TOUR_TIME}${suffix}`}
-                    </option>
-                  );
-                })}
-                <option value={CUSTOM}>{t("tour.form.date.custom")}</option>
-              </select>
-            </div>
-            <div className="space-y-2">
-              <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-                {t("tour.form.label.people")}
-              </label>
-              <input
-                type="number"
-                min="1"
-                max={form.date && form.date !== CUSTOM ? (leftOn(form.date) ?? TOUR_CAPACITY) : TOUR_CAPACITY}
-                placeholder={t("tour.form.placeholder.people")}
-                value={form.people}
-                onChange={(e) => setForm((f) => ({ ...f, people: e.target.value }))}
-                required
-                className="w-full border border-black/10 rounded-lg h-12 px-4 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors"
-              />
-            </div>
+          <div className="space-y-2">
+            <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
+              {t("tour.cal.label")}
+            </label>
+            <TourCalendar
+              date={form.date}
+              time={form.time}
+              tourDates={tourDates}
+              leftOn={leftOn}
+              onChange={({ date, time }) => setForm((f) => ({ ...f, date, time }))}
+            />
           </div>
 
-          {form.date === CUSTOM && (
-            <div className="space-y-2">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-                    {t("tour.form.label.customDate")}
-                  </label>
-                  <input
-                    type="date"
-                    min={todayBkk()}
-                    value={form.customDate}
-                    onChange={(e) => setForm((f) => ({ ...f, customDate: e.target.value }))}
-                    required
-                    className="w-full border border-black/10 rounded-lg h-12 px-4 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
-                    {t("tour.form.label.customTime")}
-                  </label>
-                  <input
-                    type="text"
-                    placeholder={t("tour.form.placeholder.customTime")}
-                    value={form.customTime}
-                    onChange={(e) => setForm((f) => ({ ...f, customTime: e.target.value }))}
-                    required
-                    className="w-full border border-black/10 rounded-lg h-12 px-4 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors"
-                  />
-                </div>
-              </div>
-              <p className="text-[11px] text-[#6B6B6B]">{t("tour.form.custom.hint")}</p>
-            </div>
-          )}
+          <div className="space-y-2">
+            <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
+              {t("tour.form.label.people")}
+            </label>
+            <input
+              type="number"
+              min="1"
+              max={isCustom(form) ? TOUR_CAPACITY : (leftOn(form.date) ?? TOUR_CAPACITY)}
+              placeholder={t("tour.form.placeholder.people")}
+              value={form.people}
+              onChange={(e) => setForm((f) => ({ ...f, people: e.target.value }))}
+              required
+              className="w-full border border-black/10 rounded-lg h-12 px-4 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors"
+            />
+          </div>
 
           <div className="space-y-2">
             <label className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]">
@@ -470,6 +415,10 @@ export default function TourBookingForm({
               className="w-full border border-black/10 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors resize-none"
             />
           </div>
+
+          {status === "noDate" && (
+            <p className="text-xs text-red-500 text-center">{t("tour.cal.missing")}</p>
+          )}
 
           {status === "full" && (
             <p className="text-xs text-red-500 text-center">
