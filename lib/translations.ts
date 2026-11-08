@@ -73,7 +73,7 @@ export const translations = {
       "All organic. Small batch. Grown by hand, by a family who stayed on the land.",
     "hero.cta": "Find Us in Tanote Bay",
     "hero.pill.jackHerer": "Jack Herer Cup",
-    "hero.pill.biobizz": "BioBizz",
+    "hero.pill.soil": "Living Soil",
     "hero.pill.sunGrown": "Sun-Grown",
 
     /* ── Visit ─────────────────────────────────────────────────────────── */
@@ -167,7 +167,6 @@ export const translations = {
     "gallery.cap.mila": "Mila",
     "gallery.cap.willy": "Willy",
     "gallery.cap.peter": "Peter",
-    "gallery.cap.fert": "Organic fertiliser from BioBizz",
     "gallery.cap.mural": "Papa KD mural behind the chill area",
     "gallery.cap.shop": "KD shop",
     "gallery.cap.fame": "Wall of Fame",
@@ -223,22 +222,19 @@ export const translations = {
     "press.article.scmp.title": "Thailand's 'Father of Cannabis'",
     "press.article.nation.title": "Relax the law on cannabis seeds",
 
-    /* ── BioBizz partnership ───────────────────────────────────────────── */
-    "biobizz.eyebrow": "Our Growing Partner",
-    "biobizz.heading": "Rooted in the same values.",
-    "biobizz.body1":
-      "BioBizz started as a small, family-driven company in the Netherlands with one conviction: that organic soil is the foundation of everything. Decades later, that conviction still runs through every product they make, and through every plant we grow.",
-    "biobizz.body2":
-      "As our official organic partner, BioBizz sponsors KD Genetics with their full range of soils and nutrients. No synthetics. No shortcuts. All organic, small batch, grown by hand.",
-    "biobizz.stat1.label": "100% Organic",
-    "biobizz.stat1.sub": "Certified inputs",
-    "biobizz.stat2.label": "Dutch Origins",
-    "biobizz.stat2.sub": "Est. 1992",
-    "biobizz.stat3.label": "Sun-Grown",
-    "biobizz.stat3.sub": "Our farm, our hands",
-    "biobizz.badge.alt": "Grown with BioBizz, From Dutch Origins",
-    "biobizz.photo.alt": "Papa KD and Luis from BioBizz on the farm",
-    "biobizz.linkAria": "Visit BioBizz, opens in a new tab",
+    /* ── Our soil (replaced BioBizz partnership, Nov 2026) ─────────────── */
+    "soil.eyebrow": "Our Soil",
+    "soil.heading": "We make our own soil.",
+    "soil.body1":
+      "Everything we grow starts in living soil we build ourselves, right here on the farm in Tanote Bay. Compost from the farm, worms working the beds, chickens closing the loop.",
+    "soil.body2": "No synthetics. No shortcuts. All organic, small batch, grown by hand.",
+    "soil.stat1.label": "Living Soil",
+    "soil.stat1.sub": "Made on the farm",
+    "soil.stat2.label": "100% Organic",
+    "soil.stat2.sub": "No synthetics",
+    "soil.stat3.label": "Sun-Grown",
+    "soil.stat3.sub": "Our farm, our hands",
+    "soil.photo.alt": "Daniel, head of cultivation, on the farm",
 
     /* ── Reviews ───────────────────────────────────────────────────────── */
     "reviews.eyebrow": "Google Reviews",
@@ -586,7 +582,7 @@ export const translations = {
       "ออร์แกนิกทั้งหมด ปลูกทีละน้อย ด้วยมือของครอบครัวที่ยังอยู่บนผืนดินเดิม",
     "hero.cta": "มาหาเราที่อ่าวโตนด",
     "hero.pill.jackHerer": "ชนะ Jack Herer Cup",
-    "hero.pill.biobizz": "BioBizz",
+    "hero.pill.soil": "ดินมีชีวิต",
     "hero.pill.sunGrown": "ปลูกใต้แสงตะวัน",
 
     /* ── Visit ─────────────────────────────────────────────────────────── */
@@ -680,7 +676,6 @@ export const translations = {
     "gallery.cap.mila": "มิล่า",
     "gallery.cap.willy": "วิลลี่",
     "gallery.cap.peter": "ปีเตอร์",
-    "gallery.cap.fert": "ปุ๋ยออร์แกนิกจาก BioBizz",
     "gallery.cap.mural": "ภาพป๋า KD บนผนังหลังโซนนั่งเล่น",
     "gallery.cap.shop": "ร้าน KD",
     "gallery.cap.fame": "Wall of Fame",
@@ -736,22 +731,19 @@ export const translations = {
     "press.article.scmp.title": "'บิดากัญชา' แห่งประเทศไทย",
     "press.article.nation.title": "ผ่อนคลายกฎหมายเมล็ดกัญชา",
 
-    /* ── BioBizz partnership ───────────────────────────────────────────── */
-    "biobizz.eyebrow": "พาร์ทเนอร์ปลูก",
-    "biobizz.heading": "หยั่งรากในคุณค่าเดียวกัน",
-    "biobizz.body1":
-      "BioBizz เริ่มต้นจากบริษัทครอบครัวเล็กๆ ในเนเธอร์แลนด์ ด้วยความเชื่อเดียวคือ ดินออร์แกนิกคือรากฐานของทุกสิ่ง หลายสิบปีผ่านไป ความเชื่อนั้นยังคงอยู่ในทุกผลิตภัณฑ์ที่พวกเขาทำ และในทุกต้นที่เราปลูก",
-    "biobizz.body2":
-      "ในฐานะพาร์ทเนอร์ออร์แกนิกอย่างเป็นทางการของเรา BioBizz สนับสนุน KD Genetics ด้วยดินและสารอาหารครบชุด ไม่มีสารสังเคราะห์ ไม่มีทางลัด ออร์แกนิก แบทช์เล็ก ปลูกด้วยมือ",
-    "biobizz.stat1.label": "ออร์แกนิก 100%",
-    "biobizz.stat1.sub": "วัตถุดิบรับรอง",
-    "biobizz.stat2.label": "สัญชาติดัตช์",
-    "biobizz.stat2.sub": "ก่อตั้ง 1992",
-    "biobizz.stat3.label": "ปลูกแสงแดด",
-    "biobizz.stat3.sub": "ฟาร์มและมือของเรา",
-    "biobizz.badge.alt": "Grown with BioBizz, From Dutch Origins",
-    "biobizz.photo.alt": "ปาป๊า KD และ Luis จาก BioBizz ที่ฟาร์ม",
-    "biobizz.linkAria": "เยี่ยมชม BioBizz เปิดในแท็บใหม่",
+    /* ── Our soil (replaced BioBizz partnership, Nov 2026) ─────────────── */
+    "soil.eyebrow": "ดินของเรา",
+    "soil.heading": "เราทำดินเอง",
+    "soil.body1":
+      "ทุกต้นที่เราปลูกเริ่มจากดินมีชีวิตที่เราทำเองที่ฟาร์มในอ่าวโตนด ปุ๋ยหมักจากฟาร์ม ไส้เดือนช่วยพรวนดิน และไก่ที่ช่วยปิดวงจร",
+    "soil.body2": "ไม่มีสารสังเคราะห์ ไม่มีทางลัด ออร์แกนิก แบทช์เล็ก ปลูกด้วยมือ",
+    "soil.stat1.label": "ดินมีชีวิต",
+    "soil.stat1.sub": "ทำเองที่ฟาร์ม",
+    "soil.stat2.label": "ออร์แกนิก 100%",
+    "soil.stat2.sub": "ไม่มีสารสังเคราะห์",
+    "soil.stat3.label": "ปลูกแสงแดด",
+    "soil.stat3.sub": "ฟาร์มและมือของเรา",
+    "soil.photo.alt": "แดเนียล หัวหน้าฝ่ายเพาะปลูก ที่ฟาร์ม",
 
     /* ── Reviews ───────────────────────────────────────────────────────── */
     "reviews.eyebrow": "รีวิว Google",

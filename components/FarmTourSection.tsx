@@ -8,8 +8,8 @@ import { useLanguage } from "@/lib/i18n";
 // Farm Tour, consolidated onto kdgenetics.org (kdtours.tours retired, Stripe
 // dropped). Photo-forward, bilingual via i18n (t()), deliberately short.
 // Booking = request-to-book via the Airtable form; payment on arrival (cash /
-// card at the shop), NO public QR. Photos from the Huw shoot. NOTE: never call
-// the grow "living soil" — it's organic soil + BioBizz nutrients (hybrid).
+// card at the shop), NO public QR. Photos from the Huw shoot. Since Nov 2026 the
+// farm uses its own living soil (BioBizz partnership ended).
 
 const moments = [
   {

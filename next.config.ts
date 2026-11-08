@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/tour", destination: "/farm-tour?src=qr#book", permanent: false },
+      // Old homepage draft (still mentions BioBizz); keep the file, hide the route.
+      { source: "/preview-v1", destination: "/", permanent: false },
     ];
   },
 };

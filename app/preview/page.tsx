@@ -182,7 +182,7 @@ export default function HomePage() {
               <div className="inline-flex flex-wrap justify-center items-center gap-x-5 sm:gap-x-7 gap-y-2 px-4 sm:px-6 py-3 rounded-full bg-black/35 backdrop-blur-md border border-white/10 text-white text-[10px] sm:text-[11px] font-medium tracking-wider uppercase shadow-[0_8px_30px_-10px_rgba(0,0,0,0.4)]">
                 <span className="flex items-center gap-2"><Award className="w-3.5 h-3.5 text-[#A8B89A]" /> {t("hero.pill.jackHerer")}</span>
                 <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-white/25" aria-hidden />
-                <span className="flex items-center gap-2"><Leaf className="w-3.5 h-3.5 text-[#A8B89A]" /> {t("hero.pill.biobizz")}</span>
+                <span className="flex items-center gap-2"><Leaf className="w-3.5 h-3.5 text-[#A8B89A]" /> {t("hero.pill.soil")}</span>
                 <span className="hidden sm:inline-block w-1 h-1 rounded-full bg-white/25" aria-hidden />
                 <span className="flex items-center gap-2"><Sun className="w-3.5 h-3.5 text-[#A8B89A]" /> {t("hero.pill.sunGrown")}</span>
               </div>
@@ -483,7 +483,6 @@ export default function HomePage() {
               { src: "/farm-shoot-01.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.mila") },
               { src: "/farm-shoot-02.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.willy"), objectFit: "contain" },
               { src: "/farm-shoot-03.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.peter"), objectFit: "contain" },
-              { src: "/farm-shoot-04.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.fert"), objectFit: "contain" },
               { src: "/farm-shoot-05.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.mural"), objectFit: "contain" },
               { src: "/farm-shoot-06.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.shop") },
               { src: "/farm-shoot-07.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.fame"), objectFit: "contain" },
@@ -654,69 +653,42 @@ export default function HomePage() {
       <ReviewsSection />
 
       {/* ══════════════════════════════════════════════════════════════════
-       *  11. BIOBIZZ PARTNERSHIP
+       *  11. OUR SOIL (replaced the BioBizz partnership section, Nov 2026)
        * ══════════════════════════════════════════════════════════════════ */}
       <section data-nav-dark className="bg-[#2A2820] py-20 md:py-28">
         <div className="container mx-auto px-6 max-w-5xl">
           <p className="text-center text-[10px] font-medium uppercase tracking-[0.3em] text-[#A8B89A] mb-12 md:mb-16">
-            {t("biobizz.eyebrow")}
+            {t("soil.eyebrow")}
           </p>
 
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-            <div className="flex flex-col items-center gap-8 md:gap-10 w-full">
-              <a
-                href="https://www.biobizz.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t("biobizz.linkAria")}
-                className="block w-full max-w-[22rem] cursor-pointer transition-transform duration-500 hover:scale-[1.02]"
-              >
-                <div className="rounded-[2.25rem] bg-[#F6F4EF] px-4 py-5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
-                  <Image
-                    src="/grown-with-biobizz.png"
-                    alt={t("biobizz.badge.alt")}
-                    width={2400}
-                    height={1245}
-                    quality={100}
-                    unoptimized
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
-              </a>
-              <div className="w-full max-w-[26rem] aspect-[3/2] rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
-                <Image
-                  src="/biobizz-papa-luis-cap.jpg"
-                  alt={t("biobizz.photo.alt")}
-                  width={2400}
-                  height={1600}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="w-full max-w-[26rem] mx-auto aspect-[4/3] rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.5)]">
+              <Image
+                src="/farm-daniel.jpg"
+                alt={t("soil.photo.alt")}
+                width={1800}
+                height={1350}
+                className="w-full h-full object-cover"
+              />
             </div>
 
             <div className="space-y-5 md:space-y-6">
               <h3 className="font-display text-3xl md:text-4xl text-white leading-snug">
-                {t("biobizz.heading")}
+                {t("soil.heading")}
               </h3>
               <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
-                {t("biobizz.body1")}
+                {t("soil.body1")}
               </p>
               <p className="text-white/55 text-sm md:text-base font-light leading-relaxed">
-                {t("biobizz.body2")}
+                {t("soil.body2")}
               </p>
               <div className="pt-4 border-t border-white/10 grid grid-cols-3 gap-6">
-                <div className="space-y-1">
-                  <p className="text-white text-sm font-medium">{t("biobizz.stat1.label")}</p>
-                  <p className="text-white/35 text-xs font-light">{t("biobizz.stat1.sub")}</p>
-                </div>
-                <div className="space-y-1">
-                  <p className="text-white text-sm font-medium">{t("biobizz.stat2.label")}</p>
-                  <p className="text-white/35 text-xs font-light">{t("biobizz.stat2.sub")}</p>
-                </div>
-                <div className="space-y-1">
-                  <p className="text-white text-sm font-medium">{t("biobizz.stat3.label")}</p>
-                  <p className="text-white/35 text-xs font-light">{t("biobizz.stat3.sub")}</p>
-                </div>
+                {([1, 2, 3] as const).map((n) => (
+                  <div key={n} className="space-y-1">
+                    <p className="text-white text-sm font-medium">{t(`soil.stat${n}.label`)}</p>
+                    <p className="text-white/35 text-xs font-light">{t(`soil.stat${n}.sub`)}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
