@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | KD Genetics",
   },
   description:
-    "Organic cannabis grown by hand on a family farm in Tanote Bay, Koh Tao. Sun-grown small batches, Jack Herer Cup 2019. Walk-in dispensary, open daily 10:00–19:00.",
+    "Organic cannabis grown by hand on a family farm in Tanote Bay, Koh Tao. Sun-grown small batches, honoured at the Jack Herer Cup 2019. Walk-in dispensary, open daily 10:00–19:00.",
   keywords: [
     "KD Genetics",
     "Koh Tao cannabis",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     url: "https://kdgenetics.org",
     title: "KD Genetics — Organic Cannabis Farm & Dispensary, Koh Tao",
     description:
-      "Organic cannabis grown by hand in Tanote Bay, Koh Tao. Sun-grown small batches, Jack Herer Cup 2019. Walk-in dispensary, daily 10:00–19:00.",
+      "Organic cannabis grown by hand in Tanote Bay, Koh Tao. Sun-grown small batches, honoured at the Jack Herer Cup 2019. Walk-in dispensary, daily 10:00–19:00.",
     images: [
       {
         url: "/opengraph.jpg",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "KD Genetics — Organic Cannabis Farm & Dispensary, Koh Tao",
     description:
-      "Organic cannabis grown by hand in Tanote Bay, Koh Tao. Sun-grown small batches, Jack Herer Cup 2019.",
+      "Organic cannabis grown by hand in Tanote Bay, Koh Tao. Sun-grown small batches, honoured at the Jack Herer Cup 2019.",
     images: ["/opengraph.jpg"],
   },
   icons: {

@@ -71,7 +71,7 @@ const KD_STRUCTURED_DATA = {
       logo: "https://kdgenetics.org/kd-logo.png",
       image: "https://kdgenetics.org/opengraph.jpg",
       description:
-        "Family-run organic cannabis farm and dispensary in Tanote Bay, Koh Tao. Sun-grown small batches, Jack Herer Cup 2019.",
+        "Family-run organic cannabis farm and dispensary in Tanote Bay, Koh Tao. Sun-grown small batches, honoured at the Jack Herer Cup 2019.",
       telephone: "+66988268290",
       email: "kd.kohtao@gmail.com",
       priceRange: "฿฿",
@@ -102,7 +102,7 @@ const KD_STRUCTURED_DATA = {
       sameAs: [
         "https://www.instagram.com/kdgenetics_official/",
       ],
-      award: "Jack Herer Cup 2019",
+      award: "Local Cultivation Recognition, Jack Herer Cup 2019 (Bangkok)",
     },
     {
       "@type": "Organization",

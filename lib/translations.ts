@@ -76,7 +76,7 @@ export const translations = {
     "hero.subtitle":
       "All organic. Small batch. Grown by hand, by a family who stayed on the land.",
     "hero.cta": "Find Us in Tanote Bay",
-    "hero.pill.jackHerer": "Jack Herer Cup",
+    "hero.pill.jackHerer": "Jack Herer Cup Honoree",
     "hero.pill.soil": "Living Soil",
     "hero.pill.sunGrown": "Sun-Grown",
 
@@ -132,10 +132,10 @@ export const translations = {
       ", he helped start Thailand's first medical cannabis project in Mae Sariang. In ",
     "papa.body2.year2": "2019",
     "papa.body2.after":
-      ", he won the Jack Herer Cup.",
+      ", the Jack Herer Cup in Bangkok honoured him with its Local Cultivation Recognition award, for his growing and his part in launching that project.",
     "papa.body3":
       "He's older now and lets us run the farm, but the way we grow is still his.",
-    "papa.tag.cup": "Jack Herer Cup 2019",
+    "papa.tag.cup": "Jack Herer Cup 2019 Honoree",
     "papa.tag.pioneer": "Thai Cannabis Pioneer",
 
     /* ── Story ─────────────────────────────────────────────────────────── */
@@ -589,7 +589,7 @@ export const translations = {
     "hero.subtitle":
       "ออร์แกนิกทั้งหมด ปลูกทีละน้อย ด้วยมือของครอบครัวที่ยังอยู่บนผืนดินเดิม",
     "hero.cta": "มาหาเราที่อ่าวโตนด",
-    "hero.pill.jackHerer": "ชนะ Jack Herer Cup",
+    "hero.pill.jackHerer": "รางวัลจาก Jack Herer Cup",
     "hero.pill.soil": "ดินมีชีวิต",
     "hero.pill.sunGrown": "ปลูกใต้แสงตะวัน",
 
@@ -645,10 +645,10 @@ export const translations = {
       " เขาร่วมก่อตั้งโครงการกัญชาทางการแพทย์โครงการแรกของไทยที่แม่สะเรียง และในปี ",
     "papa.body2.year2": "2562",
     "papa.body2.after":
-      " เขาชนะรางวัล Jack Herer Cup",
+      " งาน Jack Herer Cup ที่กรุงเทพฯ มอบรางวัล Local Cultivation Recognition ให้เขา จากงานปลูกและบทบาทในการริเริ่มโครงการนั้น",
     "papa.body3":
       "ตอนนี้ป๋าแก่ลงแล้ว ให้พวกเราดูแลฟาร์ม แต่วิธีปลูกของเรายังเป็นของป๋าอยู่",
-    "papa.tag.cup": "ชนะ Jack Herer Cup 2019",
+    "papa.tag.cup": "รางวัลจาก Jack Herer Cup 2019",
     "papa.tag.pioneer": "ผู้บุกเบิกกัญชาไทย",
 
     /* ── Story ─────────────────────────────────────────────────────────── */
