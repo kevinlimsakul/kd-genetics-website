@@ -60,9 +60,12 @@ const WHATSAPP = "https://wa.me/66988268290";
 export default function TourBookingForm({
   source = "page",
   className = "max-w-md mx-auto mt-20",
+  initialPackage = "standard",
 }: {
   source?: BookingSource;
   className?: string;
+  // Preselects the package, e.g. when booking from a homepage tier panel.
+  initialPackage?: "standard" | "vip";
 }) {
   const { t, lang } = useLanguage();
   const tourDates = upcomingTourDates();
@@ -109,11 +112,14 @@ export default function TourBookingForm({
     contact: "",
     date: "",
     people: "",
-    package: "standard",
+    package: initialPackage as string,
     payment: "shop" as Payment,
     time: "",
     notes: "",
   });
+  useEffect(() => {
+    setForm((f) => ({ ...f, package: initialPackage }));
+  }, [initialPackage]);
   const isCustom = (f: { date: string; time: string }) =>
     !!f.date && !(tourDates.includes(f.date) && f.time === TOUR_TIME);
   const [status, setStatus] = useState<Status>("idle");
