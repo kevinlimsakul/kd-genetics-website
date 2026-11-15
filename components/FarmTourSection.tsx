@@ -50,7 +50,7 @@ const vipExtras = [
   { key: "tour.vip.3", value: "900 THB" },
   { key: "tour.vip.4", value: "140 THB" },
   { key: "tour.vip.5", value: "330 THB" },
-  { key: "tour.vip.6", value: null },
+  { key: "tour.vip.6", value: null, note: "tour.vip.6.note" },
 ] as const;
 
 export default function FarmTourSection() {
@@ -206,7 +206,14 @@ export default function FarmTourSection() {
                   >
                     <span className="flex items-start gap-3">
                       <CheckCircle2 className="h-4 w-4 text-[#5A6A4F]/50 mt-0.5 shrink-0" />
-                      {t(x.key)}
+                      <span>
+                        {t(x.key)}
+                        {"note" in x && (
+                          <span className="block mt-1 text-[11px] italic text-white/35 tracking-wide">
+                            {t(x.note)}
+                          </span>
+                        )}
+                      </span>
                     </span>
                     {x.value && (
                       <span className="text-white/30 line-through text-xs shrink-0">

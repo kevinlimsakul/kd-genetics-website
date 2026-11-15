@@ -52,7 +52,8 @@ export const translations = {
     "tour.vip.3": "Your pick of KD homemade tea, capsules, oil drops or massage oil",
     "tour.vip.4": "Cold-pressed juice",
     "tour.vip.5": "Smoke starter kit",
-    "tour.vip.6": "Extra 10% off flowers, on top of any deal (capped at 30% total)",
+    "tour.vip.6": "Extra 10% off flowers, on top of any deal*",
+    "tour.vip.6.note": "*Total discount capped at 30%",
     "tour.pay":
       "Pay cash or card at the shop when you arrive, or by bank transfer when you book. We confirm your date on WhatsApp within a few hours.",
     "tour.weather.eyebrow": "A note on the weather",
@@ -564,7 +565,8 @@ export const translations = {
     "tour.vip.3": "เลือก 1 อย่างจากของโฮมเมด KD: ชา แคปซูล น้ำมันหยด หรือน้ำมันนวด",
     "tour.vip.4": "น้ำสกัดเย็น",
     "tour.vip.5": "ชุดเริ่มต้นสำหรับสูบ",
-    "tour.vip.6": "ส่วนลดดอกเพิ่มอีก 10% ใช้ร่วมกับโปรอื่นได้ (รวมสูงสุด 30%)",
+    "tour.vip.6": "ส่วนลดดอกเพิ่มอีก 10% ใช้ร่วมกับโปรอื่นได้*",
+    "tour.vip.6.note": "*ส่วนลดรวมสูงสุด 30%",
     "tour.pay":
       "จ่ายเงินสดหรือบัตรที่ร้านเมื่อมาถึง หรือโอนเงินตอนจอง เราจะยืนยันวันของคุณทาง WhatsApp ภายในไม่กี่ชั่วโมง",
     "tour.weather.eyebrow": "เรื่องสภาพอากาศ",
