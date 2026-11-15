@@ -228,6 +228,17 @@ export default function FarmTourSection() {
           <p className="mt-10 text-center text-white/50 text-sm font-light leading-relaxed max-w-xl mx-auto">
             {t("tour.pay")}
           </p>
+
+          {/* Weather: outdoor tour, may be moved in heavy rain */}
+          <div className="mt-10 max-w-xl mx-auto text-center">
+            <div className="mx-auto mb-5 h-px w-12 bg-white/20" />
+            <p className="text-[11px] uppercase tracking-[0.25em] text-white/40 mb-3">
+              {t("tour.weather.eyebrow")}
+            </p>
+            <p className="text-white/50 text-sm font-light leading-relaxed">
+              {t("tour.weather.body")}
+            </p>
+          </div>
         </div>
       </section>
     </div>

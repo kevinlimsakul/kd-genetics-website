@@ -55,6 +55,9 @@ export const translations = {
     "tour.vip.6": "Extra 10% off flowers, on top of any deal (capped at 30% total)",
     "tour.pay":
       "Pay cash or card at the shop when you arrive, or by bank transfer when you book. We confirm your date on WhatsApp within a few hours.",
+    "tour.weather.eyebrow": "A note on the weather",
+    "tour.weather.body":
+      "Most of the tour happens outdoors, between the greenhouses and the hillside garden. A light shower is part of island life, and we simply walk on through it. If heavy rain or a storm is on the way, as can happen in monsoon season, we'll contact you beforehand to move your tour to another day or time that suits you. Thank you for your understanding.",
 
     /* ── Homepage tour block ───────────────────────────────────────────── */
     "home.tour.eyebrow": "Farm Tour",
@@ -564,6 +567,9 @@ export const translations = {
     "tour.vip.6": "ส่วนลดดอกเพิ่มอีก 10% ใช้ร่วมกับโปรอื่นได้ (รวมสูงสุด 30%)",
     "tour.pay":
       "จ่ายเงินสดหรือบัตรที่ร้านเมื่อมาถึง หรือโอนเงินตอนจอง เราจะยืนยันวันของคุณทาง WhatsApp ภายในไม่กี่ชั่วโมง",
+    "tour.weather.eyebrow": "เรื่องสภาพอากาศ",
+    "tour.weather.body":
+      "ทัวร์ส่วนใหญ่อยู่กลางแจ้ง ระหว่างโรงเรือนและสวนบนเนินเขา ฝนปรอยๆ เป็นเรื่องปกติของชีวิตบนเกาะ และเราเดินต่อกันได้สบาย หากมีฝนตกหนักหรือพายุ ซึ่งอาจเกิดขึ้นได้ในช่วงมรสุม เราจะติดต่อคุณล่วงหน้าเพื่อเลื่อนทัวร์ไปยังวันหรือเวลาที่สะดวกสำหรับคุณ ขอบคุณสำหรับความเข้าใจ",
 
     /* ── Homepage tour block ───────────────────────────────────────────── */
     "home.tour.eyebrow": "ทัวร์ฟาร์ม",
