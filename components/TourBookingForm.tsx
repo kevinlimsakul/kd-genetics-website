@@ -57,6 +57,19 @@ const WHATSAPP = "https://wa.me/66988268290";
 // arranges by hand (another day, or another time on a Friday).
 
 
+// "How did you hear about us?" answers. Values go to Airtable Notes in
+// English (see HEARD in /api/book-tour) so Kevin can see which channel works.
+const HEARD_OPTIONS = [
+  "google",
+  "maps",
+  "shop",
+  "slowdown",
+  "stay",
+  "friend",
+  "instagram",
+  "other",
+] as const;
+
 export default function TourBookingForm({
   source = "page",
   className = "max-w-md mx-auto mt-20",
@@ -116,6 +129,7 @@ export default function TourBookingForm({
     payment: "shop" as Payment,
     time: "",
     notes: "",
+    heard: "",
   });
   useEffect(() => {
     setForm((f) => ({ ...f, package: initialPackage }));
@@ -171,6 +185,7 @@ export default function TourBookingForm({
         payment: "shop",
         time: "",
         notes: "",
+        heard: "",
       });
     } catch {
       setStatus("error");
@@ -420,6 +435,33 @@ export default function TourBookingForm({
               rows={3}
               className="w-full border border-black/10 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors resize-none"
             />
+          </div>
+
+          <div className="space-y-2">
+            <label
+              htmlFor="tour-heard"
+              className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#6B6B6B]"
+            >
+              {t("tour.form.label.heard")}{" "}
+              <span className="normal-case tracking-normal font-normal">
+                {t("tour.form.label.optional")}
+              </span>
+            </label>
+            <select
+              id="tour-heard"
+              value={form.heard}
+              onChange={(e) => setForm((f) => ({ ...f, heard: e.target.value }))}
+              className={`w-full border border-black/10 rounded-lg px-4 h-12 text-sm bg-white focus:outline-none focus:border-[#5A6A4F] transition-colors ${
+                form.heard ? "text-[#1E1E1E]" : "text-[#6B6B6B]"
+              }`}
+            >
+              <option value="">{t("tour.form.heard.placeholder")}</option>
+              {HEARD_OPTIONS.map((o) => (
+                <option key={o} value={o}>
+                  {t(`tour.form.heard.${o}`)}
+                </option>
+              ))}
+            </select>
           </div>
 
           {status === "noDate" && (

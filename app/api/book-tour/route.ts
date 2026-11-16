@@ -27,8 +27,20 @@ const SOURCES: Record<string, string> = {
   page: "Tour page",
 };
 
+// "How did you hear about us?" (form dropdown). Unknown values are ignored.
+const HEARD: Record<string, string> = {
+  google: "Google search",
+  maps: "Google Maps",
+  shop: "Walked past / visited the shop",
+  slowdown: "Slow Down Homestay",
+  stay: "Hotel, hostel or dive school",
+  friend: "Friend or word of mouth",
+  instagram: "Instagram",
+  other: "Other",
+};
+
 export async function POST(req: NextRequest) {
-  const { name, contact, date, people, package: pkg, notes, source, payment: rawPayment, customTime: rawCustomTime, lang: rawLang } =
+  const { name, contact, date, people, package: pkg, notes, source, heard: rawHeard, payment: rawPayment, customTime: rawCustomTime, lang: rawLang } =
     await req.json();
   // Set when the guest asked for another day/time instead of a Friday slot.
   const customTime = typeof rawCustomTime === "string" ? rawCustomTime.trim().slice(0, 100) : "";
@@ -64,14 +76,15 @@ export async function POST(req: NextRequest) {
 
   const tier = pkg === "vip" ? PACKAGES.vip : PACKAGES.standard;
   const total = tier.price * guests;
-  const via = SOURCES[source] ?? SOURCES.page;
+  const heard = typeof rawHeard === "string" ? HEARD[rawHeard] ?? null : null;
+  const via = `${SOURCES[source] ?? SOURCES.page}${heard ? ` · heard via ${heard}` : ""}`;
   // Bank-transfer guests get a reference for the transfer note. Kept in Notes
   // ("Pay: Bank transfer · Ref ...") so the confirm link can read it back
   // without a new Airtable field.
   const ref = payment === "bank" ? tourRef(date) : null;
   const payLine = ref ? `Pay: Bank transfer · Ref ${ref}` : "Pay: At the shop";
   const timeLine = customTime ? `Time requested: ${customTime}` : null;
-  const fullNotes = [`via ${via}`, timeLine, payLine, notes?.trim()].filter(Boolean).join("\n");
+  const fullNotes = [`via ${via}`, heard ? `Heard about us: ${heard}` : null, timeLine, payLine, notes?.trim()].filter(Boolean).join("\n");
 
   const fields: Record<string, unknown> = {
     Name: name.trim(),
