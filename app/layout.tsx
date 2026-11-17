@@ -44,6 +44,7 @@ export const metadata: Metadata = {
   creator: "KD Genetics",
   publisher: "KD Genetics",
   alternates: { canonical: "/" },
+  verification: { google: "cv133UzLXh4wEdHMUjp4Fy1-aktIX5NcnnkBrRmKBoY" },
   openGraph: {
     type: "website",
     locale: "en_US",
