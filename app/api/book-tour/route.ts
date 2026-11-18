@@ -96,6 +96,7 @@ export async function POST(req: NextRequest) {
     Source: "Website",
     "Total Amount (THB)": total,
     Notes: fullNotes,
+    ...(heard ? { "Heard About Us": heard } : {}),
     "Submitted At": new Date().toISOString().slice(0, 10),
   };
   const save = (f: Record<string, unknown>) =>
