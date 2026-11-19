@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/preview", "/preview/", "/api/", "/order-confirmation"],
+        disallow: ["/preview", "/preview/", "/api/", "/order-confirmation", "/feedback"],
       },
     ],
     sitemap: "https://kdgenetics.org/sitemap.xml",

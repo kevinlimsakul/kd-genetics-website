@@ -130,6 +130,33 @@ export function whatsappConfirmText(b: TourBooking, lang: Lang) {
   ].join("\n");
 }
 
+// ── Feedback request (Kevin taps send the morning after the tour) ──────────
+// Anonymous form at /feedback; the link only carries tour date + package so
+// answers can be grouped per tour, never the guest's name.
+export function feedbackUrl(b: TourBooking, lang: Lang) {
+  const q = new URLSearchParams({ d: b.date, p: /^VIP/.test(b.tier) ? "vip" : "standard" });
+  if (lang === "th") q.set("lang", "th");
+  return `https://kdgenetics.org/feedback?${q}`;
+}
+
+export function whatsappFeedbackText(b: TourBooking, lang: Lang) {
+  const first = b.name.split(" ")[0];
+  if (lang === "th") {
+    return [
+      `สวัสดีครับคุณ${first} ขอบคุณที่มาร่วมทัวร์ฟาร์ม KD Genetics นะครับ 🌱`,
+      ``,
+      `ถ้าสะดวก ช่วยตอบแบบสอบถามสั้นๆ ให้เราหน่อยได้ไหมครับ ใช้เวลาประมาณ 2 นาที และไม่ระบุตัวตน ความคิดเห็นของคุณช่วยให้ทัวร์ครั้งต่อไปดีขึ้นจริงๆ ครับ`,
+      feedbackUrl(b, lang),
+    ].join("\n");
+  }
+  return [
+    `Hi ${first}, thank you for joining the KD Genetics farm tour 🌱`,
+    ``,
+    `If you have 2 minutes, we'd love your honest feedback. It's anonymous, and it really helps us make the next tour better:`,
+    feedbackUrl(b, lang),
+  ].join("\n");
+}
+
 // ── Guest emails ───────────────────────────────────────────────────────────
 type Email = { subject: string; text: string; html: string };
 

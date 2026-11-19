@@ -9,6 +9,7 @@ import {
   validSig,
   waNumber,
   whatsappConfirmText,
+  whatsappFeedbackText,
 } from "@/lib/tour-messages";
 
 // One-tap confirm from Kevin's booking alert email. GET only shows the
@@ -84,6 +85,18 @@ ${b.time ? `<p class="muted">The confirmation uses the guest's wording for the t
 <p class="muted">${esc(String(f.Contact ?? ""))} · Status: ${esc(String(f.Status ?? "New"))}</p>`;
 }
 
+// After the tour: one tap opens WhatsApp with the feedback request written.
+// Kevin opens the same confirm link from his alert email the morning after.
+function feedbackBlock(f: Fields, b: TourBooking, lang: Lang) {
+  const reach = parseContact(String(f.Contact ?? ""));
+  const text = whatsappFeedbackText(b, lang);
+  const action =
+    reach.method === "whatsapp" && waNumber(reach.value)
+      ? `<a class="btn wa" href="${esc(`https://wa.me/${waNumber(reach.value)}?text=${encodeURIComponent(text)}`)}">Send feedback request on WhatsApp</a>`
+      : `<p class="muted">No WhatsApp number on this booking. Copy and send it yourself:</p><textarea readonly>${esc(text)}</textarea>`;
+  return `<hr style="border:0;border-top:1px solid #eee;margin:22px 0"><p><strong>After the tour</strong></p><p class="muted">The morning after, send the anonymous feedback form.</p>${action}`;
+}
+
 function readParams(p: URLSearchParams | FormData) {
   const id = String(p.get("id") ?? "");
   const lang: Lang = p.get("lang") === "th" ? "th" : "en";
@@ -105,7 +118,7 @@ export async function GET(req: NextRequest) {
 <form method="post">
 <input type="hidden" name="id" value="${esc(id)}"><input type="hidden" name="lang" value="${lang}"><input type="hidden" name="sig" value="${esc(sig)}">
 <button class="btn go">${already ? "Send the confirmation again" : "Confirm booking"}</button>
-</form>`
+</form>${already ? feedbackBlock(f, b, lang) : ""}`
   );
 }
 
@@ -147,5 +160,5 @@ export async function POST(req: NextRequest) {
     next = `<p>Send this to the guest (${esc(String(f.Contact ?? ""))}):</p><textarea readonly>${esc(text)}</textarea>`;
   }
 
-  return page("Booking confirmed", `<h1>✓ Confirmed in Airtable</h1>${summary(f, b)}<hr style="border:0;border-top:1px solid #eee;margin:18px 0">${next}`);
+  return page("Booking confirmed", `<h1>✓ Confirmed in Airtable</h1>${summary(f, b)}<hr style="border:0;border-top:1px solid #eee;margin:18px 0">${next}${feedbackBlock(f, b, lang)}`);
 }
