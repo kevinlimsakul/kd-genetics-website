@@ -12,7 +12,7 @@ import { TOUR_PRICES } from "@/lib/tour";
 // do in Koh Tao"; JSON-LD TouristTrip with both packages as offers.
 const TITLE = "Koh Tao Farm Tour: Walk a Family Cannabis Farm in Tanote Bay";
 const DESCRIPTION =
-  "One of the best things to do on Koh Tao: a guided 75-minute walk through the island's only working cannabis farm, with the family who grows it. Fridays at 4:20 pm or on request. Standard 1,250 THB, VIP 2,500 THB.";
+  "One of the best things to do on Koh Tao: a guided 90-minute walk through the island's only working cannabis farm, with the family who grows it. Fridays at 4:20 pm or on request. Standard 1,250 THB, VIP 2,500 THB.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },

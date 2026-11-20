@@ -1,5 +1,5 @@
 // Farm tour schedule + capacity, shared by the booking form and the API.
-// One tour a week: Fridays 4:20 pm, ~75 min (moved from 11:00 after the
+// One tour a week: Fridays 4:20 pm, ~90 min (moved from 11:00 after the
 // 9 Oct 2026 test run). To change the
 // day, update TOUR_WEEKDAY + the "Friday" wording in lib/translations.ts.
 export const TOUR_WEEKDAY = 5; // 0 = Sun ... 5 = Fri
