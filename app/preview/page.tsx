@@ -480,14 +480,14 @@ export default function HomePage() {
               { src: "/farm-chicken.jpg",        alt: "A hen on her nest at the farm",                    caption: t("gallery.cap.chicken"), objectFit: "contain" },
               { src: "/farm-cat.jpg",            alt: "The farm cat resting on a wall",                   caption: t("gallery.cap.cat"), objectFit: "contain" },
               { src: "/apparel-dog.jpg",         alt: "The farm dog in the shop with Kevin",              caption: t("gallery.cap.dog"), objectFit: "contain" },
-              { src: "/farm-shoot-01.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.mila") },
-              { src: "/farm-shoot-02.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.willy"), objectFit: "contain" },
-              { src: "/farm-shoot-03.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.peter"), objectFit: "contain" },
-              { src: "/farm-shoot-05.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.mural"), objectFit: "contain" },
-              { src: "/farm-shoot-06.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.shop") },
-              { src: "/farm-shoot-07.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.fame"), objectFit: "contain" },
+              { src: "/farm-shoot-01.jpg",       alt: "Mila, one of the farm cats, resting at KD Genetics on Koh Tao",                     caption: t("gallery.cap.mila") },
+              { src: "/farm-shoot-02.jpg",       alt: "Willy the farm cat at KD Genetics, Tanote Bay",                     caption: t("gallery.cap.willy"), objectFit: "contain" },
+              { src: "/farm-shoot-03.jpg",       alt: "Peter, the KD Genetics farm dog, Tanote Bay",                     caption: t("gallery.cap.peter"), objectFit: "contain" },
+              { src: "/farm-shoot-05.jpg",       alt: "Painted mural of Papa KD tending a cannabis plant at the KD Genetics chill area",                     caption: t("gallery.cap.mural"), objectFit: "contain" },
+              { src: "/farm-shoot-06.jpg",       alt: "The KD Genetics cannabis shop in Tanote Bay, Koh Tao",                     caption: t("gallery.cap.shop") },
+              { src: "/farm-shoot-07.jpg",       alt: "KD Genetics wall of fame with portraits, certificates and a trophy",                     caption: t("gallery.cap.fame"), objectFit: "contain" },
               { src: "/farm-shoot-08.jpg",       alt: "Papa KD on the farm",                              caption: t("gallery.cap.legend"), objectFit: "contain" },
-              { src: "/farm-shoot-09.jpg",       alt: "KD Genetics farm, Tanote Bay",                     caption: t("gallery.cap.water"), objectFit: "contain" },
+              { src: "/farm-shoot-09.jpg",       alt: "Papa KD watering sun-grown cannabis on the hillside above Tanote Bay",                     caption: t("gallery.cap.water"), objectFit: "contain" },
             ]}
           />
         </div>
