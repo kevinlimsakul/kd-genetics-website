@@ -18,7 +18,7 @@ export const translations = {
     "tour.hero.title":
       "An afternoon on the only working cannabis farm on Koh Tao.",
     "tour.hero.sub":
-      "Fridays at 4:20 pm, or any other day and time on request. About 90 minutes with the family who grows it. Small groups, minimum 3 guests.",
+      "Fridays at 4:20 pm, or any other day and time on request. About 90 minutes with the family who grows it. Small groups, minimum 3 guests (or 2 with VIP).",
     "tour.cta.book": "Request to book",
     "tour.intro.eyebrow": "The Farm Tour",
     "tour.intro.body":
@@ -64,7 +64,7 @@ export const translations = {
     "home.tour.eyebrow": "Farm Tour",
     "home.tour.heading": "Walk the farm with the family.",
     "home.tour.body":
-      "Fridays at 4:20 pm, or any other day and time on request. A guided walk of about 90 minutes from the shop up to the hillside garden above the sea, ending with a relaxed session and stories from Papa KD. Small groups, minimum 3 guests per tour.",
+      "Fridays at 4:20 pm, or any other day and time on request. A guided walk of about 90 minutes from the shop up to the hillside garden above the sea, ending with a relaxed session and stories from Papa KD. Small groups, minimum 3 guests per tour, or 2 if you book VIP.",
     "home.tour.pay": "Pay cash or card at the shop, or by bank transfer when you book.",
     "home.tour.more": "See the full tour",
     "home.tour.tap": "Tap a tour to see what's included",
@@ -409,10 +409,10 @@ export const translations = {
     /* ── Tour booking form ──────────────────────────────────────────────── */
     "tour.form.heading": "Book Your Tour",
     "tour.form.sub":
-      "Fridays at 4:20 pm, or any other day and time on request. Starts at the shop, about 90 minutes. Tours run with at least 3 guests.",
+      "Fridays at 4:20 pm, or any other day and time on request. Starts at the shop, about 90 minutes. Tours run with at least 3 guests, or 2 on VIP.",
     "tour.form.success.heading": "You're on the list.",
     "tour.form.success.body":
-      "We'll confirm your date within a few hours. Tours run with at least 3 guests, so if yours doesn't fill up, we'll message you to find another time. No prepayment: pay cash or card at the shop when you arrive.",
+      "We'll confirm your date within a few hours. Tours run with at least 3 guests (2 if you book VIP), so if yours doesn't fill up, we'll message you to find another time. No prepayment: pay cash or card at the shop when you arrive.",
     "tour.form.success.again": "Submit another request",
     "tour.form.label.package": "Package",
     "tour.form.label.name": "Full Name",
@@ -475,7 +475,7 @@ export const translations = {
     "tour.form.bank.accountNumber": "Account number",
     "tour.form.bank.ref": "Reference (put in the transfer note)",
     "tour.form.bank.note":
-      "Send us the slip on WhatsApp once it's done. Transfers from abroad work with the SWIFT code (Wise is the cheapest way). If your tour doesn't reach 3 guests, we'll move it or refund you in full. Prefer to pay at the shop after all? No problem.",
+      "Send us the slip on WhatsApp once it's done. Transfers from abroad work with the SWIFT code (Wise is the cheapest way). If your tour doesn't reach the minimum (3 guests, or 2 on VIP), we'll move it or refund you in full. Prefer to pay at the shop after all? No problem.",
     "tour.form.whatsapp.slip": "Send the slip on WhatsApp",
     "tour.form.custom.hint": "We'll check with the family and get back to you to confirm.",
     "tour.cal.label": "Date & time",
@@ -584,7 +584,7 @@ export const translations = {
     "tour.hero.title":
       "บ่ายวันหนึ่งในฟาร์มกัญชาแห่งเดียวที่ยังเปิดดำเนินการบนเกาะเต่า",
     "tour.hero.sub":
-      "วันศุกร์ 16:20 น. หรือวันเวลาอื่นตามคำขอ ประมาณ 90 นาทีกับครอบครัวผู้ปลูกเอง กลุ่มเล็ก ขั้นต่ำ 3 คน",
+      "วันศุกร์ 16:20 น. หรือวันเวลาอื่นตามคำขอ ประมาณ 90 นาทีกับครอบครัวผู้ปลูกเอง กลุ่มเล็ก ขั้นต่ำ 3 คน (หรือ 2 คนสำหรับแพ็กเกจ VIP)",
     "tour.cta.book": "ขอจองทัวร์",
     "tour.intro.eyebrow": "ทัวร์ฟาร์ม",
     "tour.intro.body":
@@ -630,7 +630,7 @@ export const translations = {
     "home.tour.eyebrow": "ทัวร์ฟาร์ม",
     "home.tour.heading": "เดินชมฟาร์มกับครอบครัวเรา",
     "home.tour.body":
-      "วันศุกร์ 16:20 น. หรือวันเวลาอื่นตามคำขอ เดินชมประมาณ 90 นาทีจากร้านขึ้นไปถึงสวนบนเนินเขาริมทะเล ปิดท้ายด้วยการนั่งชิลและฟังเรื่องเล่าจากปาป๊า KD กลุ่มเล็ก ขั้นต่ำ 3 คนต่อทัวร์",
+      "วันศุกร์ 16:20 น. หรือวันเวลาอื่นตามคำขอ เดินชมประมาณ 90 นาทีจากร้านขึ้นไปถึงสวนบนเนินเขาริมทะเล ปิดท้ายด้วยการนั่งชิลและฟังเรื่องเล่าจากปาป๊า KD กลุ่มเล็ก ขั้นต่ำ 3 คนต่อทัวร์ หรือ 2 คนหากจองแบบ VIP",
     "home.tour.pay": "จ่ายเงินสดหรือบัตรที่ร้าน หรือโอนเงินตอนจอง",
     "home.tour.more": "ดูรายละเอียดทัวร์",
     "home.tour.tap": "แตะเพื่อดูว่าแต่ละแพ็กเกจมีอะไรบ้าง",
@@ -974,10 +974,10 @@ export const translations = {
 
     /* ── Tour booking form ──────────────────────────────────────────────── */
     "tour.form.heading": "จองทัวร์ฟาร์ม",
-    "tour.form.sub": "วันศุกร์ 16:20 น. หรือวันเวลาอื่นตามคำขอ เริ่มที่ร้าน ประมาณ 90 นาที ทัวร์ออกเมื่อมีผู้เข้าร่วมอย่างน้อย 3 คน",
+    "tour.form.sub": "วันศุกร์ 16:20 น. หรือวันเวลาอื่นตามคำขอ เริ่มที่ร้าน ประมาณ 90 นาที ทัวร์ออกเมื่อมีผู้เข้าร่วมอย่างน้อย 3 คน หรือ 2 คนสำหรับ VIP",
     "tour.form.success.heading": "ได้รับคำขอแล้ว",
     "tour.form.success.body":
-      "เราจะยืนยันวันของคุณภายในไม่กี่ชั่วโมง ทัวร์ออกเมื่อมีผู้เข้าร่วมอย่างน้อย 3 คน หากไม่ครบเราจะติดต่อเพื่อหาเวลาอื่น ไม่ต้องชำระล่วงหน้า จ่ายเงินสดหรือบัตรที่ร้านเมื่อมาถึง",
+      "เราจะยืนยันวันของคุณภายในไม่กี่ชั่วโมง ทัวร์ออกเมื่อมีผู้เข้าร่วมอย่างน้อย 3 คน (จอง VIP แค่ 2 คนก็ออกได้) หากไม่ครบเราจะติดต่อเพื่อหาเวลาอื่น ไม่ต้องชำระล่วงหน้า จ่ายเงินสดหรือบัตรที่ร้านเมื่อมาถึง",
     "tour.form.success.again": "ส่งคำขออีกครั้ง",
     "tour.form.label.package": "แพ็คเกจ",
     "tour.form.label.name": "ชื่อ-นามสกุล",
@@ -1040,7 +1040,7 @@ export const translations = {
     "tour.form.bank.accountNumber": "เลขที่บัญชี",
     "tour.form.bank.ref": "รหัสอ้างอิง (ใส่ในบันทึกการโอน)",
     "tour.form.bank.note":
-      "โอนเสร็จแล้วส่งสลิปให้เราทาง WhatsApp หากทัวร์มีผู้เข้าร่วมไม่ถึง 3 คน เราจะเลื่อนวันหรือคืนเงินเต็มจำนวน ถ้าเปลี่ยนใจอยากจ่ายที่ร้านก็ได้เลย",
+      "โอนเสร็จแล้วส่งสลิปให้เราทาง WhatsApp หากทัวร์มีผู้เข้าร่วมไม่ครบขั้นต่ำ (3 คน หรือ 2 คนสำหรับ VIP) เราจะเลื่อนวันหรือคืนเงินเต็มจำนวน ถ้าเปลี่ยนใจอยากจ่ายที่ร้านก็ได้เลย",
     "tour.form.whatsapp.slip": "ส่งสลิปทาง WhatsApp",
     "tour.form.custom.hint": "เราจะเช็กกับครอบครัวแล้วติดต่อกลับเพื่อยืนยัน",
     "tour.cal.label": "วันและเวลา",
